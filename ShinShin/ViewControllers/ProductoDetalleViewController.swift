@@ -6,9 +6,16 @@
 //  Copyright © 2019 Juan Osorio Alvarez. All rights reserved.
 //
 
+/*
+ La funcionalidad general de este clase es:
+ Poder ver el detalle del producto participante
+ Calificar el producto (Se permisiste esta calificacion en local y en back)
+ Agregar el producto a favoritos (Se permisiste esta calificacion en local y en back)
+ */
+
 import UIKit
 
-class ProductoDetalleViewController: UIViewController {
+class ProductoDetalleViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

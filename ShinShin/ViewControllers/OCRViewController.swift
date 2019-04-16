@@ -6,6 +6,13 @@
 //  Copyright © 2019 Juan Osorio Alvarez. All rights reserved.
 //
 
+/*
+ La funcionalidad general de este clase es:
+ Poder escaner y reconocer tickets de ventas, de los cuales se extraeran la lista de
+ productos participantes
+ 
+ */
+
 import UIKit
 
 class OCRViewController: UIViewController {
