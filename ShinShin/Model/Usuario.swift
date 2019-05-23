@@ -29,6 +29,8 @@ class Usuario: Codable, CustomStringConvertible{
     var delMun: String?
     var estado: String?
     var telLocal: String?
+    var email: String?
+    var codigoVerificacion: String?
     
     var description: String{
         return "(ID: \(idUsuario!), nombre: \(nombre!))"

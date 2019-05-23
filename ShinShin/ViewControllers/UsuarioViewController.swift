@@ -10,6 +10,19 @@ import UIKit
 
 class UsuarioViewController: UITableViewController {
 
+    @IBOutlet weak var txtNombre: UITextField!
+    @IBOutlet weak var txtApellidos: UITextField!
+    @IBOutlet weak var txtEmail: UITextField!
+    @IBOutlet weak var txtUser: UITextField!
+    @IBOutlet weak var txtPassword: UITextField!
+    @IBOutlet weak var txtConfirmPassword: UITextField!
+    @IBOutlet weak var txtMovil: UITextField!
+    @IBOutlet weak var txtId: UITextField!
+    @IBOutlet weak var txtCodigo: UITextField!
+    
+    @IBOutlet weak var btnRegistrar: UIButton!
+    @IBOutlet weak var btnActivar: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -84,8 +97,88 @@ class UsuarioViewController: UITableViewController {
     */
     
     //MARK: - UI Actions
-    @IBAction func regisrarUsuario(_ sender: Any){
+    @IBAction func registerAction(_ sender: Any){
         
+        //Validar datos capturados
+        
+        //Enviar peticion a back
+        //La respuesta de esta peticion debe ser manejada en el metodo delegado
+        //restActionDidSuccessful de la clase RESTActionDelegate
+        //En la cual se debe mostrar la pantalla o popup para ingresara el codigo
+        //de verificacion que fue enviada SMS/EMAIL
+        //Al ingresar el codigo de verificacion se debe hacer una peticion a back
+        //que realiza la activación del usuario, nuevamente la respuesta debe
+        //manejarse en el metodo delegado
+        print("Registrando usuario")
+        registerRequest()
+    }
+    
+    @IBAction func activateAction(_ sender: Any){
+        print("Activando usuario")
+        activateRequest()
     }
 
+    //MARK: - Helper methods
+    func validate(){
+        
+    }
+    
+    func registerRequest(){
+        let user = Usuario()
+        user.nombre = txtNombre.text!
+        user.apPaterno = txtApellidos.text!
+        user.apMaterno = txtApellidos.text!
+        user.email = txtEmail.text!
+        user.usuario = txtUser.text!
+        user.contrasenia = txtPassword.text!
+        user.telLocal = txtMovil.text!
+        
+        do{
+            let encoder = JSONEncoder()
+            let json = try encoder.encode(user)
+            RESTHandler.delegate = self
+            RESTHandler.postOperationTo(RESTHandler.registraUsuario, with: json, and: "REGISTER")
+        }
+        catch{
+            //Mostrar popup con error
+        }
+    }
+    
+    func activateRequest(){
+        let user = Usuario()
+        user.idUsuario = Int(txtId.text!)
+        user.codigoVerificacion = txtCodigo.text!
+        
+        do{
+            let encoder = JSONEncoder()
+            let json = try  encoder.encode(user)
+            RESTHandler.delegate = self
+            RESTHandler.postOperationTo(RESTHandler.activarUsuario, with: json, and: "ACTIVATE")
+        }
+        catch{
+            
+        }
+    }
+}
+
+extension UsuarioViewController: RESTActionDelegate{
+    func restActionDidSuccessful(data: Data, identifier: String) {
+        print( "restActionDidSuccessful: \(data)" )
+        
+        do{
+            let decoder = JSONDecoder()
+            
+            let result = try decoder.decode([Usuario].self, from: data)
+            print(result)
+        }
+        catch{
+            print("JSON Error: \(error)")
+        }
+    }
+    
+    func restActionDidError() {
+        
+    }
+    
+    
 }

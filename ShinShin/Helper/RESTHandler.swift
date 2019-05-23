@@ -17,7 +17,7 @@ import Foundation
  */
 protocol RESTActionDelegate: class {
     //Es llamado cuando el resultado del request es igual a 200
-    func restActionDidSuccessful(data: Data)
+    func restActionDidSuccessful(data: Data, identifier: String)
     
     //Es llamado cuando ocurrio algun error en el request
     func restActionDidError()
@@ -36,8 +36,9 @@ class RESTHandler{
     
     //Usuario
     static let obtieneUsuarios = "http://localhost:8080/shin-back/usuarios/list"
-    static let registraUsuario = "http://localhost:8080/shin-back/usuarios/usuario/guardar"
-    static let actualizaUsuario = "http://localhost:8080/shin-back/usuarios/usuario/actualizar"
+    static let signin = "http://localhost:8080/shin-back/sign"
+    static let registraUsuario = "http://localhost:8080/shin-back/usuarios/usuario/registrar"
+    static let activarUsuario = "http://localhost:8080/shin-back/usuarios/usuario/activar"
     
     //Productos
     static let obtieneProductos = "http://localhost:8080/shin-back/productos/list"
@@ -49,7 +50,7 @@ class RESTHandler{
     //Aplicar bonificaciones
     static let solicitarBonificacion = ""
     
-    class func getOperationTo(_ urlString: String){
+    class func getOperationTo(_ urlString: String, and identifier: String){
         
         let url = URL(string: urlString)
         print("Get operation to URI: \(url!)")
@@ -62,14 +63,16 @@ class RESTHandler{
         let dataTask = session.dataTask(with: request){ (data, response, error) in
             if let error = error as NSError?, error.code == -999{
                 print( "Error: \(error)" )
-                self.delegate?.restActionDidError()
-                return
+                DispatchQueue.main.async {
+                    self.delegate?.restActionDidError()
+                }
+//                return
             }
             else if let httpResponse = response as? HTTPURLResponse,
                 httpResponse.statusCode == 200{
                 DispatchQueue.main.async {
                     print( "Response: \(httpResponse)" )
-                    self.delegate?.restActionDidSuccessful(data: data! as Data)
+                    self.delegate?.restActionDidSuccessful(data: data! as Data, identifier: identifier)
                 }
                 
             }
@@ -84,7 +87,7 @@ class RESTHandler{
         dataTask.resume()
     }
     
-    class func postOperationTo(_ urlString: String, with data: Data){
+    class func postOperationTo(_ urlString: String, with data: Data, and identifier: String){
         let url = URL(string: urlString)
         
         print("Post operation to URI: \(url!)")
@@ -93,24 +96,33 @@ class RESTHandler{
         request.httpMethod = "POST"
         request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = data
-//        request.httpBody = object
         
         let session = URLSession.shared
         
         let dataTask = session.dataTask(with: request){ (data, response, error) in
             if let error = error as NSError?, error.code == -999{
-                return
+                DispatchQueue.main.async {
+                    self.delegate?.restActionDidError()
+                }
+//                return
             }
             else if let httpResponse = response as? HTTPURLResponse,
                 httpResponse.statusCode == 200{
-                print( "Exito" )
+                DispatchQueue.main.async {
+                    print( "Response: \(httpResponse)" )
+                    self.delegate?.restActionDidSuccessful(data: data! as Data, identifier: identifier)
+                }
+                
             }
             else{
-                print( "Ocurrio un error" )
+                DispatchQueue.main.async {
+                    self.delegate?.restActionDidError()
+                }
             }
-            
         }
         
         dataTask.resume()
     }
+    
+    
 }

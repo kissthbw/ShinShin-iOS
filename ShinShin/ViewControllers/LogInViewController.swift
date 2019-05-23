@@ -18,6 +18,8 @@ import UIKit
 
 class LogInViewController: UIViewController {
 
+    @IBOutlet weak var txtUser: UITextField!
+    @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var activity: UIActivityIndicatorView!
     
     override func viewDidLoad() {
@@ -38,7 +40,10 @@ class LogInViewController: UIViewController {
     */
     
     //MARK: - UI Actions
-    @IBAction func logIn(_ sender: Any) {
+    @IBAction func signin(_ sender: Any) {
+        //1. Validar campos (Habilitar boton solo cuando los campos esten llenos)
+        
+        //2. Realizar peticion a back
     }
     
     @IBAction func restAction(){
@@ -68,7 +73,7 @@ class LogInViewController: UIViewController {
         do{
             let encoder = JSONEncoder()
             let json = try encoder.encode(item)
-            RESTHandler.postOperationTo(RESTHandler.registraUsuario, with: json)
+            RESTHandler.postOperationTo(RESTHandler.registraUsuario, with: json, and: "TEST")
             print(json)
         }
         catch{
@@ -76,17 +81,36 @@ class LogInViewController: UIViewController {
         }
     }
 
+    //MARK: - Helper methods
+    func signinRequest(){
+        let user = Usuario()
+        user.usuario = txtUser.text!
+        user.contrasenia = txtPassword.text!
+        
+        do{
+            let encoder = JSONEncoder()
+            let json = try encoder.encode(user)
+            RESTHandler.delegate = self
+            RESTHandler.postOperationTo(RESTHandler.signin, with: json, and: "SIGNIN")
+        }
+        catch{
+            //Mostrar popup con error
+        }
+    }
+    
 }
 
 extension LogInViewController: RESTActionDelegate{
-    func restActionDidSuccessful(data: Data) {
-        print( "restActionDidSuccessful: \(data)" )
+    func restActionDidSuccessful(data: Data, identifier: String) {
         
         do{
             let decoder = JSONDecoder()
             
-            let result = try decoder.decode([Usuario].self, from: data)
-            print(result)
+            //Verificar que la respuesta haya sido exitosa
+            //Si lo es, dar acceso al app, sino mostrar mensaje de error
+            let result = try decoder.decode([ProductoArray].self, from: data)
+            print( "\(result)" )
+            
         }
         catch{
             print("JSON Error: \(error)")
@@ -97,7 +121,6 @@ extension LogInViewController: RESTActionDelegate{
     }
     
     func restActionDidError() {
-        print( "restActionDidError" )
         self.activity.stopAnimating()
     }
     

@@ -18,8 +18,13 @@ import UIKit
 
 class ProductosTableViewController: UITableViewController {
 
+    var productos = [Producto]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        productosRequest()
+        print( "Productos obtenidos: \(productos)" )
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -32,23 +37,25 @@ class ProductosTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return productos.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProductoCell", for: indexPath)
 
+        let item = productos[indexPath.row]
         // Configure the cell...
+        cell.textLabel?.text = item.nombreProducto
+        
+        print( "Cell" )
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -98,7 +105,50 @@ class ProductosTableViewController: UITableViewController {
     //MARK: - UIActions
     
     //MARK: - Helper methods
-    func realizaBusqueda(){
+    func productosRequest(){
+        do{
+            RESTHandler.delegate = self
+            RESTHandler.getOperationTo(RESTHandler.obtieneProductos, and: "")
+        }
+        catch{
+            
+        }
+    }
+}
+
+extension ProductosTableViewController: RESTActionDelegate{
+    func restActionDidSuccessful(data: Data, identifier: String) {
+        print( "restActionDidSuccessful: \(data)" )
         
+        do{
+            let decoder = JSONDecoder()
+            
+            productos = try decoder.decode([Producto].self, from: data)
+            print(productos)
+            tableView.reloadData()
+        }
+        catch{
+            print("JSON Error: \(error)")
+        }
+    }
+    
+    func restActionDidError() {
+        self.showNetworkError()
+    }
+    
+    func showNetworkError(){
+        let alert = UIAlertController(
+            title: "Whoops...",
+            message: "Ocurrió un problema." +
+            " Favor de interntar nuevamente",
+            preferredStyle: .alert)
+        
+        let action =
+            UIAlertAction(title: "OK",
+                          style: .default,
+                          handler: nil)
+        
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
 }
