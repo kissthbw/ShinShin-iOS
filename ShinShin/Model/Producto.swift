@@ -17,6 +17,9 @@ class ProductoArray: Codable{
 class Producto: Codable, CustomStringConvertible{
     var idProducto: Int?
     var nombreProducto: String?
+    var contenido: String?
+    var descripcion: String?
+    var cantidadBonificacion: Double?
     
     var description: String{
         return "ID: \(idProducto!), Nombre: \(nombreProducto!)"

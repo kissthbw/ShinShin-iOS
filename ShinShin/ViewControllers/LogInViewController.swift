@@ -20,30 +20,26 @@ class LogInViewController: UIViewController {
 
     @IBOutlet weak var txtUser: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
+    @IBOutlet weak var btnLogin: UIButton!
+    
     @IBOutlet weak var activity: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        txtUser.delegate = self
+        txtPassword.delegate = self
+        
+        initUIElements()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     //MARK: - UI Actions
     @IBAction func signin(_ sender: Any) {
         //1. Validar campos (Habilitar boton solo cuando los campos esten llenos)
         
         //2. Realizar peticion a back
+        
+        //3. Habilitar acceso a pantalla principal
+        performSegue(withIdentifier: "PrincipalSegue", sender: nil)
     }
     
     @IBAction func restAction(){
@@ -81,6 +77,11 @@ class LogInViewController: UIViewController {
         }
     }
 
+    //MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    }
+    
     //MARK: - Helper methods
     func signinRequest(){
         let user = Usuario()
@@ -98,6 +99,14 @@ class LogInViewController: UIViewController {
         }
     }
     
+    func initUIElements(){
+        btnLogin.layer.cornerRadius = 5.0
+        txtUser.withImage(direction: .Left, image: UIImage(named: "img_placeholder")!, colorSeparator: UIColor.orange, colorBorder: UIColor.gray)
+        
+        txtPassword.withImage(direction: .Left, image: UIImage(named: "img_placeholder")!, colorSeparator: UIColor.orange, colorBorder: UIColor.gray)
+        
+        txtPassword.withImage(direction: .Right, image: UIImage(named: "img_placeholder")!, colorSeparator: UIColor.orange, colorBorder: UIColor.gray)
+    }
 }
 
 extension LogInViewController: RESTActionDelegate{
@@ -124,5 +133,15 @@ extension LogInViewController: RESTActionDelegate{
         self.activity.stopAnimating()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true);
+    }
+}
+
+extension LogInViewController: UITextFieldDelegate{
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

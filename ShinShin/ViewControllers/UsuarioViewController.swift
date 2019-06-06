@@ -25,12 +25,7 @@ class UsuarioViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        initUIElements()
     }
 
     // MARK: - Table view data source
@@ -158,6 +153,39 @@ class UsuarioViewController: UITableViewController {
         catch{
             
         }
+    }
+    
+    func initUIElements(){
+        txtNombre.layer.borderWidth = 0.0
+        txtNombre.layer.cornerRadius = 5.0
+        txtNombre.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
+        txtApellidos.layer.borderWidth = 0.0
+        txtApellidos.layer.cornerRadius = 5.0
+        txtApellidos.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
+        txtEmail.layer.borderWidth = 0.0
+        txtEmail.layer.cornerRadius = 5.0
+        txtEmail.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
+        txtUser.layer.borderWidth = 0.0
+        txtUser.layer.cornerRadius = 5.0
+        txtUser.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
+        txtPassword.layer.borderWidth = 0.0
+        txtPassword.layer.cornerRadius = 5.0
+        txtPassword.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
+        txtConfirmPassword.layer.borderWidth = 0.0
+        txtConfirmPassword.layer.cornerRadius = 5.0
+        txtConfirmPassword.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
+        txtMovil.layer.borderWidth = 0.0
+        txtMovil.layer.cornerRadius = 5.0
+        txtMovil.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
+        txtId.layer.borderWidth = 0.0
+        txtId.layer.cornerRadius = 5.0
+        txtId.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
+        txtCodigo.layer.borderWidth = 0.0
+        txtCodigo.layer.cornerRadius = 5.0
+        txtCodigo.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
+        
+        btnRegistrar.layer.cornerRadius = 5.0
+        btnActivar.layer.cornerRadius = 5.0
     }
 }
 

@@ -41,7 +41,8 @@ class RESTHandler{
     static let activarUsuario = "http://localhost:8080/shin-back/usuarios/usuario/activar"
     
     //Productos
-    static let obtieneProductos = "http://localhost:8080/shin-back/productos/list"
+    //http://shinshin-env.m7izq9trpe.us-east-2.elasticbeanstalk.com
+    static let obtieneProductos = "http://shinshin-env.m7izq9trpe.us-east-2.elasticbeanstalk.com/productos/list"
     
     //Ticket
     static let obtieneTicketsPorUsuario = ""
