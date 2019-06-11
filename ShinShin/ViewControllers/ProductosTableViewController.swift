@@ -34,13 +34,12 @@ class ProductosTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Populares"
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0{
-            return 88.0
-        }
-        else{
-            return 44.0
-        }
+        return 80.0
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -55,33 +54,24 @@ class ProductosTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if( indexPath.row == 0 ){
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BannerCell", for: indexPath) as! BannerTableViewCell
-            cell.scrollView.contentSize.width = cell.scrollView.frame.width * 2
-            cell.scrollView.isPagingEnabled = true
-            print( "Scroll view size: \(cell.scrollView.frame.width)" )
-            let v1 = UIView(frame: CGRect(x: 0.0, y: 0.0, width: cell.scrollView.frame.width, height: 68.0))
-            v1.backgroundColor = UIColor.blue
-            
-            let v2 = UIView(frame: CGRect(x: 375.0, y: 0.0, width: cell.scrollView.frame.width, height: 68.0))
-            v2.backgroundColor = UIColor.brown
-            
-            cell.scrollView.addSubview(v1)
-            cell.scrollView.addSubview(v2)
-            
-//            cell.textLabel?.text = "Banner"
-            return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProductoCell", for: indexPath) as! ProductoTableViewCell
+        
+        let item = productos[indexPath.row]
+
+        cell.lblNombre.text = item.nombreProducto
+        cell.lblContenido.text = item.contenido
+        cell.btnMasInfo.tag = indexPath.row
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        let tmp = NSNumber(value: item.cantidadBonificacion!)
+        if let bon = formatter.string(from: tmp){
+            cell.lblBonificacion.text = "$ \(bon)"
         }
-        else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ProductoCell", for: indexPath)
-            
-            let item = productos[indexPath.row]
-            // Configure the cell...
-            cell.textLabel?.text = item.nombreProducto
-            
-//            print( "Cell" )
-            return cell
-        }
+        
+        
+        
+        return cell
     }
 
 //    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
@@ -93,7 +83,7 @@ class ProductosTableViewController: UITableViewController {
         //Deshabilita la seleccion de la celda
         tableView.deselectRow(at: indexPath, animated: true)
 
-        performSegue(withIdentifier: "ProductoDetalleSegue", sender: indexPath)
+//        performSegue(withIdentifier: "ProductoDetalleSegue", sender: indexPath)
     }
     
     /*
@@ -133,9 +123,10 @@ class ProductosTableViewController: UITableViewController {
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let indexPath = sender as! IndexPath
+//        let indexPath = sender as! IndexPath
+        let btn = sender as! UIButton
         let vc = segue.destination as! ProductoDetalleViewController
-        vc.item = productos[indexPath.row]
+        vc.item = productos[btn.tag]
     }
     
     //MARK: - UIActions

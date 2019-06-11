@@ -10,22 +10,33 @@ import UIKit
 
 class UsuarioViewController: UITableViewController {
 
+
     @IBOutlet weak var txtNombre: UITextField!
-    @IBOutlet weak var txtApellidos: UITextField!
-    @IBOutlet weak var txtEmail: UITextField!
-    @IBOutlet weak var txtUser: UITextField!
+    @IBOutlet weak var txtCorreo: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
-    @IBOutlet weak var txtConfirmPassword: UITextField!
-    @IBOutlet weak var txtMovil: UITextField!
+    @IBOutlet weak var txtConfPassword: UITextField!
+    @IBOutlet weak var txtTelefono: UITextField!
+    @IBOutlet weak var txtMes: UITextField!
+    @IBOutlet weak var txtDia: UITextField!
+    @IBOutlet weak var txtAnio: UITextField!
+    @IBOutlet weak var txtSexo: UITextField!
+    @IBOutlet weak var txtCP: UITextField!
     @IBOutlet weak var txtId: UITextField!
     @IBOutlet weak var txtCodigo: UITextField!
+    @IBOutlet weak var switchAceptar: UISwitch!
     
     @IBOutlet weak var btnRegistrar: UIButton!
     @IBOutlet weak var btnActivar: UIButton!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        initUIElements()
+//        self.navigationController?.navigationBar.prefersLargeTitles = true
+        let textfields = [txtNombre, txtCorreo, txtPassword, txtConfPassword,
+        txtTelefono, txtMes, txtDia, txtAnio,
+        txtSexo, txtCP, txtId, txtCodigo]
+
+        initUIElements(textfields)
     }
 
     // MARK: - Table view data source
@@ -121,12 +132,12 @@ class UsuarioViewController: UITableViewController {
     func registerRequest(){
         let user = Usuario()
         user.nombre = txtNombre.text!
-        user.apPaterno = txtApellidos.text!
-        user.apMaterno = txtApellidos.text!
-        user.email = txtEmail.text!
-        user.usuario = txtUser.text!
-        user.contrasenia = txtPassword.text!
-        user.telLocal = txtMovil.text!
+//        user.apPaterno = txtApellidos.text!
+//        user.apMaterno = txtApellidos.text!
+//        user.email = txtEmail.text!
+//        user.usuario = txtUser.text!
+//        user.contrasenia = txtPassword.text!
+//        user.telLocal = txtMovil.text!
         
         do{
             let encoder = JSONEncoder()
@@ -155,35 +166,16 @@ class UsuarioViewController: UITableViewController {
         }
     }
     
-    func initUIElements(){
-        txtNombre.layer.borderWidth = 0.0
-        txtNombre.layer.cornerRadius = 5.0
-        txtNombre.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
-        txtApellidos.layer.borderWidth = 0.0
-        txtApellidos.layer.cornerRadius = 5.0
-        txtApellidos.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
-        txtEmail.layer.borderWidth = 0.0
-        txtEmail.layer.cornerRadius = 5.0
-        txtEmail.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
-        txtUser.layer.borderWidth = 0.0
-        txtUser.layer.cornerRadius = 5.0
-        txtUser.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
-        txtPassword.layer.borderWidth = 0.0
-        txtPassword.layer.cornerRadius = 5.0
-        txtPassword.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
-        txtConfirmPassword.layer.borderWidth = 0.0
-        txtConfirmPassword.layer.cornerRadius = 5.0
-        txtConfirmPassword.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
-        txtMovil.layer.borderWidth = 0.0
-        txtMovil.layer.cornerRadius = 5.0
-        txtMovil.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
-        txtId.layer.borderWidth = 0.0
-        txtId.layer.cornerRadius = 5.0
-        txtId.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
-        txtCodigo.layer.borderWidth = 0.0
-        txtCodigo.layer.cornerRadius = 5.0
-        txtCodigo.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
+    func initUIElements(_ elements: [UITextField?]){
         
+        for text in elements {
+            if let t = text{
+                t.layer.borderWidth = 0.0
+                t.layer.cornerRadius = 10.0
+                t.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
+            }            
+        }
+
         btnRegistrar.layer.cornerRadius = 5.0
         btnActivar.layer.cornerRadius = 5.0
     }

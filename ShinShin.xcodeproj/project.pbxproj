@@ -19,6 +19,8 @@
 		A23D5AE322A45529008B4433 /* PreguntaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23D5AE222A45529008B4433 /* PreguntaTableViewCell.swift */; };
 		A23D5AE522A45C35008B4433 /* BonificacionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23D5AE422A45C35008B4433 /* BonificacionViewController.swift */; };
 		A24BF96A2259353F002DF555 /* UsuarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24BF9692259353F002DF555 /* UsuarioViewController.swift */; };
+		A256FF7B22A9B30D00B977ED /* ProductoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A256FF7A22A9B30C00B977ED /* ProductoTableViewCell.swift */; };
+		A256FF7D22A9C43F00B977ED /* ContactoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A256FF7C22A9C43F00B977ED /* ContactoViewController.swift */; };
 		A267D78F222DD7AF00153CB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A267D78E222DD7AF00153CB8 /* AppDelegate.swift */; };
 		A267D791222DD7AF00153CB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A267D790222DD7AF00153CB8 /* ViewController.swift */; };
 		A267D794222DD7AF00153CB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A267D792222DD7AF00153CB8 /* Main.storyboard */; };
@@ -50,6 +52,22 @@
 		A2BA0664229DA4A9009A2213 /* BannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BA0663229DA4A9009A2213 /* BannerTableViewCell.swift */; };
 		A2BA0666229DCF14009A2213 /* UITextField+image.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BA0665229DCF14009A2213 /* UITextField+image.swift */; };
 		A2C1644F22A5CDA900D65B54 /* DatosTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C1644E22A5CDA900D65B54 /* DatosTicketViewController.swift */; };
+		A2ED3E1B22B0244400A12D3A /* TiendaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ED3E1A22B0244400A12D3A /* TiendaTableViewCell.swift */; };
+		A2ED3E1D22B0258E00A12D3A /* TiendaItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ED3E1C22B0258E00A12D3A /* TiendaItemCollectionViewCell.swift */; };
+		A2F0AA7822AEB4200069A84A /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2F0AA6A22AEB41E0069A84A /* Nunito-Light.ttf */; };
+		A2F0AA7922AEB4200069A84A /* Nunito-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2F0AA6B22AEB41E0069A84A /* Nunito-ExtraLight.ttf */; };
+		A2F0AA7A22AEB4200069A84A /* Nunito-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2F0AA6C22AEB41E0069A84A /* Nunito-ExtraLightItalic.ttf */; };
+		A2F0AA7B22AEB4200069A84A /* Nunito-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2F0AA6D22AEB41E0069A84A /* Nunito-Black.ttf */; };
+		A2F0AA7C22AEB4200069A84A /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2F0AA6E22AEB41E0069A84A /* Nunito-Regular.ttf */; };
+		A2F0AA7D22AEB4200069A84A /* Nunito-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2F0AA6F22AEB41F0069A84A /* Nunito-ExtraBold.ttf */; };
+		A2F0AA7E22AEB4200069A84A /* Nunito-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2F0AA7022AEB41F0069A84A /* Nunito-BlackItalic.ttf */; };
+		A2F0AA7F22AEB4200069A84A /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2F0AA7122AEB41F0069A84A /* Nunito-Bold.ttf */; };
+		A2F0AA8022AEB4200069A84A /* Nunito-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2F0AA7222AEB41F0069A84A /* Nunito-SemiBoldItalic.ttf */; };
+		A2F0AA8122AEB4200069A84A /* Nunito-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2F0AA7322AEB41F0069A84A /* Nunito-LightItalic.ttf */; };
+		A2F0AA8222AEB4200069A84A /* Nunito-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2F0AA7422AEB41F0069A84A /* Nunito-ExtraBoldItalic.ttf */; };
+		A2F0AA8322AEB4200069A84A /* Nunito-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2F0AA7522AEB41F0069A84A /* Nunito-BoldItalic.ttf */; };
+		A2F0AA8422AEB4200069A84A /* Nunito-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2F0AA7622AEB41F0069A84A /* Nunito-Italic.ttf */; };
+		A2F0AA8522AEB4200069A84A /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2F0AA7722AEB41F0069A84A /* Nunito-SemiBold.ttf */; };
 		A2F7104E22A57E2F00D9E2B0 /* HistoricoBonificacionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F7104D22A57E2F00D9E2B0 /* HistoricoBonificacionTableViewCell.swift */; };
 		A2F7105022A5916900D9E2B0 /* BonificacionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F7104F22A5916900D9E2B0 /* BonificacionTableViewCell.swift */; };
 		A2F9D52C22A1A5E0004DE61A /* UIPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F9D52B22A1A5E0004DE61A /* UIPreferences.swift */; };
@@ -90,6 +108,8 @@
 		A23D5AE222A45529008B4433 /* PreguntaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreguntaTableViewCell.swift; sourceTree = "<group>"; };
 		A23D5AE422A45C35008B4433 /* BonificacionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonificacionViewController.swift; sourceTree = "<group>"; };
 		A24BF9692259353F002DF555 /* UsuarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioViewController.swift; sourceTree = "<group>"; };
+		A256FF7A22A9B30C00B977ED /* ProductoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductoTableViewCell.swift; sourceTree = "<group>"; };
+		A256FF7C22A9C43F00B977ED /* ContactoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactoViewController.swift; sourceTree = "<group>"; };
 		A267D78B222DD7AE00153CB8 /* ShinShin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShinShin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A267D78E222DD7AF00153CB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A267D790222DD7AF00153CB8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +145,22 @@
 		A2BA0663229DA4A9009A2213 /* BannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerTableViewCell.swift; sourceTree = "<group>"; };
 		A2BA0665229DCF14009A2213 /* UITextField+image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+image.swift"; sourceTree = "<group>"; };
 		A2C1644E22A5CDA900D65B54 /* DatosTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatosTicketViewController.swift; sourceTree = "<group>"; };
+		A2ED3E1A22B0244400A12D3A /* TiendaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiendaTableViewCell.swift; sourceTree = "<group>"; };
+		A2ED3E1C22B0258E00A12D3A /* TiendaItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiendaItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		A2F0AA6A22AEB41E0069A84A /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
+		A2F0AA6B22AEB41E0069A84A /* Nunito-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraLight.ttf"; sourceTree = "<group>"; };
+		A2F0AA6C22AEB41E0069A84A /* Nunito-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		A2F0AA6D22AEB41E0069A84A /* Nunito-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Black.ttf"; sourceTree = "<group>"; };
+		A2F0AA6E22AEB41E0069A84A /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
+		A2F0AA6F22AEB41F0069A84A /* Nunito-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraBold.ttf"; sourceTree = "<group>"; };
+		A2F0AA7022AEB41F0069A84A /* Nunito-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-BlackItalic.ttf"; sourceTree = "<group>"; };
+		A2F0AA7122AEB41F0069A84A /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
+		A2F0AA7222AEB41F0069A84A /* Nunito-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		A2F0AA7322AEB41F0069A84A /* Nunito-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-LightItalic.ttf"; sourceTree = "<group>"; };
+		A2F0AA7422AEB41F0069A84A /* Nunito-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		A2F0AA7522AEB41F0069A84A /* Nunito-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-BoldItalic.ttf"; sourceTree = "<group>"; };
+		A2F0AA7622AEB41F0069A84A /* Nunito-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Italic.ttf"; sourceTree = "<group>"; };
+		A2F0AA7722AEB41F0069A84A /* Nunito-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-SemiBold.ttf"; sourceTree = "<group>"; };
 		A2F7104D22A57E2F00D9E2B0 /* HistoricoBonificacionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricoBonificacionTableViewCell.swift; sourceTree = "<group>"; };
 		A2F7104F22A5916900D9E2B0 /* BonificacionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonificacionTableViewCell.swift; sourceTree = "<group>"; };
 		A2F9D52B22A1A5E0004DE61A /* UIPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPreferences.swift; sourceTree = "<group>"; };
@@ -175,12 +211,15 @@
 				A234CC5C22A6DD8C00BCBC7A /* BancoTableViewCell.swift */,
 				A234CC5E22A6DDB800BCBC7A /* PayPalTableViewCell.swift */,
 				A234CC6022A6DDCA00BCBC7A /* RecargaTableViewCell.swift */,
+				A256FF7A22A9B30C00B977ED /* ProductoTableViewCell.swift */,
 				A27824F822A7228900A2885E /* CategoriaTableViewCell.swift */,
 				A26CBD0422A857E8002A5CD5 /* PopularTableViewCell.swift */,
 				A26CBD0622A870C7002A5CD5 /* DeptoTableViewCell.swift */,
+				A2ED3E1A22B0244400A12D3A /* TiendaTableViewCell.swift */,
 				A2883FE722A81B0300E930DA /* BannerItemCollectionViewCell.swift */,
 				A2883FE922A840A500E930DA /* PopularItemCollectionViewCell.swift */,
 				A26CBD0822A8710E002A5CD5 /* DeptoItemCollectionViewCell.swift */,
+				A2ED3E1C22B0258E00A12D3A /* TiendaItemCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -221,6 +260,7 @@
 		A267D78D222DD7AE00153CB8 /* ShinShin */ = {
 			isa = PBXGroup;
 			children = (
+				A2F0AA6922AEB3FA0069A84A /* Fonts */,
 				A20B145C22A0367800667D39 /* Views */,
 				A297376A226637640071BE3E /* Model */,
 				A20BA6812264E5720030572F /* Helper */,
@@ -271,6 +311,7 @@
 				A2C1644E22A5CDA900D65B54 /* DatosTicketViewController.swift */,
 				A234CC5A22A6D76F00BCBC7A /* MediosBonificacionTableViewController.swift */,
 				A27824F622A71C9F00A2885E /* PrincipalViewController.swift */,
+				A256FF7C22A9C43F00B977ED /* ContactoViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -282,6 +323,27 @@
 				A2A331B822837FAC000CDA4A /* Producto.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A2F0AA6922AEB3FA0069A84A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A2F0AA6D22AEB41E0069A84A /* Nunito-Black.ttf */,
+				A2F0AA7022AEB41F0069A84A /* Nunito-BlackItalic.ttf */,
+				A2F0AA7122AEB41F0069A84A /* Nunito-Bold.ttf */,
+				A2F0AA7522AEB41F0069A84A /* Nunito-BoldItalic.ttf */,
+				A2F0AA6F22AEB41F0069A84A /* Nunito-ExtraBold.ttf */,
+				A2F0AA7422AEB41F0069A84A /* Nunito-ExtraBoldItalic.ttf */,
+				A2F0AA6B22AEB41E0069A84A /* Nunito-ExtraLight.ttf */,
+				A2F0AA6C22AEB41E0069A84A /* Nunito-ExtraLightItalic.ttf */,
+				A2F0AA7622AEB41F0069A84A /* Nunito-Italic.ttf */,
+				A2F0AA6A22AEB41E0069A84A /* Nunito-Light.ttf */,
+				A2F0AA7322AEB41F0069A84A /* Nunito-LightItalic.ttf */,
+				A2F0AA6E22AEB41E0069A84A /* Nunito-Regular.ttf */,
+				A2F0AA7722AEB41F0069A84A /* Nunito-SemiBold.ttf */,
+				A2F0AA7222AEB41F0069A84A /* Nunito-SemiBoldItalic.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		CA9D7EA10A55263B6E63B53D /* Pods */ = {
@@ -419,12 +481,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2F0AA7F22AEB4200069A84A /* Nunito-Bold.ttf in Resources */,
+				A2F0AA7E22AEB4200069A84A /* Nunito-BlackItalic.ttf in Resources */,
+				A2F0AA7C22AEB4200069A84A /* Nunito-Regular.ttf in Resources */,
+				A2F0AA8222AEB4200069A84A /* Nunito-ExtraBoldItalic.ttf in Resources */,
+				A2F0AA8522AEB4200069A84A /* Nunito-SemiBold.ttf in Resources */,
+				A2F0AA8022AEB4200069A84A /* Nunito-SemiBoldItalic.ttf in Resources */,
 				A267D79C222DD7B800153CB8 /* LaunchScreen.storyboard in Resources */,
+				A2F0AA7B22AEB4200069A84A /* Nunito-Black.ttf in Resources */,
+				A2F0AA7D22AEB4200069A84A /* Nunito-ExtraBold.ttf in Resources */,
+				A2F0AA7A22AEB4200069A84A /* Nunito-ExtraLightItalic.ttf in Resources */,
+				A2F0AA7822AEB4200069A84A /* Nunito-Light.ttf in Resources */,
 				A271A7D6229708B10056CE64 /* GoogleService-Info.plist in Resources */,
+				A2F0AA8122AEB4200069A84A /* Nunito-LightItalic.ttf in Resources */,
+				A2F0AA8322AEB4200069A84A /* Nunito-BoldItalic.ttf in Resources */,
 				A267D799222DD7B800153CB8 /* Assets.xcassets in Resources */,
 				A20B146022A0441600667D39 /* Page2.xib in Resources */,
 				A267D794222DD7AF00153CB8 /* Main.storyboard in Resources */,
 				A20B145E22A036B300667D39 /* Page1.xib in Resources */,
+				A2F0AA7922AEB4200069A84A /* Nunito-ExtraLight.ttf in Resources */,
+				A2F0AA8422AEB4200069A84A /* Nunito-Italic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,6 +655,7 @@
 				A234CC5D22A6DD8C00BCBC7A /* BancoTableViewCell.swift in Sources */,
 				A234CC5922A6C7BC00BCBC7A /* ProductoTicketTableViewCell.swift in Sources */,
 				A267D7C5222DDCF200153CB8 /* ProductoDetalleViewController.swift in Sources */,
+				A256FF7D22A9C43F00B977ED /* ContactoViewController.swift in Sources */,
 				A2883FEA22A840A500E930DA /* PopularItemCollectionViewCell.swift in Sources */,
 				A26CBD0722A870C7002A5CD5 /* DeptoTableViewCell.swift in Sources */,
 				A27824F922A7228900A2885E /* CategoriaTableViewCell.swift in Sources */,
@@ -586,11 +663,13 @@
 				A2BA0666229DCF14009A2213 /* UITextField+image.swift in Sources */,
 				A267D7C1222DDC8C00153CB8 /* LogInViewController.swift in Sources */,
 				A23D5AE322A45529008B4433 /* PreguntaTableViewCell.swift in Sources */,
+				A2ED3E1D22B0258E00A12D3A /* TiendaItemCollectionViewCell.swift in Sources */,
 				A234CC5B22A6D76F00BCBC7A /* MediosBonificacionTableViewController.swift in Sources */,
 				A267D791222DD7AF00153CB8 /* ViewController.swift in Sources */,
 				A26CBD0522A857E8002A5CD5 /* PopularTableViewCell.swift in Sources */,
 				A2883FE822A81B0300E930DA /* BannerItemCollectionViewCell.swift in Sources */,
 				A267D78F222DD7AF00153CB8 /* AppDelegate.swift in Sources */,
+				A2ED3E1B22B0244400A12D3A /* TiendaTableViewCell.swift in Sources */,
 				A267D7C9222DDD4C00153CB8 /* OCRViewController.swift in Sources */,
 				A2F9D52C22A1A5E0004DE61A /* UIPreferences.swift in Sources */,
 				A23D5AE522A45C35008B4433 /* BonificacionViewController.swift in Sources */,
@@ -603,6 +682,7 @@
 				A26CBD0922A8710E002A5CD5 /* DeptoItemCollectionViewCell.swift in Sources */,
 				A26E6211229F2C2A00F0CA76 /* TutorialViewController.swift in Sources */,
 				A2BA0664229DA4A9009A2213 /* BannerTableViewCell.swift in Sources */,
+				A256FF7B22A9B30D00B977ED /* ProductoTableViewCell.swift in Sources */,
 				A2F7105022A5916900D9E2B0 /* BonificacionTableViewCell.swift in Sources */,
 				A26E620F229F17C300F0CA76 /* TutorialPageViewController.swift in Sources */,
 				A2A331B922837FAD000CDA4A /* Producto.swift in Sources */,

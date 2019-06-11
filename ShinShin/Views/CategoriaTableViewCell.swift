@@ -38,9 +38,11 @@ extension CategoriaTableViewCell: UICollectionViewDataSource, UICollectionViewDe
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as! BannerItemCollectionViewCell
         cell.viewMain.backgroundColor = UIColor(red: 0.0/255.0, green: 131.0/255.0, blue: 77.0/255.0, alpha: 1.0)
         cell.viewBanner.backgroundColor  = UIColor(red: 0.0/255.0, green: 121.0/255.0, blue: 77.0/255.0, alpha: 1.0)
+        cell.viewBannerLeft.backgroundColor  = UIColor(red: 0.0/255.0, green: 121.0/255.0, blue: 77.0/255.0, alpha: 1.0)
         cell.lblBaner.text = "Banner \(indexPath.section) \(indexPath.row)"
         cell.lblContenido.text = "600 ml"
         cell.btnMasInfo.tag = indexPath.section + indexPath.row
+        cell.btnMasInfo.backgroundColor  = UIColor(red: 0.0/255.0, green: 121.0/255.0, blue: 77.0/255.0, alpha: 1.0)
         
         return cell
     }
