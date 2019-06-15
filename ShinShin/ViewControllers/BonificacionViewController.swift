@@ -12,11 +12,22 @@ class BonificacionViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     enum Proceso {
-        case Historico
         case Retirar
+        case Tickets
+        case Historico
+        
     }
     
+    enum SubProceso{
+        case NoSeleccionado
+        case BanificacionBanco
+        case BanificacionPayPal
+        case BanificacionRecarga
+    }
+    var selectedRow = -1
+    var previousSelectedRow = -1
     var tipoProceso: Proceso = .Historico
+    var tipoSubProceso: SubProceso = .NoSeleccionado
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,16 +38,17 @@ class BonificacionViewController: UIViewController {
     //MARK: - UIActions
     @IBAction func showHistorialAction(_ sender: Any) {
         tipoProceso = .Historico
-        tableView.reloadSections(IndexSet(integersIn: 0...0), with: .left)
-
-//        tableView.reloadSections(<#T##sections: IndexSet##IndexSet#>, with: <#T##UITableView.RowAnimation#>)
-//        tableView.reloadData()
+        tableView.reloadSections(IndexSet(integersIn: 0...0), with: .fade)
+    }
+    
+    @IBAction func showTicketsAction(_ sender: Any) {
+        tipoProceso = .Tickets
+        tableView.reloadSections(IndexSet(integersIn: 0...0), with: .fade)
     }
     
     @IBAction func showRetirarAction(_ sender: Any) {
         tipoProceso = .Retirar
-        tableView.reloadSections(IndexSet(integersIn: 0...0), with: .right)
-//        tableView.reloadData()
+        tableView.reloadSections(IndexSet(integersIn: 0...0), with: .fade)
     }
     
     
@@ -58,14 +70,29 @@ extension BonificacionViewController: UITableViewDataSource, UITableViewDelegate
         if tipoProceso == .Historico{
             return 60
         }
+        else if tipoProceso == .Tickets{
+            return 60
+        }
         else{
-            return 88
+            if tipoSubProceso == .BanificacionBanco && indexPath.row == selectedRow{
+                return 360
+            }
+            if tipoSubProceso == .BanificacionPayPal && indexPath.row == selectedRow{
+                return 360
+            }
+            if tipoSubProceso == .BanificacionRecarga && indexPath.row == selectedRow{
+                return 400
+            }
+            else{
+                return 88
+            }
+            
         }
         
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -80,12 +107,89 @@ extension BonificacionViewController: UITableViewDataSource, UITableViewDelegate
             
             return cell
         }
-        else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BonificacionCell", for: indexPath) as! BonificacionTableViewCell
-            cell.lblTitulo.text = "PayPal"
+        else if tipoProceso == .Tickets{
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "HistoricoTicketCell", for: indexPath)
+            
             return cell
+        }
+        else{
+            if tipoSubProceso == .BanificacionBanco && indexPath.row == selectedRow{
+                
+                let cell = tableView.dequeueReusableCell(withIdentifier: "BancoBonificacionCell", for: indexPath)
+                //                cell.lblTitulo.text = "PayPal"
+                return cell
+                
+            }
+           else  if tipoSubProceso == .BanificacionPayPal && indexPath.row == selectedRow{
+                
+                let cell = tableView.dequeueReusableCell(withIdentifier: "PayPalBonificacionCell", for: indexPath)
+                //                cell.lblTitulo.text = "PayPal"
+                return cell
+                
+            }
+            else if tipoSubProceso == .BanificacionRecarga && indexPath.row == selectedRow{
+                
+                let cell = tableView.dequeueReusableCell(withIdentifier: "RecargaBonificacionCell", for: indexPath)
+                //                cell.lblTitulo.text = "PayPal"
+                return cell
+                
+            }
+            else{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "BonificacionCell", for: indexPath) as! BonificacionTableViewCell
+                cell.lblTitulo.text = "PayPal"
+                return cell
+            }
+            
         }
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tipoProceso == .Retirar{
+            
+            if indexPath.row == 0{
+                tipoSubProceso = .BanificacionBanco
+            }
+            
+            if indexPath.row == 1{
+                tipoSubProceso = .BanificacionPayPal
+            }
+            if indexPath.row == 2{
+                tipoSubProceso = .BanificacionRecarga
+            }
+
+            
+            
+            
+            //Caso inicial: No existen celdas seleccionadas, se selecciona una
+            //celda y se expande
+            //Caso 2: Ya existe una celda seleccionada, cuya posicion esta
+            //almacenada en selectedRow, se debe cerrar se celda previa y expandir
+            //la nueva celda
+            if selectedRow == -1{
+                selectedRow = indexPath.row
+            }
+            else if selectedRow == indexPath.row{
+                selectedRow = -1
+                previousSelectedRow = -1
+            }
+            else{
+                previousSelectedRow = selectedRow
+                selectedRow = indexPath.row
+            }
+            
+//            var indexPaths = [IndexPath]()
+            let index = IndexPath(row: indexPath.row, section: indexPath.section)
+            
+            if previousSelectedRow != -1{
+                let item = IndexPath(row: previousSelectedRow, section: indexPath.section)
+//                indexPaths.append(item)
+                tableView.reloadRows(at: [item], with: .fade)
+            }
+//            indexPaths.append(index)
+            
+            tableView.reloadRows(at: [index], with: .fade)
+//            tableView.reloadSections(IndexSet(integersIn: 0...0), with: .right)
+        }
+    }
 }

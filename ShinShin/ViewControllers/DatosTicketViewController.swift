@@ -9,26 +9,19 @@
 import UIKit
 
 class DatosTicketViewController: UIViewController {
-
-    @IBOutlet weak var lblTienda: UILabel!
-    @IBOutlet weak var lblTicket: UILabel!
+    
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var lblTotal: UILabel!
-    @IBOutlet weak var btnEnviar: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        initUIElements()
     }
     
     //MARK: - UIActions
     
     //MARK: - Helper methods
-    func initUIElements(){
-        btnEnviar.layer.cornerRadius = 5.0
-        lblTienda.layer.cornerRadius = 5.0
-        lblTienda.layer.cornerRadius = 5.0
+    @objc
+    func enviarTicket(){
+        performSegue(withIdentifier: "EnviarTicketSegue", sender: self)
     }
     
     /*
@@ -45,29 +38,69 @@ class DatosTicketViewController: UIViewController {
 
 extension DatosTicketViewController: UITableViewDataSource, UITableViewDelegate{
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 4
+    }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Productos"
+        if section == 2{
+            return "Productos"
+        }
+        return ""
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        switch indexPath.section {
+        case 0:
+            return 120
+        case 1:
+            return 160
+        case 2:
+            return 70
+        case 3:
+            return 160
+        default:
+            return 44
+        }
+
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 2{
+            return 20
+        }
+        
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ProductoCell", for: indexPath) as! ProductoTicketTableViewCell
-        
-        cell.lblProducto.text = "Paq. 2 aguas Bonafont"
-        cell.lblContenido.text = "600 ml"
-        cell.lblCantidad.text = "Cant: 1"
-        cell.lblCodigoBarras.text = "123456789012"
-        cell.lblBonificacion.text = "$ 5"
-        
-        
-        return cell
+        if indexPath.section == 0{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MensajeCell", for: indexPath)
+            
+            return cell
+        }
+        else if indexPath.section == 1{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as! InfoTicketTableViewCell
+            
+            return cell
+        }
+        else if indexPath.section == 3{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TotalCell", for: indexPath) as! TotalTicketTableViewCell
+            cell.btnEnviar.addTarget(self, action: #selector(enviarTicket), for: .touchUpInside)
+            return cell
+        }
+        else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ProductoCell", for: indexPath) as! ProductoTicketTableViewCell
+            
+            cell.lblNombre.text = "Paq. 2 aguas Bonafont"
+            cell.lblPresentacion.text = "600 ml"
+            cell.lblCantidad.text = "Cant: 1"
+            cell.lblCodigo.text = "123456789012"
+            cell.lblBonificacion.text = "$ 5"
+            
+            
+            return cell
+        }
     }
     
     

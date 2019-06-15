@@ -8,8 +8,11 @@
 
 import UIKit
 
-class MediosBonificacionTableViewController: UITableViewController {
-
+class MediosBonificacionTableViewController: UIViewController {
+    
+    var sectionSelected = -1
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,39 +23,55 @@ class MediosBonificacionTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    //Helper methods
+    @objc func btnMasAction(sender: UIButton!){
+        sectionSelected = sender.tag
+        performSegue(withIdentifier: "BancariaSegue", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! MediosBonificacionDetailViewController
+        vc.sectionSelected = sectionSelected
+        vc.delegate = self
+    }
+   
+}
 
+extension MediosBonificacionTableViewController: UITableViewDataSource, UITableViewDelegate{
     // MARK: - Table view data source
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
     }
     
-//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//
-//        let headerView = UIView()
-//        headerView.backgroundColor = .clear
-////        headerView.alpha = 0.1
-//        let imageViewGame = UIImageView(frame: CGRect(x: 5, y: 8, width: 40, height: 40));
-//
-////        let image = UIImage(named: "producto_detail_placeholder");
-////        imageViewGame.image = image;
-//
-//        return headerView
-//    }
-    
-    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.textColor = UIColor.darkGray
         let imageView = UIImageView(frame: CGRect(x: 5, y: 6, width: 35, height: 35))
         imageView.image = UIImage(named: "producto_detail_placeholder")
-//        header.contentMode = .bottomLeft
         header.addSubview(imageView)
-//        header.
-//        let headerImage = UIImage(named: "producto_detail_placeholder")
-//        let headerImageView = UIImageView(image: headerImage)
-//        header.backgroundView = headerImageView
+        
+        let btnMas = UIButton(type: .system)
+        btnMas.tag = section
+        btnMas.frame = CGRect(x: tableView.frame.width - 100, y: 9, width: 100, height: 20)
+        btnMas.addTarget(self, action: #selector(btnMasAction(sender:)), for: .touchUpInside)
+        var title = ""
+        if section == 0{
+            title = "+ Tarjeta"
+        }
+        else if section == 1{
+            title = "+ Cuenta"
+        }
+        else{
+            title = "+ Número"
+        }
+        
+        btnMas.setTitle(title, for: .normal)
+        header.addSubview(btnMas)
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0{
             return "       Bancarias"
         }
@@ -64,17 +83,17 @@ class MediosBonificacionTableViewController: UITableViewController {
         }
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 3
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 1
     }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.section == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "BancoCell", for: indexPath) as! BancoTableViewCell
@@ -100,50 +119,40 @@ class MediosBonificacionTableViewController: UITableViewController {
         }
         
     }
+}
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+extension MediosBonificacionTableViewController: MediosBonificacionControllerDelegate{
+    
+    func addItemViewController(_ controller: MediosBonificacionDetailViewController, didFinishAddind item: String) {
+        
+        
+        UIView.animate(withDuration: 2.0,
+                       delay: 0.0,
+                       usingSpringWithDamping: 0.5,
+                       initialSpringVelocity: 5.0,
+                       options: [.curveEaseIn],
+                       animations: {
+                        self.topConstraint.constant = 120
+                        self.view.setNeedsLayout()
+                        self.view.layoutIfNeeded()
+        }, completion: { (true) in
+            UIView.animate(withDuration: 2.0,
+                           delay: 0.0,
+                           usingSpringWithDamping: 0.5,
+                           initialSpringVelocity: 5.0,
+                           options: [.curveEaseIn],
+                           animations: {
+                            self.topConstraint.constant = 0
+                            self.view.setNeedsLayout()
+                            self.view.layoutIfNeeded()
+            }, completion: nil)
+        })
+        
+        
+        
+        navigationController?.popViewController(animated: true)
+        
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    
 }

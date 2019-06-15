@@ -10,18 +10,18 @@ import UIKit
 
 class ProductoTicketTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var imgProducto: UIImageView!
-    @IBOutlet weak var lblProducto: UILabel!
-    @IBOutlet weak var lblContenido: UILabel!
+    @IBOutlet weak var imageViewProducto: UIImageView!
+    @IBOutlet weak var lblNombre: UILabel!
+    @IBOutlet weak var lblPresentacion: UILabel!
     @IBOutlet weak var lblCantidad: UILabel!
-    @IBOutlet weak var lblCodigoBarras: UILabel!
+    @IBOutlet weak var lblCodigo: UILabel!
     @IBOutlet weak var lblBonificacion: UILabel!
-    @IBOutlet weak var viewBonificacion: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        viewBonificacion.layer.cornerRadius = 5.0
+        lblBonificacion.layer.masksToBounds = true
+        lblBonificacion.layer.cornerRadius = 5.0
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

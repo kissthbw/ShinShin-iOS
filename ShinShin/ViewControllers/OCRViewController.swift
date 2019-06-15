@@ -73,7 +73,7 @@ class OCRViewController: UIViewController {
             }
         }
         
-        
+        performSegue(withIdentifier: "TicketDetailSegue", sender: self)
     }
     
     func visionImageOrientation(

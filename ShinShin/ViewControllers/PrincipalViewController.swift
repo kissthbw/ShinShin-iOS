@@ -35,17 +35,6 @@ class PrincipalViewController: UIViewController {
     
     @objc
     func notifications(){
-        //104.0 tamanio del topBar
-//        UIView.animate(withDuration: 1.0,
-//                       delay: 0.0,
-//                       options: [.curveEaseOut],
-//                       animations: {
-//                        self.topConstraint.constant = 0
-//                        self.view.setNeedsLayout()
-//                        self.view.layoutIfNeeded()
-//        }, completion: nil)
-        
-        
     }
 
     //MARK: - UIActios
@@ -61,6 +50,11 @@ class PrincipalViewController: UIViewController {
                         self.view.layoutIfNeeded()
         }, completion: nil)
     }
+    
+    @IBAction func fotoAction(_ sender: Any) {
+        performSegue(withIdentifier: "FotoSegue", sender: self)
+    }
+    
     
     // MARK: - Navigation
 

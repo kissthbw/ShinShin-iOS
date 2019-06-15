@@ -16,6 +16,7 @@
 
 import UIKit
 
+
 class LogInViewController: UIViewController {
 
     @IBOutlet weak var txtUser: UITextField!
@@ -30,6 +31,25 @@ class LogInViewController: UIViewController {
         txtPassword.delegate = self
         
         initUIElements()
+        
+        let notif = UIBarButtonItem(
+            image: UIImage(named: "notif_placeholder"),
+            style: .plain,
+            target: self,
+            action: #selector(notifications))
+        notif.tintColor = .black
+        
+        let user = UIBarButtonItem(
+            image: UIImage(named: "user_placeholder"),
+            style: .plain,
+            target: self,
+            action: #selector(notifications))
+        user.tintColor = .black
+        navigationItem.rightBarButtonItems = [user, notif]
+    }
+    
+    @objc
+    func notifications(){
     }
     
     //MARK: - UI Actions

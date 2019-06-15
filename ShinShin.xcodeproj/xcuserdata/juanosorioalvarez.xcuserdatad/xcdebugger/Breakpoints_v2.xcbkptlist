@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShinShin/ViewControllers/LogInViewController.swift"
-            timestampString = "581552082.587528"
+            timestampString = "582263778.494717"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "restActionDidSuccessful(data:identifier:)"
             landmarkType = "7">
          </BreakpointContent>

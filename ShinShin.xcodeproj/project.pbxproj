@@ -39,6 +39,10 @@
 		A26CBD0922A8710E002A5CD5 /* DeptoItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26CBD0822A8710E002A5CD5 /* DeptoItemCollectionViewCell.swift */; };
 		A26E620F229F17C300F0CA76 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26E620E229F17C300F0CA76 /* TutorialPageViewController.swift */; };
 		A26E6211229F2C2A00F0CA76 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26E6210229F2C2A00F0CA76 /* TutorialViewController.swift */; };
+		A271296622B2A65C0099CB0B /* MediosBonificacionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A271296522B2A65C0099CB0B /* MediosBonificacionDetailViewController.swift */; };
+		A271296822B2AE5B0099CB0B /* BancoDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A271296722B2AE5B0099CB0B /* BancoDetailTableViewCell.swift */; };
+		A271296A22B2AEB70099CB0B /* PayPalDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A271296922B2AEB70099CB0B /* PayPalDetailTableViewCell.swift */; };
+		A271296C22B2AEC40099CB0B /* RecargaDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A271296B22B2AEC40099CB0B /* RecargaDetailTableViewCell.swift */; };
 		A271A7D6229708B10056CE64 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A271A7D5229708B10056CE64 /* GoogleService-Info.plist */; };
 		A271A7D7229708B10056CE64 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A271A7D5229708B10056CE64 /* GoogleService-Info.plist */; };
 		A271A7D8229708B10056CE64 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A271A7D5229708B10056CE64 /* GoogleService-Info.plist */; };
@@ -70,6 +74,10 @@
 		A2F0AA8522AEB4200069A84A /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2F0AA7722AEB41F0069A84A /* Nunito-SemiBold.ttf */; };
 		A2F7104E22A57E2F00D9E2B0 /* HistoricoBonificacionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F7104D22A57E2F00D9E2B0 /* HistoricoBonificacionTableViewCell.swift */; };
 		A2F7105022A5916900D9E2B0 /* BonificacionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F7104F22A5916900D9E2B0 /* BonificacionTableViewCell.swift */; };
+		A2F7E0AF22B168CE00A96AB1 /* InfoTicketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F7E0AE22B168CE00A96AB1 /* InfoTicketTableViewCell.swift */; };
+		A2F7E0B322B16B1A00A96AB1 /* TotalTicketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F7E0B222B16B1900A96AB1 /* TotalTicketTableViewCell.swift */; };
+		A2F7E0B522B17A8900A96AB1 /* ProcesaTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F7E0B422B17A8900A96AB1 /* ProcesaTicketViewController.swift */; };
+		A2F7E0B722B1980C00A96AB1 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F7E0B622B1980C00A96AB1 /* SideMenuViewController.swift */; };
 		A2F9D52C22A1A5E0004DE61A /* UIPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F9D52B22A1A5E0004DE61A /* UIPreferences.swift */; };
 		A351A1E0B06D2F4E2DA37A26 /* Pods_ShinShin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB5E4CF4660742E07CAD85B4 /* Pods_ShinShin.framework */; };
 		A4D416B5E4B27EFBCDC43CA3 /* Pods_ShinShinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D912D7BD4F7EABE2267F1E /* Pods_ShinShinTests.framework */; };
@@ -134,6 +142,10 @@
 		A26CBD0822A8710E002A5CD5 /* DeptoItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeptoItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		A26E620E229F17C300F0CA76 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
 		A26E6210229F2C2A00F0CA76 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		A271296522B2A65C0099CB0B /* MediosBonificacionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediosBonificacionDetailViewController.swift; sourceTree = "<group>"; };
+		A271296722B2AE5B0099CB0B /* BancoDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BancoDetailTableViewCell.swift; sourceTree = "<group>"; };
+		A271296922B2AEB70099CB0B /* PayPalDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayPalDetailTableViewCell.swift; sourceTree = "<group>"; };
+		A271296B22B2AEC40099CB0B /* RecargaDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecargaDetailTableViewCell.swift; sourceTree = "<group>"; };
 		A271A7D5229708B10056CE64 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A27824F622A71C9F00A2885E /* PrincipalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalViewController.swift; sourceTree = "<group>"; };
 		A27824F822A7228900A2885E /* CategoriaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriaTableViewCell.swift; sourceTree = "<group>"; };
@@ -163,6 +175,10 @@
 		A2F0AA7722AEB41F0069A84A /* Nunito-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-SemiBold.ttf"; sourceTree = "<group>"; };
 		A2F7104D22A57E2F00D9E2B0 /* HistoricoBonificacionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricoBonificacionTableViewCell.swift; sourceTree = "<group>"; };
 		A2F7104F22A5916900D9E2B0 /* BonificacionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonificacionTableViewCell.swift; sourceTree = "<group>"; };
+		A2F7E0AE22B168CE00A96AB1 /* InfoTicketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTicketTableViewCell.swift; sourceTree = "<group>"; };
+		A2F7E0B222B16B1900A96AB1 /* TotalTicketTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalTicketTableViewCell.swift; sourceTree = "<group>"; };
+		A2F7E0B422B17A8900A96AB1 /* ProcesaTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcesaTicketViewController.swift; sourceTree = "<group>"; };
+		A2F7E0B622B1980C00A96AB1 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		A2F9D52B22A1A5E0004DE61A /* UIPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPreferences.swift; sourceTree = "<group>"; };
 		BC0561385F24CF95853B7D3C /* Pods-ShinShin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShinShin.release.xcconfig"; path = "Target Support Files/Pods-ShinShin/Pods-ShinShin.release.xcconfig"; sourceTree = "<group>"; };
 		C5F085A37EA6DA237FBFD7B9 /* Pods-ShinShinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShinShinTests.release.xcconfig"; path = "Target Support Files/Pods-ShinShinTests/Pods-ShinShinTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -207,10 +223,12 @@
 				A23D5AE222A45529008B4433 /* PreguntaTableViewCell.swift */,
 				A2F7104D22A57E2F00D9E2B0 /* HistoricoBonificacionTableViewCell.swift */,
 				A2F7104F22A5916900D9E2B0 /* BonificacionTableViewCell.swift */,
+				A2F7E0AE22B168CE00A96AB1 /* InfoTicketTableViewCell.swift */,
 				A234CC5822A6C7BC00BCBC7A /* ProductoTicketTableViewCell.swift */,
 				A234CC5C22A6DD8C00BCBC7A /* BancoTableViewCell.swift */,
 				A234CC5E22A6DDB800BCBC7A /* PayPalTableViewCell.swift */,
 				A234CC6022A6DDCA00BCBC7A /* RecargaTableViewCell.swift */,
+				A2F7E0B222B16B1900A96AB1 /* TotalTicketTableViewCell.swift */,
 				A256FF7A22A9B30C00B977ED /* ProductoTableViewCell.swift */,
 				A27824F822A7228900A2885E /* CategoriaTableViewCell.swift */,
 				A26CBD0422A857E8002A5CD5 /* PopularTableViewCell.swift */,
@@ -220,6 +238,9 @@
 				A2883FE922A840A500E930DA /* PopularItemCollectionViewCell.swift */,
 				A26CBD0822A8710E002A5CD5 /* DeptoItemCollectionViewCell.swift */,
 				A2ED3E1C22B0258E00A12D3A /* TiendaItemCollectionViewCell.swift */,
+				A271296722B2AE5B0099CB0B /* BancoDetailTableViewCell.swift */,
+				A271296922B2AEB70099CB0B /* PayPalDetailTableViewCell.swift */,
+				A271296B22B2AEC40099CB0B /* RecargaDetailTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -310,8 +331,11 @@
 				A23D5AE422A45C35008B4433 /* BonificacionViewController.swift */,
 				A2C1644E22A5CDA900D65B54 /* DatosTicketViewController.swift */,
 				A234CC5A22A6D76F00BCBC7A /* MediosBonificacionTableViewController.swift */,
+				A271296522B2A65C0099CB0B /* MediosBonificacionDetailViewController.swift */,
 				A27824F622A71C9F00A2885E /* PrincipalViewController.swift */,
 				A256FF7C22A9C43F00B977ED /* ContactoViewController.swift */,
+				A2F7E0B422B17A8900A96AB1 /* ProcesaTicketViewController.swift */,
+				A2F7E0B622B1980C00A96AB1 /* SideMenuViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -653,6 +677,9 @@
 				A2F7104E22A57E2F00D9E2B0 /* HistoricoBonificacionTableViewCell.swift in Sources */,
 				A234CC6122A6DDCA00BCBC7A /* RecargaTableViewCell.swift in Sources */,
 				A234CC5D22A6DD8C00BCBC7A /* BancoTableViewCell.swift in Sources */,
+				A271296822B2AE5B0099CB0B /* BancoDetailTableViewCell.swift in Sources */,
+				A2F7E0AF22B168CE00A96AB1 /* InfoTicketTableViewCell.swift in Sources */,
+				A2F7E0B522B17A8900A96AB1 /* ProcesaTicketViewController.swift in Sources */,
 				A234CC5922A6C7BC00BCBC7A /* ProductoTicketTableViewCell.swift in Sources */,
 				A267D7C5222DDCF200153CB8 /* ProductoDetalleViewController.swift in Sources */,
 				A256FF7D22A9C43F00B977ED /* ContactoViewController.swift in Sources */,
@@ -661,9 +688,12 @@
 				A27824F922A7228900A2885E /* CategoriaTableViewCell.swift in Sources */,
 				A2C1644F22A5CDA900D65B54 /* DatosTicketViewController.swift in Sources */,
 				A2BA0666229DCF14009A2213 /* UITextField+image.swift in Sources */,
+				A2F7E0B322B16B1A00A96AB1 /* TotalTicketTableViewCell.swift in Sources */,
 				A267D7C1222DDC8C00153CB8 /* LogInViewController.swift in Sources */,
 				A23D5AE322A45529008B4433 /* PreguntaTableViewCell.swift in Sources */,
+				A271296A22B2AEB70099CB0B /* PayPalDetailTableViewCell.swift in Sources */,
 				A2ED3E1D22B0258E00A12D3A /* TiendaItemCollectionViewCell.swift in Sources */,
+				A271296C22B2AEC40099CB0B /* RecargaDetailTableViewCell.swift in Sources */,
 				A234CC5B22A6D76F00BCBC7A /* MediosBonificacionTableViewController.swift in Sources */,
 				A267D791222DD7AF00153CB8 /* ViewController.swift in Sources */,
 				A26CBD0522A857E8002A5CD5 /* PopularTableViewCell.swift in Sources */,
@@ -685,7 +715,9 @@
 				A256FF7B22A9B30D00B977ED /* ProductoTableViewCell.swift in Sources */,
 				A2F7105022A5916900D9E2B0 /* BonificacionTableViewCell.swift in Sources */,
 				A26E620F229F17C300F0CA76 /* TutorialPageViewController.swift in Sources */,
+				A271296622B2A65C0099CB0B /* MediosBonificacionDetailViewController.swift in Sources */,
 				A2A331B922837FAD000CDA4A /* Producto.swift in Sources */,
+				A2F7E0B722B1980C00A96AB1 /* SideMenuViewController.swift in Sources */,
 				A26C71F1226A448E00FD9794 /* Validations.swift in Sources */,
 				A27824F722A71C9F00A2885E /* PrincipalViewController.swift in Sources */,
 				A267D797222DD7AF00153CB8 /* ShinShin.xcdatamodeld in Sources */,

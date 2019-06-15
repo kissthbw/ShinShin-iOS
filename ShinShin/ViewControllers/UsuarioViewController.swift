@@ -21,12 +21,12 @@ class UsuarioViewController: UITableViewController {
     @IBOutlet weak var txtAnio: UITextField!
     @IBOutlet weak var txtSexo: UITextField!
     @IBOutlet weak var txtCP: UITextField!
-    @IBOutlet weak var txtId: UITextField!
-    @IBOutlet weak var txtCodigo: UITextField!
+//    @IBOutlet weak var txtId: UITextField!
+//    @IBOutlet weak var txtCodigo: UITextField!
     @IBOutlet weak var switchAceptar: UISwitch!
     
     @IBOutlet weak var btnRegistrar: UIButton!
-    @IBOutlet weak var btnActivar: UIButton!
+//    @IBOutlet weak var btnActivar: UIButton!
     
     
     override func viewDidLoad() {
@@ -34,7 +34,7 @@ class UsuarioViewController: UITableViewController {
 //        self.navigationController?.navigationBar.prefersLargeTitles = true
         let textfields = [txtNombre, txtCorreo, txtPassword, txtConfPassword,
         txtTelefono, txtMes, txtDia, txtAnio,
-        txtSexo, txtCP, txtId, txtCodigo]
+        txtSexo, txtCP]
 
         initUIElements(textfields)
     }
@@ -152,8 +152,8 @@ class UsuarioViewController: UITableViewController {
     
     func activateRequest(){
         let user = Usuario()
-        user.idUsuario = Int(txtId.text!)
-        user.codigoVerificacion = txtCodigo.text!
+//        user.idUsuario = Int(txtId.text!)
+//        user.codigoVerificacion = txtCodigo.text!
         
         do{
             let encoder = JSONEncoder()
@@ -177,7 +177,7 @@ class UsuarioViewController: UITableViewController {
         }
 
         btnRegistrar.layer.cornerRadius = 5.0
-        btnActivar.layer.cornerRadius = 5.0
+//        btnActivar.layer.cornerRadius = 5.0
     }
 }
 
