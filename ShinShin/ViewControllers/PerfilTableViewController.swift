@@ -1,27 +1,55 @@
 //
-//  DatosTicketViewController.swift
+//  PerfilTableViewController.swift
 //  ShinShin
 //
-//  Created by Juan Osorio Alvarez on 6/3/19.
+//  Created by Juan Osorio Alvarez on 6/15/19.
 //  Copyright © 2019 Juan Osorio Alvarez. All rights reserved.
 //
 
 import UIKit
 
-class DatosTicketViewController: UIViewController {
-    
-    @IBOutlet weak var tableView: UITableView!
+class PerfilTableViewController: UITableViewController {
+
+    @IBOutlet weak var imageViewPerfil: UIImageView!
+    @IBOutlet weak var txtNombre: UITextField!
+    @IBOutlet weak var txtCorreo: UITextField!
+    @IBOutlet weak var txtTelefono: UITextField!
+    @IBOutlet weak var txtCumple: UITextField!
+    @IBOutlet weak var txtCP: UITextField!
+    @IBOutlet weak var btnGuardar: UIButton!
     var isMenuVisible = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let textfields = [txtNombre, txtCorreo,
+                          txtTelefono, txtCumple, txtCP]
+        
+        txtNombre.delegate = self
+        txtCorreo.delegate = self
+        txtTelefono.delegate = self
+        txtCumple.delegate = self
+        txtCP.delegate = self
+        
+        initUIElements(textfields)
         configureBarButtons()
     }
-    
-    //MARK: - UIActions
-    
+
     //MARK: - Helper methods
-    //Helper Methods
+    func initUIElements(_ elements: [UITextField?]){
+        
+        for text in elements {
+            if let t = text{
+                t.layer.borderWidth = 0.0
+                t.layer.cornerRadius = 10.0
+                t.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
+            }
+        }
+        
+        btnGuardar.layer.cornerRadius = 10.0
+        //        btnActivar.layer.cornerRadius = 5.0
+    }
+    
     func configureBarButtons(){
         let notif = UIBarButtonItem(
             image: UIImage(named: "notif_placeholder"),
@@ -39,11 +67,53 @@ class DatosTicketViewController: UIViewController {
         navigationItem.rightBarButtonItems = [user, notif]
     }
     
-    @objc
-    func enviarTicket(){
-        performSegue(withIdentifier: "EnviarTicketSegue", sender: self)
+    // MARK: - Table view data source
+
+    /*
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
+
+        return cell
     }
-    
+    */
+
+    /*
+    // Override to support conditional editing of the table view.
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    */
+
+    /*
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }    
+    }
+    */
+
+    /*
+    // Override to support rearranging the table view.
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+
+    }
+    */
+
+    /*
+    // Override to support conditional rearranging of the table view.
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the item to be re-orderable.
+        return true
+    }
+    */
+
     /*
     // MARK: - Navigation
 
@@ -56,77 +126,15 @@ class DatosTicketViewController: UIViewController {
 
 }
 
-extension DatosTicketViewController: UITableViewDataSource, UITableViewDelegate{
+extension PerfilTableViewController: UITextFieldDelegate{
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 2{
-            return "Productos"
-        }
-        return ""
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.section {
-        case 0:
-            return 120
-        case 1:
-            return 160
-        case 2:
-            return 70
-        case 3:
-            return 160
-        default:
-            return 44
-        }
-
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 2{
-            return 20
-        }
-        
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MensajeCell", for: indexPath)
-            
-            return cell
-        }
-        else if indexPath.section == 1{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as! InfoTicketTableViewCell
-            
-            return cell
-        }
-        else if indexPath.section == 3{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TotalCell", for: indexPath) as! TotalTicketTableViewCell
-            cell.btnEnviar.addTarget(self, action: #selector(enviarTicket), for: .touchUpInside)
-            return cell
-        }
-        else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ProductoCell", for: indexPath) as! ProductoTicketTableViewCell
-            
-            cell.lblNombre.text = "Paq. 2 aguas Bonafont"
-            cell.lblPresentacion.text = "600 ml"
-            cell.lblCantidad.text = "Cant: 1"
-            cell.lblCodigo.text = "123456789012"
-            cell.lblBonificacion.text = "$ 5"
-            
-            
-            return cell
-        }
-    }
-    
-    
 }
 
-extension DatosTicketViewController: SideMenuDelegate{
+extension PerfilTableViewController: SideMenuDelegate{
     
     @objc
     func showNotif(){

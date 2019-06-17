@@ -47,18 +47,26 @@ class MediosBonificacionDetailViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if sectionSelected == 0{
+        if sectionSelected == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "BancoDetailCell", for: indexPath) as! BancoDetailTableViewCell
+            cell.txtNombre.delegate = self
+            cell.txtTarjeta.delegate = self
             cell.btnGuardar.addTarget(self, action: #selector(guardarItem), for: .touchUpInside)
             return cell
         }
-        else if sectionSelected == 1{
+        else if sectionSelected == 2{
             let cell = tableView.dequeueReusableCell(withIdentifier: "PayPalDetailCell", for: indexPath) as! PayPalDetailTableViewCell
+            cell.txtNombre.delegate = self
+            cell.txtId.delegate = self
+            cell.txtEmail.delegate = self
             cell.btnGuardar.addTarget(self, action: #selector(guardarItem), for: .touchUpInside)
             return cell
         }
         else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "RecargaDetailCell", for: indexPath) as! RecargaDetailTableViewCell
+            cell.txtNombre.delegate = self
+            cell.txtNumero.delegate = self
+            cell.txtCompania.delegate = self
             cell.btnGuardar.addTarget(self, action: #selector(guardarItem), for: .touchUpInside)
             return cell
         }
@@ -109,4 +117,12 @@ class MediosBonificacionDetailViewController: UITableViewController {
     }
     */
 
+}
+
+extension MediosBonificacionDetailViewController: UITextFieldDelegate{
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

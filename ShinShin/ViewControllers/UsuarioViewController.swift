@@ -35,10 +35,25 @@ class UsuarioViewController: UITableViewController {
         let textfields = [txtNombre, txtCorreo, txtPassword, txtConfPassword,
         txtTelefono, txtMes, txtDia, txtAnio,
         txtSexo, txtCP]
+        
+        txtNombre.delegate = self
+        txtCorreo.delegate = self
+        txtPassword.delegate = self
+        txtConfPassword.delegate = self
+        txtTelefono.delegate = self
+        txtMes.delegate = self
+        txtDia.delegate = self
+        txtAnio.delegate = self
+        txtSexo.delegate = self
+        txtCP.delegate = self
 
         initUIElements(textfields)
     }
 
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+////        self.tableView.endEditing(true);
+////        txtNombre.resignFirstResponder()
+//    }
     // MARK: - Table view data source
 
 //    override func numberOfSections(in tableView: UITableView) -> Int {
@@ -180,6 +195,15 @@ class UsuarioViewController: UITableViewController {
 //        btnActivar.layer.cornerRadius = 5.0
     }
 }
+
+extension UsuarioViewController: UITextFieldDelegate{
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
 
 extension UsuarioViewController: RESTActionDelegate{
     func restActionDidSuccessful(data: Data, identifier: String) {

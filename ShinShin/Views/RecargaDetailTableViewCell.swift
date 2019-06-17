@@ -11,7 +11,9 @@ import UIKit
 class RecargaDetailTableViewCell: UITableViewCell {
 
     @IBOutlet weak var txtNombre: UITextField!
-    @IBOutlet weak var txtNumero: UITextField!
+    @IBOutlet weak var txtNumero: UITextField!{
+        didSet { txtNumero?.addDoneCancelToolbar() }
+    }
     @IBOutlet weak var txtCompania: UITextField!
     @IBOutlet weak var btnGuardar: UIButton!
     

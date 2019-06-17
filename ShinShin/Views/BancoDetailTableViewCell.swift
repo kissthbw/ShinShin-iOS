@@ -11,9 +11,15 @@ import UIKit
 class BancoDetailTableViewCell: UITableViewCell {
 
     @IBOutlet weak var txtNombre: UITextField!
-    @IBOutlet weak var txtTarjeta: UITextField!
-    @IBOutlet weak var txtMes: UITextField!
-    @IBOutlet weak var txtAnio: UITextField!
+    @IBOutlet weak var txtTarjeta: UITextField!{
+        didSet { txtTarjeta?.addDoneCancelToolbar() }
+    }
+    @IBOutlet weak var txtMes: UITextField!{
+        didSet { txtTarjeta?.addDoneCancelToolbar() }
+    }
+    @IBOutlet weak var txtAnio: UITextField!{
+        didSet { txtTarjeta?.addDoneCancelToolbar() }
+    }
     @IBOutlet weak var btnGuardar: UIButton!
     
     

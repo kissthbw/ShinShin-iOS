@@ -19,13 +19,18 @@ import FirebaseMLVision
 class OCRViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var txtResults: UITextView!
+    @IBOutlet weak var activity: UIActivityIndicatorView!
+    @IBOutlet weak var btnProcesar: UIButton!
     
     lazy var vision = Vision.vision()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        btnProcesar.layer.cornerRadius = 10.0
+        btnProcesar.isEnabled = false
+        activity.isHidden = true
     }
     
 
@@ -38,10 +43,15 @@ class OCRViewController: UIViewController {
         present(vc, animated: true)
     }
     
+    @IBAction func procesarAction(_ sender: Any) {
+        performSegue(withIdentifier: "TicketDetailSegue", sender: self)
+    }
     //MARK: - Helper methods
     //MARK: - MLVision
     func detectTextFrom(_ image: UIImage){
-        
+        activity.isHidden = false
+        activity.startAnimating()
+        var result = ""
         print("Procesando imagen")
         //1
         let textRecognizer = vision.onDeviceTextRecognizer()
@@ -54,6 +64,7 @@ class OCRViewController: UIViewController {
         let visionImage = VisionImage(image: image)
         visionImage.metadata = metadata
         
+        
         textRecognizer.process(visionImage){text, error in
             guard error == nil, let text = text else {
                 let errorString = error?.localizedDescription ?? "Error"
@@ -65,15 +76,19 @@ class OCRViewController: UIViewController {
             for block in text.blocks{
                 
                 for line in block.lines {
-                    print("\(line.text)")
+//                    print("\(line.text)")
+                    result.append(line.text)
 //                    for element in line.elements{
 //                        print(element.text)
 //                    }
                 }
             }
+            
+            self.activity.stopAnimating()
+            self.activity.isHidden = true
+            self.txtResults.text = result
+            self.btnProcesar.isEnabled = true
         }
-        
-        performSegue(withIdentifier: "TicketDetailSegue", sender: self)
     }
     
     func visionImageOrientation(
@@ -117,6 +132,7 @@ extension OCRViewController: UINavigationControllerDelegate, UIImagePickerContro
         
         //Verificar si se requiere ajustar la imagen
         imageView.image = image
+        
         detectTextFrom(image)
     }
 }
