@@ -86,7 +86,6 @@ Shing</string>
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="restAction" destination="iae-bb-K8m" eventType="touchUpInside" id="dmj-ew-vrE"/>
                                     <segue destination="RAc-zb-Ipd" kind="show" identifier="RegistroSegue" id="Jaj-DC-okF"/>
                                 </connections>
                             </button>
@@ -311,6 +310,34 @@ Shing</string>
             </objects>
             <point key="canvasLocation" x="2625" y="-104"/>
         </scene>
+        <!--Compania Telefonica Table View Controller-->
+        <scene sceneID="52k-Ba-nHf">
+            <objects>
+                <tableViewController id="qd6-aS-qAx" customClass="CompaniaTelefonicaTableViewController" customModule="ShinShin" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QnY-o6-eFX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" id="TW1-PH-FnM">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TW1-PH-FnM" id="2VZ-da-XYf">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="qd6-aS-qAx" id="HI8-cL-gJm"/>
+                            <outlet property="delegate" destination="qd6-aS-qAx" id="6Db-PT-AAQ"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bN1-5k-j3h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-100" y="1877"/>
+        </scene>
         <!--Tutorial View Controller-->
         <scene sceneID="Lij-6a-7eR">
             <objects>
@@ -370,7 +397,7 @@ Shing</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ni2-zG-gpo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-22" y="2239"/>
+            <point key="canvasLocation" x="-844" y="2239"/>
         </scene>
         <!--AyudaVC-->
         <scene sceneID="7FM-ZN-mMP">
@@ -484,7 +511,7 @@ Shing</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wgH-7e-Dy4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-844" y="2238.530734632684"/>
+            <point key="canvasLocation" x="-1692" y="2239"/>
         </scene>
         <!--UsuarioVC-->
         <scene sceneID="ENy-6W-3SF">
@@ -766,7 +793,7 @@ mayúsculas.</string>
                                         <rect key="frame" x="0.0" y="720" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ztq-WO-468" id="Xzm-Y8-kEu">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y0n-tz-rjU">
@@ -806,7 +833,7 @@ mayúsculas.</string>
                                         <rect key="frame" x="0.0" y="800" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="W6d-qZ-Jp4" id="nls-5w-tc4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWd-ix-LA5">
@@ -833,7 +860,7 @@ mayúsculas.</string>
                                         <rect key="frame" x="0.0" y="880" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TAs-UN-zQG" id="D59-Vb-ER7">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vl1-EZ-8sm">
@@ -1151,23 +1178,14 @@ mayúsculas.</string>
                                             <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="17"/>
                                             <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                         </textField>
-                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="[Compañia]" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="990-tj-wzH">
-                                            <rect key="frame" x="38" y="213" width="300" height="45"/>
+                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="[Compañia]" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="990-tj-wzH">
+                                            <rect key="frame" x="37" y="210" width="300" height="45"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="17"/>
                                             <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                         </textField>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Fl-KS-kqb">
-                                            <rect key="frame" x="37" y="301" width="300" height="48"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="1" green="0.43529411759999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="17"/>
-                                            <state key="normal" title="Guardar">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </state>
-                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Telefono" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMk-ww-1hk">
                                             <rect key="frame" x="38" y="99" width="300" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1175,6 +1193,27 @@ mayúsculas.</string>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ora-Eh-Cac">
+                                            <rect key="frame" x="308" y="210" width="29" height="45"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="17"/>
+                                            <state key="normal" title="&gt;">
+                                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <segue destination="qd6-aS-qAx" kind="show" identifier="CompaniaSegue" id="XjD-Zi-Ddm"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Fl-KS-kqb">
+                                            <rect key="frame" x="37" y="263" width="300" height="48"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="1" green="0.43529411759999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="17"/>
+                                            <state key="normal" title="Guardar">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -1188,7 +1227,7 @@ mayúsculas.</string>
                                 <rect key="frame" x="0.0" y="748" width="375" height="360"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nvn-3e-UwP" id="2bc-8y-jeH">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="359.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="360"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="producto_detail_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="pez-fU-65p">
@@ -1267,7 +1306,7 @@ mayúsculas.</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x8G-Tr-dv9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="94" y="1172"/>
+            <point key="canvasLocation" x="-100" y="1171.6641679160421"/>
         </scene>
         <!--BonificacionVC-->
         <scene sceneID="2av-0k-BZY">
@@ -2009,7 +2048,7 @@ a tu saldo,
         <!--Side Menu View Controller-->
         <scene sceneID="8ir-wp-1La">
             <objects>
-                <tableViewController storyboardIdentifier="SideMenuViewControllerOK" id="poe-6g-uHz" customClass="SideMenuViewController" customModule="ShinShin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController restorationIdentifier="SideMenuViewController" storyboardIdentifier="SideMenuViewControllerOK" id="poe-6g-uHz" customClass="SideMenuViewController" customModule="ShinShin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TzN-H1-qmV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2060,6 +2099,14 @@ a tu saldo,
                                                     </state>
                                                     <connections>
                                                         <action selector="selectOptionAction:" destination="poe-6g-uHz" eventType="touchUpInside" id="Jzf-1E-Ao1"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Gm-PK-Wcq">
+                                                    <rect key="frame" x="191" y="11" width="46" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="closeAction:" destination="poe-6g-uHz" eventType="touchUpInside" id="VFb-ej-15d"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -2181,6 +2228,7 @@ Shing</string>
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="btnCerra" destination="0Gm-PK-Wcq" id="0z4-tv-REO"/>
                         <outlet property="btnHistorial" destination="4BE-6a-5ww" id="XQG-gf-rxd"/>
                         <outlet property="btnRetirar" destination="pbQ-8C-d0U" id="zSz-ir-t3Q"/>
                     </connections>
@@ -2336,6 +2384,7 @@ Shing</string>
                         <outlet property="tableView" destination="hcB-Qq-Bdq" id="Ger-rh-OWw"/>
                         <outlet property="topConstraint" destination="du0-55-bLe" id="x7t-sd-UWC"/>
                         <segue destination="2y3-A5-u91" kind="show" identifier="BancariaSegue" id="UU0-eJ-mEY"/>
+                        <segue destination="2y3-A5-u91" kind="show" identifier="EditBancariaSegue" id="ym2-Na-ioa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mYg-E1-v36" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2980,6 +3029,9 @@ ticket</string>
                                                 <constraint firstItem="SEK-oM-Nnp" firstAttribute="top" secondItem="p93-zw-Znd" secondAttribute="top" id="r53-mF-5Ud"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="collectionView" destination="SEK-oM-Nnp" id="dQe-7u-es8"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PopularesCell" rowHeight="210" id="VT8-9m-KLl" customClass="PopularTableViewCell" customModule="ShinShin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="188" width="375" height="210"/>
@@ -3077,6 +3129,9 @@ ticket</string>
                                                 <constraint firstItem="GpE-Ak-TE5" firstAttribute="top" secondItem="zMv-2s-xpA" secondAttribute="top" id="zDc-xB-dFC"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="collectionView" destination="GpE-Ak-TE5" id="mRU-3v-9cQ"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DepartamentosCell" rowHeight="82" id="DbO-MA-oGt" customClass="DeptoTableViewCell" customModule="ShinShin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="398" width="375" height="82"/>
@@ -3140,6 +3195,9 @@ ticket</string>
                                                 </collectionView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="collectionView" destination="U2M-ti-wxg" id="MOt-lE-WHp"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TiendasCell" rowHeight="164" id="s49-ww-L39" customClass="TiendaTableViewCell" customModule="ShinShin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="480" width="375" height="164"/>
@@ -3183,6 +3241,9 @@ ticket</string>
                                                 </collectionView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="collectionView" destination="0ex-Og-Qyf" id="tuC-d5-Hac"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -3222,6 +3283,7 @@ ticket</string>
                         <outlet property="topConstraint" destination="6rV-TB-bQF" id="pWD-Pp-8ap"/>
                         <segue destination="n02-GE-RM8" kind="show" identifier="ProductosSegue" id="Glg-Kv-eDp"/>
                         <segue destination="55A-J7-n13" kind="show" identifier="FotoSegue" id="3lx-fn-cIq"/>
+                        <segue destination="Pcp-9M-Rrl" kind="show" identifier="DetalleProducto" id="g3Q-Qd-pqc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dot-eW-Cxb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3316,4 +3378,8 @@ por acá  ;-)</string>
         <image name="producto_detail_placeholder" width="64" height="64"/>
         <image name="user_placeholder" width="20" height="20"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ym2-Na-ioa"/>
+        <segue reference="g3Q-Qd-pqc"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -31,6 +31,10 @@ class LogInViewController: UIViewController {
         super.viewDidLoad()
         txtUser.delegate = self
         txtPassword.delegate = self
+        
+        txtUser.text = "kissthbw@gmail.com"
+        txtPassword.text = "kiss2101"
+        
         activity.isHidden = true
         initUIElements()
 //        configureBarButtons()
@@ -44,44 +48,10 @@ class LogInViewController: UIViewController {
         //1. Validar campos (Habilitar boton solo cuando los campos esten llenos)
         
         //2. Realizar peticion a back
+        signinRequest()
         
         //3. Habilitar acceso a pantalla principal
-        performSegue(withIdentifier: "PrincipalSegue", sender: nil)
-    }
-    
-    @IBAction func restAction(){
-//        let rest = RESTHelper()
-//        rest.delegate = self
-//        rest.getOperationWith(urlString: RESTHelper.obtieneProductos)
-        activity.startAnimating()
-        RESTHandler.delegate = self
-//        RESTHelper.getOperationWith(urlString: RESTHelper.usuariosList)
-        let item = Usuario()
-        item.idUsuario = 2
-        item.nombre = "Adrian"
-        item.apPaterno = "Osorio"
-        item.apMaterno = "Alvarez"
-        item.fechaNac = "1981-10-02"
-        item.usuario = "adrian"
-        item.contrasenia = "adrian"
-        item.calle = "Pataguas"
-        item.numeroExt = "115"
-        item.numeroInt = ""
-        item.colonia = "La Perla"
-        item.codigoPostal = "57820"
-        item.delMun = "Nezahualcoyotl"
-        item.estado = "Estado de México"
-        item.telLocal = "5557423747"
-        
-        do{
-            let encoder = JSONEncoder()
-            let json = try encoder.encode(item)
-            RESTHandler.postOperationTo(RESTHandler.registraUsuario, with: json, and: "TEST")
-            print(json)
-        }
-        catch{
-            print("JSON Error: \(error)")
-        }
+//        performSegue(withIdentifier: "PrincipalSegue", sender: nil)
     }
 
     //MARK: - Navigation
@@ -99,7 +69,7 @@ class LogInViewController: UIViewController {
             let encoder = JSONEncoder()
             let json = try encoder.encode(user)
             RESTHandler.delegate = self
-            RESTHandler.postOperationTo(RESTHandler.signin, with: json, and: "SIGNIN")
+            RESTHandler.postOperationTo(RESTHandler.login2, with: json, and: "SIGNIN")
         }
         catch{
             //Mostrar popup con error
@@ -141,8 +111,14 @@ extension LogInViewController: RESTActionDelegate{
             
             //Verificar que la respuesta haya sido exitosa
             //Si lo es, dar acceso al app, sino mostrar mensaje de error
-            let result = try decoder.decode([ProductoArray].self, from: data)
-            print( "\(result)" )
+            let rsp = try decoder.decode(InformacionUsuario.self, from: data)
+            if rsp.code == 200{
+                Model.user = rsp.usuario
+                performSegue(withIdentifier: "PrincipalSegue", sender: nil)
+            }
+            else{
+                showMessage(message: "Credenciales inválidas")
+            }
             
         }
         catch{
@@ -151,6 +127,21 @@ extension LogInViewController: RESTActionDelegate{
         
         self.activity.stopAnimating()
         
+    }
+    
+    func showMessage(message: String){
+        let alert = UIAlertController(
+            title: "Whoops...",
+            message: message,
+            preferredStyle: .alert)
+        
+        let action =
+            UIAlertAction(title: "OK",
+                          style: .default,
+                          handler: nil)
+        
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
     
     func restActionDidError() {
@@ -171,6 +162,22 @@ extension LogInViewController: UITextFieldDelegate{
 }
 
 extension LogInViewController: SideMenuDelegate{
+    
+    func closeMenu() {
+        isMenuVisible = !isMenuVisible
+        let viewMenuBack : UIView = (self.navigationController?.view.subviews.last)!
+        //            let viewMenuBack : UIView = view.subviews.last!
+        
+        UIView.animate(withDuration: 0.3, animations: { () -> Void in
+            var frameMenu : CGRect = viewMenuBack.frame
+            frameMenu.origin.x = UIScreen.main.bounds.size.width
+            viewMenuBack.frame = frameMenu
+            viewMenuBack.layoutIfNeeded()
+            viewMenuBack.backgroundColor = UIColor.clear
+        }, completion: { (finished) -> Void in
+            viewMenuBack.removeFromSuperview()
+        })
+    }
     
     @objc
     func showMenu(){

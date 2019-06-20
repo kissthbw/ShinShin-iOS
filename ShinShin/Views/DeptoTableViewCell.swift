@@ -10,6 +10,13 @@ import UIKit
 
 class DeptoTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    var list = [CatalogoDepartamentos](){
+        willSet{
+            self.collectionView.reloadData()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -30,14 +37,14 @@ extension DeptoTableViewCell: UICollectionViewDataSource, UICollectionViewDelega
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return list.count
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DeptoItemCell", for: indexPath) as! DeptoItemCollectionViewCell
         
-        cell.lblDepto.text = "Producto"
+        cell.lblDepto.text = list[indexPath.row].nombreTipoProducto
         cell.image.image = UIImage(named: "producto_detail_placeholder")
         
         return cell

@@ -147,6 +147,31 @@ class UsuarioViewController: UITableViewController {
     func registerRequest(){
         let user = Usuario()
         user.nombre = txtNombre.text!
+        user.correoElectronico = txtCorreo.text!
+        user.usuario = txtCorreo.text!
+        user.contrasenia = txtPassword.text!
+        user.telMovil = txtTelefono.text!
+        
+        var fecNac = ""
+        
+        if let anio = txtAnio!.text{
+            fecNac.append(anio + "-")
+        }
+        
+        if let mes = txtMes!.text{
+            fecNac.append(mes + "-")
+        }
+        
+        if let dia = txtDia!.text{
+            fecNac.append(dia)
+        }
+        
+//        let fecNac = "\(txtAnio!.text)-\(txtMes!.text)-\(txtDia!.text)"
+        user.fechaNac = fecNac
+        user.codigoPostal = txtCP.text!
+        user.idCatalogoSexo = 1
+//        txtSexo.text
+        
 //        user.apPaterno = txtApellidos.text!
 //        user.apMaterno = txtApellidos.text!
 //        user.email = txtEmail.text!
@@ -158,7 +183,7 @@ class UsuarioViewController: UITableViewController {
             let encoder = JSONEncoder()
             let json = try encoder.encode(user)
             RESTHandler.delegate = self
-            RESTHandler.postOperationTo(RESTHandler.registraUsuario, with: json, and: "REGISTER")
+            RESTHandler.postOperationTo(RESTHandler.registrarUsuario, with: json, and: "REGISTER")
         }
         catch{
             //Mostrar popup con error
@@ -212,8 +237,15 @@ extension UsuarioViewController: RESTActionDelegate{
         do{
             let decoder = JSONDecoder()
             
-            let result = try decoder.decode([Usuario].self, from: data)
-            print(result)
+            let rsp = try decoder.decode(SimpleResponse.self, from: data)
+            if rsp.code == 200{
+                var user = Usuario()
+                user.idUsuario = rsp.id
+                Model.user = user
+            }
+            else if rsp.code == 500{
+                showMessage(message: "El usuario ya existe")
+            }
         }
         catch{
             print("JSON Error: \(error)")
@@ -224,5 +256,19 @@ extension UsuarioViewController: RESTActionDelegate{
         
     }
     
+    func showMessage(message: String){
+        let alert = UIAlertController(
+            title: "Whoops...",
+            message: message,
+            preferredStyle: .alert)
+        
+        let action =
+            UIAlertAction(title: "OK",
+                          style: .default,
+                          handler: nil)
+        
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
     
 }

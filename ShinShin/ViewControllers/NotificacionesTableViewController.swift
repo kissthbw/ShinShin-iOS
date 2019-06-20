@@ -122,6 +122,22 @@ class NotificacionesTableViewController: UITableViewController {
 
 extension NotificacionesTableViewController: SideMenuDelegate{
     
+    func closeMenu() {
+        isMenuVisible = !isMenuVisible
+        let viewMenuBack : UIView = (self.navigationController?.view.subviews.last)!
+        //            let viewMenuBack : UIView = view.subviews.last!
+        
+        UIView.animate(withDuration: 0.3, animations: { () -> Void in
+            var frameMenu : CGRect = viewMenuBack.frame
+            frameMenu.origin.x = UIScreen.main.bounds.size.width
+            viewMenuBack.frame = frameMenu
+            viewMenuBack.layoutIfNeeded()
+            viewMenuBack.backgroundColor = UIColor.clear
+        }, completion: { (finished) -> Void in
+            viewMenuBack.removeFromSuperview()
+        })
+    }
+    
     @objc
     func showNotif(){
         openViewControllerBasedOnIdentifier("NotificacionesTableViewController")

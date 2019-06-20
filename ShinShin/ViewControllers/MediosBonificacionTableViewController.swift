@@ -8,16 +8,23 @@
 
 import UIKit
 
+
+
 class MediosBonificacionTableViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    
+    var medios: MediosBonificacionRSP = MediosBonificacionRSP()
+    let ID_RQT_CATALOGO = "CATALOGO"
+    let ID_RQT_MEDIOS = "MEDIOS"
     var sectionSelected = -1
     var isMenuVisible = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBarButtons()
+        catalogoMediosRequest()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -42,15 +49,55 @@ class MediosBonificacionTableViewController: UIViewController {
         user.tintColor = .black
         navigationItem.rightBarButtonItems = [user, notif]
     }
+    
     @objc func btnMasAction(sender: UIButton!){
         sectionSelected = sender.tag
         performSegue(withIdentifier: "BancariaSegue", sender: nil)
     }
     
+    func catalogoMediosRequest(){
+        do{
+//            RESTHandler.delegate = self
+//            RESTHandler.getOperationTo(RESTHandler.obtieneMediosBonificacionPorUsuario, and: ID_RQT_CATALOGO)
+            let encoder = JSONEncoder()
+            let user = Usuario()
+            user.idUsuario = 1
+            let json = try encoder.encode(user)
+            RESTHandler.delegate = self
+            RESTHandler.postOperationTo(RESTHandler.obtieneMediosBonificacionPorUsuario, with: json, and: ID_RQT_CATALOGO)
+        }
+        catch{
+            
+        }
+    }
+    
+    func mediosBonificacionPorUsuario(){
+        do{
+            RESTHandler.delegate = self
+            RESTHandler.getOperationTo(RESTHandler.obtieneCatalogoMediosBonificacion, and: ID_RQT_CATALOGO)
+        }
+        catch{
+            
+        }
+    }
+    
+    //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! MediosBonificacionDetailViewController
-        vc.sectionSelected = sectionSelected
-        vc.delegate = self
+        
+        if segue.identifier == "BancariaSegue"{
+            let vc = segue.destination as! MediosBonificacionDetailViewController
+            vc.sectionSelected = sectionSelected
+            vc.delegate = self
+        }
+        
+        if segue.identifier == "EditBancariaSegue"{
+            let vc = segue.destination as! MediosBonificacionDetailViewController
+            let item = sender as! MediosBonificacion
+            vc.sectionSelected = sectionSelected
+            vc.delegate = self
+            vc.item = item
+        }
+        
     }
    
 }
@@ -73,57 +120,100 @@ extension MediosBonificacionTableViewController: UITableViewDataSource, UITableV
         }
     }
     
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = Bundle.main.loadNibNamed("MediosPagoView", owner: nil, options: nil)!.first as! MediosPagoView
+        header.lblMedioBonificacion.text = medios.mediosBonificacion?[section - 1].nombreMedioBonificacion
         
-        if section != 0{
-            let header = view as! UITableViewHeaderFooterView
-            header.textLabel?.textColor = UIColor.lightGray
-            let imageView = UIImageView(frame: CGRect(x: 5, y: 6, width: 35, height: 35))
-            imageView.image = UIImage(named: "producto_detail_placeholder")
-            header.addSubview(imageView)
-            header.backgroundColor = .white
-            
-            let btnMas = UIButton(type: .system)
-            btnMas.tag = section
-            btnMas.frame = CGRect(x: tableView.frame.width - 100, y: 9, width: 100, height: 20)
-            btnMas.addTarget(self, action: #selector(btnMasAction(sender:)), for: .touchUpInside)
-            var title = ""
-            if section == 0{
-                title = "+ Tarjeta"
-            }
-            else if section == 1{
-                title = "+ Cuenta"
-            }
-            else{
-                title = "+ Número"
-            }
-            
-            btnMas.setTitle(title, for: .normal)
-            header.addSubview(btnMas)
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0{
-            return "¿?"
-        }
-        else if section == 1{
-            return "       Bancarias"
+        if section == 1{
+            header.btnAccion.tag = section
+            header.btnAccion.setTitle("+ Tarjeta", for: .normal)
         }
         else if section == 2{
-            return "       PayPal"
+            header.btnAccion.tag = section
+            header.btnAccion.setTitle("+ Cuenta", for: .normal)
         }
-        else {
-            return "       Recargas telefónicas"
+        else if section == 3{
+            header.btnAccion.tag = section
+            header.btnAccion.setTitle("+ Número", for: .normal)
         }
+        
+        
+        header.btnAccion.addTarget(self, action: #selector(btnMasAction(sender:)), for: .touchUpInside)
+        return header
     }
+    
+//    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+//
+//        if section != 0{
+//            let header = view as! UITableViewHeaderFooterView
+//
+//            header.textLabel?.textColor = UIColor.lightGray
+//            let imageView = UIImageView(frame: CGRect(x: 5, y: 6, width: 35, height: 35))
+//            imageView.image = UIImage(named: "producto_detail_placeholder")
+//            header.addSubview(imageView)
+//            header.backgroundColor = .white
+//
+//            let btnMas = UIButton(type: .system)
+//            btnMas.tag = section
+//            btnMas.frame = CGRect(x: tableView.frame.width - 100, y: 9, width: 100, height: 20)
+//            btnMas.addTarget(self, action: #selector(btnMasAction(sender:)), for: .touchUpInside)
+//            var title = ""
+//            if section == 1{
+//                title = "+ Tarjeta"
+//            }
+//            else if section == 2{
+//                title = "+ Cuenta"
+//            }
+//            else{
+//                title = "+ Número"
+//            }
+//
+//            btnMas.setTitle(title, for: .normal)
+//            header.addSubview(btnMas)
+//        }
+//    }
+    
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        if section == 0{
+//            return "¿?"
+//        }
+//        else if section == 1{
+//            return   medios.mediosBonificacion?[section - 1].nombreMedioBonificacion
+////            return "       Bancarias"
+//        }
+//        else if section == 2{
+////            return "       PayPal"
+//            return medios.mediosBonificacion?[section - 1].nombreMedioBonificacion
+//        }
+//        else {
+////            return "       Recargas telefónicas"
+//            return medios.mediosBonificacion?[section - 1].nombreMedioBonificacion
+//        }
+//    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 4
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if section != 0{
+            return medios.mediosBonificacion?[section - 1].list?.count ?? 0
+        }
+        
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        tableView.deselectRow(at: indexPath, animated: true)
+        return indexPath
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        sectionSelected = indexPath.section
+        tableView.deselectRow(at: indexPath, animated: true)
+        let item = medios.mediosBonificacion?[indexPath.section - 1].list?[indexPath.row]
+        
+        performSegue(withIdentifier: "EditBancariaSegue", sender: item)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -134,29 +224,54 @@ extension MediosBonificacionTableViewController: UITableViewDataSource, UITableV
             return cell
         }
         else if indexPath.section == 1{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BancoCell", for: indexPath) as! BancoTableViewCell
-            cell.lblCuenta.text = "2159****"
-            cell.lblVigencia.text = "02/24"
-            cell.lblTipo.text = "Visa"
+
+            let item = medios.mediosBonificacion?[indexPath.section - 1].list?[indexPath.row]
             
+            return configureCell(atIndexPath: indexPath, withItem: item)
+            
+        }
+        else if indexPath.section == 2{
+            
+            let item = medios.mediosBonificacion?[indexPath.section - 1].list?[indexPath.row]
+            
+            return configureCell(atIndexPath: indexPath, withItem: item)
+        }
+        else{
+
+            let item = medios.mediosBonificacion?[indexPath.section - 1].list?[indexPath.row]
+
+            return configureCell(atIndexPath: indexPath, withItem: item)
+            
+        }
+        
+    }
+    
+    func configureCell(atIndexPath indexPath: IndexPath, withItem item: MediosBonificacion?) -> UITableViewCell{
+        if indexPath.section == 1{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "BancoCell", for: indexPath) as! BancoTableViewCell
+            cell.lblCuenta.text = item?.cuentaMedioBonificacion
+            cell.lblVigencia.text = item?.vigenciaMedioBonificacion
+            cell.lblTipo.text = "Visa"
             
             return cell
         }
-        else if indexPath.section == 2{
+        else if( indexPath.section == 2 ){
             let cell = tableView.dequeueReusableCell(withIdentifier: "PayPalCell", for: indexPath) as! PayPalTableViewCell
-            cell.lblCuenta.text = "kissthbw@gmail.com"
+            
+            cell.lblCuenta.text = item?.cuentaMedioBonificacion
             
             return cell
         }
         else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "RecargaCell", for: indexPath) as! RecargaTableViewCell
-            cell.lblNumero.text = "55 5742 3747"
-            cell.lblCompania.text = "Telcel"
+            cell.lblNumero.text = item?.cuentaMedioBonificacion
+            cell.lblCompania.text = item?.companiaMedioBonificacion
             
             return cell
         }
-        
     }
+    
+    
 }
 
 extension MediosBonificacionTableViewController: MediosBonificacionControllerDelegate{
@@ -195,7 +310,69 @@ extension MediosBonificacionTableViewController: MediosBonificacionControllerDel
     
 }
 
+extension MediosBonificacionTableViewController: RESTActionDelegate{
+    func restActionDidSuccessful(data: Data, identifier: String) {
+        print( "restActionDidSuccessful: \(data)" )
+        
+        do{
+            let decoder = JSONDecoder()
+            
+            if identifier == ID_RQT_CATALOGO{
+                medios = try decoder.decode(MediosBonificacionRSP.self, from: data)
+                print(medios.mediosBonificacion?.count)
+                tableView.reloadData()
+            }
+            else{
+                
+            }
+            
+            
+//            print(rsp)
+//            tableView.reloadData()
+        }
+        catch{
+            print("JSON Error: \(error)")
+        }
+    }
+    
+    func restActionDidError() {
+        self.showNetworkError()
+    }
+    
+    func showNetworkError(){
+        let alert = UIAlertController(
+            title: "Whoops...",
+            message: "Ocurrió un problema." +
+            " Favor de interntar nuevamente",
+            preferredStyle: .alert)
+        
+        let action =
+            UIAlertAction(title: "OK",
+                          style: .default,
+                          handler: nil)
+        
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+}
+
 extension MediosBonificacionTableViewController: SideMenuDelegate{
+    
+    func closeMenu() {
+        isMenuVisible = !isMenuVisible
+        let viewMenuBack : UIView = (self.navigationController?.view.subviews.last)!
+        //            let viewMenuBack : UIView = view.subviews.last!
+        
+        UIView.animate(withDuration: 0.3, animations: { () -> Void in
+            var frameMenu : CGRect = viewMenuBack.frame
+            frameMenu.origin.x = UIScreen.main.bounds.size.width
+            viewMenuBack.frame = frameMenu
+            viewMenuBack.layoutIfNeeded()
+            viewMenuBack.backgroundColor = UIColor.clear
+        }, completion: { (finished) -> Void in
+            viewMenuBack.removeFromSuperview()
+        })
+    }
     
     @objc
     func showNotif(){

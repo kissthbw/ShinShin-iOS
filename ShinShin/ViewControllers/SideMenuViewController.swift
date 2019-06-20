@@ -10,6 +10,7 @@ import UIKit
 
 protocol SideMenuDelegate {
     func sideMenuItemSelectedAtIndex(_ index : Int)
+    func closeMenu()
 }
 
 class SideMenuViewController: UITableViewController {
@@ -17,6 +18,7 @@ class SideMenuViewController: UITableViewController {
     var delegate: SideMenuDelegate?
     @IBOutlet weak var btnRetirar: UIButton!
     @IBOutlet weak var btnHistorial: UIButton!
+    @IBOutlet weak var btnCerra: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,10 @@ class SideMenuViewController: UITableViewController {
         selectedOption(5)
     }
     
+    @IBAction func closeAction(_ sender: Any) {
+        delegate?.closeMenu()
+    }
+    
     
     //MARK: - Helper methods
     func initUIElements(){
@@ -36,8 +42,9 @@ class SideMenuViewController: UITableViewController {
         btnHistorial.layer.cornerRadius = 10.0
     }
     func selectedOption( _ option: Int ){
+        
         if (self.delegate != nil) {
-//            performSegue(withIdentifier: "PrincipalSegue", sender: self)
+            //            performSegue(withIdentifier: "PrincipalSegue", sender: self)
             delegate?.sideMenuItemSelectedAtIndex(option)
         }
         
@@ -49,6 +56,8 @@ class SideMenuViewController: UITableViewController {
             self.view.removeFromSuperview()
             self.removeFromParent()
         })
+        
+        
     }
 
 //    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

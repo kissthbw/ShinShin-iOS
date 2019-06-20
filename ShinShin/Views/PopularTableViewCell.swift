@@ -10,6 +10,16 @@ import UIKit
 
 class PopularTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    var selectedIndex = -1
+    var delegate: CollectionViewDelegate? //Definido en CategoriaTebleViewCell
+    
+    var list = [Producto](){
+        willSet{
+            self.collectionView.reloadData()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -27,12 +37,12 @@ extension PopularTableViewCell: UICollectionViewDataSource, UICollectionViewDele
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Item seleccionado \(indexPath.row)")
+        print( "\(list[indexPath.row].nombreProducto!)" )
     }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return list.count
     }
     
     
@@ -41,8 +51,16 @@ extension PopularTableViewCell: UICollectionViewDataSource, UICollectionViewDele
         
         cell.lblNombre.text = "Producto"
         cell.lblContenido.text = "600 ml"
-        
+        cell.btnMasInfo.tag = indexPath.row
+        cell.btnMasInfo.addTarget(self, action: #selector(selectedItem(sender:)), for: .touchUpInside)
         
         return cell
+    }
+    
+    @objc
+    func selectedItem( sender: Any?){
+        let btn = sender as! UIButton
+        let index = btn.tag
+        delegate?.selectedItem(self, item: list[index])
     }
 }

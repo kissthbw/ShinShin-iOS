@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 /*
  Esta clase contiene metodos de validacion como:
@@ -30,6 +31,4 @@ class Validations{
         
         return false
     }
-    
-    
 }

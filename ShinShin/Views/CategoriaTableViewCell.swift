@@ -8,8 +8,22 @@
 
 import UIKit
 
+protocol CollectionViewDelegate: class{
+    func selectedItem(_ controller: UITableViewCell, item: Producto)
+}
+
 class CategoriaTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    var selectedIndex = -1
+    var delegate: CollectionViewDelegate?
+    
+    var list = [Producto](){
+        willSet{
+            self.collectionView.reloadData()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,12 +40,13 @@ class CategoriaTableViewCell: UITableViewCell {
 
 extension CategoriaTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Item seleccionado \(indexPath.row)")
+//        print( "\(list[indexPath.row].nombreProducto!)" )
+        
     }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return list.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -41,13 +56,19 @@ extension CategoriaTableViewCell: UICollectionViewDataSource, UICollectionViewDe
         cell.viewBannerLeft.backgroundColor  = UIColor(red: 0.0/255.0, green: 121.0/255.0, blue: 77.0/255.0, alpha: 1.0)
         cell.lblBaner.text = "Banner \(indexPath.section) \(indexPath.row)"
         cell.lblContenido.text = "600 ml"
-        cell.btnMasInfo.tag = indexPath.section + indexPath.row
+        cell.btnMasInfo.tag = indexPath.row
+        cell.btnMasInfo.addTarget(self, action: #selector(selectedItem(sender:)), for: .touchUpInside)
         cell.btnMasInfo.backgroundColor  = UIColor(red: 0.0/255.0, green: 121.0/255.0, blue: 77.0/255.0, alpha: 1.0)
         
         return cell
     }
     
-    
+    @objc
+    func selectedItem( sender: Any?){
+        let btn = sender as! UIButton
+        let index = btn.tag
+        delegate?.selectedItem(self, item: list[index])
+    }
 }
 
 extension CategoriaTableViewCell: UICollectionViewDelegateFlowLayout{

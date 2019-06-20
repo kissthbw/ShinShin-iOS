@@ -15,10 +15,31 @@ class PrincipalViewController: UIViewController {
     var categories = ["", "POPULARES", "DEPARTAMENTOS", "TIENDAS"]
     var isMenuVisible = false
     
+    var catalogoDeptos: CatalogoDepartamentosArray = CatalogoDepartamentosArray()
+    var catalogoTiendas: CatalogoTiendasArray = CatalogoTiendasArray()
+    var favoritos: ProductoArray = ProductoArray()
+    var banners: ProductoArray = ProductoArray()
+    
+    
+    let ID_RQT_BANNERS = "ID_RQT_BANNERS"
+    let ID_RQT_FAVORITOS = "ID_RQT_FAVORITOS"
+    let ID_RQT_DEPTOS = "ID_RQT_DEPTOS"
+    let ID_RQT_TIENDAS = "ID_RQT_TIENDAS"
+    enum Seccion{
+        case Banners
+        case Favoritos
+        case Departamentos
+        case Tiendas
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         configureBarButtons()
+        bannersRequest()
+        favoritosRequest()
+        catalogoTiendasRequest()
+        catalogoDepartamentosRequest()
     }
     
 
@@ -59,18 +80,67 @@ class PrincipalViewController: UIViewController {
         navigationItem.rightBarButtonItems = [user, notif]
     }
     
+    func bannersRequest(){
+        do{
+            RESTHandler.delegate = self
+            RESTHandler.getOperationTo(RESTHandler.obtieneBanners, and: ID_RQT_BANNERS)
+        }
+        catch{
+            
+        }
+    }
+    
+    func favoritosRequest(){
+        do{
+            RESTHandler.delegate = self
+            RESTHandler.getOperationTo(RESTHandler.obtieneProductos, and: ID_RQT_FAVORITOS)
+        }
+        catch{
+            
+        }
+    }
+    
+    func catalogoDepartamentosRequest(){
+        do{
+            RESTHandler.delegate = self
+            RESTHandler.getOperationTo(RESTHandler.obtieneCatalogoDepartamentos, and: ID_RQT_DEPTOS)
+        }
+        catch{
+            
+        }
+    }
+    
+    func catalogoTiendasRequest(){
+        do{
+            RESTHandler.delegate = self
+            RESTHandler.getOperationTo(RESTHandler.obtieneCatalogoTiendas, and: ID_RQT_TIENDAS)
+        }
+        catch{
+            
+        }
+    }
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-//        let button  = sender as! UIButton
-//        print("Tag del boton: \(button.tag)")
+        if segue.identifier == "DetalleProducto"{
+            let item = sender as! Producto
+            let vc = segue.destination as! ProductoDetalleViewController
+            vc.item = item
+        }
     }
 
 }
 
+extension PrincipalViewController: CollectionViewDelegate{
+    func selectedItem(_ controller: UITableViewCell, item: Producto) {
+        performSegue(withIdentifier: "DetalleProducto", sender: item)
+    }
+    
+    
+}
 
 extension PrincipalViewController: UITableViewDataSource, UITableViewDelegate{
     
@@ -127,22 +197,25 @@ extension PrincipalViewController: UITableViewDataSource, UITableViewDelegate{
         
         if indexPath.section == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "CategoriaCell") as! CategoriaTableViewCell
-            
+            cell.delegate = self
+            cell.list = banners.productos
+        
             return cell
         }
         else if indexPath.section == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "PopularesCell", for: indexPath) as! PopularTableViewCell
-            
+            cell.delegate = self
+            cell.list = favoritos.productos
             return cell
         }
         else if indexPath.section == 2{
             let cell = tableView.dequeueReusableCell(withIdentifier: "DepartamentosCell", for: indexPath) as! DeptoTableViewCell
-            
+            cell.list = catalogoDeptos.tipoProductos
             return cell
         }
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TiendasCell", for: indexPath) as! TiendaTableViewCell
-            
+            cell.list = catalogoTiendas.tiendas
             return cell
         }
         
@@ -151,7 +224,78 @@ extension PrincipalViewController: UITableViewDataSource, UITableViewDelegate{
     
 }
 
+extension PrincipalViewController: RESTActionDelegate{
+    func restActionDidSuccessful(data: Data, identifier: String) {
+        print( "restActionDidSuccessful: \(identifier)" )
+        
+        do{
+            let decoder = JSONDecoder()
+            
+            if identifier == ID_RQT_BANNERS{
+                banners = try decoder.decode(ProductoArray.self, from: data)
+                
+                tableView.reloadSections(IndexSet(integersIn: 0...0), with: .automatic)
+            }
+            else if identifier == ID_RQT_FAVORITOS{
+                favoritos = try decoder.decode(ProductoArray.self, from: data)
+                
+                tableView.reloadSections(IndexSet(integersIn: 1...1), with: .automatic)
+            }
+            else if identifier == ID_RQT_DEPTOS{
+                catalogoDeptos = try decoder.decode(CatalogoDepartamentosArray.self, from: data)
+                
+                tableView.reloadSections(IndexSet(integersIn: 2...2), with: .automatic)
+            }
+            else if identifier == ID_RQT_TIENDAS{
+                catalogoTiendas = try decoder.decode(CatalogoTiendasArray.self, from: data)
+                
+                tableView.reloadSections(IndexSet(integersIn: 3...3), with: .automatic)
+            }
+            
+        }
+        catch{
+            print("JSON Error: \(error)")
+        }
+    }
+    
+    func restActionDidError() {
+        self.showNetworkError()
+    }
+    
+    func showNetworkError(){
+        let alert = UIAlertController(
+            title: "Whoops...",
+            message: "Ocurrió un problema." +
+            " Favor de interntar nuevamente",
+            preferredStyle: .alert)
+        
+        let action =
+            UIAlertAction(title: "OK",
+                          style: .default,
+                          handler: nil)
+        
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+}
+
 extension PrincipalViewController: SideMenuDelegate{
+    func closeMenu() {
+        isMenuVisible = !isMenuVisible
+        let viewMenuBack : UIView = (self.navigationController?.view.subviews.last)!
+        //            let viewMenuBack : UIView = view.subviews.last!
+        
+        UIView.animate(withDuration: 0.3, animations: { () -> Void in
+            var frameMenu : CGRect = viewMenuBack.frame
+            frameMenu.origin.x = UIScreen.main.bounds.size.width
+            viewMenuBack.frame = frameMenu
+            viewMenuBack.layoutIfNeeded()
+            viewMenuBack.backgroundColor = UIColor.clear
+        }, completion: { (finished) -> Void in
+            viewMenuBack.removeFromSuperview()
+        })
+    }
+    
     
     @objc
     func showNotif(){
@@ -163,6 +307,7 @@ extension PrincipalViewController: SideMenuDelegate{
         
         if isMenuVisible{
             isMenuVisible = !isMenuVisible
+//            let viewMenuBack : UIView = (self.navigationController?.view.subviews.last)!
             let viewMenuBack : UIView = view.subviews.last!
             
             UIView.animate(withDuration: 0.3, animations: { () -> Void in
@@ -178,12 +323,12 @@ extension PrincipalViewController: SideMenuDelegate{
         else{
             isMenuVisible = !isMenuVisible
             let menuVC : SideMenuViewController = self.storyboard!.instantiateViewController(withIdentifier: "SideMenuViewControllerOK") as! SideMenuViewController
-            //        menuVC.btnMenu = sender
+
             menuVC.delegate = self
             self.view.addSubview(menuVC.view)
             self.addChild(menuVC)
             menuVC.view.layoutIfNeeded()
-            menuVC.view.layer.shadowRadius = 2.0
+//            menuVC.view.layer.shadowRadius = 2.0
             
             
             menuVC.view.frame=CGRect(x: UIScreen.main.bounds.size.width, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height);
@@ -198,6 +343,7 @@ extension PrincipalViewController: SideMenuDelegate{
     }
     
     func sideMenuItemSelectedAtIndex(_ index: Int) {
+        
         isMenuVisible = !isMenuVisible
         
         switch(index){
@@ -221,8 +367,16 @@ extension PrincipalViewController: SideMenuDelegate{
     func openViewControllerBasedOnIdentifier(_ strIdentifier:String){
         let destViewController = self.storyboard!.instantiateViewController(withIdentifier: strIdentifier)
         
-        let topViewController = self.navigationController!.topViewController!
+        let vcs = self.navigationController!.viewControllers
+        for vc in vcs {
+            print("ID: \(vc)")
+        }
         
+        
+        let topViewController = self.navigationController!.topViewController!
+        print("ID: \(topViewController)")
+        
+//
         if (topViewController.restorationIdentifier! == destViewController.restorationIdentifier!){
             print("Same VC")
         } else {

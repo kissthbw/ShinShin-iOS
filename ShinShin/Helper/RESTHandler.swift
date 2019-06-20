@@ -32,24 +32,41 @@ class RESTHandler{
     static weak var delegate: RESTActionDelegate?
     
     //Lista de URIs del API
-    static let server = ""
+    //Local
+//    static let server = "http://localhost:8080/shin-back"
+    //AWS
+    static let server = "http://shinshin-env.m7izq9trpe.us-east-2.elasticbeanstalk.com"
     
     //Usuario
-    static let obtieneUsuarios = "http://localhost:8080/shin-back/usuarios/list"
-    static let signin = "http://localhost:8080/shin-back/sign"
-    static let registraUsuario = "http://localhost:8080/shin-back/usuarios/usuario/registrar"
-    static let activarUsuario = "http://localhost:8080/shin-back/usuarios/usuario/activar"
+    static let registrarUsuario = server + "/usuarios/usuario/registrar"
+    static let activarUsuario = server + "/usuarios/usuario/activar"
+    static let login = server + "/usuarios/usuario/login"
+    static let login2 = server + "/usuarios/usuario/login2"
+
+    //Pantalla principal
+    static let obtieneProductos = server + "/productos/list"
+    static let obtieneBanners = server + "/productos/listBanner"
+    static let obtieneProductosPorTipo = server + "/productos/producto/porTipo"
+    static let obtieneCatalogoDepartamentos = server + "/catalogoTipoProductos/list"
+    static let obtieneCatalogoTiendas = server + "/catalogoTiendas/list"
+    
+    //Pantalla de registrar ticket
+    static let registrarTicket = server + "/tickets/ticket/registrar"
+    
+    //Pantalla de medios de bonificacion
+    static let obtieneCatalogoMediosBonificacion = server + "/catalogoMediosBonificacion/list"
+    static let guardarMedioBonificacionUsuario = server + "/mediosBonificacion/mediosBonificacion/guardar"
+    
+    
+    //Pantalla de retiros
+    static let guardarBoniifcacion = server + "/historicoMediosBonificacion/historicoMediosBonificacion/guardar"
+    static let obtieneInformacionBonificacion = server + "/usuarios/usuario/totalBonificacion"
+    static let obtieneMediosBonificacionPorUsuario = server + "/usuarios/usuario/mediosBonificacion"
     
     //Productos
     //http://shinshin-env.m7izq9trpe.us-east-2.elasticbeanstalk.com
-    static let obtieneProductos = "http://shinshin-env.m7izq9trpe.us-east-2.elasticbeanstalk.com/productos/list"
-    
-    //Ticket
-    static let obtieneTicketsPorUsuario = ""
-    static let registrarTicket = ""
-    
-    //Aplicar bonificaciones
-    static let solicitarBonificacion = ""
+//    static let obtieneProductos = "http://shinshin-env.m7izq9trpe.us-east-2.elasticbeanstalk.com/productos/list"
+
     
     class func getOperationTo(_ urlString: String, and identifier: String){
         
@@ -63,7 +80,7 @@ class RESTHandler{
         
         let dataTask = session.dataTask(with: request){ (data, response, error) in
             if let error = error as NSError?, error.code == -999{
-                print( "Error: \(error)" )
+//                print( "Error: \(error)" )
                 DispatchQueue.main.async {
                     self.delegate?.restActionDidError()
                 }
@@ -72,7 +89,7 @@ class RESTHandler{
             else if let httpResponse = response as? HTTPURLResponse,
                 httpResponse.statusCode == 200{
                 DispatchQueue.main.async {
-                    print( "Response: \(httpResponse)" )
+//                    print( "Response: \(httpResponse)" )
                     self.delegate?.restActionDidSuccessful(data: data! as Data, identifier: identifier)
                 }
                 
@@ -91,7 +108,7 @@ class RESTHandler{
     class func postOperationTo(_ urlString: String, with data: Data, and identifier: String){
         let url = URL(string: urlString)
         
-        print("Post operation to URI: \(url!)")
+//        print("Post operation to URI: \(url!)")
         
         var request = URLRequest(url: url!);
         request.httpMethod = "POST"
@@ -110,7 +127,7 @@ class RESTHandler{
             else if let httpResponse = response as? HTTPURLResponse,
                 httpResponse.statusCode == 200{
                 DispatchQueue.main.async {
-                    print( "Response: \(httpResponse)" )
+//                    print( "Response: \(httpResponse)" )
                     self.delegate?.restActionDidSuccessful(data: data! as Data, identifier: identifier)
                 }
                 

@@ -18,7 +18,7 @@ import UIKit
 
 class ProductosTableViewController: UITableViewController {
 
-    var productos = [Producto]()
+    var productos: ProductoArray = ProductoArray()
     var isMenuVisible = false
     
     override func viewDidLoad() {
@@ -52,6 +52,16 @@ class ProductosTableViewController: UITableViewController {
         navigationItem.rightBarButtonItems = [user, notif]
     }
     
+    func productosRequest(){
+        do{
+            RESTHandler.delegate = self
+            RESTHandler.getOperationTo(RESTHandler.obtieneProductos, and: "")
+        }
+        catch{
+            
+        }
+    }
+    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Populares"
@@ -68,14 +78,14 @@ class ProductosTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return productos.count
+        return productos.productos.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductoCell", for: indexPath) as! ProductoTableViewCell
         
-        let item = productos[indexPath.row]
+        let item = productos.productos[indexPath.row]
 
         cell.lblNombre.text = item.nombreProducto
         cell.lblContenido.text = item.contenido
@@ -145,21 +155,12 @@ class ProductosTableViewController: UITableViewController {
 //        let indexPath = sender as! IndexPath
         let btn = sender as! UIButton
         let vc = segue.destination as! ProductoDetalleViewController
-        vc.item = productos[btn.tag]
+        vc.item = productos.productos[btn.tag]
     }
     
     //MARK: - UIActions
     
-    //MARK: - Helper methods
-    func productosRequest(){
-        do{
-            RESTHandler.delegate = self
-            RESTHandler.getOperationTo(RESTHandler.obtieneProductos, and: "")
-        }
-        catch{
-            
-        }
-    }
+    
 }
 
 extension ProductosTableViewController: RESTActionDelegate{
@@ -169,7 +170,7 @@ extension ProductosTableViewController: RESTActionDelegate{
         do{
             let decoder = JSONDecoder()
             
-            productos = try decoder.decode([Producto].self, from: data)
+            productos = try decoder.decode(ProductoArray.self, from: data)
             print(productos)
             tableView.reloadData()
         }
@@ -200,6 +201,22 @@ extension ProductosTableViewController: RESTActionDelegate{
 }
 
 extension ProductosTableViewController: SideMenuDelegate{
+    
+    func closeMenu() {
+        isMenuVisible = !isMenuVisible
+        let viewMenuBack : UIView = (self.navigationController?.view.subviews.last)!
+        //            let viewMenuBack : UIView = view.subviews.last!
+        
+        UIView.animate(withDuration: 0.3, animations: { () -> Void in
+            var frameMenu : CGRect = viewMenuBack.frame
+            frameMenu.origin.x = UIScreen.main.bounds.size.width
+            viewMenuBack.frame = frameMenu
+            viewMenuBack.layoutIfNeeded()
+            viewMenuBack.backgroundColor = UIColor.clear
+        }, completion: { (finished) -> Void in
+            viewMenuBack.removeFromSuperview()
+        })
+    }
     
     @objc
     func showNotif(){
