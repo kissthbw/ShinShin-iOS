@@ -13,6 +13,7 @@ class TutorialViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var btnSiguiente: UIButton!
+    @IBOutlet weak var btnOmitir: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +61,8 @@ class TutorialViewController: UIViewController {
         //PageControl
         
         //Buttons
-        btnSiguiente.layer.cornerRadius = 5.0
+        btnSiguiente.layer.cornerRadius = 10.0
+        btnOmitir.layer.cornerRadius = 10.0
     }
     
     /*

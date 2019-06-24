@@ -10,16 +10,34 @@ import UIKit
 
 class UsuarioViewController: UITableViewController {
 
-
+    
+    @IBOutlet weak var viewNombre: UIView!
     @IBOutlet weak var txtNombre: UITextField!
+    
+    @IBOutlet weak var viewCorreo: UIView!
     @IBOutlet weak var txtCorreo: UITextField!
+    
+    @IBOutlet weak var viewPassword: UIView!
     @IBOutlet weak var txtPassword: UITextField!
+    
+    @IBOutlet weak var viewConfPassword: UIView!
     @IBOutlet weak var txtConfPassword: UITextField!
+    
+    @IBOutlet weak var viewTelefono: UIView!
     @IBOutlet weak var txtTelefono: UITextField!
-    @IBOutlet weak var txtMes: UITextField!
-    @IBOutlet weak var txtDia: UITextField!
+    
+    @IBOutlet weak var viewAnio: UIView!
     @IBOutlet weak var txtAnio: UITextField!
+    @IBOutlet weak var viewDia: UIView!
+    @IBOutlet weak var txtDia: UITextField!
+    @IBOutlet weak var viewMes: UIView!
+    @IBOutlet weak var txtMes: UITextField!
+    
+    
+    @IBOutlet weak var viewSexo: UIView!
     @IBOutlet weak var txtSexo: UITextField!
+    
+    @IBOutlet weak var viewCP: UIView!
     @IBOutlet weak var txtCP: UITextField!
 //    @IBOutlet weak var txtId: UITextField!
 //    @IBOutlet weak var txtCodigo: UITextField!
@@ -118,6 +136,11 @@ class UsuarioViewController: UITableViewController {
     */
     
     //MARK: - UI Actions
+    @IBAction func closeAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
     @IBAction func registerAction(_ sender: Any){
         
         //Validar datos capturados

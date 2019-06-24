@@ -27,6 +27,7 @@ class Producto: Codable, CustomStringConvertible{
     var descripcion: String?
     var urlImagenProducto: String?
     var cantidadBonificacion: Double?
+    var colorBanner: String?
     var catalogoMarca: Marca?
     var catalogoTipoProducto: TipoProducto?
     var catalogoTienda: CatalogoTiendas?

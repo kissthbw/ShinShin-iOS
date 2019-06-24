@@ -15,6 +15,7 @@
 
 import UIKit
 import FirebaseMLVision
+import SideMenu
 
 class OCRViewController: UIViewController {
     
@@ -31,6 +32,14 @@ class OCRViewController: UIViewController {
         btnProcesar.layer.cornerRadius = 10.0
         btnProcesar.isEnabled = false
         activity.isHidden = true
+        
+        configureBarButtons()
+        
+        let menuNavigationController = storyboard!.instantiateViewController(withIdentifier: "MenuNavigationController") as! UISideMenuNavigationController
+        SideMenuManager.default.menuRightNavigationController = menuNavigationController
+        SideMenuManager.default.menuFadeStatusBar = false
+        SideMenuManager.default.menuPresentMode = .menuSlideIn
+        SideMenuManager.default.menuWidth = CGFloat(300)
     }
     
 
@@ -47,6 +56,92 @@ class OCRViewController: UIViewController {
         performSegue(withIdentifier: "TicketDetailSegue", sender: self)
     }
     //MARK: - Helper methods
+    func configureBarButtons(){
+        let img = UIImage(named: "money-grey")
+        let imageView = UIImageView(image: img)
+        imageView.frame = CGRect(x: 4, y: 6, width: 22, height: 22)
+        
+        let lblBonificacion = UILabel()
+        lblBonificacion.font = UIFont(name: "Nunito SemiBold", size: 17)
+        lblBonificacion.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
+        
+        lblBonificacion.text = "$ 10.00"
+        lblBonificacion.sizeToFit()
+        let frame = lblBonificacion.frame
+        lblBonificacion.frame = CGRect(x: 27, y: 6, width: frame.width, height: frame.height)
+        
+        //El tamanio del view debe ser
+        //lblBonificacion.width + imageView.x + imageView.width + 4(que debe ser lo mismo que imageView.x
+        let width = lblBonificacion.frame.width + imageView.frame.minX +
+            imageView.frame.width + imageView.frame.minX
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 32))
+        view.layer.cornerRadius = 10.0
+        view.layer.borderWidth = 1.0
+        view.layer.borderColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0).cgColor
+        view.addSubview(imageView)
+        view.addSubview(lblBonificacion)
+        
+        self.navigationItem.titleView = view
+        
+        let home = UIBarButtonItem(
+            image: UIImage(named: "logo-menu"),
+            style: .plain,
+            target: self,
+            action: #selector(showHome))
+        home.tintColor = .black
+        
+        let notif = UIBarButtonItem(
+            image: UIImage(named: "bar-notif-grey"),
+            style: .plain,
+            target: self,
+            action: #selector(showNotif))
+        notif.tintColor = .black
+        
+        let user = UIBarButtonItem(
+            image: UIImage(named: "bar-user-grey"),
+            style: .plain,
+            target: self,
+            action: #selector(showMenu))
+        user.tintColor = .black
+        navigationItem.rightBarButtonItems = [user, notif]
+        navigationItem.leftBarButtonItems = [home]
+    }
+    
+    func openViewControllerBasedOnIdentifier(_ strIdentifier:String){
+        let destViewController = self.storyboard!.instantiateViewController(withIdentifier: strIdentifier)
+        
+        let vcs = self.navigationController!.viewControllers
+        for vc in vcs {
+            print("ID: \(vc)")
+        }
+        
+        
+        let topViewController = self.navigationController!.topViewController!
+        print("ID: \(topViewController)")
+        
+        //
+        if (topViewController.restorationIdentifier! == destViewController.restorationIdentifier!){
+            print("Same VC")
+        } else {
+            self.navigationController!.pushViewController(destViewController, animated: true)
+        }
+    }
+    
+    @objc
+    func showHome(){
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    func showNotif(){
+        openViewControllerBasedOnIdentifier("NotificacionesTableViewController")
+    }
+    
+    @objc
+    func showMenu(){
+        present(SideMenuManager.default.menuRightNavigationController!, animated: true, completion: nil)
+    }
+    
     //MARK: - MLVision
     func detectTextFrom(_ image: UIImage){
         activity.isHidden = false

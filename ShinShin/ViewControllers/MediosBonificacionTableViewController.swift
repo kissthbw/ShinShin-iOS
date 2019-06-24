@@ -7,13 +7,13 @@
 //
 
 import UIKit
-
-
+import SideMenu
 
 class MediosBonificacionTableViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    @IBOutlet weak var cardView: UIView!
     
     var medios: MediosBonificacionRSP = MediosBonificacionRSP()
     let ID_RQT_CATALOGO = "CATALOGO"
@@ -23,7 +23,15 @@ class MediosBonificacionTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        cardView.layer.cornerRadius = 10.0
         configureBarButtons()
+        
+        let menuNavigationController = storyboard!.instantiateViewController(withIdentifier: "MenuNavigationController") as! UISideMenuNavigationController
+        SideMenuManager.default.menuRightNavigationController = menuNavigationController
+        SideMenuManager.default.menuFadeStatusBar = false
+        SideMenuManager.default.menuPresentMode = .menuSlideIn
+        SideMenuManager.default.menuWidth = CGFloat(300)
+        
         catalogoMediosRequest()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -34,20 +42,54 @@ class MediosBonificacionTableViewController: UIViewController {
     
     //Helper methods
     func configureBarButtons(){
+        let img = UIImage(named: "money-grey")
+        let imageView = UIImageView(image: img)
+        imageView.frame = CGRect(x: 4, y: 6, width: 22, height: 22)
+        
+        let lblBonificacion = UILabel()
+        lblBonificacion.font = UIFont(name: "Nunito SemiBold", size: 17)
+        lblBonificacion.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
+        
+        lblBonificacion.text = "$ 10.00"
+        lblBonificacion.sizeToFit()
+        let frame = lblBonificacion.frame
+        lblBonificacion.frame = CGRect(x: 27, y: 6, width: frame.width, height: frame.height)
+        
+        //El tamanio del view debe ser
+        //lblBonificacion.width + imageView.x + imageView.width + 4(que debe ser lo mismo que imageView.x
+        let width = lblBonificacion.frame.width + imageView.frame.minX +
+            imageView.frame.width + imageView.frame.minX
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 32))
+        view.layer.cornerRadius = 10.0
+        view.layer.borderWidth = 1.0
+        view.layer.borderColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0).cgColor
+        view.addSubview(imageView)
+        view.addSubview(lblBonificacion)
+        
+        self.navigationItem.titleView = view
+        
+        let home = UIBarButtonItem(
+            image: UIImage(named: "logo-menu"),
+            style: .plain,
+            target: self,
+            action: #selector(showHome))
+        home.tintColor = .black
+        
         let notif = UIBarButtonItem(
-            image: UIImage(named: "notif_placeholder"),
+            image: UIImage(named: "bar-notif-grey"),
             style: .plain,
             target: self,
             action: #selector(showNotif))
         notif.tintColor = .black
         
         let user = UIBarButtonItem(
-            image: UIImage(named: "user_placeholder"),
+            image: UIImage(named: "bar-user-grey"),
             style: .plain,
             target: self,
             action: #selector(showMenu))
         user.tintColor = .black
         navigationItem.rightBarButtonItems = [user, notif]
+        navigationItem.leftBarButtonItems = [home]
     }
     
     @objc func btnMasAction(sender: UIButton!){
@@ -81,6 +123,7 @@ class MediosBonificacionTableViewController: UIViewController {
         }
     }
     
+    
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -106,13 +149,13 @@ extension MediosBonificacionTableViewController: UITableViewDataSource, UITableV
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section != 0{
-            return 44
+            return 50
         }
         return 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0{
+        if indexPath.row == 0{
             return 60
         }
         else{
@@ -126,14 +169,17 @@ extension MediosBonificacionTableViewController: UITableViewDataSource, UITableV
         
         if section == 1{
             header.btnAccion.tag = section
+//            header.imageViewLogo.image = UIImage(named: "T##String")
             header.btnAccion.setTitle("+ Tarjeta", for: .normal)
         }
         else if section == 2{
             header.btnAccion.tag = section
+            header.imageViewLogo.image = UIImage(named: "paypal-grey")
             header.btnAccion.setTitle("+ Cuenta", for: .normal)
         }
         else if section == 3{
             header.btnAccion.tag = section
+            header.imageViewLogo.image = UIImage(named: "recarga-grey")
             header.btnAccion.setTitle("+ Número", for: .normal)
         }
         
@@ -200,7 +246,7 @@ extension MediosBonificacionTableViewController: UITableViewDataSource, UITableV
             return medios.mediosBonificacion?[section - 1].list?.count ?? 0
         }
         
-        return 0
+        return 1
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
@@ -285,7 +331,7 @@ extension MediosBonificacionTableViewController: MediosBonificacionControllerDel
                        initialSpringVelocity: 5.0,
                        options: [.curveEaseIn],
                        animations: {
-                        self.topConstraint.constant = 120
+                        self.topConstraint.constant = 50
                         self.view.setNeedsLayout()
                         self.view.layoutIfNeeded()
         }, completion: { (true) in
@@ -375,46 +421,52 @@ extension MediosBonificacionTableViewController: SideMenuDelegate{
     }
     
     @objc
+    func showHome(){
+        self.navigationController?.popToRootViewController(animated: true)
+        //        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
     func showNotif(){
         openViewControllerBasedOnIdentifier("NotificacionesTableViewController")
     }
     
     @objc
     func showMenu(){
-        
-        if isMenuVisible{
-            isMenuVisible = !isMenuVisible
-            let viewMenuBack : UIView = view.subviews.last!
-            
-            UIView.animate(withDuration: 0.3, animations: { () -> Void in
-                var frameMenu : CGRect = viewMenuBack.frame
-                frameMenu.origin.x = UIScreen.main.bounds.size.width
-                viewMenuBack.frame = frameMenu
-                viewMenuBack.layoutIfNeeded()
-                viewMenuBack.backgroundColor = UIColor.clear
-            }, completion: { (finished) -> Void in
-                viewMenuBack.removeFromSuperview()
-            })
-        }
-        else{
-            isMenuVisible = !isMenuVisible
-            let menuVC : SideMenuViewController = self.storyboard!.instantiateViewController(withIdentifier: "SideMenuViewControllerOK") as! SideMenuViewController
-            //        menuVC.btnMenu = sender
-            menuVC.delegate = self
-            self.view.addSubview(menuVC.view)
-            self.addChild(menuVC)
-            menuVC.view.layoutIfNeeded()
-            menuVC.view.layer.shadowRadius = 2.0
-            
-            
-            menuVC.view.frame=CGRect(x: UIScreen.main.bounds.size.width, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height);
-            
-            UIView.animate(withDuration: 0.3, animations: { () -> Void in
-                menuVC.view.frame=CGRect(x: 100, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height);
-                //            sender.isEnabled = true
-            }, completion:nil)
-        }
-        
+        present(SideMenuManager.default.menuRightNavigationController!, animated: true, completion: nil)
+//        if isMenuVisible{
+//            isMenuVisible = !isMenuVisible
+//            let viewMenuBack : UIView = view.subviews.last!
+//
+//            UIView.animate(withDuration: 0.3, animations: { () -> Void in
+//                var frameMenu : CGRect = viewMenuBack.frame
+//                frameMenu.origin.x = UIScreen.main.bounds.size.width
+//                viewMenuBack.frame = frameMenu
+//                viewMenuBack.layoutIfNeeded()
+//                viewMenuBack.backgroundColor = UIColor.clear
+//            }, completion: { (finished) -> Void in
+//                viewMenuBack.removeFromSuperview()
+//            })
+//        }
+//        else{
+//            isMenuVisible = !isMenuVisible
+//            let menuVC : SideMenuViewController = self.storyboard!.instantiateViewController(withIdentifier: "SideMenuViewControllerOK") as! SideMenuViewController
+//            //        menuVC.btnMenu = sender
+//            menuVC.delegate = self
+//            self.view.addSubview(menuVC.view)
+//            self.addChild(menuVC)
+//            menuVC.view.layoutIfNeeded()
+//            menuVC.view.layer.shadowRadius = 2.0
+//
+//
+//            menuVC.view.frame=CGRect(x: UIScreen.main.bounds.size.width, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height);
+//
+//            UIView.animate(withDuration: 0.3, animations: { () -> Void in
+//                menuVC.view.frame=CGRect(x: 100, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height);
+//                //            sender.isEnabled = true
+//            }, completion:nil)
+//        }
+//
         
     }
     

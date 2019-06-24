@@ -13,7 +13,7 @@ protocol CollectionViewDelegate: class{
 }
 
 class CategoriaTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     var selectedIndex = -1
     var delegate: CollectionViewDelegate?
@@ -34,6 +34,23 @@ class CategoriaTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+//    func configure(for result: SearchResult){
+//        nameLabel.text! = result.name
+//
+//        if result.name.isEmpty{
+//            artistNameLabel.text! = "Unknown"
+//        }
+//        else{
+//            artistNameLabel.text! = String(format: "%@ (%@)", result.artist, result.type)
+//        }
+//
+//        artworkImageView.image = UIImage(named: "Placeholder")
+//        if let smallUrl = URL(string: result.imageSmall){
+//            downloadTask = artworkImageView.loadImage(url: smallUrl)
+//        }
+//
+//    }
 
 }
 
@@ -51,14 +68,36 @@ extension CategoriaTableViewCell: UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as! BannerItemCollectionViewCell
-        cell.viewMain.backgroundColor = UIColor(red: 0.0/255.0, green: 131.0/255.0, blue: 77.0/255.0, alpha: 1.0)
-        cell.viewBanner.backgroundColor  = UIColor(red: 0.0/255.0, green: 121.0/255.0, blue: 77.0/255.0, alpha: 1.0)
-        cell.viewBannerLeft.backgroundColor  = UIColor(red: 0.0/255.0, green: 121.0/255.0, blue: 77.0/255.0, alpha: 1.0)
-        cell.lblBaner.text = "Banner \(indexPath.section) \(indexPath.row)"
-        cell.lblContenido.text = "600 ml"
+        
+        let item = list[indexPath.row]
+        cell.configure()
+        if let color = item.colorBanner{
+            let color = color.components(separatedBy: ",")
+            print("\(color[0])")
+            print("\(color[1])")
+            print("\(color[2])")
+            
+            let r = CGFloat(Float(color[0]) ?? 0.0)
+            let g = CGFloat(Float(color[1]) ?? 0.0)
+            let b = CGFloat(Float(color[2]) ?? 0.0)
+            
+            cell.viewBannerLeft.backgroundColor  = UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: 1.0)
+            cell.viewBanner.backgroundColor  = UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: 1.0)
+            
+            cell.viewMain.backgroundColor = UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: 0.8)
+            
+            cell.btnMasInfo.backgroundColor = UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: 0.8)
+        }
+//        let fullNameArr = fullName.components(separatedBy: " ")
+        
+//        cell.viewMain.backgroundColor = UIColor(red: 0.0/255.0, green: 131.0/255.0, blue: 77.0/255.0, alpha: 1.0)
+        
+        
+        cell.lblBaner.text = item.nombreProducto
+        cell.lblContenido.text = item.contenido
         cell.btnMasInfo.tag = indexPath.row
         cell.btnMasInfo.addTarget(self, action: #selector(selectedItem(sender:)), for: .touchUpInside)
-        cell.btnMasInfo.backgroundColor  = UIColor(red: 0.0/255.0, green: 121.0/255.0, blue: 77.0/255.0, alpha: 1.0)
+        
         
         return cell
     }

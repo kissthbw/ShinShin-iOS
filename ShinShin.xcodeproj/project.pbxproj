@@ -43,6 +43,7 @@
 		A267D7C3222DDCA800153CB8 /* ProductosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A267D7C2222DDCA800153CB8 /* ProductosTableViewController.swift */; };
 		A267D7C5222DDCF200153CB8 /* ProductoDetalleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A267D7C4222DDCF200153CB8 /* ProductoDetalleViewController.swift */; };
 		A267D7C9222DDD4C00153CB8 /* OCRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A267D7C8222DDD4C00153CB8 /* OCRViewController.swift */; };
+		A26A0C7022BD58EF00AF5E2D /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26A0C6F22BD58EF00AF5E2D /* UIImageView+DownloadImage.swift */; };
 		A26C71F1226A448E00FD9794 /* Validations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C71F0226A448E00FD9794 /* Validations.swift */; };
 		A26CBD0522A857E8002A5CD5 /* PopularTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26CBD0422A857E8002A5CD5 /* PopularTableViewCell.swift */; };
 		A26CBD0722A870C7002A5CD5 /* DeptoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26CBD0622A870C7002A5CD5 /* DeptoTableViewCell.swift */; };
@@ -68,6 +69,8 @@
 		A2BA0664229DA4A9009A2213 /* BannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BA0663229DA4A9009A2213 /* BannerTableViewCell.swift */; };
 		A2BA0666229DCF14009A2213 /* UITextField+image.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BA0665229DCF14009A2213 /* UITextField+image.swift */; };
 		A2C1644F22A5CDA900D65B54 /* DatosTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C1644E22A5CDA900D65B54 /* DatosTicketViewController.swift */; };
+		A2D1E0E222C12BBD009CCD9E /* NavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2D1E0E122C12BBD009CCD9E /* NavigationBar.xib */; };
+		A2E3A58A22BFB24C0073D861 /* MenuHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E3A58922BFB24C0073D861 /* MenuHeaderTableViewCell.swift */; };
 		A2ED3E1B22B0244400A12D3A /* TiendaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ED3E1A22B0244400A12D3A /* TiendaTableViewCell.swift */; };
 		A2ED3E1D22B0258E00A12D3A /* TiendaItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ED3E1C22B0258E00A12D3A /* TiendaItemCollectionViewCell.swift */; };
 		A2F0AA7822AEB4200069A84A /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2F0AA6A22AEB41E0069A84A /* Nunito-Light.ttf */; };
@@ -95,6 +98,9 @@
 		A2FDF37E22BBDCA70060577B /* CompaniaTelefonicaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FDF37D22BBDCA70060577B /* CompaniaTelefonicaTableViewController.swift */; };
 		A2FDF38022BBF30F0060577B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FDF37F22BBF30F0060577B /* Model.swift */; };
 		A2FDF38222BC1FA30060577B /* InformacionUsuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FDF38122BC1FA30060577B /* InformacionUsuario.swift */; };
+		A2FDF38422BC47F80060577B /* HeaderBannerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2FDF38322BC47F80060577B /* HeaderBannerView.xib */; };
+		A2FDF38622BC49960060577B /* HeaderPrincipal.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2FDF38522BC49960060577B /* HeaderPrincipal.xib */; };
+		A2FDF38822BC50050060577B /* HeaderPrincipalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FDF38722BC50050060577B /* HeaderPrincipalView.swift */; };
 		A351A1E0B06D2F4E2DA37A26 /* Pods_ShinShin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB5E4CF4660742E07CAD85B4 /* Pods_ShinShin.framework */; };
 		A4D416B5E4B27EFBCDC43CA3 /* Pods_ShinShinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D912D7BD4F7EABE2267F1E /* Pods_ShinShinTests.framework */; };
 /* End PBXBuildFile section */
@@ -162,6 +168,7 @@
 		A267D7C2222DDCA800153CB8 /* ProductosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductosTableViewController.swift; sourceTree = "<group>"; };
 		A267D7C4222DDCF200153CB8 /* ProductoDetalleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductoDetalleViewController.swift; sourceTree = "<group>"; };
 		A267D7C8222DDD4C00153CB8 /* OCRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRViewController.swift; sourceTree = "<group>"; };
+		A26A0C6F22BD58EF00AF5E2D /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
 		A26C71F0226A448E00FD9794 /* Validations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validations.swift; sourceTree = "<group>"; };
 		A26CBD0422A857E8002A5CD5 /* PopularTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularTableViewCell.swift; sourceTree = "<group>"; };
 		A26CBD0622A870C7002A5CD5 /* DeptoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeptoTableViewCell.swift; sourceTree = "<group>"; };
@@ -185,6 +192,8 @@
 		A2BA0663229DA4A9009A2213 /* BannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerTableViewCell.swift; sourceTree = "<group>"; };
 		A2BA0665229DCF14009A2213 /* UITextField+image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+image.swift"; sourceTree = "<group>"; };
 		A2C1644E22A5CDA900D65B54 /* DatosTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatosTicketViewController.swift; sourceTree = "<group>"; };
+		A2D1E0E122C12BBD009CCD9E /* NavigationBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationBar.xib; sourceTree = "<group>"; };
+		A2E3A58922BFB24C0073D861 /* MenuHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		A2ED3E1A22B0244400A12D3A /* TiendaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiendaTableViewCell.swift; sourceTree = "<group>"; };
 		A2ED3E1C22B0258E00A12D3A /* TiendaItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiendaItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		A2F0AA6A22AEB41E0069A84A /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
@@ -212,6 +221,9 @@
 		A2FDF37D22BBDCA70060577B /* CompaniaTelefonicaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniaTelefonicaTableViewController.swift; sourceTree = "<group>"; };
 		A2FDF37F22BBF30F0060577B /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		A2FDF38122BC1FA30060577B /* InformacionUsuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformacionUsuario.swift; sourceTree = "<group>"; };
+		A2FDF38322BC47F80060577B /* HeaderBannerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderBannerView.xib; sourceTree = "<group>"; };
+		A2FDF38522BC49960060577B /* HeaderPrincipal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderPrincipal.xib; sourceTree = "<group>"; };
+		A2FDF38722BC50050060577B /* HeaderPrincipalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderPrincipalView.swift; sourceTree = "<group>"; };
 		BC0561385F24CF95853B7D3C /* Pods-ShinShin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShinShin.release.xcconfig"; path = "Target Support Files/Pods-ShinShin/Pods-ShinShin.release.xcconfig"; sourceTree = "<group>"; };
 		C5F085A37EA6DA237FBFD7B9 /* Pods-ShinShinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShinShinTests.release.xcconfig"; path = "Target Support Files/Pods-ShinShinTests/Pods-ShinShinTests.release.xcconfig"; sourceTree = "<group>"; };
 		CB5E4CF4660742E07CAD85B4 /* Pods_ShinShin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShinShin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -253,6 +265,7 @@
 				A20B145D22A036B300667D39 /* Page1.xib */,
 				A20B145F22A0441600667D39 /* Page2.xib */,
 				A223095622B9E6BC00DEA6EA /* MediosPagoView.xib */,
+				A2FDF38322BC47F80060577B /* HeaderBannerView.xib */,
 				A23D5AE222A45529008B4433 /* PreguntaTableViewCell.swift */,
 				A2F7104D22A57E2F00D9E2B0 /* HistoricoBonificacionTableViewCell.swift */,
 				A2F7104F22A5916900D9E2B0 /* BonificacionTableViewCell.swift */,
@@ -276,6 +289,10 @@
 				A271296B22B2AEC40099CB0B /* RecargaDetailTableViewCell.swift */,
 				A26D47DA22B701D90040AC0D /* NotificacionesTableViewCell.swift */,
 				A223095822B9EBA200DEA6EA /* MediosPagoView.swift */,
+				A2FDF38522BC49960060577B /* HeaderPrincipal.xib */,
+				A2FDF38722BC50050060577B /* HeaderPrincipalView.swift */,
+				A2E3A58922BFB24C0073D861 /* MenuHeaderTableViewCell.swift */,
+				A2D1E0E122C12BBD009CCD9E /* NavigationBar.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -287,6 +304,7 @@
 				A20BA6822264E5960030572F /* RESTHandler.swift */,
 				A26C71F0226A448E00FD9794 /* Validations.swift */,
 				A2F9D52B22A1A5E0004DE61A /* UIPreferences.swift */,
+				A26A0C6F22BD58EF00AF5E2D /* UIImageView+DownloadImage.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -555,6 +573,7 @@
 			files = (
 				A2F0AA7F22AEB4200069A84A /* Nunito-Bold.ttf in Resources */,
 				A2F0AA7E22AEB4200069A84A /* Nunito-BlackItalic.ttf in Resources */,
+				A2FDF38622BC49960060577B /* HeaderPrincipal.xib in Resources */,
 				A2F0AA7C22AEB4200069A84A /* Nunito-Regular.ttf in Resources */,
 				A2F0AA8222AEB4200069A84A /* Nunito-ExtraBoldItalic.ttf in Resources */,
 				A2F0AA8522AEB4200069A84A /* Nunito-SemiBold.ttf in Resources */,
@@ -567,7 +586,9 @@
 				A271A7D6229708B10056CE64 /* GoogleService-Info.plist in Resources */,
 				A2F0AA8122AEB4200069A84A /* Nunito-LightItalic.ttf in Resources */,
 				A2F0AA8322AEB4200069A84A /* Nunito-BoldItalic.ttf in Resources */,
+				A2D1E0E222C12BBD009CCD9E /* NavigationBar.xib in Resources */,
 				A267D799222DD7B800153CB8 /* Assets.xcassets in Resources */,
+				A2FDF38422BC47F80060577B /* HeaderBannerView.xib in Resources */,
 				A20B146022A0441600667D39 /* Page2.xib in Resources */,
 				A223095722B9E6BC00DEA6EA /* MediosPagoView.xib in Resources */,
 				A267D794222DD7AF00153CB8 /* Main.storyboard in Resources */,
@@ -654,6 +675,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -665,6 +687,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -751,6 +774,7 @@
 				A25C63E322B7FC730040DEA6 /* Ticket.swift in Sources */,
 				A265419022B953290042C382 /* CatalogoDepartamentos.swift in Sources */,
 				A234CC5B22A6D76F00BCBC7A /* MediosBonificacionTableViewController.swift in Sources */,
+				A26A0C7022BD58EF00AF5E2D /* UIImageView+DownloadImage.swift in Sources */,
 				A267D791222DD7AF00153CB8 /* ViewController.swift in Sources */,
 				A26CBD0522A857E8002A5CD5 /* PopularTableViewCell.swift in Sources */,
 				A2883FE822A81B0300E930DA /* BannerItemCollectionViewCell.swift in Sources */,
@@ -774,7 +798,9 @@
 				A26E6211229F2C2A00F0CA76 /* TutorialViewController.swift in Sources */,
 				A26D47DB22B701D90040AC0D /* NotificacionesTableViewCell.swift in Sources */,
 				A25C63DD22B7E8990040DEA6 /* TipoProducto.swift in Sources */,
+				A2FDF38822BC50050060577B /* HeaderPrincipalView.swift in Sources */,
 				A2BA0664229DA4A9009A2213 /* BannerTableViewCell.swift in Sources */,
+				A2E3A58A22BFB24C0073D861 /* MenuHeaderTableViewCell.swift in Sources */,
 				A256FF7B22A9B30D00B977ED /* ProductoTableViewCell.swift in Sources */,
 				A2F7105022A5916900D9E2B0 /* BonificacionTableViewCell.swift in Sources */,
 				A26E620F229F17C300F0CA76 /* TutorialPageViewController.swift in Sources */,

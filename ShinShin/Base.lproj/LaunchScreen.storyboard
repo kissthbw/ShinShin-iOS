@@ -9,11 +9,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Nunito-ExtraBold.ttf">
-            <string>Nunito-ExtraBold</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -26,17 +21,18 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T8d-jB-Sfe">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=".." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNe-zW-Mdf">
-                                        <rect key="frame" x="177" y="306" width="21" height="55"/>
-                                        <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="40"/>
-                                        <color key="textColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="vr7-rv-kQR">
+                                        <rect key="frame" x="137.5" y="283.5" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="knQ-Di-geg"/>
+                                            <constraint firstAttribute="width" constant="100" id="zO4-b8-dW3"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.43529411759999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="JNe-zW-Mdf" firstAttribute="centerY" secondItem="T8d-jB-Sfe" secondAttribute="centerY" id="QYa-Vg-0b0"/>
-                                    <constraint firstItem="JNe-zW-Mdf" firstAttribute="centerX" secondItem="T8d-jB-Sfe" secondAttribute="centerX" id="tVo-m1-ec1"/>
+                                    <constraint firstItem="vr7-rv-kQR" firstAttribute="centerY" secondItem="T8d-jB-Sfe" secondAttribute="centerY" id="8sA-4B-5SD"/>
+                                    <constraint firstItem="vr7-rv-kQR" firstAttribute="centerX" secondItem="T8d-jB-Sfe" secondAttribute="centerX" id="qGL-qn-2HZ"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -55,4 +51,7 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo" width="50" height="50"/>
+    </resources>
 </document>

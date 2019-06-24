@@ -91,11 +91,13 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - Protobuf (3.7.0)
+  - SideMenu (5.0.3)
 
 DEPENDENCIES:
   - Firebase/Core
   - Firebase/MLVision
   - Firebase/MLVisionTextModel
+  - SideMenu
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -114,6 +116,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - nanopb
     - Protobuf
+    - SideMenu
 
 SPEC CHECKSUMS:
   Firebase: fa80b9d987ca014a1ba9357496ef2a0178b28b12
@@ -131,7 +134,8 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
+  SideMenu: 1dcaabce84538c53325c287f7fe62999379a641c
 
-PODFILE CHECKSUM: dd3701913635f78945e721cc214231ae725abb6b
+PODFILE CHECKSUM: 994d8ca76c921ed84733586b37bc0aad53f16497
 
 COCOAPODS: 1.6.2

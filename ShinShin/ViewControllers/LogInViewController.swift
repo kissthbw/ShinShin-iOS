@@ -19,11 +19,12 @@ import UIKit
 
 class LogInViewController: UIViewController {
 
+    @IBOutlet weak var viewUser: UIView!
     @IBOutlet weak var txtUser: UITextField!
+    @IBOutlet weak var viewPassword: UIView!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var btnLogin: UIButton!
     
-    @IBOutlet weak var activity: UIActivityIndicatorView!
     var isMenuVisible = false
     
     
@@ -34,8 +35,7 @@ class LogInViewController: UIViewController {
         
         txtUser.text = "kissthbw@gmail.com"
         txtPassword.text = "kiss2101"
-        
-        activity.isHidden = true
+
         initUIElements()
 //        configureBarButtons()
         
@@ -94,12 +94,14 @@ class LogInViewController: UIViewController {
     }
     
     func initUIElements(){
-        btnLogin.layer.cornerRadius = 5.0
-        txtUser.withImage(direction: .Left, image: UIImage(named: "img_placeholder")!, colorSeparator: UIColor.orange, colorBorder: UIColor.gray)
-        
-        txtPassword.withImage(direction: .Left, image: UIImage(named: "img_placeholder")!, colorSeparator: UIColor.orange, colorBorder: UIColor.gray)
-        
-        txtPassword.withImage(direction: .Right, image: UIImage(named: "img_placeholder")!, colorSeparator: UIColor.orange, colorBorder: UIColor.gray)
+        viewUser.layer.cornerRadius = 10.0
+        viewPassword.layer.cornerRadius = 10.0
+        btnLogin.layer.cornerRadius = 10.0
+//        txtUser.withImage(direction: .Left, image: UIImage(named: "img_placeholder")!, colorSeparator: UIColor.orange, colorBorder: UIColor.gray)
+//
+//        txtPassword.withImage(direction: .Left, image: UIImage(named: "password")!, colorSeparator: UIColor.orange, colorBorder: UIColor.gray)
+//
+//        txtPassword.withImage(direction: .Right, image: UIImage(named: "password-right-grey")!, colorSeparator: UIColor.orange, colorBorder: UIColor.gray)
     }
 }
 
@@ -125,8 +127,6 @@ extension LogInViewController: RESTActionDelegate{
             print("JSON Error: \(error)")
         }
         
-        self.activity.stopAnimating()
-        
     }
     
     func showMessage(message: String){
@@ -145,7 +145,7 @@ extension LogInViewController: RESTActionDelegate{
     }
     
     func restActionDidError() {
-        self.activity.stopAnimating()
+
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
