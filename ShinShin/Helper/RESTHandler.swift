@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 /*
  Protocolo que deben implementar las clases que hagan uso de RESTHandler
  permite manejar las respuestas exitosas y de error generadas por las
@@ -51,7 +52,8 @@ class RESTHandler{
     static let obtieneCatalogoTiendas = server + "/catalogoTiendas/list"
     
     //Pantalla de registrar ticket
-    static let registrarTicket = server + "/tickets/ticket/registrar"
+//    static let registrarTicket = server + "/tickets/ticket/registrar"
+    static let registrarTicket = server + "/usuarios/usuario/registrar/ticket"
     
     //Pantalla de medios de bonificacion
     static let obtieneCatalogoMediosBonificacion = server + "/catalogoMediosBonificacion/list"

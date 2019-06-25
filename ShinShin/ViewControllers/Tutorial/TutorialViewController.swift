@@ -10,6 +10,7 @@ import UIKit
 
 class TutorialViewController: UIViewController {
     
+    //MARK: - Propiedades
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var btnSiguiente: UIButton!
@@ -20,7 +21,7 @@ class TutorialViewController: UIViewController {
         initUIElements()
     }
     
-    //MARK: - UIActions
+    //MARK: - Actions
     @IBAction func change(_ sender: Any) {
         //Se puede continuar con el paginador hasta llegar al ultimo elemento de vistas
         if pageControl.currentPage == (pageControl.numberOfPages - 1){
@@ -77,6 +78,7 @@ class TutorialViewController: UIViewController {
 
 }
 
+//MARK: - Extensions
 extension TutorialViewController: UIScrollViewDelegate{
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)

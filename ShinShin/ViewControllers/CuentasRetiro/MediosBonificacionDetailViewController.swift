@@ -18,6 +18,7 @@ protocol MediosBonificacionControllerDelegate: class{
 
 class MediosBonificacionDetailViewController: UITableViewController {
 
+    //MARK: - Propiedades
     enum TipoCuenta{
         case Bancaria
         case PayPal
@@ -240,6 +241,7 @@ class MediosBonificacionDetailViewController: UITableViewController {
 
 }
 
+//MARK: - Extensions
 extension MediosBonificacionDetailViewController: CompaniaTelefonicaTableViewControllerDelegate{
     
     func selectItemViewController(_ controller: CompaniaTelefonicaTableViewController, didFinishAddind item: String) {
@@ -252,6 +254,7 @@ extension MediosBonificacionDetailViewController: CompaniaTelefonicaTableViewCon
     
 }
 
+//MARK: - RESTActionDelegate
 extension MediosBonificacionDetailViewController: RESTActionDelegate{
     func restActionDidSuccessful(data: Data, identifier: String) {
         print( "restActionDidSuccessful: \(data)" )

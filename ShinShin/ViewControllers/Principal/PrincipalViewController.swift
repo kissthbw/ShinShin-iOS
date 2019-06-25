@@ -11,17 +11,17 @@ import SideMenu
 
 class PrincipalViewController: UIViewController {
 
+    //MARK: - Propiedades
     @IBOutlet weak var viewBottomBanner: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    
     var categories = ["", "POPULARES", "DEPARTAMENTOS", "TIENDAS"]
     var isMenuVisible = false
-    
     var catalogoDeptos: CatalogoDepartamentosArray = CatalogoDepartamentosArray()
     var catalogoTiendas: CatalogoTiendasArray = CatalogoTiendasArray()
     var favoritos: ProductoArray = ProductoArray()
     var banners: ProductoArray = ProductoArray()
-    
     
     let ID_RQT_BANNERS = "ID_RQT_BANNERS"
     let ID_RQT_FAVORITOS = "ID_RQT_FAVORITOS"
@@ -51,7 +51,7 @@ class PrincipalViewController: UIViewController {
         catalogoDepartamentosRequest()
     }
     
-    //MARK: - UIActions
+    //MARK: - Actions
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -75,7 +75,7 @@ class PrincipalViewController: UIViewController {
     }
     
     
-    //Helper Methods
+    //MARK: - Helper Methods
     func configureBarButtons(){
         let img = UIImage(named: "money-grey")
         let imageView = UIImageView(image: img)
@@ -127,6 +127,17 @@ class PrincipalViewController: UIViewController {
         navigationItem.leftBarButtonItems = [home]
     }
     
+    @objc
+    func showNotif(){
+        let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "NotificacionesTableViewController")
+        self.navigationController!.pushViewController(destViewController, animated: true)
+    }
+    
+    @objc
+    func showMenu(){
+        present(SideMenuManager.default.menuRightNavigationController!, animated: true, completion: nil)
+    }
+    
     func bannersRequest(){
         do{
             RESTHandler.delegate = self
@@ -169,8 +180,6 @@ class PrincipalViewController: UIViewController {
     
     
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DetalleProducto"{
             let item = sender as! Producto
@@ -181,6 +190,7 @@ class PrincipalViewController: UIViewController {
 
 }
 
+//MARK: - Extensions
 extension PrincipalViewController: CollectionViewDelegate{
     func selectedItem(_ controller: UITableViewCell, item: Producto) {
         performSegue(withIdentifier: "DetalleProducto", sender: item)
@@ -210,20 +220,6 @@ extension PrincipalViewController: UITableViewDataSource, UITableViewDelegate{
         
     }
     
-//    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-//
-//        if section == 1{
-//            let header = view as! UITableViewHeaderFooterView
-//            header.textLabel?.textColor = UIColor.darkGray
-//            print("Table width: \(tableView.frame.width)")
-//            let btnMas = UIButton(type: .system)
-//            btnMas.frame = CGRect(x: tableView.frame.width - 100, y: 5, width: 100, height: 20)
-//            btnMas.addTarget(self, action: #selector(btnMasAction(sender:)), for: .touchUpInside)
-//            btnMas.setTitle("Ver todos", for: .normal)
-//            header.addSubview(btnMas)
-//        }
-//    }
-    
     @objc func btnMasAction(sender: UIButton!){
         performSegue(withIdentifier: "ProductosSegue", sender: nil)
     }
@@ -233,12 +229,8 @@ extension PrincipalViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 0{
-            let header = Bundle.main.loadNibNamed("HeaderBannerView", owner: nil, options: nil)!.first as! UIView
-            
-            return header
-        }
-        else if section == 1{
+        
+        if section == 1{
             let header = Bundle.main.loadNibNamed("HeaderPrincipal", owner: nil, options: nil)!.first as! HeaderPrincipalView
             
             header.lblNombreSeccion.text = categories[section]
@@ -256,7 +248,7 @@ extension PrincipalViewController: UITableViewDataSource, UITableViewDelegate{
             header.btnAccion.isHidden = true
             return header
         }
-        else {
+        else if section == 3{
             let header = Bundle.main.loadNibNamed("HeaderPrincipal", owner: nil, options: nil)!.first as! HeaderPrincipalView
             
             header.lblNombreSeccion.text = categories[section]
@@ -264,6 +256,9 @@ extension PrincipalViewController: UITableViewDataSource, UITableViewDelegate{
             header.btnAccion.isHidden = false
             header.btnAccion.setTitle("Privacidad", for: .normal)
             return header
+        }
+        else{
+            return UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0 ))
         }
     }
     
@@ -315,32 +310,32 @@ extension PrincipalViewController: UITableViewDataSource, UITableViewDelegate{
     
 }
 
+//MARK: - RESTActionDelegate
 extension PrincipalViewController: RESTActionDelegate{
     func restActionDidSuccessful(data: Data, identifier: String) {
-        print( "restActionDidSuccessful: \(identifier)" )
         
         do{
             let decoder = JSONDecoder()
             
             if identifier == ID_RQT_BANNERS{
-                banners = try decoder.decode(ProductoArray.self, from: data)
+                self.banners = try decoder.decode(ProductoArray.self, from: data)
                 
-                tableView.reloadSections(IndexSet(integersIn: 0...0), with: .automatic)
+                self.tableView.reloadSections(IndexSet(integersIn: 0...0), with: .automatic)
             }
             else if identifier == ID_RQT_FAVORITOS{
-                favoritos = try decoder.decode(ProductoArray.self, from: data)
+                self.favoritos = try decoder.decode(ProductoArray.self, from: data)
                 
-                tableView.reloadSections(IndexSet(integersIn: 1...1), with: .automatic)
+                self.tableView.reloadSections(IndexSet(integersIn: 1...1), with: .automatic)
             }
             else if identifier == ID_RQT_DEPTOS{
-                catalogoDeptos = try decoder.decode(CatalogoDepartamentosArray.self, from: data)
+                self.catalogoDeptos = try decoder.decode(CatalogoDepartamentosArray.self, from: data)
                 
-                tableView.reloadSections(IndexSet(integersIn: 2...2), with: .automatic)
+                self.tableView.reloadSections(IndexSet(integersIn: 2...2), with: .automatic)
             }
             else if identifier == ID_RQT_TIENDAS{
-                catalogoTiendas = try decoder.decode(CatalogoTiendasArray.self, from: data)
+                self.catalogoTiendas = try decoder.decode(CatalogoTiendasArray.self, from: data)
                 
-                tableView.reloadSections(IndexSet(integersIn: 3...3), with: .automatic)
+                self.tableView.reloadSections(IndexSet(integersIn: 3...3), with: .automatic)
             }
             
         }
@@ -367,111 +362,5 @@ extension PrincipalViewController: RESTActionDelegate{
         
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
-    }
-}
-
-extension PrincipalViewController: SideMenuDelegate{
-    func closeMenu() {
-        isMenuVisible = !isMenuVisible
-        let viewMenuBack : UIView = (self.navigationController?.view.subviews.last)!
-        //            let viewMenuBack : UIView = view.subviews.last!
-        
-        UIView.animate(withDuration: 0.3, animations: { () -> Void in
-            var frameMenu : CGRect = viewMenuBack.frame
-            frameMenu.origin.x = UIScreen.main.bounds.size.width
-            viewMenuBack.frame = frameMenu
-            viewMenuBack.layoutIfNeeded()
-            viewMenuBack.backgroundColor = UIColor.clear
-        }, completion: { (finished) -> Void in
-            viewMenuBack.removeFromSuperview()
-        })
-    }
-    
-    
-    @objc
-    func showNotif(){
-        openViewControllerBasedOnIdentifier("NotificacionesTableViewController")
-    }
-    
-    @objc
-    func showMenu(){
-        present(SideMenuManager.default.menuRightNavigationController!, animated: true, completion: nil)
-//        if isMenuVisible{
-//            isMenuVisible = !isMenuVisible
-////            let viewMenuBack : UIView = (self.navigationController?.view.subviews.last)!
-//            let viewMenuBack : UIView = view.subviews.last!
-//
-//            UIView.animate(withDuration: 0.3, animations: { () -> Void in
-//                var frameMenu : CGRect = viewMenuBack.frame
-//                frameMenu.origin.x = UIScreen.main.bounds.size.width
-//                viewMenuBack.frame = frameMenu
-//                viewMenuBack.layoutIfNeeded()
-//                viewMenuBack.backgroundColor = UIColor.clear
-//            }, completion: { (finished) -> Void in
-//                viewMenuBack.removeFromSuperview()
-//            })
-//        }
-//        else{
-//            isMenuVisible = !isMenuVisible
-//            let menuVC : SideMenuViewController = self.storyboard!.instantiateViewController(withIdentifier: "SideMenuViewControllerOK") as! SideMenuViewController
-//
-//            menuVC.delegate = self
-//            self.view.addSubview(menuVC.view)
-//            self.addChild(menuVC)
-//            menuVC.view.layoutIfNeeded()
-////            menuVC.view.layer.shadowRadius = 2.0
-//
-//
-//            menuVC.view.frame=CGRect(x: UIScreen.main.bounds.size.width, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height);
-//
-//            UIView.animate(withDuration: 0.3, animations: { () -> Void in
-//                menuVC.view.frame=CGRect(x: 100, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height);
-//                //            sender.isEnabled = true
-//            }, completion:nil)
-//        }
-        
-        
-    }
-    
-    func sideMenuItemSelectedAtIndex(_ index: Int) {
-        
-        isMenuVisible = !isMenuVisible
-        
-        switch(index){
-        case 1:
-            self.openViewControllerBasedOnIdentifier("PerfilTableViewController")
-            break
-        case 2: self.openViewControllerBasedOnIdentifier("MediosBonificacionTableViewController")
-        case 3:
-            self.openViewControllerBasedOnIdentifier("AyudaViewControlller")
-        case 4:
-            self.openViewControllerBasedOnIdentifier("ContactoViewController")
-            break
-        case 5:
-            self.openViewControllerBasedOnIdentifier("BonificacionViewController")
-            break
-        default:
-            print("default\n", terminator: "")
-        }
-    }
-    
-    func openViewControllerBasedOnIdentifier(_ strIdentifier:String){
-        let destViewController = self.storyboard!.instantiateViewController(withIdentifier: strIdentifier)
-        
-        let vcs = self.navigationController!.viewControllers
-        for vc in vcs {
-            print("ID: \(vc)")
-        }
-        
-        
-        let topViewController = self.navigationController!.topViewController!
-        print("ID: \(topViewController)")
-        
-//
-        if (topViewController.restorationIdentifier! == destViewController.restorationIdentifier!){
-            print("Same VC")
-        } else {
-            self.navigationController!.pushViewController(destViewController, animated: true)
-        }
     }
 }

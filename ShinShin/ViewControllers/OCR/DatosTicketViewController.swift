@@ -11,24 +11,21 @@ import SideMenu
 
 class DatosTicketViewController: UIViewController {
     
+    //MARK: - Propiedades
     @IBOutlet weak var tableView: UITableView!
+    
     var isMenuVisible = false
+    
+    let ID_RQT_GUARDAR = "ID_RQT_GUARDAR"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBarButtons()
-        
-        let menuNavigationController = storyboard!.instantiateViewController(withIdentifier: "MenuNavigationController") as! UISideMenuNavigationController
-        SideMenuManager.default.menuRightNavigationController = menuNavigationController
-        SideMenuManager.default.menuFadeStatusBar = false
-        SideMenuManager.default.menuPresentMode = .menuSlideIn
-        SideMenuManager.default.menuWidth = CGFloat(300)
     }
     
-    //MARK: - UIActions
+    //MARK: - Actions
     
     //MARK: - Helper methods
-    //Helper Methods
     func configureBarButtons(){
         let img = UIImage(named: "money-grey")
         let imageView = UIImageView(image: img)
@@ -81,8 +78,62 @@ class DatosTicketViewController: UIViewController {
     }
     
     @objc
+    func showHome(){
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    func showNotif(){
+        let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "NotificacionesTableViewController")
+        self.navigationController!.pushViewController(destViewController, animated: true)
+    }
+    
+    @objc
+    func showMenu(){
+        present(SideMenuManager.default.menuRightNavigationController!, animated: true, completion: nil)
+    }
+    
+    @objc
     func enviarTicket(){
-        performSegue(withIdentifier: "EnviarTicketSegue", sender: self)
+//        performSegue(withIdentifier: "EnviarTicketSegue", sender: self)
+        registrarTicketRequest()
+    }
+    
+    func registrarTicketRequest(){
+        do{
+//            let encoder = JSONEncoder()
+            let user = Usuario()
+            user.idUsuario = Model.user?.idUsuario
+            
+            //Crear informacion de ticket
+            let ticket = Ticket()
+            ticket.nombreTienda = "OXXO"
+            ticket.sucursal = "Periferico"
+            ticket.fecha = "2019-06-24"
+            ticket.hora = "2019-06-24T13:18:09"
+            ticket.subtotal = 91.56
+            ticket.iva = 17.44
+            ticket.total = 109
+            
+            //Productos encontrados en el ticket
+            let p = Producto()
+            p.idProducto = 1
+            
+            var productos = [Producto]()
+            productos.append(p)
+            
+            ticket.productos = productos
+            user.tickets = [ticket]
+
+            performSegue(withIdentifier: "EnviarTicketSegue", sender: self)
+            
+//            let json = try encoder.encode(user)
+//            RESTHandler.delegate = self
+//            RESTHandler.postOperationTo(RESTHandler.registrarTicket, with: json, and: ID_RQT_GUARDAR)
+        }
+        catch{
+            
+        }
     }
     
     /*
@@ -97,6 +148,7 @@ class DatosTicketViewController: UIViewController {
 
 }
 
+//MARK: - Extensions
 extension DatosTicketViewController: UITableViewDataSource, UITableViewDelegate{
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -163,110 +215,45 @@ extension DatosTicketViewController: UITableViewDataSource, UITableViewDelegate{
             return cell
         }
     }
-    
-    
 }
 
-extension DatosTicketViewController: SideMenuDelegate{
-    
-    func closeMenu() {
-        isMenuVisible = !isMenuVisible
-        let viewMenuBack : UIView = (self.navigationController?.view.subviews.last)!
-        //            let viewMenuBack : UIView = view.subviews.last!
+//MARK: - RESTActionDelegate
+extension DatosTicketViewController: RESTActionDelegate{
+    func restActionDidSuccessful(data: Data, identifier: String) {
+        print( "restActionDidSuccessful: \(data)" )
         
-        UIView.animate(withDuration: 0.3, animations: { () -> Void in
-            var frameMenu : CGRect = viewMenuBack.frame
-            frameMenu.origin.x = UIScreen.main.bounds.size.width
-            viewMenuBack.frame = frameMenu
-            viewMenuBack.layoutIfNeeded()
-            viewMenuBack.backgroundColor = UIColor.clear
-        }, completion: { (finished) -> Void in
-            viewMenuBack.removeFromSuperview()
-        })
-    }
-    
-    @objc
-    func showNotif(){
-        openViewControllerBasedOnIdentifier("NotificacionesTableViewController")
-    }
-    
-    @objc
-    func showHome(){
-        self.navigationController?.popToRootViewController(animated: true)
-//        self.navigationController?.popViewController(animated: true)
-    }
-    
-    @objc
-    func showMenu(){
-        
-        present(SideMenuManager.default.menuRightNavigationController!, animated: true, completion: nil)
-        
-//        if isMenuVisible{
-//            isMenuVisible = !isMenuVisible
-//            let viewMenuBack : UIView = view.subviews.last!
-//            
-//            UIView.animate(withDuration: 0.3, animations: { () -> Void in
-//                var frameMenu : CGRect = viewMenuBack.frame
-//                frameMenu.origin.x = UIScreen.main.bounds.size.width
-//                viewMenuBack.frame = frameMenu
-//                viewMenuBack.layoutIfNeeded()
-//                viewMenuBack.backgroundColor = UIColor.clear
-//            }, completion: { (finished) -> Void in
-//                viewMenuBack.removeFromSuperview()
-//            })
-//        }
-//        else{
-//            isMenuVisible = !isMenuVisible
-//            let menuVC : SideMenuViewController = self.storyboard!.instantiateViewController(withIdentifier: "SideMenuViewControllerOK") as! SideMenuViewController
-//            //        menuVC.btnMenu = sender
-//            menuVC.delegate = self
-//            self.view.addSubview(menuVC.view)
-//            self.addChild(menuVC)
-//            menuVC.view.layoutIfNeeded()
-//            menuVC.view.layer.shadowRadius = 2.0
-//            
-//            
-//            menuVC.view.frame=CGRect(x: UIScreen.main.bounds.size.width, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height);
-//            
-//            UIView.animate(withDuration: 0.3, animations: { () -> Void in
-//                menuVC.view.frame=CGRect(x: 100, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height);
-//                //            sender.isEnabled = true
-//            }, completion:nil)
-//        }
-        
-        
-    }
-    
-    func sideMenuItemSelectedAtIndex(_ index: Int) {
-        isMenuVisible = !isMenuVisible
-        
-        switch(index){
-        case 1:
-            self.openViewControllerBasedOnIdentifier("PerfilTableViewController")
-            break
-        case 2: self.openViewControllerBasedOnIdentifier("MediosBonificacionTableViewController")
-        case 3:
-            self.openViewControllerBasedOnIdentifier("AyudaViewControlller")
-        case 4:
-            self.openViewControllerBasedOnIdentifier("ContactoViewController")
-            break
-        case 5:
-            self.openViewControllerBasedOnIdentifier("BonificacionViewController")
-            break
-        default:
-            print("default\n", terminator: "")
+        do{
+            let decoder = JSONDecoder()
+            
+            let rsp = try decoder.decode(SimpleResponse.self, from: data)
+            if let code = rsp.code{
+                if code == 200{
+                    print("Ticker registrado de forma correcta")
+                }
+            }
+        }
+        catch{
+            
         }
     }
     
-    func openViewControllerBasedOnIdentifier(_ strIdentifier:String){
-        let destViewController = self.storyboard!.instantiateViewController(withIdentifier: strIdentifier)
+    func restActionDidError() {
+        self.showNetworkError()
+    }
+    
+    func showNetworkError(){
+        let alert = UIAlertController(
+            title: "Whoops...",
+            message: "Ocurrió un problema." +
+            " Favor de interntar nuevamente",
+            preferredStyle: .alert)
         
-        let topViewController = self.navigationController!.topViewController!
+        let action =
+            UIAlertAction(title: "OK",
+                          style: .default,
+                          handler: nil)
         
-        if (topViewController.restorationIdentifier! == destViewController.restorationIdentifier!){
-            print("Same VC")
-        } else {
-            self.navigationController!.pushViewController(destViewController, animated: true)
-        }
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
 }

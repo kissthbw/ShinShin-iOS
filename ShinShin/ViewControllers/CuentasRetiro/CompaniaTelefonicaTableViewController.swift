@@ -14,8 +14,11 @@ protocol CompaniaTelefonicaTableViewControllerDelegate:class{
 
 class CompaniaTelefonicaTableViewController: UITableViewController {
 
+    //MARK: - Propiedades
     let list = ["TELCEL", "MOVISTAR", "VIRGIN"]
     weak var delegate: CompaniaTelefonicaTableViewControllerDelegate?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

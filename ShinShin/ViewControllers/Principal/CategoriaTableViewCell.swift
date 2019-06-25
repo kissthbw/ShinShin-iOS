@@ -73,9 +73,6 @@ extension CategoriaTableViewCell: UICollectionViewDataSource, UICollectionViewDe
         cell.configure()
         if let color = item.colorBanner{
             let color = color.components(separatedBy: ",")
-            print("\(color[0])")
-            print("\(color[1])")
-            print("\(color[2])")
             
             let r = CGFloat(Float(color[0]) ?? 0.0)
             let g = CGFloat(Float(color[1]) ?? 0.0)

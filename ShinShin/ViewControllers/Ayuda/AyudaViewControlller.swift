@@ -11,7 +11,7 @@ import SideMenu
 
 class AyudaViewControlller: UIViewController {
 
-    
+    //MARK: - Propiedades
     @IBOutlet weak var viewTour: UIView!
     @IBOutlet weak var tableView: UITableView!
     var toggle = false
@@ -22,15 +22,9 @@ class AyudaViewControlller: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBarButtons()
-        let menuNavigationController = storyboard!.instantiateViewController(withIdentifier: "MenuNavigationController") as! UISideMenuNavigationController
-        SideMenuManager.default.menuRightNavigationController = menuNavigationController
-        SideMenuManager.default.menuFadeStatusBar = false
-        SideMenuManager.default.menuPresentMode = .menuSlideIn
-        SideMenuManager.default.menuWidth = CGFloat(300)
-        initUIElements()
     }
 
-    //MARK: - UIActions
+    //MARK: - Actions
     
     //MARK: - Helper methods
     func initUIElements(){
@@ -88,8 +82,24 @@ class AyudaViewControlller: UIViewController {
         navigationItem.leftBarButtonItems = [home]
     }
     
+    @objc
+    func showHome(){
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    func showNotif(){
+        let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "NotificacionesTableViewController")
+        self.navigationController!.pushViewController(destViewController, animated: true)
+    }
+    
+    @objc
+    func showMenu(){
+        present(SideMenuManager.default.menuRightNavigationController!, animated: true, completion: nil)
+    }
 }
 
+//MARK: - Extensions
 extension AyudaViewControlller: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -146,109 +156,6 @@ extension AyudaViewControlller: UITableViewDelegate, UITableViewDataSource{
         }
         else{
             return 44
-        }
-    }
-}
-
-extension AyudaViewControlller: SideMenuDelegate{
-    
-    func closeMenu() {
-        isMenuVisible = !isMenuVisible
-        let viewMenuBack : UIView = (self.navigationController?.view.subviews.last)!
-        //            let viewMenuBack : UIView = view.subviews.last!
-        
-        UIView.animate(withDuration: 0.3, animations: { () -> Void in
-            var frameMenu : CGRect = viewMenuBack.frame
-            frameMenu.origin.x = UIScreen.main.bounds.size.width
-            viewMenuBack.frame = frameMenu
-            viewMenuBack.layoutIfNeeded()
-            viewMenuBack.backgroundColor = UIColor.clear
-        }, completion: { (finished) -> Void in
-            viewMenuBack.removeFromSuperview()
-        })
-    }
-    @objc
-    func showHome(){
-        self.navigationController?.popToRootViewController(animated: true)
-        //        self.navigationController?.popViewController(animated: true)
-    }
-    
-    @objc
-    func showNotif(){
-        openViewControllerBasedOnIdentifier("NotificacionesTableViewController")
-    }
-    
-    @objc
-    func showMenu(){
-        
-        present(SideMenuManager.default.menuRightNavigationController!, animated: true, completion: nil)
-        
-//        if isMenuVisible{
-//            isMenuVisible = !isMenuVisible
-//            let viewMenuBack : UIView = view.subviews.last!
-//
-//            UIView.animate(withDuration: 0.3, animations: { () -> Void in
-//                var frameMenu : CGRect = viewMenuBack.frame
-//                frameMenu.origin.x = UIScreen.main.bounds.size.width
-//                viewMenuBack.frame = frameMenu
-//                viewMenuBack.layoutIfNeeded()
-//                viewMenuBack.backgroundColor = UIColor.clear
-//            }, completion: { (finished) -> Void in
-//                viewMenuBack.removeFromSuperview()
-//            })
-//        }
-//        else{
-//            isMenuVisible = !isMenuVisible
-//            let menuVC : SideMenuViewController = self.storyboard!.instantiateViewController(withIdentifier: "SideMenuViewControllerOK") as! SideMenuViewController
-//            //        menuVC.btnMenu = sender
-//            menuVC.delegate = self
-//            self.view.addSubview(menuVC.view)
-//            self.addChild(menuVC)
-//            menuVC.view.layoutIfNeeded()
-//            menuVC.view.layer.shadowRadius = 2.0
-//
-//
-//            menuVC.view.frame=CGRect(x: UIScreen.main.bounds.size.width, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height);
-//
-//            UIView.animate(withDuration: 0.3, animations: { () -> Void in
-//                menuVC.view.frame=CGRect(x: 100, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height);
-//                //            sender.isEnabled = true
-//            }, completion:nil)
-//        }
-//
-//
-    }
-    
-    func sideMenuItemSelectedAtIndex(_ index: Int) {
-        isMenuVisible = !isMenuVisible
-        
-        switch(index){
-        case 1:
-            self.openViewControllerBasedOnIdentifier("PerfilTableViewController")
-            break
-        case 2: self.openViewControllerBasedOnIdentifier("MediosBonificacionTableViewController")
-        case 3:
-            self.openViewControllerBasedOnIdentifier("AyudaViewControlller")
-        case 4:
-            self.openViewControllerBasedOnIdentifier("ContactoViewController")
-            break
-        case 5:
-            self.openViewControllerBasedOnIdentifier("BonificacionViewController")
-            break
-        default:
-            print("default\n", terminator: "")
-        }
-    }
-    
-    func openViewControllerBasedOnIdentifier(_ strIdentifier:String){
-        let destViewController = self.storyboard!.instantiateViewController(withIdentifier: strIdentifier)
-        
-        let topViewController = self.navigationController!.topViewController!
-        
-        if (topViewController.restorationIdentifier! == destViewController.restorationIdentifier!){
-            print("Same VC")
-        } else {
-            self.navigationController!.pushViewController(destViewController, animated: true)
         }
     }
 }

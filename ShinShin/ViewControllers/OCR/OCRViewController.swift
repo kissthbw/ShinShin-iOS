@@ -19,6 +19,7 @@ import SideMenu
 
 class OCRViewController: UIViewController {
     
+    //MARK: - Propiedades
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var txtResults: UITextView!
     @IBOutlet weak var activity: UIActivityIndicatorView!
@@ -34,12 +35,6 @@ class OCRViewController: UIViewController {
         activity.isHidden = true
         
         configureBarButtons()
-        
-        let menuNavigationController = storyboard!.instantiateViewController(withIdentifier: "MenuNavigationController") as! UISideMenuNavigationController
-        SideMenuManager.default.menuRightNavigationController = menuNavigationController
-        SideMenuManager.default.menuFadeStatusBar = false
-        SideMenuManager.default.menuPresentMode = .menuSlideIn
-        SideMenuManager.default.menuWidth = CGFloat(300)
     }
     
 
@@ -55,6 +50,7 @@ class OCRViewController: UIViewController {
     @IBAction func procesarAction(_ sender: Any) {
         performSegue(withIdentifier: "TicketDetailSegue", sender: self)
     }
+    
     //MARK: - Helper methods
     func configureBarButtons(){
         let img = UIImage(named: "money-grey")
@@ -107,25 +103,6 @@ class OCRViewController: UIViewController {
         navigationItem.leftBarButtonItems = [home]
     }
     
-    func openViewControllerBasedOnIdentifier(_ strIdentifier:String){
-        let destViewController = self.storyboard!.instantiateViewController(withIdentifier: strIdentifier)
-        
-        let vcs = self.navigationController!.viewControllers
-        for vc in vcs {
-            print("ID: \(vc)")
-        }
-        
-        
-        let topViewController = self.navigationController!.topViewController!
-        print("ID: \(topViewController)")
-        
-        //
-        if (topViewController.restorationIdentifier! == destViewController.restorationIdentifier!){
-            print("Same VC")
-        } else {
-            self.navigationController!.pushViewController(destViewController, animated: true)
-        }
-    }
     
     @objc
     func showHome(){
@@ -134,7 +111,8 @@ class OCRViewController: UIViewController {
     
     @objc
     func showNotif(){
-        openViewControllerBasedOnIdentifier("NotificacionesTableViewController")
+        let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "NotificacionesTableViewController")
+        self.navigationController!.pushViewController(destViewController, animated: true)
     }
     
     @objc

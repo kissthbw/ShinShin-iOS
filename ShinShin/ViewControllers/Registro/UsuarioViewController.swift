@@ -10,7 +10,7 @@ import UIKit
 
 class UsuarioViewController: UITableViewController {
 
-    
+    //MARK: - Propiedades
     @IBOutlet weak var viewNombre: UIView!
     @IBOutlet weak var txtNombre: UITextField!
     
@@ -135,7 +135,7 @@ class UsuarioViewController: UITableViewController {
     }
     */
     
-    //MARK: - UI Actions
+    //MARK: - Actions
     @IBAction func closeAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -244,6 +244,7 @@ class UsuarioViewController: UITableViewController {
     }
 }
 
+//MARK: - Extensions
 extension UsuarioViewController: UITextFieldDelegate{
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -252,7 +253,7 @@ extension UsuarioViewController: UITextFieldDelegate{
     }
 }
 
-
+//MARK: - RESTActionDelegate
 extension UsuarioViewController: RESTActionDelegate{
     func restActionDidSuccessful(data: Data, identifier: String) {
         print( "restActionDidSuccessful: \(data)" )

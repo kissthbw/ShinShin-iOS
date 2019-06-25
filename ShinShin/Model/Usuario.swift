@@ -33,6 +33,9 @@ class Usuario: Codable, CustomStringConvertible{
     var codigoVerificacion: String?
     var idCatalogoSexo: Int?
     
+    //Para el guardado del ticket
+    var tickets: [Ticket]?
+    
     var description: String{
         return "(ID: \(idUsuario!), nombre: \(nombre!))"
     }
