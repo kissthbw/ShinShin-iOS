@@ -61,7 +61,12 @@ class RESTHandler{
     
     
     //Pantalla de retiros
-    static let guardarBoniifcacion = server + "/historicoMediosBonificacion/historicoMediosBonificacion/guardar"
+    static let guardarBonificacion = server + "/historicoMediosBonificacion/historicoMediosBonificacion/registrar"
+    
+    static let obtieneHistoricoTickets = server + "/usuarios/usuario/historicoTickets"
+    
+    static let obtieneHistoricoBonificaciones = server + "/usuarios/usuario/historicoBonificaciones"
+    
     static let obtieneInformacionBonificacion = server + "/usuarios/usuario/totalBonificacion"
     static let obtieneMediosBonificacionPorUsuario = server + "/usuarios/usuario/mediosBonificacion"
     
@@ -111,6 +116,8 @@ class RESTHandler{
         let url = URL(string: urlString)
         
 //        print("Post operation to URI: \(url!)")
+//        let json = try? JSONSerialization.jsonObject(with: data, options: [])
+//        print("JSON: \(json)")
         
         var request = URLRequest(url: url!);
         request.httpMethod = "POST"

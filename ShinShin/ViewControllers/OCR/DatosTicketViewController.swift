@@ -110,7 +110,7 @@ class DatosTicketViewController: UIViewController {
             ticket.nombreTienda = "OXXO"
             ticket.sucursal = "Periferico"
             ticket.fecha = "2019-06-24"
-            ticket.hora = "2019-06-24T13:18:09"
+//            ticket.hora = "2019-06-24T13:18:09"
             ticket.subtotal = 91.56
             ticket.iva = 17.44
             ticket.total = 109

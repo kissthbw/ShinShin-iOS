@@ -8,11 +8,18 @@
 
 import Foundation
 
+class HistoricoTicket: Codable{
+    var code: Int?
+    var message: String?
+    var id: Int?
+    var tickets = [Ticket]()
+}
+
 class Ticket: Codable, CustomStringConvertible{
     var nombreTienda: String?
     var sucursal: String?
     var fecha: String?
-    var hora: String?
+//    var hora: String?
     var subtotal: Double?
     var iva: Double?
     var total: Double?

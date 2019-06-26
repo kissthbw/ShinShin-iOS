@@ -114,7 +114,7 @@ class MediosBonificacionTableViewController: UIViewController {
 //            RESTHandler.getOperationTo(RESTHandler.obtieneMediosBonificacionPorUsuario, and: ID_RQT_CATALOGO)
             let encoder = JSONEncoder()
             let user = Usuario()
-            user.idUsuario = 1
+            user.idUsuario = Model.user?.idUsuario
             let json = try encoder.encode(user)
             RESTHandler.delegate = self
             RESTHandler.postOperationTo(RESTHandler.obtieneMediosBonificacionPorUsuario, with: json, and: ID_RQT_CATALOGO)

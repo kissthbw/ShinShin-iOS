@@ -1369,7 +1369,7 @@ mayúsculas.</string>
                                 <rect key="frame" x="0.0" y="748" width="375" height="360"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nvn-3e-UwP" id="2bc-8y-jeH">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="360"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="359.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="paypal-grey" translatesAutoresizingMaskIntoConstraints="NO" id="pez-fU-65p">
@@ -1608,7 +1608,7 @@ mayúsculas.</string>
                                             <outlet property="lblTipo" destination="37O-Tc-nSU" id="Wdj-2F-jl4"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HistoricoTicketCell" rowHeight="60" id="Lzd-5w-sFq">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HistoricoTicketCell" rowHeight="60" id="Lzd-5w-sFq" customClass="HistoricoTicketTableViewCell" customModule="ShinShin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="88" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lzd-5w-sFq" id="0ld-lr-t6K">
@@ -1638,6 +1638,11 @@ mayúsculas.</string>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lblCantidad" destination="TIz-7x-fOy" id="HHX-Kg-uju"/>
+                                            <outlet property="lblFecha" destination="iNO-qH-xDN" id="xSo-72-EcM"/>
+                                            <outlet property="lblTienda" destination="JHl-Kx-II5" id="bgS-Hj-0m1"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BonificacionCell" rowHeight="98" id="hwv-7B-ck7" customClass="BonificacionTableViewCell" customModule="ShinShin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="148" width="375" height="98"/>
@@ -1661,17 +1666,23 @@ mayúsculas.</string>
                                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vo0-0O-hke">
+                                                            <rect key="frame" x="304" y="24" width="33" height="33"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <state key="normal" image="down-arrow-placeholder"/>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="btnArrow" destination="Vo0-0O-hke" id="NYv-Ou-SwA"/>
                                             <outlet property="icon" destination="9w8-M4-ht0" id="Neg-TF-tLh"/>
                                             <outlet property="lblTitulo" destination="Ogs-vs-qw5" id="Gja-TZ-BMt"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BancoBonificacionCell" rowHeight="360" id="Lc4-Io-2XX" customClass="BonificacionTableViewCell" customModule="ShinShin" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BancoBonificacionCell" rowHeight="360" id="Lc4-Io-2XX" customClass="BancoBonificacionTableViewCell" customModule="ShinShin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="246" width="375" height="360"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lc4-Io-2XX" id="iYe-9h-3EG">
@@ -1689,7 +1700,7 @@ mayúsculas.</string>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="[NUEVA TARJETA]" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b5f-yx-Ibk">
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="[CANTIDAD]" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b5f-yx-Ibk">
                                                     <rect key="frame" x="37" y="82" width="300" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1704,7 +1715,7 @@ mayúsculas.</string>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="[NUEVA TARJETA]" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XWq-pT-QJI">
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="[SELECCIONAR TARJETA]" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XWq-pT-QJI">
                                                     <rect key="frame" x="37" y="173" width="300" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1731,10 +1742,21 @@ mayúsculas.</string>
                                                         <action selector="registerAction:" destination="RAc-zb-Ipd" eventType="touchUpInside" id="fyY-8N-bvO"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wkE-yz-O2r">
+                                                    <rect key="frame" x="304" y="6" width="33" height="33"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="down-arrow-placeholder"/>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="btnArrow" destination="wkE-yz-O2r" id="YVL-IK-UbH"/>
+                                            <outlet property="btnSolicitar" destination="U2v-z1-Nux" id="I1h-pt-qzB"/>
+                                            <outlet property="txtCantidad" destination="b5f-yx-Ibk" id="Vu3-YB-aQd"/>
+                                            <outlet property="txtCuenta" destination="XWq-pT-QJI" id="TNO-ed-HUv"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PayPalBonificacionCell" rowHeight="360" id="4JT-Hi-sxX" customClass="BonificacionTableViewCell" customModule="ShinShin" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PayPalBonificacionCell" rowHeight="360" id="4JT-Hi-sxX" customClass="PayPalBonificacionTableViewCell" customModule="ShinShin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="606" width="375" height="360"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4JT-Hi-sxX" id="Zw5-mG-b7f">
@@ -1752,7 +1774,7 @@ mayúsculas.</string>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="[NUEVA TARJETA]" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PX5-wF-EMt">
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="[CANTIDAD]" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PX5-wF-EMt">
                                                     <rect key="frame" x="37" y="82" width="300" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1767,7 +1789,7 @@ mayúsculas.</string>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="[NUEVA TARJETA]" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Htk-09-5F9">
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="[SELECCIONA CUENTA]" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Htk-09-5F9">
                                                     <rect key="frame" x="37" y="173" width="300" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1794,10 +1816,21 @@ mayúsculas.</string>
                                                         <action selector="registerAction:" destination="RAc-zb-Ipd" eventType="touchUpInside" id="R4h-Rz-Kji"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q99-2o-8hk">
+                                                    <rect key="frame" x="304" y="7" width="33" height="33"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="down-arrow-placeholder"/>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="btnArrow" destination="q99-2o-8hk" id="SiH-JP-DAn"/>
+                                            <outlet property="btnSolicitar" destination="y84-1y-svk" id="nGa-cP-5XJ"/>
+                                            <outlet property="txtCantidad" destination="PX5-wF-EMt" id="3xb-qG-MYd"/>
+                                            <outlet property="txtCuenta" destination="Htk-09-5F9" id="ho5-n0-sjb"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RecargaBonificacionCell" rowHeight="400" id="h8Q-f2-Lu9" customClass="BonificacionTableViewCell" customModule="ShinShin" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RecargaBonificacionCell" rowHeight="400" id="h8Q-f2-Lu9" customClass="RecargaBonificacionTableViewCell" customModule="ShinShin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="966" width="375" height="400"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h8Q-f2-Lu9" id="eon-Hr-f6z">
@@ -1815,7 +1848,7 @@ mayúsculas.</string>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="[$000,000]" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uin-do-aRK">
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="[CANTIDAD]" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uin-do-aRK">
                                                     <rect key="frame" x="37" y="82" width="300" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1872,8 +1905,20 @@ mayúsculas.</string>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zl-Bj-Wia">
+                                                    <rect key="frame" x="304" y="6" width="33" height="33"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="down-arrow-placeholder"/>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="btnArrow" destination="3zl-Bj-Wia" id="u3z-tu-Cvx"/>
+                                            <outlet property="btnSolicitar" destination="vra-5k-O0H" id="DI8-F3-zim"/>
+                                            <outlet property="txtCantidad" destination="Uin-do-aRK" id="M6e-Tw-TUo"/>
+                                            <outlet property="txtCompania" destination="KyA-9J-mMV" id="1NX-b1-VFV"/>
+                                            <outlet property="txtNumero" destination="61q-mn-NXu" id="HNk-dp-HJS"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -1903,7 +1948,7 @@ mayúsculas.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YOu-sM-vg7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-727" y="809"/>
+            <point key="canvasLocation" x="-727.20000000000005" y="808.24587706146929"/>
         </scene>
         <!--Datos Ticket View Controller-->
         <scene sceneID="Xj0-KH-AeV">

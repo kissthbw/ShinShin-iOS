@@ -46,7 +46,7 @@ class MediosBonificacionDetailViewController: UITableViewController {
                 let cat = CatalogoMediosBonificacion()
                 cat.idCatalogoMedioBonificacion = 1
                 let user = Usuario()
-                user.idUsuario = 1
+                user.idUsuario = Model.user?.idUsuario
                 
                 item.usuario = user
                 item.catalogoMediosBonificacion = cat
@@ -62,7 +62,7 @@ class MediosBonificacionDetailViewController: UITableViewController {
                 let cat = CatalogoMediosBonificacion()
                 cat.idCatalogoMedioBonificacion = 2
                 let user = Usuario()
-                user.idUsuario = 1
+                user.idUsuario = Model.user?.idUsuario
                 
                 item.usuario = user
                 item.catalogoMediosBonificacion = cat
@@ -78,7 +78,7 @@ class MediosBonificacionDetailViewController: UITableViewController {
                 let cat = CatalogoMediosBonificacion()
                 cat.idCatalogoMedioBonificacion = 3
                 let user = Usuario()
-                user.idUsuario = 1
+                user.idUsuario = Model.user?.idUsuario
                 
                 item.usuario = user
                 item.catalogoMediosBonificacion = cat
@@ -169,8 +169,7 @@ class MediosBonificacionDetailViewController: UITableViewController {
         catch{
             
         }
-    }
-    
+    }    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 360

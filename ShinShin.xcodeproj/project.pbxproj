@@ -20,9 +20,14 @@
 		A234CC6122A6DDCA00BCBC7A /* RecargaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A234CC6022A6DDCA00BCBC7A /* RecargaTableViewCell.swift */; };
 		A23D5AE322A45529008B4433 /* PreguntaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23D5AE222A45529008B4433 /* PreguntaTableViewCell.swift */; };
 		A23D5AE522A45C35008B4433 /* BonificacionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23D5AE422A45C35008B4433 /* BonificacionViewController.swift */; };
+		A23EBA1922C40E4F009BDDB9 /* HistoricoTicketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23EBA1822C40E4F009BDDB9 /* HistoricoTicketTableViewCell.swift */; };
 		A24BF96A2259353F002DF555 /* UsuarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24BF9692259353F002DF555 /* UsuarioViewController.swift */; };
 		A256FF7B22A9B30D00B977ED /* ProductoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A256FF7A22A9B30C00B977ED /* ProductoTableViewCell.swift */; };
 		A256FF7D22A9C43F00B977ED /* ContactoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A256FF7C22A9C43F00B977ED /* ContactoViewController.swift */; };
+		A25B26AA22C282AD006AEB7B /* BancoBonificacionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25B26A922C282AD006AEB7B /* BancoBonificacionTableViewCell.swift */; };
+		A25B26AC22C28871006AEB7B /* PayPalBonificacionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25B26AB22C28871006AEB7B /* PayPalBonificacionTableViewCell.swift */; };
+		A25B26AE22C28893006AEB7B /* RecargaBonificacionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25B26AD22C28893006AEB7B /* RecargaBonificacionTableViewCell.swift */; };
+		A25B26B022C290DA006AEB7B /* Bonificacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25B26AF22C290DA006AEB7B /* Bonificacion.swift */; };
 		A25C63DB22B7E88D0040DEA6 /* Marca.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25C63DA22B7E88D0040DEA6 /* Marca.swift */; };
 		A25C63DD22B7E8990040DEA6 /* TipoProducto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25C63DC22B7E8990040DEA6 /* TipoProducto.swift */; };
 		A25C63DF22B7F71F0040DEA6 /* CatalogoMediosBonificacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25C63DE22B7F71F0040DEA6 /* CatalogoMediosBonificacion.swift */; };
@@ -136,9 +141,14 @@
 		A234CC6022A6DDCA00BCBC7A /* RecargaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecargaTableViewCell.swift; sourceTree = "<group>"; };
 		A23D5AE222A45529008B4433 /* PreguntaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreguntaTableViewCell.swift; sourceTree = "<group>"; };
 		A23D5AE422A45C35008B4433 /* BonificacionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonificacionViewController.swift; sourceTree = "<group>"; };
+		A23EBA1822C40E4F009BDDB9 /* HistoricoTicketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricoTicketTableViewCell.swift; sourceTree = "<group>"; };
 		A24BF9692259353F002DF555 /* UsuarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioViewController.swift; sourceTree = "<group>"; };
 		A256FF7A22A9B30C00B977ED /* ProductoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductoTableViewCell.swift; sourceTree = "<group>"; };
 		A256FF7C22A9C43F00B977ED /* ContactoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactoViewController.swift; sourceTree = "<group>"; };
+		A25B26A922C282AD006AEB7B /* BancoBonificacionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BancoBonificacionTableViewCell.swift; sourceTree = "<group>"; };
+		A25B26AB22C28871006AEB7B /* PayPalBonificacionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayPalBonificacionTableViewCell.swift; sourceTree = "<group>"; };
+		A25B26AD22C28893006AEB7B /* RecargaBonificacionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecargaBonificacionTableViewCell.swift; sourceTree = "<group>"; };
+		A25B26AF22C290DA006AEB7B /* Bonificacion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bonificacion.swift; sourceTree = "<group>"; };
 		A25C63DA22B7E88D0040DEA6 /* Marca.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marca.swift; sourceTree = "<group>"; };
 		A25C63DC22B7E8990040DEA6 /* TipoProducto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipoProducto.swift; sourceTree = "<group>"; };
 		A25C63DE22B7F71F0040DEA6 /* CatalogoMediosBonificacion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogoMediosBonificacion.swift; sourceTree = "<group>"; };
@@ -361,6 +371,7 @@
 				A265418F22B953290042C382 /* CatalogoDepartamentos.swift */,
 				A2FDF37F22BBF30F0060577B /* Model.swift */,
 				A2FDF38122BC1FA30060577B /* InformacionUsuario.swift */,
+				A25B26AF22C290DA006AEB7B /* Bonificacion.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -498,6 +509,10 @@
 				A23D5AE422A45C35008B4433 /* BonificacionViewController.swift */,
 				A2F7104D22A57E2F00D9E2B0 /* HistoricoBonificacionTableViewCell.swift */,
 				A2F7104F22A5916900D9E2B0 /* BonificacionTableViewCell.swift */,
+				A25B26A922C282AD006AEB7B /* BancoBonificacionTableViewCell.swift */,
+				A25B26AB22C28871006AEB7B /* PayPalBonificacionTableViewCell.swift */,
+				A25B26AD22C28893006AEB7B /* RecargaBonificacionTableViewCell.swift */,
+				A23EBA1822C40E4F009BDDB9 /* HistoricoTicketTableViewCell.swift */,
 			);
 			path = "Bonificaciones-Historico";
 			sourceTree = "<group>";
@@ -840,6 +855,7 @@
 				A2F7E0AF22B168CE00A96AB1 /* InfoTicketTableViewCell.swift in Sources */,
 				A2F7E0B522B17A8900A96AB1 /* ProcesaTicketViewController.swift in Sources */,
 				A234CC5922A6C7BC00BCBC7A /* ProductoTicketTableViewCell.swift in Sources */,
+				A25B26B022C290DA006AEB7B /* Bonificacion.swift in Sources */,
 				A267D7C5222DDCF200153CB8 /* ProductoDetalleViewController.swift in Sources */,
 				A256FF7D22A9C43F00B977ED /* ContactoViewController.swift in Sources */,
 				A2883FEA22A840A500E930DA /* PopularItemCollectionViewCell.swift in Sources */,
@@ -851,6 +867,7 @@
 				A2C1644F22A5CDA900D65B54 /* DatosTicketViewController.swift in Sources */,
 				A2BA0666229DCF14009A2213 /* UITextField+image.swift in Sources */,
 				A2F7E0B322B16B1A00A96AB1 /* TotalTicketTableViewCell.swift in Sources */,
+				A23EBA1922C40E4F009BDDB9 /* HistoricoTicketTableViewCell.swift in Sources */,
 				A267D7C1222DDC8C00153CB8 /* LogInViewController.swift in Sources */,
 				A23D5AE322A45529008B4433 /* PreguntaTableViewCell.swift in Sources */,
 				A271296A22B2AEB70099CB0B /* PayPalDetailTableViewCell.swift in Sources */,
@@ -863,6 +880,7 @@
 				A26CBD0522A857E8002A5CD5 /* PopularTableViewCell.swift in Sources */,
 				A2883FE822A81B0300E930DA /* BannerItemCollectionViewCell.swift in Sources */,
 				A267D78F222DD7AF00153CB8 /* AppDelegate.swift in Sources */,
+				A25B26AA22C282AD006AEB7B /* BancoBonificacionTableViewCell.swift in Sources */,
 				A2ED3E1B22B0244400A12D3A /* TiendaTableViewCell.swift in Sources */,
 				A25C63E122B7F8090040DEA6 /* MediosBonificacion.swift in Sources */,
 				A267D7C9222DDD4C00153CB8 /* OCRViewController.swift in Sources */,
@@ -894,7 +912,9 @@
 				A2F7E0B722B1980C00A96AB1 /* SideMenuViewController.swift in Sources */,
 				A26C71F1226A448E00FD9794 /* Validations.swift in Sources */,
 				A27824F722A71C9F00A2885E /* PrincipalViewController.swift in Sources */,
+				A25B26AC22C28871006AEB7B /* PayPalBonificacionTableViewCell.swift in Sources */,
 				A267D797222DD7AF00153CB8 /* ShinShin.xcdatamodeld in Sources */,
+				A25B26AE22C28893006AEB7B /* RecargaBonificacionTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
