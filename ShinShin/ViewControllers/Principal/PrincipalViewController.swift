@@ -12,16 +12,17 @@ import SideMenu
 class PrincipalViewController: UIViewController {
 
     //MARK: - Propiedades
-    @IBOutlet weak var viewBottomBanner: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    var tituloHeader: String = ""
     
-    var categories = ["", "POPULARES", "DEPARTAMENTOS", "TIENDAS"]
+    var categories = ["", "", "POPULARES", "DEPARTAMENTOS", "TIENDAS"]
     var isMenuVisible = false
     var catalogoDeptos: CatalogoDepartamentosArray = CatalogoDepartamentosArray()
     var catalogoTiendas: CatalogoTiendasArray = CatalogoTiendasArray()
     var favoritos: ProductoArray = ProductoArray()
     var banners: ProductoArray = ProductoArray()
+    var isClosedFotoCell = false
     
     let ID_RQT_BANNERS = "ID_RQT_BANNERS"
     let ID_RQT_FAVORITOS = "ID_RQT_FAVORITOS"
@@ -41,9 +42,9 @@ class PrincipalViewController: UIViewController {
         SideMenuManager.default.menuRightNavigationController = menuNavigationController
         SideMenuManager.default.menuFadeStatusBar = false
         SideMenuManager.default.menuPresentMode = .menuSlideIn
-        SideMenuManager.default.menuWidth = CGFloat(300)
+        SideMenuManager.default.menuWidth = CGFloat(307)
         
-        viewBottomBanner.layer.cornerRadius = 15.0
+//        viewBottomBanner.layer.cornerRadius = 15.0
         configureBarButtons()
         bannersRequest()
         favoritosRequest()
@@ -58,16 +59,30 @@ class PrincipalViewController: UIViewController {
     
     
     @IBAction func closeBanner(_ sender: Any) {
-        UIView.animate(withDuration: 2.0,
-                       delay: 0.0,
-                       usingSpringWithDamping: 0.5,
-                       initialSpringVelocity: 5.0,
-                       options: [.curveEaseIn],
-                       animations: {
-                        self.topConstraint.constant = 0
-                        self.view.setNeedsLayout()
-                        self.view.layoutIfNeeded()
-        }, completion: nil)
+//        UIView.animate(withDuration: 2.0,
+//                       delay: 0.0,
+//                       usingSpringWithDamping: 0.5,
+//                       initialSpringVelocity: 5.0,
+//                       options: [.curveEaseIn],
+//                       animations: {
+//                        self.topConstraint.constant = 0
+//                        self.view.setNeedsLayout()
+//                        self.view.layoutIfNeeded()
+//        }, completion: nil)
+        isClosedFotoCell = true
+        tableView.beginUpdates()
+        tableView.endUpdates()
+        
+//        UIView.animateWithDuration(0.7, delay: 1.0, options: .CurveEaseOut, animations: {
+//
+//            tableView.rowHeight = 88.0
+//            cell.layoutIfNeeded()
+//
+//        }, completion: { finished in
+//
+//            print("Row heights changed!")
+//        })
+        
     }
     
     @IBAction func fotoAction(_ sender: Any) {
@@ -186,6 +201,12 @@ class PrincipalViewController: UIViewController {
             let vc = segue.destination as! ProductoDetalleViewController
             vc.item = item
         }
+        
+        if segue.identifier == "ProductosSegue"{
+            let vc = segue.destination as! ProductosTableViewController
+            vc.tituloHeader = tituloHeader
+            //tituloHeader
+        }
     }
 
 }
@@ -195,32 +216,51 @@ extension PrincipalViewController: CollectionViewDelegate{
     func selectedItem(_ controller: UITableViewCell, item: Producto) {
         performSegue(withIdentifier: "DetalleProducto", sender: item)
     }
-    
-    
+}
+
+extension PrincipalViewController: DeptoTableViewDelegate{
+    func selectedItem(_ controller: UITableViewCell, item: CatalogoDepartamentos) {
+        tituloHeader = item.nombreTipoProducto ?? ""
+        performSegue(withIdentifier: "ProductosSegue", sender: item)
+    }
 }
 
 extension PrincipalViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         if indexPath.section == 0{
+            if isClosedFotoCell{
+                return 0
+            }
+            else{
+                return 200
+            }
+            
+        }
+        if indexPath.section == 1{
             return 150
         }
-        else if indexPath.section == 1{
+        else if indexPath.section == 2{
             return 210
         }
-        else if indexPath.section == 2{
+        else if indexPath.section == 3{
             return 82
         }
-        else if indexPath.section == 3{
+        else if indexPath.section == 4{
             return 164
         }
         else{
+            print("44?")
             return 44
         }
         
     }
     
     @objc func btnMasAction(sender: UIButton!){
+        let btn = sender as UIButton
+        tituloHeader = categories[btn.tag]
+        
         performSegue(withIdentifier: "ProductosSegue", sender: nil)
     }
     
@@ -230,17 +270,18 @@ extension PrincipalViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        if section == 1{
+        if section == 2{
             let header = Bundle.main.loadNibNamed("HeaderPrincipal", owner: nil, options: nil)!.first as! HeaderPrincipalView
             
             header.lblNombreSeccion.text = categories[section]
             header.imageViewSeccion.image = UIImage(named: "populares-grey")
             header.btnAccion.isHidden = false
+            header.btnAccion.tag = section
             header.btnAccion.setTitle("Ver todos", for: .normal)
             header.btnAccion.addTarget(self, action: #selector(btnMasAction(sender:)), for: .touchUpInside)
             return header
         }
-        else if section == 2{
+        else if section == 3{
             let header = Bundle.main.loadNibNamed("HeaderPrincipal", owner: nil, options: nil)!.first as! HeaderPrincipalView
             
             header.lblNombreSeccion.text = categories[section]
@@ -248,7 +289,7 @@ extension PrincipalViewController: UITableViewDataSource, UITableViewDelegate{
             header.btnAccion.isHidden = true
             return header
         }
-        else if section == 3{
+        else if section == 4{
             let header = Bundle.main.loadNibNamed("HeaderPrincipal", owner: nil, options: nil)!.first as! HeaderPrincipalView
             
             header.lblNombreSeccion.text = categories[section]
@@ -263,7 +304,9 @@ extension PrincipalViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0{
+        print("Section: \(section)")
+        if section == 0 || section == 1{
+            
             return 0
         }
         else{
@@ -271,31 +314,36 @@ extension PrincipalViewController: UITableViewDataSource, UITableViewDelegate{
         }
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return categories[section]
-    }
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return categories[section]
+//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         if indexPath.section == 0{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FotoCell", for: indexPath)
+            
+            return cell
+        }
+        else if indexPath.section == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "CategoriaCell") as! CategoriaTableViewCell
             cell.delegate = self
             cell.list = banners.productos
         
             return cell
         }
-        else if indexPath.section == 1{
+        else if indexPath.section == 2{
             let cell = tableView.dequeueReusableCell(withIdentifier: "PopularesCell", for: indexPath) as! PopularTableViewCell
             cell.delegate = self
             cell.list = favoritos.productos
             return cell
         }
-        else if indexPath.section == 2{
+        else if indexPath.section == 3{
             let cell = tableView.dequeueReusableCell(withIdentifier: "DepartamentosCell", for: indexPath) as! DeptoTableViewCell
+            cell.delegate = self
             cell.list = catalogoDeptos.tipoProductos
             return cell
         }
@@ -320,22 +368,22 @@ extension PrincipalViewController: RESTActionDelegate{
             if identifier == ID_RQT_BANNERS{
                 self.banners = try decoder.decode(ProductoArray.self, from: data)
                 
-                self.tableView.reloadSections(IndexSet(integersIn: 0...0), with: .automatic)
+                self.tableView.reloadSections(IndexSet(integersIn: 1...1), with: .automatic)
             }
             else if identifier == ID_RQT_FAVORITOS{
                 self.favoritos = try decoder.decode(ProductoArray.self, from: data)
                 
-                self.tableView.reloadSections(IndexSet(integersIn: 1...1), with: .automatic)
+                self.tableView.reloadSections(IndexSet(integersIn: 2...2), with: .automatic)
             }
             else if identifier == ID_RQT_DEPTOS{
                 self.catalogoDeptos = try decoder.decode(CatalogoDepartamentosArray.self, from: data)
                 
-                self.tableView.reloadSections(IndexSet(integersIn: 2...2), with: .automatic)
+                self.tableView.reloadSections(IndexSet(integersIn: 3...3), with: .automatic)
             }
             else if identifier == ID_RQT_TIENDAS{
                 self.catalogoTiendas = try decoder.decode(CatalogoTiendasArray.self, from: data)
                 
-                self.tableView.reloadSections(IndexSet(integersIn: 3...3), with: .automatic)
+                self.tableView.reloadSections(IndexSet(integersIn: 4...4), with: .automatic)
             }
             
         }

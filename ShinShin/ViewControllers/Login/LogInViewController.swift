@@ -27,7 +27,7 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var btnLogin: UIButton!
     
     var isMenuVisible = false
-    
+    var showPassword = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +41,22 @@ class LogInViewController: UIViewController {
     }
     
     //MARK: - Actions
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+    }
+    
+    @IBAction func showPlain(_ sender: Any) {
+        if showPassword{
+            txtPassword.isSecureTextEntry = true
+            showPassword = !showPassword
+        }
+        else{
+            txtPassword.isSecureTextEntry = false
+            showPassword = !showPassword
+        }
+    }
+    //270, 13
+    //22, 22
+    
     @IBAction func signin(_ sender: Any) {
         //1. Validar campos (Habilitar boton solo cuando los campos esten llenos)
         

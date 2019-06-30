@@ -8,9 +8,16 @@
 
 import UIKit
 
+protocol DeptoTableViewDelegate: class{
+    func selectedItem(_ controller: UITableViewCell, item: CatalogoDepartamentos)
+}
+
 class DeptoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    var selectedIndex = -1
+    var delegate: DeptoTableViewDelegate? //Definido en CategoriaTebleViewCell
+    
     var list = [CatalogoDepartamentos](){
         willSet{
             self.collectionView.reloadData()
@@ -33,6 +40,7 @@ extension DeptoTableViewCell: UICollectionViewDataSource, UICollectionViewDelega
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.selectedItem(self, item: list[indexPath.row])
     }
     
     

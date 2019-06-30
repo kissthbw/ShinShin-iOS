@@ -20,6 +20,7 @@ import SideMenu
 class ProductosTableViewController: UITableViewController {
 
     //MARK: - Propiedades
+    var tituloHeader: String = ""
     var productos: ProductoArray = ProductoArray()
     var isMenuVisible = false
     
@@ -111,6 +112,24 @@ class ProductosTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 0{
+            let header = Bundle.main.loadNibNamed("HeaderProductos", owner: nil, options: nil)!.first as? HeaderProductosView
+            header?.lblTitulo.text = tituloHeader
+            return header
+        }
+        
+        return nil
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0{
+            return 60
+        }
+        
+        return 0
+    }
+    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Populares"
     }

@@ -49,8 +49,10 @@ extension PopularTableViewCell: UICollectionViewDataSource, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularItemCell", for: indexPath) as! PopularItemCollectionViewCell
         
-        cell.lblNombre.text = "Producto"
-        cell.lblContenido.text = "600 ml"
+        let item = list[indexPath.row]
+        
+        cell.lblNombre.text = item.nombreProducto
+        cell.lblContenido.text = item.contenido
         cell.btnMasInfo.tag = indexPath.row
         cell.btnMasInfo.addTarget(self, action: #selector(selectedItem(sender:)), for: .touchUpInside)
         

@@ -66,6 +66,11 @@
 		A27824F722A71C9F00A2885E /* PrincipalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27824F622A71C9F00A2885E /* PrincipalViewController.swift */; };
 		A27824F922A7228900A2885E /* CategoriaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27824F822A7228900A2885E /* CategoriaTableViewCell.swift */; };
 		A27F3FFF22A426DE0026A4F3 /* AyudaViewControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27F3FFE22A426DE0026A4F3 /* AyudaViewControlller.swift */; };
+		A282596522C843B1009122DB /* FotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282596422C843B1009122DB /* FotoTableViewCell.swift */; };
+		A282596722C867C7009122DB /* Sexo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282596622C867C7009122DB /* Sexo.swift */; };
+		A286B98022C6A018008F6B32 /* PrivacidadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A286B97F22C6A018008F6B32 /* PrivacidadViewController.swift */; };
+		A286B98322C6A1DC008F6B32 /* TerminosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A286B98222C6A1DC008F6B32 /* TerminosViewController.swift */; };
+		A286B98722C6B2FE008F6B32 /* ActivacionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A286B98622C6B2FE008F6B32 /* ActivacionTableViewController.swift */; };
 		A2883FE822A81B0300E930DA /* BannerItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2883FE722A81B0300E930DA /* BannerItemCollectionViewCell.swift */; };
 		A2883FEA22A840A500E930DA /* PopularItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2883FE922A840A500E930DA /* PopularItemCollectionViewCell.swift */; };
 		A297376C226638830071BE3E /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = A297376B226638830071BE3E /* Usuario.swift */; };
@@ -74,6 +79,8 @@
 		A2BA0666229DCF14009A2213 /* UITextField+image.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BA0665229DCF14009A2213 /* UITextField+image.swift */; };
 		A2BCBCA522C16C310000BBD0 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BCBCA422C16C310000BBD0 /* MenuViewController.swift */; };
 		A2C1644F22A5CDA900D65B54 /* DatosTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C1644E22A5CDA900D65B54 /* DatosTicketViewController.swift */; };
+		A2CB392F22C427380031EBAF /* HeaderProductos.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2CB392E22C427380031EBAF /* HeaderProductos.xib */; };
+		A2CB393122C42AB20031EBAF /* HeaderProductosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB393022C42AB20031EBAF /* HeaderProductosView.swift */; };
 		A2ED3E1B22B0244400A12D3A /* TiendaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ED3E1A22B0244400A12D3A /* TiendaTableViewCell.swift */; };
 		A2ED3E1D22B0258E00A12D3A /* TiendaItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ED3E1C22B0258E00A12D3A /* TiendaItemCollectionViewCell.swift */; };
 		A2F0AA7822AEB4200069A84A /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2F0AA6A22AEB41E0069A84A /* Nunito-Light.ttf */; };
@@ -191,6 +198,11 @@
 		A27824F622A71C9F00A2885E /* PrincipalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalViewController.swift; sourceTree = "<group>"; };
 		A27824F822A7228900A2885E /* CategoriaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriaTableViewCell.swift; sourceTree = "<group>"; };
 		A27F3FFE22A426DE0026A4F3 /* AyudaViewControlller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AyudaViewControlller.swift; sourceTree = "<group>"; };
+		A282596422C843B1009122DB /* FotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotoTableViewCell.swift; sourceTree = "<group>"; };
+		A282596622C867C7009122DB /* Sexo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sexo.swift; sourceTree = "<group>"; };
+		A286B97F22C6A018008F6B32 /* PrivacidadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacidadViewController.swift; sourceTree = "<group>"; };
+		A286B98222C6A1DC008F6B32 /* TerminosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminosViewController.swift; sourceTree = "<group>"; };
+		A286B98622C6B2FE008F6B32 /* ActivacionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivacionTableViewController.swift; sourceTree = "<group>"; };
 		A2883FE722A81B0300E930DA /* BannerItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		A2883FE922A840A500E930DA /* PopularItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		A297376B226638830071BE3E /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
@@ -199,6 +211,8 @@
 		A2BA0665229DCF14009A2213 /* UITextField+image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+image.swift"; sourceTree = "<group>"; };
 		A2BCBCA422C16C310000BBD0 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		A2C1644E22A5CDA900D65B54 /* DatosTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatosTicketViewController.swift; sourceTree = "<group>"; };
+		A2CB392E22C427380031EBAF /* HeaderProductos.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderProductos.xib; sourceTree = "<group>"; };
+		A2CB393022C42AB20031EBAF /* HeaderProductosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderProductosView.swift; sourceTree = "<group>"; };
 		A2ED3E1A22B0244400A12D3A /* TiendaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiendaTableViewCell.swift; sourceTree = "<group>"; };
 		A2ED3E1C22B0258E00A12D3A /* TiendaItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiendaItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		A2F0AA6A22AEB41E0069A84A /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
@@ -336,6 +350,8 @@
 		A267D7BF222DDC5B00153CB8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A286B98122C6A1C0008F6B32 /* Terminos */,
+				A286B97E22C69FE7008F6B32 /* Privacidad */,
 				A2BCBCB222C17DB30000BBD0 /* Bonificaciones-Historico */,
 				A2BCBCB122C17D4C0000BBD0 /* Notificaciones */,
 				A2BCBCB022C17D270000BBD0 /* Contacto */,
@@ -356,6 +372,22 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		A286B97E22C69FE7008F6B32 /* Privacidad */ = {
+			isa = PBXGroup;
+			children = (
+				A286B97F22C6A018008F6B32 /* PrivacidadViewController.swift */,
+			);
+			path = Privacidad;
+			sourceTree = "<group>";
+		};
+		A286B98122C6A1C0008F6B32 /* Terminos */ = {
+			isa = PBXGroup;
+			children = (
+				A286B98222C6A1DC008F6B32 /* TerminosViewController.swift */,
+			);
+			path = Terminos;
+			sourceTree = "<group>";
+		};
 		A297376A226637640071BE3E /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,6 +404,7 @@
 				A2FDF37F22BBF30F0060577B /* Model.swift */,
 				A2FDF38122BC1FA30060577B /* InformacionUsuario.swift */,
 				A25B26AF22C290DA006AEB7B /* Bonificacion.swift */,
+				A282596622C867C7009122DB /* Sexo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -398,6 +431,7 @@
 				A2883FE922A840A500E930DA /* PopularItemCollectionViewCell.swift */,
 				A26CBD0822A8710E002A5CD5 /* DeptoItemCollectionViewCell.swift */,
 				A2ED3E1C22B0258E00A12D3A /* TiendaItemCollectionViewCell.swift */,
+				A282596422C843B1009122DB /* FotoTableViewCell.swift */,
 			);
 			path = Principal;
 			sourceTree = "<group>";
@@ -421,6 +455,8 @@
 				A267D7C2222DDCA800153CB8 /* ProductosTableViewController.swift */,
 				A267D7C4222DDCF200153CB8 /* ProductoDetalleViewController.swift */,
 				A256FF7A22A9B30C00B977ED /* ProductoTableViewCell.swift */,
+				A2CB392E22C427380031EBAF /* HeaderProductos.xib */,
+				A2CB393022C42AB20031EBAF /* HeaderProductosView.swift */,
 			);
 			path = Productos;
 			sourceTree = "<group>";
@@ -429,6 +465,7 @@
 			isa = PBXGroup;
 			children = (
 				A24BF9692259353F002DF555 /* UsuarioViewController.swift */,
+				A286B98622C6B2FE008F6B32 /* ActivacionTableViewController.swift */,
 			);
 			path = Registro;
 			sourceTree = "<group>";
@@ -684,6 +721,7 @@
 				A2F0AA7B22AEB4200069A84A /* Nunito-Black.ttf in Resources */,
 				A2F0AA7D22AEB4200069A84A /* Nunito-ExtraBold.ttf in Resources */,
 				A2F0AA7A22AEB4200069A84A /* Nunito-ExtraLightItalic.ttf in Resources */,
+				A2CB392F22C427380031EBAF /* HeaderProductos.xib in Resources */,
 				A2F0AA7822AEB4200069A84A /* Nunito-Light.ttf in Resources */,
 				A271A7D6229708B10056CE64 /* GoogleService-Info.plist in Resources */,
 				A2F0AA8122AEB4200069A84A /* Nunito-LightItalic.ttf in Resources */,
@@ -848,11 +886,13 @@
 			files = (
 				A2F7104E22A57E2F00D9E2B0 /* HistoricoBonificacionTableViewCell.swift in Sources */,
 				A234CC6122A6DDCA00BCBC7A /* RecargaTableViewCell.swift in Sources */,
+				A286B98022C6A018008F6B32 /* PrivacidadViewController.swift in Sources */,
 				A2FDF38022BBF30F0060577B /* Model.swift in Sources */,
 				A234CC5D22A6DD8C00BCBC7A /* BancoTableViewCell.swift in Sources */,
 				A2F77AD622B52F10000AC45A /* PerfilTableViewController.swift in Sources */,
 				A271296822B2AE5B0099CB0B /* BancoDetailTableViewCell.swift in Sources */,
 				A2F7E0AF22B168CE00A96AB1 /* InfoTicketTableViewCell.swift in Sources */,
+				A2CB393122C42AB20031EBAF /* HeaderProductosView.swift in Sources */,
 				A2F7E0B522B17A8900A96AB1 /* ProcesaTicketViewController.swift in Sources */,
 				A234CC5922A6C7BC00BCBC7A /* ProductoTicketTableViewCell.swift in Sources */,
 				A25B26B022C290DA006AEB7B /* Bonificacion.swift in Sources */,
@@ -867,6 +907,8 @@
 				A2C1644F22A5CDA900D65B54 /* DatosTicketViewController.swift in Sources */,
 				A2BA0666229DCF14009A2213 /* UITextField+image.swift in Sources */,
 				A2F7E0B322B16B1A00A96AB1 /* TotalTicketTableViewCell.swift in Sources */,
+				A282596522C843B1009122DB /* FotoTableViewCell.swift in Sources */,
+				A286B98322C6A1DC008F6B32 /* TerminosViewController.swift in Sources */,
 				A23EBA1922C40E4F009BDDB9 /* HistoricoTicketTableViewCell.swift in Sources */,
 				A267D7C1222DDC8C00153CB8 /* LogInViewController.swift in Sources */,
 				A23D5AE322A45529008B4433 /* PreguntaTableViewCell.swift in Sources */,
@@ -889,10 +931,12 @@
 				A25C63E522B809890040DEA6 /* SimpleResponse.swift in Sources */,
 				A23D5AE522A45C35008B4433 /* BonificacionViewController.swift in Sources */,
 				A234CC5F22A6DDB800BCBC7A /* PayPalTableViewCell.swift in Sources */,
+				A286B98722C6B2FE008F6B32 /* ActivacionTableViewController.swift in Sources */,
 				A20BA6832264E5960030572F /* RESTHandler.swift in Sources */,
 				A27F3FFF22A426DE0026A4F3 /* AyudaViewControlller.swift in Sources */,
 				A2FDF37E22BBDCA70060577B /* CompaniaTelefonicaTableViewController.swift in Sources */,
 				A24BF96A2259353F002DF555 /* UsuarioViewController.swift in Sources */,
+				A282596722C867C7009122DB /* Sexo.swift in Sources */,
 				A297376C226638830071BE3E /* Usuario.swift in Sources */,
 				A25C63DB22B7E88D0040DEA6 /* Marca.swift in Sources */,
 				A26D47D922B700D70040AC0D /* NotificacionesTableViewController.swift in Sources */,

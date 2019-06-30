@@ -33,7 +33,6 @@ class UsuarioViewController: UITableViewController {
     @IBOutlet weak var viewMes: UIView!
     @IBOutlet weak var txtMes: UITextField!
     
-    
     @IBOutlet weak var viewSexo: UIView!
     @IBOutlet weak var txtSexo: UITextField!
     
@@ -46,6 +45,10 @@ class UsuarioViewController: UITableViewController {
     @IBOutlet weak var btnRegistrar: UIButton!
 //    @IBOutlet weak var btnActivar: UIButton!
     
+    let datePicker = UIDatePicker()
+    let sexoPicker = UIPickerView()
+    var sexos = [Sexo]()
+    var sexo: Int = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +56,16 @@ class UsuarioViewController: UITableViewController {
         let textfields = [txtNombre, txtCorreo, txtPassword, txtConfPassword,
         txtTelefono, txtMes, txtDia, txtAnio,
         txtSexo, txtCP]
+        
+        let s1 = Sexo()
+        s1.idSexo = 1
+        s1.nombreSexo = "Hombre"
+        
+        let s2 = Sexo()
+        s2.idSexo = 2
+        s2.nombreSexo = "Mujer"
+        sexos.append(s1)
+        sexos.append(s2)
         
         txtNombre.delegate = self
         txtCorreo.delegate = self
@@ -64,8 +77,10 @@ class UsuarioViewController: UITableViewController {
         txtAnio.delegate = self
         txtSexo.delegate = self
         txtCP.delegate = self
-
+        
         initUIElements(textfields)
+        showDatePicker()
+        showSexoPicker()
     }
 
 //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -156,16 +171,92 @@ class UsuarioViewController: UITableViewController {
         print("Registrando usuario")
         registerRequest()
     }
-    
-    @IBAction func activateAction(_ sender: Any){
-        print("Activando usuario")
-        activateRequest()
-    }
 
+    @IBAction func shownDateView(_ sender: Any) {
+//        showDatePicker()
+        txtMes.isEnabled = true
+        txtMes.becomeFirstResponder()
+    }
+    
     //MARK: - Helper methods
+    func showDatePicker(){
+        //Formate Date
+        datePicker.datePickerMode = .date
+        
+        //ToolBar
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker));
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker));
+        
+        toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
+        txtMes.inputAccessoryView = toolbar
+        txtMes.inputView = datePicker
+    }
+    
+    func showSexoPicker(){
+        sexoPicker.dataSource = self
+        sexoPicker.delegate = self
+        
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneSexoPicker));
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelSexoPicker));
+        
+        toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
+        txtSexo.inputAccessoryView = toolbar
+        txtSexo.inputView = sexoPicker
+    }
+    
+    @objc func donedatePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yyyy"
+        let fecha = formatter.string(from: datePicker.date)
+        let elements = fecha.split(separator: "/")
+        
+        //Mes
+        //Dia
+        //Anio
+        for (index, element) in elements.enumerated() {
+            if index == 0{
+                txtMes.text = element.description
+            }
+            else if index == 1{
+                txtDia.text = element.description
+            }
+            else if index == 2{
+                txtAnio.text = element.description
+            }
+        }
+        
+        self.view.endEditing(true)
+    }
+    
+    @objc func cancelDatePicker(){
+        txtMes.isEnabled = false
+        self.view.endEditing(true)
+    }
+    
+    @objc func doneSexoPicker(){
+        self.view.endEditing(true)
+    }
+    
+    @objc func cancelSexoPicker(){
+        self.view.endEditing(true)
+    }
+    
     func validate(){
         
     }
+    
+    @IBAction func show(_ sender: Any) {
+        let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "PrincipalNavigationController")
+//        self.navigationController!.pushViewController(destViewController, animated: true)
+        self.present(destViewController, animated: true, completion: nil)
+    }
+    
     
     func registerRequest(){
         let user = Usuario()
@@ -173,7 +264,7 @@ class UsuarioViewController: UITableViewController {
         user.correoElectronico = txtCorreo.text!
         user.usuario = txtCorreo.text!
         user.contrasenia = txtPassword.text!
-        user.telMovil = txtTelefono.text!
+        user.telMovil = "+521" + txtTelefono.text!
         
         var fecNac = ""
         
@@ -213,22 +304,6 @@ class UsuarioViewController: UITableViewController {
         }
     }
     
-    func activateRequest(){
-        let user = Usuario()
-//        user.idUsuario = Int(txtId.text!)
-//        user.codigoVerificacion = txtCodigo.text!
-        
-        do{
-            let encoder = JSONEncoder()
-            let json = try  encoder.encode(user)
-            RESTHandler.delegate = self
-            RESTHandler.postOperationTo(RESTHandler.activarUsuario, with: json, and: "ACTIVATE")
-        }
-        catch{
-            
-        }
-    }
-    
     func initUIElements(_ elements: [UITextField?]){
         
         for text in elements {
@@ -239,12 +314,30 @@ class UsuarioViewController: UITableViewController {
             }            
         }
 
-        btnRegistrar.layer.cornerRadius = 5.0
+        btnRegistrar.layer.cornerRadius = 10.0
 //        btnActivar.layer.cornerRadius = 5.0
     }
 }
 
 //MARK: - Extensions
+extension UsuarioViewController: UIPickerViewDelegate, UIPickerViewDataSource{
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return sexos.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return sexos[row].nombreSexo
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        txtSexo.text = sexos[row].nombreSexo?.description
+        sexo = sexos[row].idSexo!
+    }
+}
 extension UsuarioViewController: UITextFieldDelegate{
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -256,16 +349,19 @@ extension UsuarioViewController: UITextFieldDelegate{
 //MARK: - RESTActionDelegate
 extension UsuarioViewController: RESTActionDelegate{
     func restActionDidSuccessful(data: Data, identifier: String) {
-        print( "restActionDidSuccessful: \(data)" )
+        
         
         do{
             let decoder = JSONDecoder()
             
             let rsp = try decoder.decode(SimpleResponse.self, from: data)
             if rsp.code == 200{
-                var user = Usuario()
+                print( "Registro exitoso: \(rsp.id!)" )
+                let user = Usuario()
                 user.idUsuario = rsp.id
                 Model.user = user
+                
+                performSegue(withIdentifier: "ActivarSegue", sender: nil)
             }
             else if rsp.code == 500{
                 showMessage(message: "El usuario ya existe")

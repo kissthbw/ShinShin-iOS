@@ -38,7 +38,9 @@ class ProductoDetalleViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         if let edititem = item{
-            self.navigationController?.navigationBar.barTintColor = UIColor.orange
+            self.navigationController?.navigationBar.isTranslucent = false
+            self.navigationController?.navigationBar.barTintColor = UIColor(red: 255/255, green: 111/255, blue: 0/255, alpha: 1)
+            
             topFrame.layer.borderWidth = 0.0
             topFrame.backgroundColor = UIColor.orange
             bottomframe.layer.borderWidth = 0.0
@@ -65,6 +67,7 @@ class ProductoDetalleViewController: UIViewController {
     
     override func willMove(toParent parent: UIViewController?) {
         self.navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.isTranslucent = true
     }
     
     //MARK: - Actions
