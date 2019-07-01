@@ -508,9 +508,10 @@ extension BonificacionViewController: RESTActionDelegate{
                 let decoder = JSONDecoder()
                 
                 let rsp = try decoder.decode(HistoricoTicket.self, from: data)
-                print("\(rsp.code)")
-                tickets = rsp.tickets
-                tableView.reloadSections(IndexSet(integersIn: 0...0), with: .fade)
+                if rsp.code == 200{
+                    tickets = rsp.tickets
+                    tableView.reloadSections(IndexSet(integersIn: 0...0), with: .fade)
+                }
                 
             }
             catch{
@@ -522,9 +523,12 @@ extension BonificacionViewController: RESTActionDelegate{
                 let decoder = JSONDecoder()
                 
                 let rsp = try decoder.decode(HistoricoBonificacion.self, from: data)
-                print("\(rsp.code)")
-                bonificaciones = rsp.historicoMediosBonificaciones
-                tableView.reloadSections(IndexSet(integersIn: 0...0), with: .fade)
+                
+                if rsp.code == 200{
+                    bonificaciones = rsp.historicoMediosBonificaciones
+                    tableView.reloadSections(IndexSet(integersIn: 0...0), with: .fade)
+                }
+                
             }
             catch{
                 print("JSON Error: \(error)")

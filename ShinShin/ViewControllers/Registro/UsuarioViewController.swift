@@ -358,6 +358,7 @@ extension UsuarioViewController: RESTActionDelegate{
             if rsp.code == 200{
                 print( "Registro exitoso: \(rsp.id!)" )
                 let user = Usuario()
+                user.usuario = txtCorreo.text
                 user.idUsuario = rsp.id
                 Model.user = user
                 
