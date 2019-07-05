@@ -34,7 +34,7 @@ class ContactoViewController: UIViewController {
         lblBonificacion.font = UIFont(name: "Nunito SemiBold", size: 17)
         lblBonificacion.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
         
-        lblBonificacion.text = "$ 10.00"
+        lblBonificacion.text = Validations.formatWith(Model.totalBonificacion)
         lblBonificacion.sizeToFit()
         let frame = lblBonificacion.frame
         lblBonificacion.frame = CGRect(x: 27, y: 6, width: frame.width, height: frame.height)

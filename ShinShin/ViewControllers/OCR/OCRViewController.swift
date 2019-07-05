@@ -26,6 +26,7 @@ class OCRViewController: UIViewController {
     @IBOutlet weak var btnProcesar: UIButton!
     
     lazy var vision = Vision.vision()
+    var lines: [String] = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +62,7 @@ class OCRViewController: UIViewController {
         lblBonificacion.font = UIFont(name: "Nunito SemiBold", size: 17)
         lblBonificacion.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
         
-        lblBonificacion.text = "$ 10.00"
+        lblBonificacion.text = Validations.formatWith(Model.totalBonificacion)
         lblBonificacion.sizeToFit()
         let frame = lblBonificacion.frame
         lblBonificacion.frame = CGRect(x: 27, y: 6, width: frame.width, height: frame.height)
@@ -147,15 +148,22 @@ class OCRViewController: UIViewController {
             
             //Iterar sobre la respuesta
             for block in text.blocks{
+                print("Block: \(block.text)" )
                 
                 for line in block.lines {
-//                    print("\(line.text)")
-                    result.append(line.text)
+                    result.append(line.text + "\n")
+                    self.lines.append(line.text)
+//                    
+//                    print("Elements")
 //                    for element in line.elements{
 //                        print(element.text)
 //                    }
                 }
             }
+            
+//            print("\(self.lines)")
+            
+            TicketOCRAnalyzer.analize(self.lines)
             
             self.activity.stopAnimating()
             self.activity.isHidden = true

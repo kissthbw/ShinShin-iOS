@@ -31,4 +31,20 @@ class Validations{
         
         return false
     }
+    
+    class func formatWith(_ valor: Double?) -> String{
+        if let valor = valor{
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .decimal
+            let tmp = NSNumber(value: valor)
+            if let formatValue = formatter.string(from: tmp){
+                let tmp = "$ " + formatValue
+                return tmp
+            }
+            return "$ 0.0"
+        }
+        else{
+            return "$ 0.0"
+        }
+    }
 }

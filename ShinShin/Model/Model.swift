@@ -10,4 +10,5 @@ import Foundation
 
 class Model{
     static var user: Usuario?
+    static var totalBonificacion: Double?
 }

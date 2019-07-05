@@ -12,6 +12,7 @@ class InformacionUsuario: Codable, CustomStringConvertible{
     var code: Int?
     var message: String?
     var id: Int?
+    var bonificacion: Double?
     var usuario: Usuario?
     
     var description: String{

@@ -11,6 +11,7 @@
 		A20B145E22A036B300667D39 /* Page1.xib in Resources */ = {isa = PBXBuildFile; fileRef = A20B145D22A036B300667D39 /* Page1.xib */; };
 		A20B146022A0441600667D39 /* Page2.xib in Resources */ = {isa = PBXBuildFile; fileRef = A20B145F22A0441600667D39 /* Page2.xib */; };
 		A20BA6832264E5960030572F /* RESTHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20BA6822264E5960030572F /* RESTHandler.swift */; };
+		A214F7D522CC002000314D78 /* HistoricoBonificacionHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A214F7D422CC002000314D78 /* HistoricoBonificacionHeaderCell.xib */; };
 		A223095722B9E6BC00DEA6EA /* MediosPagoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A223095622B9E6BC00DEA6EA /* MediosPagoView.xib */; };
 		A223095922B9EBA200DEA6EA /* MediosPagoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A223095822B9EBA200DEA6EA /* MediosPagoView.swift */; };
 		A234CC5922A6C7BC00BCBC7A /* ProductoTicketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A234CC5822A6C7BC00BCBC7A /* ProductoTicketTableViewCell.swift */; };
@@ -56,6 +57,7 @@
 		A26D47DB22B701D90040AC0D /* NotificacionesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26D47DA22B701D90040AC0D /* NotificacionesTableViewCell.swift */; };
 		A26E620F229F17C300F0CA76 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26E620E229F17C300F0CA76 /* TutorialPageViewController.swift */; };
 		A26E6211229F2C2A00F0CA76 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26E6210229F2C2A00F0CA76 /* TutorialViewController.swift */; };
+		A26FB1CA22CE7D3500003507 /* ConfirmacionBonificacionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26FB1C922CE7D3500003507 /* ConfirmacionBonificacionViewController.swift */; };
 		A271296622B2A65C0099CB0B /* MediosBonificacionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A271296522B2A65C0099CB0B /* MediosBonificacionDetailViewController.swift */; };
 		A271296822B2AE5B0099CB0B /* BancoDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A271296722B2AE5B0099CB0B /* BancoDetailTableViewCell.swift */; };
 		A271296A22B2AEB70099CB0B /* PayPalDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A271296922B2AEB70099CB0B /* PayPalDetailTableViewCell.swift */; };
@@ -81,6 +83,9 @@
 		A2C1644F22A5CDA900D65B54 /* DatosTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C1644E22A5CDA900D65B54 /* DatosTicketViewController.swift */; };
 		A2CB392F22C427380031EBAF /* HeaderProductos.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2CB392E22C427380031EBAF /* HeaderProductos.xib */; };
 		A2CB393122C42AB20031EBAF /* HeaderProductosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB393022C42AB20031EBAF /* HeaderProductosView.swift */; };
+		A2D83A5222CCF90D003DE37F /* PrincipalBonificacionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D83A5122CCF90D003DE37F /* PrincipalBonificacionTableViewCell.swift */; };
+		A2DC770C22CA553B00006C63 /* RecuperarPasswordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DC770B22CA553B00006C63 /* RecuperarPasswordTableViewController.swift */; };
+		A2DC770E22CA5F9000006C63 /* TicketOCRAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DC770D22CA5F9000006C63 /* TicketOCRAnalyzer.swift */; };
 		A2ED3E1B22B0244400A12D3A /* TiendaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ED3E1A22B0244400A12D3A /* TiendaTableViewCell.swift */; };
 		A2ED3E1D22B0258E00A12D3A /* TiendaItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ED3E1C22B0258E00A12D3A /* TiendaItemCollectionViewCell.swift */; };
 		A2F0AA7822AEB4200069A84A /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2F0AA6A22AEB41E0069A84A /* Nunito-Light.ttf */; };
@@ -139,6 +144,7 @@
 		A20B145D22A036B300667D39 /* Page1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Page1.xib; sourceTree = "<group>"; };
 		A20B145F22A0441600667D39 /* Page2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Page2.xib; sourceTree = "<group>"; };
 		A20BA6822264E5960030572F /* RESTHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTHandler.swift; sourceTree = "<group>"; };
+		A214F7D422CC002000314D78 /* HistoricoBonificacionHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoricoBonificacionHeaderCell.xib; sourceTree = "<group>"; };
 		A223095622B9E6BC00DEA6EA /* MediosPagoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediosPagoView.xib; sourceTree = "<group>"; };
 		A223095822B9EBA200DEA6EA /* MediosPagoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediosPagoView.swift; sourceTree = "<group>"; };
 		A234CC5822A6C7BC00BCBC7A /* ProductoTicketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductoTicketTableViewCell.swift; sourceTree = "<group>"; };
@@ -190,6 +196,7 @@
 		A26D47DA22B701D90040AC0D /* NotificacionesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificacionesTableViewCell.swift; sourceTree = "<group>"; };
 		A26E620E229F17C300F0CA76 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
 		A26E6210229F2C2A00F0CA76 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		A26FB1C922CE7D3500003507 /* ConfirmacionBonificacionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmacionBonificacionViewController.swift; sourceTree = "<group>"; };
 		A271296522B2A65C0099CB0B /* MediosBonificacionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediosBonificacionDetailViewController.swift; sourceTree = "<group>"; };
 		A271296722B2AE5B0099CB0B /* BancoDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BancoDetailTableViewCell.swift; sourceTree = "<group>"; };
 		A271296922B2AEB70099CB0B /* PayPalDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayPalDetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -213,6 +220,9 @@
 		A2C1644E22A5CDA900D65B54 /* DatosTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatosTicketViewController.swift; sourceTree = "<group>"; };
 		A2CB392E22C427380031EBAF /* HeaderProductos.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderProductos.xib; sourceTree = "<group>"; };
 		A2CB393022C42AB20031EBAF /* HeaderProductosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderProductosView.swift; sourceTree = "<group>"; };
+		A2D83A5122CCF90D003DE37F /* PrincipalBonificacionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalBonificacionTableViewCell.swift; sourceTree = "<group>"; };
+		A2DC770B22CA553B00006C63 /* RecuperarPasswordTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecuperarPasswordTableViewController.swift; sourceTree = "<group>"; };
+		A2DC770D22CA5F9000006C63 /* TicketOCRAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketOCRAnalyzer.swift; sourceTree = "<group>"; };
 		A2ED3E1A22B0244400A12D3A /* TiendaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiendaTableViewCell.swift; sourceTree = "<group>"; };
 		A2ED3E1C22B0258E00A12D3A /* TiendaItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiendaItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		A2F0AA6A22AEB41E0069A84A /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
@@ -285,6 +295,7 @@
 				A26C71F0226A448E00FD9794 /* Validations.swift */,
 				A2F9D52B22A1A5E0004DE61A /* UIPreferences.swift */,
 				A26A0C6F22BD58EF00AF5E2D /* UIImageView+DownloadImage.swift */,
+				A2DC770D22CA5F9000006C63 /* TicketOCRAnalyzer.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -413,6 +424,7 @@
 			isa = PBXGroup;
 			children = (
 				A267D7C0222DDC8C00153CB8 /* LogInViewController.swift */,
+				A2DC770B22CA553B00006C63 /* RecuperarPasswordTableViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -550,6 +562,9 @@
 				A25B26AB22C28871006AEB7B /* PayPalBonificacionTableViewCell.swift */,
 				A25B26AD22C28893006AEB7B /* RecargaBonificacionTableViewCell.swift */,
 				A23EBA1822C40E4F009BDDB9 /* HistoricoTicketTableViewCell.swift */,
+				A214F7D422CC002000314D78 /* HistoricoBonificacionHeaderCell.xib */,
+				A2D83A5122CCF90D003DE37F /* PrincipalBonificacionTableViewCell.swift */,
+				A26FB1C922CE7D3500003507 /* ConfirmacionBonificacionViewController.swift */,
 			);
 			path = "Bonificaciones-Historico";
 			sourceTree = "<group>";
@@ -717,6 +732,7 @@
 				A2F0AA8222AEB4200069A84A /* Nunito-ExtraBoldItalic.ttf in Resources */,
 				A2F0AA8522AEB4200069A84A /* Nunito-SemiBold.ttf in Resources */,
 				A2F0AA8022AEB4200069A84A /* Nunito-SemiBoldItalic.ttf in Resources */,
+				A214F7D522CC002000314D78 /* HistoricoBonificacionHeaderCell.xib in Resources */,
 				A267D79C222DD7B800153CB8 /* LaunchScreen.storyboard in Resources */,
 				A2F0AA7B22AEB4200069A84A /* Nunito-Black.ttf in Resources */,
 				A2F0AA7D22AEB4200069A84A /* Nunito-ExtraBold.ttf in Resources */,
@@ -761,16 +777,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ShinShin/Pods-ShinShin-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/GoogleMobileVision/GoogleMVTextDetectorResources.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-ShinShin/Pods-ShinShin-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMVTextDetectorResources.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-ShinShin/Pods-ShinShin-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -805,28 +816,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ShinShin/Pods-ShinShin-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-ShinShin/Pods-ShinShin-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-ShinShin/Pods-ShinShin-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -909,6 +903,7 @@
 				A2F7E0B322B16B1A00A96AB1 /* TotalTicketTableViewCell.swift in Sources */,
 				A282596522C843B1009122DB /* FotoTableViewCell.swift in Sources */,
 				A286B98322C6A1DC008F6B32 /* TerminosViewController.swift in Sources */,
+				A2DC770E22CA5F9000006C63 /* TicketOCRAnalyzer.swift in Sources */,
 				A23EBA1922C40E4F009BDDB9 /* HistoricoTicketTableViewCell.swift in Sources */,
 				A267D7C1222DDC8C00153CB8 /* LogInViewController.swift in Sources */,
 				A23D5AE322A45529008B4433 /* PreguntaTableViewCell.swift in Sources */,
@@ -932,6 +927,7 @@
 				A23D5AE522A45C35008B4433 /* BonificacionViewController.swift in Sources */,
 				A234CC5F22A6DDB800BCBC7A /* PayPalTableViewCell.swift in Sources */,
 				A286B98722C6B2FE008F6B32 /* ActivacionTableViewController.swift in Sources */,
+				A2DC770C22CA553B00006C63 /* RecuperarPasswordTableViewController.swift in Sources */,
 				A20BA6832264E5960030572F /* RESTHandler.swift in Sources */,
 				A27F3FFF22A426DE0026A4F3 /* AyudaViewControlller.swift in Sources */,
 				A2FDF37E22BBDCA70060577B /* CompaniaTelefonicaTableViewController.swift in Sources */,
@@ -942,6 +938,8 @@
 				A26D47D922B700D70040AC0D /* NotificacionesTableViewController.swift in Sources */,
 				A267D7C3222DDCA800153CB8 /* ProductosTableViewController.swift in Sources */,
 				A26CBD0922A8710E002A5CD5 /* DeptoItemCollectionViewCell.swift in Sources */,
+				A2D83A5222CCF90D003DE37F /* PrincipalBonificacionTableViewCell.swift in Sources */,
+				A26FB1CA22CE7D3500003507 /* ConfirmacionBonificacionViewController.swift in Sources */,
 				A26E6211229F2C2A00F0CA76 /* TutorialViewController.swift in Sources */,
 				A26D47DB22B701D90040AC0D /* NotificacionesTableViewCell.swift in Sources */,
 				A25C63DD22B7E8990040DEA6 /* TipoProducto.swift in Sources */,

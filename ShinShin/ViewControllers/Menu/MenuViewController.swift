@@ -13,12 +13,16 @@ class MenuViewController: UIViewController {
     //MARK: - Propiedades
     @IBOutlet weak var btnRetirar: UIButton!
     @IBOutlet weak var btnHistorial: UIButton!
+    @IBOutlet weak var lblBonificacion: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        lblBonificacion.text = Validations.formatWith(Model.totalBonificacion)
         btnRetirar.layer.cornerRadius = 10
         btnHistorial.layer.cornerRadius = 10
+        
+        
     }
     
     //MARK: - Actions

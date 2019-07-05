@@ -94,9 +94,6 @@ class MediosBonificacionDetailViewController: UITableViewController {
         tipoCuenta = .Bancaria
         let cell = tableView.dequeueReusableCell(withIdentifier: "BancoDetailCell", for: indexPath) as! BancoDetailTableViewCell
         
-        cell.txtNombre.delegate = self
-        cell.txtTarjeta.delegate = self
-        
         if let itemToEdit = item{
             
             //            cell.btnGuardar.addTarget(self, action: #selector(guardarItem), for: .touchUpInside)

@@ -15,7 +15,6 @@ class HistoricoBonificacionTableViewCell: UITableViewCell {
     @IBOutlet weak var lblCantidad: UILabel!
     @IBOutlet weak var lblEstado: UIImageView!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

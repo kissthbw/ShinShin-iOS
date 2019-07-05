@@ -109,6 +109,7 @@ extension LogInViewController: RESTActionDelegate{
             let rsp = try decoder.decode(InformacionUsuario.self, from: data)
             if rsp.code == 200{
                 Model.user = rsp.usuario
+                Model.totalBonificacion = rsp.bonificacion
                 performSegue(withIdentifier: "PrincipalSegue", sender: nil)
             }
             else{

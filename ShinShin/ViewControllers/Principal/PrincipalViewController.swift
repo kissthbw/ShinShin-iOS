@@ -100,7 +100,8 @@ class PrincipalViewController: UIViewController {
         lblBonificacion.font = UIFont(name: "Nunito SemiBold", size: 17)
         lblBonificacion.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
         
-        lblBonificacion.text = "$ 10.00"
+        lblBonificacion.text = Validations.formatWith(Model.totalBonificacion)
+        
         lblBonificacion.sizeToFit()
         let frame = lblBonificacion.frame
         lblBonificacion.frame = CGRect(x: 27, y: 6, width: frame.width, height: frame.height)
@@ -251,7 +252,6 @@ extension PrincipalViewController: UITableViewDataSource, UITableViewDelegate{
             return 164
         }
         else{
-            print("44?")
             return 44
         }
         
@@ -304,7 +304,6 @@ extension PrincipalViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        print("Section: \(section)")
         if section == 0 || section == 1{
             
             return 0

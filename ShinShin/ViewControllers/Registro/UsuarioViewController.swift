@@ -49,6 +49,13 @@ class UsuarioViewController: UITableViewController {
     let sexoPicker = UIPickerView()
     var sexos = [Sexo]()
     var sexo: Int = -1
+    var showPassword = false
+    var showConfPassword = false
+    
+    enum ButtonTag: Int{
+        case btnPassword = 1
+        case btnConfPassword = 2
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -151,6 +158,32 @@ class UsuarioViewController: UITableViewController {
     */
     
     //MARK: - Actions
+    @IBAction func showPassword(_ sender: Any) {
+        let source = sender as! UIButton
+        
+        if source.tag == ButtonTag.btnPassword.rawValue{
+            if showPassword{
+                txtPassword.isSecureTextEntry = true
+                showPassword = !showPassword
+            }
+            else{
+                txtPassword.isSecureTextEntry = false
+                showPassword = !showPassword
+            }
+        }
+        else if source.tag == ButtonTag.btnConfPassword.rawValue{
+            if showConfPassword{
+                txtConfPassword.isSecureTextEntry = true
+                showConfPassword = !showConfPassword
+            }
+            else{
+                txtConfPassword.isSecureTextEntry = false
+                showConfPassword = !showConfPassword
+            }
+        }
+    }
+    
+    
     @IBAction func closeAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
