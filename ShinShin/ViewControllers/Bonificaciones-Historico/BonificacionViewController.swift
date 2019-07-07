@@ -169,7 +169,7 @@ class BonificacionViewController: UIViewController {
                 
                 formatter.dateFormat = "yyyy-MM-dd'T'hh:mm:ss"
                 let hora = formatter.string(from: date)
-                item.horaBonificacion = hora
+//                item.horaBonificacion = hora
                 
                 let medio = MediosBonificacion()
                 medio.idMediosBonificacion = cell.cuenta?.idMediosBonificacion
@@ -201,7 +201,7 @@ class BonificacionViewController: UIViewController {
                 
                 formatter.dateFormat = "yyyy-MM-dd'T'hh:mm:ss"
                 let hora = formatter.string(from: date)
-                item.horaBonificacion = hora
+//                item.horaBonificacion = hora
                 
                 let medio = MediosBonificacion()
                 medio.idMediosBonificacion = cell.cuenta?.idMediosBonificacion
@@ -232,7 +232,7 @@ class BonificacionViewController: UIViewController {
                 
                 formatter.dateFormat = "yyyy-MM-dd'T'hh:mm:ss"
                 let hora = formatter.string(from: date)
-                item.horaBonificacion = hora
+//                item.horaBonificacion = hora
                 
                 let medio = MediosBonificacion()
                 medio.idMediosBonificacion = cell.cuenta?.idMediosBonificacion
@@ -617,9 +617,10 @@ extension BonificacionViewController: RESTActionDelegate{
                 
                 let rsp = try decoder.decode(HistoricoBonificacion.self, from: data)
                 
-                if rsp.code == 200{
+//                if rsp.code == 200{
                     bonificaciones = rsp.historicoMediosBonificaciones
-                }
+                tableView.reloadSections(IndexSet(integersIn: 1...1), with: .fade)
+//                }
                 
             }
             catch{

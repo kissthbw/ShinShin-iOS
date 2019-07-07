@@ -793,7 +793,7 @@ tu contraseña ;-)</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cN-GL-zBa">
-                                                    <rect key="frame" x="36" y="108" width="303" height="37.5"/>
+                                                    <rect key="frame" x="36" y="115.5" width="303" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="303" id="QqU-XE-GFj"/>
                                                     </constraints>
@@ -816,7 +816,7 @@ tu contraseña ;-)</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crear tu cuenta" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyz-41-EC5">
-                                                    <rect key="frame" x="49.5" y="60" width="276" height="42"/>
+                                                    <rect key="frame" x="49.5" y="60" width="276" height="49.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="276" id="7Rg-PQ-156"/>
                                                     </constraints>
@@ -855,7 +855,7 @@ tu contraseña ;-)</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NpU-gP-d8j">
-                                                    <rect key="frame" x="157" y="0.0" width="61.5" height="24"/>
+                                                    <rect key="frame" x="155.5" y="0.0" width="64" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="A2R-cf-D2S"/>
                                                     </constraints>
@@ -899,7 +899,7 @@ tu contraseña ;-)</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BeL-0e-4nM">
-                                                    <rect key="frame" x="161.5" y="0.0" width="52" height="24"/>
+                                                    <rect key="frame" x="160.5" y="0.0" width="54" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="cMf-Z9-NaY"/>
                                                     </constraints>
@@ -942,7 +942,7 @@ tu contraseña ;-)</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contraseña" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6E-ka-gMF">
-                                                    <rect key="frame" x="143.5" y="0.0" width="88" height="24"/>
+                                                    <rect key="frame" x="142" y="0.0" width="91" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="cD3-qS-1Z4"/>
                                                     </constraints>
@@ -994,7 +994,7 @@ tu contraseña ;-)</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirmar contraseña" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWw-Yw-RZi">
-                                                    <rect key="frame" x="105" y="0.0" width="165" height="24"/>
+                                                    <rect key="frame" x="101" y="0.0" width="173.5" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="2HV-62-N0g"/>
                                                     </constraints>
@@ -1046,7 +1046,7 @@ tu contraseña ;-)</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCo-Sr-FK1">
-                                                    <rect key="frame" x="70" y="0.0" width="235.5" height="58"/>
+                                                    <rect key="frame" x="73" y="0.0" width="229.5" height="58"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="58" id="Plx-bm-rxd"/>
                                                     </constraints>
@@ -1082,7 +1082,7 @@ mayúsculas.</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teléfono" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5L-zT-3Fq">
-                                                    <rect key="frame" x="155.5" y="0.0" width="64" height="24"/>
+                                                    <rect key="frame" x="153.5" y="0.0" width="68.5" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="Q8l-mE-Xj6"/>
                                                     </constraints>
@@ -1209,7 +1209,7 @@ mayúsculas.</string>
                                                     <color key="backgroundColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cumpleaños" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yH7-UJ-G0J">
-                                                    <rect key="frame" x="139.5" y="8" width="96.5" height="24"/>
+                                                    <rect key="frame" x="138.5" y="8" width="98.5" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="fDb-hR-lux"/>
                                                     </constraints>
@@ -1313,7 +1313,7 @@ mayúsculas.</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d5Z-yM-wF3">
-                                                    <rect key="frame" x="152" y="98.5" width="71" height="33"/>
+                                                    <rect key="frame" x="152.5" y="98.5" width="70" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="33" id="Cao-iI-Jl8"/>
                                                     </constraints>

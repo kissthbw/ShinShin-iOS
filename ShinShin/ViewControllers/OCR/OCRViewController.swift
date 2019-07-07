@@ -26,11 +26,27 @@ class OCRViewController: UIViewController {
     @IBOutlet weak var btnProcesar: UIButton!
     
     lazy var vision = Vision.vision()
+    /// An overlay view that displays detection annotations.
+    private lazy var annotationOverlayView: UIView = {
+        precondition(isViewLoaded)
+        let annotationOverlayView = UIView(frame: .zero)
+        annotationOverlayView.translatesAutoresizingMaskIntoConstraints = false
+        return annotationOverlayView
+    }()
+    
     var lines: [String] = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        imageView.addSubview(annotationOverlayView)
+        NSLayoutConstraint.activate([
+            annotationOverlayView.topAnchor.constraint(equalTo: imageView.topAnchor),
+            annotationOverlayView.leadingAnchor.constraint(equalTo: imageView.leadingAnchor),
+            annotationOverlayView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor),
+            annotationOverlayView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor),
+            ])
+        
         btnProcesar.layer.cornerRadius = 10.0
         btnProcesar.isEnabled = false
         activity.isHidden = true
@@ -104,6 +120,66 @@ class OCRViewController: UIViewController {
         navigationItem.leftBarButtonItems = [home]
     }
     
+    private func clearResults() {
+        removeDetectionAnnotations()
+    }
+    
+    private func removeDetectionAnnotations() {
+        for annotationView in annotationOverlayView.subviews {
+            annotationView.removeFromSuperview()
+        }
+    }
+    
+    private func updateImageView(with image: UIImage) {
+        let orientation = UIApplication.shared.statusBarOrientation
+        var scaledImageWidth: CGFloat = 0.0
+        var scaledImageHeight: CGFloat = 0.0
+        switch orientation {
+        case .portrait, .portraitUpsideDown, .unknown:
+            scaledImageWidth = imageView.bounds.size.width
+            scaledImageHeight = image.size.height * scaledImageWidth / image.size.width
+        case .landscapeLeft, .landscapeRight:
+            scaledImageWidth = image.size.width * scaledImageHeight / image.size.height
+            scaledImageHeight = imageView.bounds.size.height
+        }
+        DispatchQueue.global(qos: .userInitiated).async {
+            // Scale image while maintaining aspect ratio so it displays better in the UIImageView.
+            var scaledImage = image.scaledImage(
+                with: CGSize(width: scaledImageWidth, height: scaledImageHeight)
+            )
+            scaledImage = scaledImage ?? image
+            guard let finalImage = scaledImage else { return }
+            DispatchQueue.main.async {
+                self.imageView.image = finalImage
+                self.detectTextFrom(finalImage)
+            }
+        }
+    }
+    
+    private func transformMatrix() -> CGAffineTransform {
+        guard let image = imageView.image else { return CGAffineTransform() }
+        let imageViewWidth = imageView.frame.size.width
+        let imageViewHeight = imageView.frame.size.height
+        let imageWidth = image.size.width
+        let imageHeight = image.size.height
+        
+        let imageViewAspectRatio = imageViewWidth / imageViewHeight
+        let imageAspectRatio = imageWidth / imageHeight
+        let scale = (imageViewAspectRatio > imageAspectRatio) ?
+            imageViewHeight / imageHeight :
+            imageViewWidth / imageWidth
+        
+        // Image view's `contentMode` is `scaleAspectFit`, which scales the image to fit the size of the
+        // image view by maintaining the aspect ratio. Multiple by `scale` to get image's original size.
+        let scaledImageWidth = imageWidth * scale
+        let scaledImageHeight = imageHeight * scale
+        let xValue = (imageViewWidth - scaledImageWidth) / CGFloat(2.0)
+        let yValue = (imageViewHeight - scaledImageHeight) / CGFloat(2.0)
+        
+        var transform = CGAffineTransform.identity.translatedBy(x: xValue, y: yValue)
+        transform = transform.scaledBy(x: scale, y: scale)
+        return transform
+    }
     
     @objc
     func showHome(){
@@ -149,9 +225,22 @@ class OCRViewController: UIViewController {
             //Iterar sobre la respuesta
             for block in text.blocks{
                 print("Block: \(block.text)" )
+                let transformedRect = block.frame.applying(self.transformMatrix())
+                UIUtilities.addRectangle(
+                    transformedRect,
+                    to: self.annotationOverlayView,
+                    color: UIColor.purple
+                )
                 
                 for line in block.lines {
                     result.append(line.text + "\n")
+                    let transformedRect = line.frame.applying(self.transformMatrix())
+                    UIUtilities.addRectangle(
+                        transformedRect,
+                        to: self.annotationOverlayView,
+                        color: UIColor.orange
+                    )
+                    
                     self.lines.append(line.text)
 //                    
 //                    print("Elements")
@@ -201,19 +290,15 @@ class OCRViewController: UIViewController {
 extension OCRViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate{
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        picker.dismiss(animated: true)
         
-        guard let image = info[.originalImage] as? UIImage else {
-            print("No image found")
-            return
+        clearResults()
+        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            updateImageView(with: pickedImage)
+            //Verificar si se requiere ajustar la imagen
+//            imageView.image = pickedImage
+            
+            
         }
-        print( "Size: \(image.size)" )
-        print( "Description: \(image.description)" )
-        
-        
-        //Verificar si se requiere ajustar la imagen
-        imageView.image = image
-        
-        detectTextFrom(image)
+        dismiss(animated: true)
     }
 }

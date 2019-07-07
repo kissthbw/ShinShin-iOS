@@ -19,7 +19,7 @@ class Bonificacion: Codable, CustomStringConvertible{
 
     var idHistoricoMediosBonificacion: Int?
     var fechaBonificacion: String?
-    var horaBonificacion: String?
+//    var horaBonificacion: String?
     var cantidadBonificacion: Double?
     var mediosBonificacion: MediosBonificacion?
     var usuario: Usuario?
