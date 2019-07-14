@@ -7,10 +7,12 @@
     },
     {
       "idiom" : "universal",
+      "filename" : "money-white-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "money-white-2.png",
       "scale" : "3x"
     }
   ],

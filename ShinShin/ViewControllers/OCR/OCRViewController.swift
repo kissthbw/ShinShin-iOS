@@ -25,6 +25,8 @@ class OCRViewController: UIViewController {
     @IBOutlet weak var activity: UIActivityIndicatorView!
     @IBOutlet weak var btnProcesar: UIButton!
     
+    let ID_RQT_ANALIZAR = "ID_RQT_ANALIZAR"
+    
     lazy var vision = Vision.vision()
     /// An overlay view that displays detection annotations.
     private lazy var annotationOverlayView: UIView = {
@@ -35,10 +37,11 @@ class OCRViewController: UIViewController {
     }()
     
     var lines: [String] = [String]()
+    var datosTicket = OCRResponse()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationController?.navigationBar.isTranslucent = false
         imageView.addSubview(annotationOverlayView)
         NSLayoutConstraint.activate([
             annotationOverlayView.topAnchor.constraint(equalTo: imageView.topAnchor),
@@ -48,7 +51,7 @@ class OCRViewController: UIViewController {
             ])
         
         btnProcesar.layer.cornerRadius = 10.0
-        btnProcesar.isEnabled = false
+        btnProcesar.isEnabled = true
         activity.isHidden = true
         
         configureBarButtons()
@@ -65,23 +68,27 @@ class OCRViewController: UIViewController {
     }
     
     @IBAction func procesarAction(_ sender: Any) {
+        //Consumir el servicio /tickets/analizar
+        
         performSegue(withIdentifier: "TicketDetailSegue", sender: self)
+//        analizarOCRRequest()
     }
     
     //MARK: - Helper methods
     func configureBarButtons(){
         let img = UIImage(named: "money-grey")
         let imageView = UIImageView(image: img)
-        imageView.frame = CGRect(x: 4, y: 6, width: 22, height: 22)
+        imageView.frame = CGRect(x: 8, y: 6, width: 22, height: 22)
         
         let lblBonificacion = UILabel()
         lblBonificacion.font = UIFont(name: "Nunito SemiBold", size: 17)
         lblBonificacion.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
         
         lblBonificacion.text = Validations.formatWith(Model.totalBonificacion)
+        
         lblBonificacion.sizeToFit()
         let frame = lblBonificacion.frame
-        lblBonificacion.frame = CGRect(x: 27, y: 6, width: frame.width, height: frame.height)
+        lblBonificacion.frame = CGRect(x: 31, y: 6, width: frame.width, height: frame.height)
         
         //El tamanio del view debe ser
         //lblBonificacion.width + imageView.x + imageView.width + 4(que debe ser lo mismo que imageView.x
@@ -93,6 +100,9 @@ class OCRViewController: UIViewController {
         view.layer.borderColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0).cgColor
         view.addSubview(imageView)
         view.addSubview(lblBonificacion)
+        let button = UIButton(frame: CGRect(x: view.frame.minX, y: view.frame.minY, width: view.frame.width, height: view.frame.height))
+        button.addTarget(self, action: #selector(showView), for: .touchUpInside)
+        view.addSubview(button)
         
         self.navigationItem.titleView = view
         
@@ -181,9 +191,30 @@ class OCRViewController: UIViewController {
         return transform
     }
     
+    func analizarOCRRequest(){
+        do{
+            let encoder = JSONEncoder()
+            let rqt = OCRRequest()
+            rqt.lineas = lines
+            
+            let json = try encoder.encode(rqt)
+            RESTHandler.delegate = self
+            RESTHandler.postOperationTo(RESTHandler.analizarOCR, with: json, and: ID_RQT_ANALIZAR)
+        }
+        catch{
+            
+        }
+    }
+    
     @objc
     func showHome(){
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    func showView(){
+        let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "BonificacionViewController")
+        self.navigationController!.pushViewController(destViewController, animated: true)
     }
     
     @objc
@@ -195,6 +226,14 @@ class OCRViewController: UIViewController {
     @objc
     func showMenu(){
         present(SideMenuManager.default.menuRightNavigationController!, animated: true, completion: nil)
+    }
+    
+    //MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "TicketDetailSegue"{
+            let vc = segue.destination as! DatosTicketViewController
+            vc.datosTicket = datosTicket
+        }
     }
     
     //MARK: - MLVision
@@ -222,9 +261,10 @@ class OCRViewController: UIViewController {
                 return
             }
             
+            self.lines = [String]()
+            
             //Iterar sobre la respuesta
             for block in text.blocks{
-                print("Block: \(block.text)" )
                 let transformedRect = block.frame.applying(self.transformMatrix())
                 UIUtilities.addRectangle(
                     transformedRect,
@@ -241,6 +281,7 @@ class OCRViewController: UIViewController {
                         color: UIColor.orange
                     )
                     
+                    print("Line: \(line.text)")
                     self.lines.append(line.text)
 //                    
 //                    print("Elements")
@@ -251,9 +292,6 @@ class OCRViewController: UIViewController {
             }
             
 //            print("\(self.lines)")
-            
-            TicketOCRAnalyzer.analize(self.lines)
-            
             self.activity.stopAnimating()
             self.activity.isHidden = true
             self.txtResults.text = result
@@ -300,5 +338,47 @@ extension OCRViewController: UINavigationControllerDelegate, UIImagePickerContro
             
         }
         dismiss(animated: true)
+    }
+}
+
+//MARK: - RESTActionDelegate
+extension OCRViewController: RESTActionDelegate{
+    func restActionDidSuccessful(data: Data, identifier: String) {
+        
+        if identifier == ID_RQT_ANALIZAR{
+            do{
+                let decoder = JSONDecoder()
+                
+                let rsp = try decoder.decode(OCRResponse.self, from: data)
+                if rsp.code == 200{
+                    datosTicket = rsp
+                    performSegue(withIdentifier: "TicketDetailSegue", sender: self)
+                }
+                
+            }
+            catch{
+                print("JSON Error: \(error)")
+            }
+        }
+    }
+    
+    func restActionDidError() {
+        self.showNetworkError()
+    }
+    
+    func showNetworkError(){
+        let alert = UIAlertController(
+            title: "Whoops...",
+            message: "Ocurrió un problema." +
+            " Favor de interntar nuevamente",
+            preferredStyle: .alert)
+        
+        let action =
+            UIAlertAction(title: "OK",
+                          style: .default,
+                          handler: nil)
+        
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
 }

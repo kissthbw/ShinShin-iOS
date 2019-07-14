@@ -14,6 +14,11 @@ class ActivacionTableViewController: UITableViewController {
     @IBOutlet weak var txtField2: UITextField!
     @IBOutlet weak var txtField3: UITextField!
     @IBOutlet weak var txtField4: UITextField!
+    @IBOutlet weak var v1: UIView!
+    @IBOutlet weak var v2: UIView!
+    @IBOutlet weak var v3: UIView!
+    @IBOutlet weak var v4: UIView!
+    @IBOutlet weak var btnValidar: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +27,12 @@ class ActivacionTableViewController: UITableViewController {
         txtField2.delegate = self
         txtField3.delegate = self
         txtField4.delegate = self
+        
+        v1.layer.cornerRadius = 10.0
+        v2.layer.cornerRadius = 10.0
+        v3.layer.cornerRadius = 10.0
+        v4.layer.cornerRadius = 10.0
+        btnValidar.layer.cornerRadius = 10.0
         
         txtField1.tag = 1
         txtField2.tag = 2

@@ -341,12 +341,22 @@ class UsuarioViewController: UITableViewController {
         
         for text in elements {
             if let t = text{
-                t.layer.borderWidth = 0.0
+//                t.layer.borderWidth = 0.0
                 t.layer.cornerRadius = 10.0
                 t.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
             }            
         }
 
+        viewNombre.layer.cornerRadius = 10.0
+        viewCorreo.layer.cornerRadius = 10.0
+        viewPassword.layer.cornerRadius = 10.0
+        viewConfPassword.layer.cornerRadius = 10.0
+        viewTelefono.layer.cornerRadius = 10.0
+        viewAnio.layer.cornerRadius = 10.0
+        viewDia.layer.cornerRadius = 10.0
+        viewMes.layer.cornerRadius = 10.0
+        viewSexo.layer.cornerRadius = 10.0
+        viewCP.layer.cornerRadius = 10.0
         btnRegistrar.layer.cornerRadius = 10.0
 //        btnActivar.layer.cornerRadius = 5.0
     }

@@ -25,40 +25,63 @@ class ProductoDetalleViewController: UIViewController {
     @IBOutlet weak var bottomframe: UIView!
     @IBOutlet weak var lblNombre: UILabel!
     @IBOutlet weak var lblPresentacion: UILabel!
-    @IBOutlet weak var lblBonificacion: UILabel!
+    @IBOutlet weak var lblBonificacion2: UILabel!
     @IBOutlet weak var txtDescripcion: UITextView!
     @IBOutlet weak var imgProducto: UIImageView!
+    @IBOutlet weak var fakeView: UIView!
+    
+    //MARK: - Revisar
+    //Esto debe ser dinamico
+    @IBOutlet weak var icon1: UIView!
+    @IBOutlet weak var icon2: UIView!
+    @IBOutlet weak var icon3: UIView!
+    @IBOutlet weak var icon4: UIView!
+    @IBOutlet weak var icon5: UIView!
+    @IBOutlet weak var icon6: UIView!
+    @IBOutlet weak var icon7: UIView!
+    @IBOutlet weak var icon8: UIView!
+    @IBOutlet weak var icon9: UIView!
+    @IBOutlet weak var icon10: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isTranslucent = false
 //        navigationBar.tintColor = UIColor.orange
 //        navigationBar.barTintColor = UIColor.lightGray
-        
         configureBarButtons()
         
         // Do any additional setup after loading the view.
         if let edititem = item{
             self.navigationController?.navigationBar.isTranslucent = false
             self.navigationController?.navigationBar.barTintColor = UIColor(red: 255/255, green: 111/255, blue: 0/255, alpha: 1)
-            
+            fakeView.backgroundColor = UIColor(red: 255/255, green: 111/255, blue: 0/255, alpha: 1)
             topFrame.layer.borderWidth = 0.0
-            topFrame.backgroundColor = UIColor.orange
+            topFrame.backgroundColor = UIColor(red: 255/255, green: 111/255, blue: 0/255, alpha: 1)
             bottomframe.layer.borderWidth = 0.0
             bottomframe.layer.cornerRadius = 20.0
-            bottomframe.backgroundColor = UIColor.orange
+            bottomframe.backgroundColor = UIColor(red: 255/255, green: 111/255, blue: 0/255, alpha: 1)
             lblNombre.text = edititem.nombreProducto
             lblPresentacion.text = edititem.contenido
             txtDescripcion.textAlignment = .left
             txtDescripcion.text = edititem.descripcion
+            lblBonificacion2.text = Validations.formatWith(edititem.cantidadBonificacion)
             
-            let formatter = NumberFormatter()
-            formatter.numberStyle = .currency
-            let tmp = NSNumber(value: edititem.cantidadBonificacion!)
-            if let bon = formatter.string(from: tmp){
-                lblBonificacion.text = bon
-            }
 
         }
+        
+        lblBonificacion2.layer.cornerRadius = 10.0
+        lblBonificacion2.layer.masksToBounds = true
+        
+        icon1.layer.cornerRadius = 10.0
+        icon2.layer.cornerRadius = 10.0
+        icon3.layer.cornerRadius = 10.0
+        icon4.layer.cornerRadius = 10.0
+        icon5.layer.cornerRadius = 10.0
+        icon6.layer.cornerRadius = 10.0
+        icon7.layer.cornerRadius = 10.0
+        icon8.layer.cornerRadius = 10.0
+        icon9.layer.cornerRadius = 10.0
+        icon10.layer.cornerRadius = 10.0
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,16 +102,17 @@ class ProductoDetalleViewController: UIViewController {
     func configureBarButtons(){
         let img = UIImage(named: "money-grey")
         let imageView = UIImageView(image: img)
-        imageView.frame = CGRect(x: 4, y: 6, width: 22, height: 22)
+        imageView.frame = CGRect(x: 8, y: 6, width: 22, height: 22)
         
         let lblBonificacion = UILabel()
         lblBonificacion.font = UIFont(name: "Nunito SemiBold", size: 17)
         lblBonificacion.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
         
         lblBonificacion.text = Validations.formatWith(Model.totalBonificacion)
+        
         lblBonificacion.sizeToFit()
         let frame = lblBonificacion.frame
-        lblBonificacion.frame = CGRect(x: 27, y: 6, width: frame.width, height: frame.height)
+        lblBonificacion.frame = CGRect(x: 31, y: 6, width: frame.width, height: frame.height)
         
         //El tamanio del view debe ser
         //lblBonificacion.width + imageView.x + imageView.width + 4(que debe ser lo mismo que imageView.x
@@ -100,6 +124,9 @@ class ProductoDetalleViewController: UIViewController {
         view.layer.borderColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0).cgColor
         view.addSubview(imageView)
         view.addSubview(lblBonificacion)
+        let button = UIButton(frame: CGRect(x: view.frame.minX, y: view.frame.minY, width: view.frame.width, height: view.frame.height))
+        button.addTarget(self, action: #selector(showView), for: .touchUpInside)
+        view.addSubview(button)
         
         self.navigationItem.titleView = view
         
@@ -130,6 +157,12 @@ class ProductoDetalleViewController: UIViewController {
     @objc
     func showHome(){
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    func showView(){
+        let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "BonificacionViewController")
+        self.navigationController!.pushViewController(destViewController, animated: true)
     }
     
     @objc

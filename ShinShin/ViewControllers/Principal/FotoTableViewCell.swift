@@ -10,11 +10,16 @@ import UIKit
 
 class FotoTableViewCell: UITableViewCell {
     @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var lblMensaje: UILabel!
+    @IBOutlet weak var btnFoto: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         bottomView.layer.cornerRadius = 10.0
+        btnFoto.layer.cornerRadius = 10.0
         bottomView.backgroundColor = .white
+        lblMensaje.sizeToFit()
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

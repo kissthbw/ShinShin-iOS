@@ -31,9 +31,11 @@
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAd-mK-QoY">
-                    <rect key="frame" x="279" y="10" width="80" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAd-mK-QoY">
+                    <rect key="frame" x="215" y="10" width="141" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="141" id="A8c-Ll-9u3"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito SemiBold" pointSize="15"/>
                     <state key="normal" title="[+ Numero]"/>
                 </button>
@@ -43,6 +45,11 @@
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="DSu-df-tnU" firstAttribute="trailing" secondItem="eAd-mK-QoY" secondAttribute="trailing" constant="19" id="bco-uH-SMB"/>
+                <constraint firstItem="DSu-df-tnU" firstAttribute="bottom" secondItem="eAd-mK-QoY" secondAttribute="bottom" constant="10" id="f75-BG-DHV"/>
+                <constraint firstItem="eAd-mK-QoY" firstAttribute="top" secondItem="DSu-df-tnU" secondAttribute="top" constant="10" id="trG-pJ-PwB"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="DSu-df-tnU"/>
             <connections>

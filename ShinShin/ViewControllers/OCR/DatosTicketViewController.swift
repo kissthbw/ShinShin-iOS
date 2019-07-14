@@ -15,30 +15,42 @@ class DatosTicketViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var isMenuVisible = false
+    var datosTicket = OCRResponse()
+    var total: Double = 0.0
     
     let ID_RQT_GUARDAR = "ID_RQT_GUARDAR"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isTranslucent = false
         configureBarButtons()
+        calcularTotal()
     }
     
     //MARK: - Actions
     
     //MARK: - Helper methods
+    func calcularTotal(){
+
+            for p in datosTicket.productos {
+                total = total + p.cantidadBonificacion!
+            }
+    }
+    
     func configureBarButtons(){
         let img = UIImage(named: "money-grey")
         let imageView = UIImageView(image: img)
-        imageView.frame = CGRect(x: 4, y: 6, width: 22, height: 22)
+        imageView.frame = CGRect(x: 8, y: 6, width: 22, height: 22)
         
         let lblBonificacion = UILabel()
         lblBonificacion.font = UIFont(name: "Nunito SemiBold", size: 17)
         lblBonificacion.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
         
         lblBonificacion.text = Validations.formatWith(Model.totalBonificacion)
+        
         lblBonificacion.sizeToFit()
         let frame = lblBonificacion.frame
-        lblBonificacion.frame = CGRect(x: 27, y: 6, width: frame.width, height: frame.height)
+        lblBonificacion.frame = CGRect(x: 31, y: 6, width: frame.width, height: frame.height)
         
         //El tamanio del view debe ser
         //lblBonificacion.width + imageView.x + imageView.width + 4(que debe ser lo mismo que imageView.x
@@ -50,6 +62,9 @@ class DatosTicketViewController: UIViewController {
         view.layer.borderColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0).cgColor
         view.addSubview(imageView)
         view.addSubview(lblBonificacion)
+        let button = UIButton(frame: CGRect(x: view.frame.minX, y: view.frame.minY, width: view.frame.width, height: view.frame.height))
+        button.addTarget(self, action: #selector(showView), for: .touchUpInside)
+        view.addSubview(button)
         
         self.navigationItem.titleView = view
         
@@ -57,7 +72,7 @@ class DatosTicketViewController: UIViewController {
             image: UIImage(named: "logo-menu"),
             style: .plain,
             target: self,
-            action: #selector(showHome))
+            action: nil)
         home.tintColor = .black
         
         let notif = UIBarButtonItem(
@@ -80,6 +95,12 @@ class DatosTicketViewController: UIViewController {
     @objc
     func showHome(){
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    func showView(){
+        let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "BonificacionViewController")
+        self.navigationController!.pushViewController(destViewController, animated: true)
     }
     
     @objc
@@ -155,11 +176,28 @@ extension DatosTicketViewController: UITableViewDataSource, UITableViewDelegate{
         return 4
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        if section == 2{
+//            return "Productos"
+//        }
+//        return ""
+//    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 2{
-            return "Productos"
+            return 50
         }
-        return ""
+        else{
+            return 0
+        }
+    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 2{
+            let header = Bundle.main.loadNibNamed("HeaderProductosTicket", owner: nil, options: nil)!.first as! UIView
+            
+            return header
+        }
+        
+        return nil
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -173,14 +211,14 @@ extension DatosTicketViewController: UITableViewDataSource, UITableViewDelegate{
         case 3:
             return 160
         default:
-            return 44
+            return 0
         }
 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 2{
-            return 20
+            return datosTicket.productos.count
         }
         
         return 1
@@ -199,17 +237,20 @@ extension DatosTicketViewController: UITableViewDataSource, UITableViewDelegate{
         }
         else if indexPath.section == 3{
             let cell = tableView.dequeueReusableCell(withIdentifier: "TotalCell", for: indexPath) as! TotalTicketTableViewCell
+            cell.lblTotal.text = Validations.formatWith(total)
             cell.btnEnviar.addTarget(self, action: #selector(enviarTicket), for: .touchUpInside)
             return cell
         }
         else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProductoCell", for: indexPath) as! ProductoTicketTableViewCell
             
-            cell.lblNombre.text = "Paq. 2 aguas Bonafont"
-            cell.lblPresentacion.text = "600 ml"
+            let item = datosTicket.productos[indexPath.row]
+            
+            cell.lblNombre.text = item.nombreProducto
+            cell.lblPresentacion.text = item.presentacion
             cell.lblCantidad.text = "Cant: 1"
-            cell.lblCodigo.text = "123456789012"
-            cell.lblBonificacion.text = "$ 5"
+            cell.lblCodigo.text = item.codigoBarras
+            cell.lblBonificacion.text = Validations.formatWith(item.cantidadBonificacion)
             
             
             return cell

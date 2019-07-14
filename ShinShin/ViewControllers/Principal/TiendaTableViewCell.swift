@@ -48,7 +48,16 @@ extension TiendaTableViewCell: UICollectionViewDataSource, UICollectionViewDeleg
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TiendaItemCell", for: indexPath) as! TiendaItemCollectionViewCell
         
 //        cell.lblDepto.text = "Producto"
-//        cell.image.image = UIImage(named: "producto_detail_placeholder")
+        if indexPath.row == 0{
+            cell.imageView.image = UIImage(named:"Oxxo")
+        }
+        if indexPath.row == 1{
+            cell.imageView.image = UIImage(named:"7eleven")
+        }
+        if indexPath.row == 2{
+            cell.imageView.image = UIImage(named:"Walmart")
+        }
+        
         
         return cell
     }

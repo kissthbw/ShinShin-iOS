@@ -45,6 +45,7 @@ class PrincipalViewController: UIViewController {
         SideMenuManager.default.menuWidth = CGFloat(307)
         
 //        viewBottomBanner.layer.cornerRadius = 15.0
+        self.navigationController?.navigationBar.isTranslucent = false
         configureBarButtons()
         bannersRequest()
         favoritosRequest()
@@ -94,7 +95,7 @@ class PrincipalViewController: UIViewController {
     func configureBarButtons(){
         let img = UIImage(named: "money-grey")
         let imageView = UIImageView(image: img)
-        imageView.frame = CGRect(x: 4, y: 6, width: 22, height: 22)
+        imageView.frame = CGRect(x: 8, y: 6, width: 22, height: 22)
         
         let lblBonificacion = UILabel()
         lblBonificacion.font = UIFont(name: "Nunito SemiBold", size: 17)
@@ -104,7 +105,7 @@ class PrincipalViewController: UIViewController {
         
         lblBonificacion.sizeToFit()
         let frame = lblBonificacion.frame
-        lblBonificacion.frame = CGRect(x: 27, y: 6, width: frame.width, height: frame.height)
+        lblBonificacion.frame = CGRect(x: 31, y: 6, width: frame.width, height: frame.height)
         
         //El tamanio del view debe ser
         //lblBonificacion.width + imageView.x + imageView.width + 4(que debe ser lo mismo que imageView.x
@@ -116,6 +117,9 @@ class PrincipalViewController: UIViewController {
         view.layer.borderColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0).cgColor
         view.addSubview(imageView)
         view.addSubview(lblBonificacion)
+        let button = UIButton(frame: CGRect(x: view.frame.minX, y: view.frame.minY, width: view.frame.width, height: view.frame.height))
+        button.addTarget(self, action: #selector(showView), for: .touchUpInside)
+        view.addSubview(button)
         
         self.navigationItem.titleView = view
         
@@ -146,6 +150,12 @@ class PrincipalViewController: UIViewController {
     @objc
     func showNotif(){
         let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "NotificacionesTableViewController")
+        self.navigationController!.pushViewController(destViewController, animated: true)
+    }
+    
+    @objc
+    func showView(){
+        let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "BonificacionViewController")
         self.navigationController!.pushViewController(destViewController, animated: true)
     }
     

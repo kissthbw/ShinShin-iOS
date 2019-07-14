@@ -35,14 +35,20 @@
                     <rect key="frame" x="12" y="13" width="22" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5V-9R-2kr">
-                    <rect key="frame" x="268" y="5" width="91" height="33"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5V-9R-2kr">
+                    <rect key="frame" x="304" y="5" width="55" height="33"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="33" id="Pvs-dI-ZBs"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito SemiBold" pointSize="15"/>
                     <state key="normal" title="[Action]"/>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="I5V-9R-2kr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="qQG-2K-Qkf"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="I5V-9R-2kr" secondAttribute="trailing" constant="16" id="vKN-SA-hlv"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>

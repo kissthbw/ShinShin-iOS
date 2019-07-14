@@ -11,21 +11,42 @@ import UIKit
 class MenuViewController: UIViewController {
 
     //MARK: - Propiedades
+    @IBOutlet weak var viewIconoUser: UIView!
     @IBOutlet weak var btnRetirar: UIButton!
+    @IBOutlet weak var btnTickets: UIButton!
     @IBOutlet weak var btnHistorial: UIButton!
     @IBOutlet weak var lblBonificacion: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewIconoUser.layer.cornerRadius = 35.0
         lblBonificacion.text = Validations.formatWith(Model.totalBonificacion)
-        btnRetirar.layer.cornerRadius = 10
-        btnHistorial.layer.cornerRadius = 10
+        btnRetirar.layer.cornerRadius = 20.0
+        btnRetirar.tag = 1
         
+        btnTickets.layer.cornerRadius = 20.0
+        btnTickets.tag = 2
+        
+        btnHistorial.layer.cornerRadius = 20.0
+        btnHistorial.tag = 3
         
     }
     
     //MARK: - Actions
+    @IBAction func retirarAction(_ sender: Any) {
+        performSegue(withIdentifier: "BonificacionSegue", sender: sender)
+    }
+    
+    @IBAction func ticketAction(_ sender: Any) {
+        performSegue(withIdentifier: "BonificacionSegue", sender: sender)
+    }
+    
+    @IBAction func historialAction(_ sender: Any) {
+        performSegue(withIdentifier: "BonificacionSegue", sender: sender)
+    }
+    
+    
     @IBAction func close(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -39,15 +60,24 @@ class MenuViewController: UIViewController {
     }
     
     
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "HistoricoSegue"{
+        if segue.identifier == "BonificacionSegue"{
             let vc = segue.destination as! BonificacionViewController
-            vc.tipoProceso = .Historico
-        }
-        
-        if segue.identifier == "RetirosSegue"{
-            let vc = segue.destination as! BonificacionViewController
-            vc.tipoProceso = .Retirar
+            let button = sender as! UIButton
+            
+            if button.tag == 1{
+                vc.tipoProceso = .Retirar
+            }
+            else if button.tag == 2{
+                vc.tipoProceso = .Tickets
+            }
+            else if button.tag == 3{
+                vc.tipoProceso = .Historico
+            }
+            
+            
         }
     }
 

@@ -13,6 +13,12 @@ class BancoDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var txtTarjeta: UITextField!
     @IBOutlet weak var txtMes: UITextField!
     @IBOutlet weak var txtAnio: UITextField!
+    
+    @IBOutlet weak var viewTipo: UIView!
+    @IBOutlet weak var viewMes: UIView!
+    @IBOutlet weak var viewAnio: UIView!
+    
+    
     @IBOutlet weak var btnGuardar: UIButton!
     
     enum UITextTags: Int{
@@ -51,6 +57,11 @@ class BancoDetailTableViewCell: UITableViewCell {
         }
         
         btnGuardar.layer.cornerRadius = 10.0
+        txtTarjeta.layer.cornerRadius = 10.0
+        viewTipo.layer.cornerRadius = 10.0
+        viewMes.layer.cornerRadius = 10.0
+        viewAnio.layer.cornerRadius = 10.0
+        
 //        showViewPicker()
     }
 

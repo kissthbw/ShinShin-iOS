@@ -53,7 +53,7 @@ extension DeptoTableViewCell: UICollectionViewDataSource, UICollectionViewDelega
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DeptoItemCell", for: indexPath) as! DeptoItemCollectionViewCell
         
         cell.lblDepto.text = list[indexPath.row].nombreTipoProducto
-        cell.image.image = UIImage(named: "producto_detail_placeholder")
+        cell.image.image = UIImage(named: "belleza")
         
         return cell
     }

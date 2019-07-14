@@ -25,6 +25,7 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var viewPassword: UIView!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var btnLogin: UIButton!
+    @IBOutlet weak var btnShowPlain: UIButton!
     
     var isMenuVisible = false
     var showPassword = false
@@ -47,10 +48,12 @@ class LogInViewController: UIViewController {
     @IBAction func showPlain(_ sender: Any) {
         if showPassword{
             txtPassword.isSecureTextEntry = true
+            btnShowPlain.setBackgroundImage(UIImage(named: "password-right-grey"), for: .normal)
             showPassword = !showPassword
         }
         else{
             txtPassword.isSecureTextEntry = false
+            btnShowPlain.setBackgroundImage(UIImage(named: "password-right-orange"), for: .normal)
             showPassword = !showPassword
         }
     }

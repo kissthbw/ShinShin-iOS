@@ -92,6 +92,7 @@ extension CategoriaTableViewCell: UICollectionViewDataSource, UICollectionViewDe
         
         cell.lblBaner.text = item.nombreProducto
         cell.lblContenido.text = item.contenido
+        cell.lblBonificacion.text = Validations.formatWith(item.cantidadBonificacion)
         cell.btnMasInfo.tag = indexPath.row
         cell.btnMasInfo.addTarget(self, action: #selector(selectedItem(sender:)), for: .touchUpInside)
         

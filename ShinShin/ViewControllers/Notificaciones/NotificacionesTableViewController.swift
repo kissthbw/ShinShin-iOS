@@ -13,10 +13,29 @@ class NotificacionesTableViewController: UITableViewController {
 
     //MARK: - Propiedades
     var isMenuVisible = false
+    var items: [Notificacion] = [Notificacion]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationController?.navigationBar.isTranslucent = false
+        let item = Notificacion()
+        item.titulo = "Se agregaron $25 a tu cuenta"
+        item.fecha = "dd/mm/aaaaa"
+        item.imagen = "agregar"
+        items.append(item)
+        
+        let item2 = Notificacion()
+        item2.titulo = "Solicitaste un retiro por $100 que se vera reflejado en tu cuenta ****2150"
+        item2.fecha = "dd/mm/aaaaa"
+        item2.imagen = "retiro"
+        items.append(item2)
+        
+        let item3 = Notificacion()
+        item3.titulo = "Llegó Agua Bonafont 500 ml \n - Gana $5"
+        item3.fecha = "dd/mm/aaaaa"
+        item3.imagen = "bonafont"
+        items.append(item3)
+        
         configureBarButtons()
     }
 
@@ -89,38 +108,53 @@ class NotificacionesTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        if section == 0{
+//            return "Hoy"
+//        }
+//        else{
+//            return "Ayer"
+//        }
+//    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = Bundle.main.loadNibNamed("NotificacionHeader", owner: nil, options: nil)!.first as! NotificationHeaderView
+        
         if section == 0{
-            return "Hoy"
+            header.lblTitulo.text = "HOY"
         }
-        else{
-            return "Ayer"
+        else if section == 1{
+            header.lblTitulo.text = "AYER"
         }
+        
+        return header
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if section == 0{
-            return 1
-        }
-        else{
-            
-        }
-        return 6
+        return items.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NotificacionCell", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NotificacionCell", for: indexPath) as! NotificacionesTableViewCell
+        
+        let item = items[indexPath.row]
+        
+        cell.lblTitulo.text = item.titulo
+        cell.lblFecha.text = item.fecha
+        cell.imageViewNotificacion.image = UIImage(named: item.imagen!)
+        
 
         return cell
     }

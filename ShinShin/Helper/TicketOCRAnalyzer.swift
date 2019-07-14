@@ -14,6 +14,8 @@ class TicketOCRAnalyzer{
         "OXXO":"OXXO",
         "Oxx0":"OXXO",
         "Oxxa":"OXXO",
+        "Oxxo":"OXXO",
+        "GxD":"OXXO"
     ]
     /*
      */

@@ -16,9 +16,12 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFr-Jm-hcT">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFr-Jm-hcT">
                     <rect key="frame" x="48" y="400" width="279" height="112"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="279" id="9EM-No-sDP"/>
+                        <constraint firstAttribute="height" constant="112" id="pcB-kd-uqU"/>
+                    </constraints>
                     <attributedString key="attributedText">
                         <fragment>
                             <string key="content">Aquí vamos a poner
@@ -40,12 +43,21 @@ a los usuarios ;-)</string>
                     </attributedString>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="circulo-280x280" translatesAutoresizingMaskIntoConstraints="NO" id="X6X-UP-Miq">
-                    <rect key="frame" x="96" y="162" width="182" height="182"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circulo-280x280" translatesAutoresizingMaskIntoConstraints="NO" id="X6X-UP-Miq">
+                    <rect key="frame" x="96.5" y="162" width="182" height="182"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="182" id="2ZA-fq-Znu"/>
+                        <constraint firstAttribute="width" constant="182" id="n9v-Bg-ROT"/>
+                    </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="rFr-Jm-hcT" firstAttribute="top" secondItem="X6X-UP-Miq" secondAttribute="bottom" constant="56" id="0A5-Ya-qfC"/>
+                <constraint firstItem="X6X-UP-Miq" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="142" id="DDm-vj-fOU"/>
+                <constraint firstItem="rFr-Jm-hcT" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Wxk-b8-xoK"/>
+                <constraint firstItem="X6X-UP-Miq" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="eCD-2S-GKa"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="63.200000000000003" y="90.404797601199405"/>
         </view>

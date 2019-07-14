@@ -70,6 +70,9 @@ class RESTHandler{
     static let obtieneInformacionBonificacion = server + "/usuarios/usuario/totalBonificacion"
     static let obtieneMediosBonificacionPorUsuario = server + "/usuarios/usuario/mediosBonificacion"
     
+    //Pantalla de Ticket
+    static let analizarOCR = server + "/tickets/analizar"
+    
     //Productos
     //http://shinshin-env.m7izq9trpe.us-east-2.elasticbeanstalk.com
 //    static let obtieneProductos = "http://shinshin-env.m7izq9trpe.us-east-2.elasticbeanstalk.com/productos/list"
