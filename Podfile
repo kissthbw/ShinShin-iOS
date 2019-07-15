@@ -11,6 +11,7 @@ target 'ShinShin' do
   pod 'Firebase/Core'
   pod 'Firebase/MLVision'
   pod 'Firebase/MLVisionTextModel'
+  pod 'Firebase/Messaging'
   
 
   target 'ShinShinTests' do

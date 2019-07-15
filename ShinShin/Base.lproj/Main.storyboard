@@ -3878,7 +3878,7 @@ Shing</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="agregarFoto" translatesAutoresizingMaskIntoConstraints="NO" id="ddO-3i-VP2">
-                                                    <rect key="frame" x="137.5" y="59" width="100.00000000000001" height="100"/>
+                                                    <rect key="frame" x="137.5" y="59" width="100" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="LAn-YF-PLF"/>
                                                         <constraint firstAttribute="height" constant="100" id="jEe-Ov-Z6q"/>
@@ -5232,7 +5232,6 @@ por acá  ;-)</string>
                 <navigationController storyboardIdentifier="PrincipalNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Z1I-zc-uE8" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Hdn-qm-IuC">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

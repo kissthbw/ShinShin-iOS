@@ -65,9 +65,6 @@
 		A271296822B2AE5B0099CB0B /* BancoDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A271296722B2AE5B0099CB0B /* BancoDetailTableViewCell.swift */; };
 		A271296A22B2AEB70099CB0B /* PayPalDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A271296922B2AEB70099CB0B /* PayPalDetailTableViewCell.swift */; };
 		A271296C22B2AEC40099CB0B /* RecargaDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A271296B22B2AEC40099CB0B /* RecargaDetailTableViewCell.swift */; };
-		A271A7D6229708B10056CE64 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A271A7D5229708B10056CE64 /* GoogleService-Info.plist */; };
-		A271A7D7229708B10056CE64 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A271A7D5229708B10056CE64 /* GoogleService-Info.plist */; };
-		A271A7D8229708B10056CE64 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A271A7D5229708B10056CE64 /* GoogleService-Info.plist */; };
 		A27824F722A71C9F00A2885E /* PrincipalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27824F622A71C9F00A2885E /* PrincipalViewController.swift */; };
 		A27824F922A7228900A2885E /* CategoriaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27824F822A7228900A2885E /* CategoriaTableViewCell.swift */; };
 		A27F3FFF22A426DE0026A4F3 /* AyudaViewControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27F3FFE22A426DE0026A4F3 /* AyudaViewControlller.swift */; };
@@ -90,6 +87,7 @@
 		A2BA0666229DCF14009A2213 /* UITextField+image.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BA0665229DCF14009A2213 /* UITextField+image.swift */; };
 		A2BCBCA522C16C310000BBD0 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BCBCA422C16C310000BBD0 /* MenuViewController.swift */; };
 		A2C1644F22A5CDA900D65B54 /* DatosTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C1644E22A5CDA900D65B54 /* DatosTicketViewController.swift */; };
+		A2C38F9E22DCFAAE00C9E958 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A2C38F9D22DCFAAE00C9E958 /* GoogleService-Info.plist */; };
 		A2CB392F22C427380031EBAF /* HeaderProductos.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2CB392E22C427380031EBAF /* HeaderProductos.xib */; };
 		A2CB393122C42AB20031EBAF /* HeaderProductosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB393022C42AB20031EBAF /* HeaderProductosView.swift */; };
 		A2D83A5222CCF90D003DE37F /* PrincipalBonificacionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D83A5122CCF90D003DE37F /* PrincipalBonificacionTableViewCell.swift */; };
@@ -213,7 +211,6 @@
 		A271296722B2AE5B0099CB0B /* BancoDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BancoDetailTableViewCell.swift; sourceTree = "<group>"; };
 		A271296922B2AEB70099CB0B /* PayPalDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayPalDetailTableViewCell.swift; sourceTree = "<group>"; };
 		A271296B22B2AEC40099CB0B /* RecargaDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecargaDetailTableViewCell.swift; sourceTree = "<group>"; };
-		A271A7D5229708B10056CE64 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A27824F622A71C9F00A2885E /* PrincipalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalViewController.swift; sourceTree = "<group>"; };
 		A27824F822A7228900A2885E /* CategoriaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriaTableViewCell.swift; sourceTree = "<group>"; };
 		A27F3FFE22A426DE0026A4F3 /* AyudaViewControlller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AyudaViewControlller.swift; sourceTree = "<group>"; };
@@ -236,6 +233,8 @@
 		A2BA0665229DCF14009A2213 /* UITextField+image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+image.swift"; sourceTree = "<group>"; };
 		A2BCBCA422C16C310000BBD0 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		A2C1644E22A5CDA900D65B54 /* DatosTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatosTicketViewController.swift; sourceTree = "<group>"; };
+		A2C38F9C22DCE55E00C9E958 /* ShinShin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShinShin.entitlements; sourceTree = "<group>"; };
+		A2C38F9D22DCFAAE00C9E958 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A2CB392E22C427380031EBAF /* HeaderProductos.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderProductos.xib; sourceTree = "<group>"; };
 		A2CB393022C42AB20031EBAF /* HeaderProductosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderProductosView.swift; sourceTree = "<group>"; };
 		A2D83A5122CCF90D003DE37F /* PrincipalBonificacionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalBonificacionTableViewCell.swift; sourceTree = "<group>"; };
@@ -345,6 +344,7 @@
 		A267D78D222DD7AE00153CB8 /* ShinShin */ = {
 			isa = PBXGroup;
 			children = (
+				A2C38F9C22DCE55E00C9E958 /* ShinShin.entitlements */,
 				A2F0AA6922AEB3FA0069A84A /* Fonts */,
 				A297376A226637640071BE3E /* Model */,
 				A20BA6812264E5720030572F /* Helper */,
@@ -354,7 +354,7 @@
 				A267D798222DD7B800153CB8 /* Assets.xcassets */,
 				A267D79A222DD7B800153CB8 /* LaunchScreen.storyboard */,
 				A267D79D222DD7B800153CB8 /* Info.plist */,
-				A271A7D5229708B10056CE64 /* GoogleService-Info.plist */,
+				A2C38F9D22DCFAAE00C9E958 /* GoogleService-Info.plist */,
 				A267D795222DD7AF00153CB8 /* ShinShin.xcdatamodeld */,
 			);
 			path = ShinShin;
@@ -714,6 +714,11 @@
 					A267D78A222DD7AE00153CB8 = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1020;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					A267D7A1222DD7B800153CB8 = {
 						CreatedOnToolsVersion = 10.1;
@@ -765,9 +770,9 @@
 				A2F0AA7B22AEB4200069A84A /* Nunito-Black.ttf in Resources */,
 				A2F0AA7D22AEB4200069A84A /* Nunito-ExtraBold.ttf in Resources */,
 				A2F0AA7A22AEB4200069A84A /* Nunito-ExtraLightItalic.ttf in Resources */,
+				A2C38F9E22DCFAAE00C9E958 /* GoogleService-Info.plist in Resources */,
 				A2CB392F22C427380031EBAF /* HeaderProductos.xib in Resources */,
 				A2F0AA7822AEB4200069A84A /* Nunito-Light.ttf in Resources */,
-				A271A7D6229708B10056CE64 /* GoogleService-Info.plist in Resources */,
 				A2F0AA8122AEB4200069A84A /* Nunito-LightItalic.ttf in Resources */,
 				A2F0AA8322AEB4200069A84A /* Nunito-BoldItalic.ttf in Resources */,
 				A267D799222DD7B800153CB8 /* Assets.xcassets in Resources */,
@@ -786,7 +791,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A271A7D7229708B10056CE64 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -794,7 +798,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A271A7D8229708B10056CE64 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1168,6 +1171,7 @@
 			baseConfigurationReference = 99F5F9623ABDCCFE767D9EBE /* Pods-ShinShin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ShinShin/ShinShin.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 754J7T6W73;
@@ -1189,6 +1193,7 @@
 			baseConfigurationReference = BC0561385F24CF95853B7D3C /* Pods-ShinShin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ShinShin/ShinShin.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 754J7T6W73;
