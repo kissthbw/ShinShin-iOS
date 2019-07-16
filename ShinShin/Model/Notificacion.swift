@@ -9,7 +9,8 @@
 import Foundation
 
 class Notificacion{
-    var titulo: String?
+    var title: String?
+    var body: String?
     var fecha: String?
     var imagen: String?
 }

@@ -72,7 +72,7 @@ class DatosTicketViewController: UIViewController {
             image: UIImage(named: "logo-menu"),
             style: .plain,
             target: self,
-            action: nil)
+            action: #selector(showHome))
         home.tintColor = .black
         
         let notif = UIBarButtonItem(
@@ -122,7 +122,7 @@ class DatosTicketViewController: UIViewController {
     
     func registrarTicketRequest(){
         do{
-//            let encoder = JSONEncoder()
+            let encoder = JSONEncoder()
             let user = Usuario()
             user.idUsuario = Model.user?.idUsuario
             
@@ -146,11 +146,11 @@ class DatosTicketViewController: UIViewController {
             ticket.productos = productos
             user.tickets = [ticket]
 
-            performSegue(withIdentifier: "EnviarTicketSegue", sender: self)
+//            performSegue(withIdentifier: "EnviarTicketSegue", sender: self)
             
-//            let json = try encoder.encode(user)
-//            RESTHandler.delegate = self
-//            RESTHandler.postOperationTo(RESTHandler.registrarTicket, with: json, and: ID_RQT_GUARDAR)
+            let json = try encoder.encode(user)
+            RESTHandler.delegate = self
+            RESTHandler.postOperationTo(RESTHandler.registrarTicket, with: json, and: ID_RQT_GUARDAR)
         }
         catch{
             
@@ -270,6 +270,7 @@ extension DatosTicketViewController: RESTActionDelegate{
             if let code = rsp.code{
                 if code == 200{
                     print("Ticker registrado de forma correcta")
+                    performSegue(withIdentifier: "EnviarTicketSegue", sender: self)
                 }
             }
         }

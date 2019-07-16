@@ -18,23 +18,34 @@ class NotificacionesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isTranslucent = false
-        let item = Notificacion()
-        item.titulo = "Se agregaron $25 a tu cuenta"
-        item.fecha = "dd/mm/aaaaa"
-        item.imagen = "agregar"
-        items.append(item)
         
-        let item2 = Notificacion()
-        item2.titulo = "Solicitaste un retiro por $100 que se vera reflejado en tu cuenta ****2150"
-        item2.fecha = "dd/mm/aaaaa"
-        item2.imagen = "retiro"
-        items.append(item2)
-        
-        let item3 = Notificacion()
-        item3.titulo = "Llegó Agua Bonafont 500 ml \n - Gana $5"
-        item3.fecha = "dd/mm/aaaaa"
-        item3.imagen = "bonafont"
-        items.append(item3)
+        if Model.notificaciones.count > 0{
+            print("Con notificaciones")
+            items = Model.notificaciones
+        }
+        else{
+            print("Con notificaciones dummy")
+            let item = Notificacion()
+            item.title = "Se agregaron $25 a tu cuenta"
+            item.body = "dd/mm/aaaaa"
+            item.fecha = "dd/mm/aaaaa"
+            item.imagen = "agregar"
+            items.append(item)
+            
+            let item2 = Notificacion()
+            item2.title = "Solicitaste un retiro por $100 que se vera reflejado en tu cuenta ****2150"
+            item.body = "dd/mm/aaaaa"
+            item2.fecha = "dd/mm/aaaaa"
+            item2.imagen = "retiro"
+            items.append(item2)
+            
+            let item3 = Notificacion()
+            item3.title = "Llegó Agua Bonafont 500 ml \n - Gana $5"
+            item.body = "dd/mm/aaaaa"
+            item3.fecha = "dd/mm/aaaaa"
+            item3.imagen = "bonafont"
+            items.append(item3)
+        }
         
         configureBarButtons()
     }
@@ -151,9 +162,15 @@ class NotificacionesTableViewController: UITableViewController {
         
         let item = items[indexPath.row]
         
-        cell.lblTitulo.text = item.titulo
-        cell.lblFecha.text = item.fecha
-        cell.imageViewNotificacion.image = UIImage(named: item.imagen!)
+        cell.lblTitulo.text = item.title
+        cell.lblFecha.text = item.body
+        
+        if let imagen = item.imagen{
+            cell.imageViewNotificacion.image = UIImage(named: imagen)
+        }
+        else{
+            cell.imageViewNotificacion.image = UIImage(named: "agregar")
+        }
         
 
         return cell

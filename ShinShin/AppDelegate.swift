@@ -44,7 +44,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
-        print("Received: \(userInfo)")
+        
+        print("From didReceiveRemoteNotification 1")
+        if let aps = userInfo["aps"] as? [String: AnyObject]{
+            print("Payload: \(aps)")
+        }
         // If you are receiving a notification message while your app is in the background,
         // this callback will not be fired till the user taps on the notification launching the application.
         // TODO: Handle data of notification
@@ -53,16 +57,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         
         // Print message ID.
-        if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
-        }
-        
-        // Print full message.
-        print(userInfo)
+//        if let messageID = userInfo[gcmMessageIDKey] {
+//            print("Message ID: \(messageID)")
+//        }
+//
+//        // Print full message.
+//        print(userInfo)
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        print("From didReceiveRemoteNotification 2")
+        
+        if let aps = userInfo["aps"] as? [String: AnyObject]{
+            print("Payload: \(aps)")
+        }
         // If you are receiving a notification message while your app is in the background,
         // this callback will not be fired till the user taps on the notification launching the application.
         // TODO: Handle data of notification
@@ -141,16 +151,34 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let userInfo = notification.request.content.userInfo
+        print("From willPresent")
+        
+        if let aps = userInfo["aps"] as? [String: AnyObject]{
+            print("Payload: \(aps)")
+            
+            let alert = aps["alert"] as? [String: AnyObject]
+            
+            if let alert = alert{
+                let body = alert["body"] as? String
+                let title = alert["title"] as? String
+                
+                let notif = Notificacion()
+                notif.body = body
+                notif.title = title
+                
+                Model.notificaciones.append(notif)
+            }
+        }
         
         // With swizzling disabled you must let Messaging know about the message, for Analytics
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         // Print message ID.
-        if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
-        }
-        
-        // Print full message.
-        print(userInfo)
+//        if let messageID = userInfo[gcmMessageIDKey] {
+//            print("Message ID: \(messageID)")
+//        }
+//
+//        // Print full message.
+//        print(userInfo)
         
         // Change this to your preferred presentation option
         completionHandler([])
@@ -159,21 +187,35 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
+        print("From didReceive")
         let userInfo = response.notification.request.content.userInfo
         
         userInfo.forEach { print($0) }
         
         if let aps = userInfo["aps"] as? [String: AnyObject]{
             print("Payload: \(aps)")
+            
+            let alert = aps["alert"] as? [String: AnyObject]
+            
+            if let alert = alert{
+                let body = alert["body"] as? String
+                let title = alert["title"] as? String
+                
+                let notif = Notificacion()
+                notif.body = body
+                notif.title = title
+                
+                Model.notificaciones.append(notif)
+            }
         }
         
-        // Print message ID.
-        if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
-        }
-        
-        // Print full message.
-        print("USER INFO \(userInfo)")
+//        // Print message ID.
+//        if let messageID = userInfo[gcmMessageIDKey] {
+//            print("Message ID: \(messageID)")
+//        }
+//
+//        // Print full message.
+//        print("USER INFO \(userInfo)")
         
         completionHandler()
     }

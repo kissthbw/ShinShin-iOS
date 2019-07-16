@@ -21,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="populares-grey" translatesAutoresizingMaskIntoConstraints="NO" id="KOr-J5-huQ">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="market-grey" translatesAutoresizingMaskIntoConstraints="NO" id="KOr-J5-huQ">
                     <rect key="frame" x="16" y="14" width="23" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -39,6 +39,6 @@
         </view>
     </objects>
     <resources>
-        <image name="populares-grey" width="12" height="12"/>
+        <image name="market-grey" width="11" height="11"/>
     </resources>
 </document>

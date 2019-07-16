@@ -12,9 +12,11 @@ class FotoTableViewCell: UITableViewCell {
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var lblMensaje: UILabel!
     @IBOutlet weak var btnFoto: UIButton!
+    @IBOutlet weak var btnClose: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        btnClose.layer.cornerRadius = btnClose.frame.width / 2
         bottomView.layer.cornerRadius = 10.0
         btnFoto.layer.cornerRadius = 10.0
         bottomView.backgroundColor = .white

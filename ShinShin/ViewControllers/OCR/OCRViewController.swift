@@ -230,6 +230,10 @@ class OCRViewController: UIViewController {
     
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "CameraSegue"{
+            let vc = segue.destination as! CustomCameraViewController
+            vc.delegate = self
+        }
         if segue.identifier == "TicketDetailSegue"{
             let vc = segue.destination as! DatosTicketViewController
             vc.datosTicket = datosTicket
@@ -323,6 +327,16 @@ class OCRViewController: UIViewController {
             return .topLeft
         }
     }
+}
+
+extension OCRViewController: CustomCameraControllerDelegate{
+    func didCompletedTakePhoto(_ controller: CustomCameraViewController, withPhoto photo: UIImage) {
+        clearResults()
+        updateImageView(with: photo)
+        dismiss(animated: true)
+    }
+    
+    
 }
 
 extension OCRViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate{

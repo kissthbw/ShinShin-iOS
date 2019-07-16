@@ -14,6 +14,7 @@ class PrincipalViewController: UIViewController {
     //MARK: - Propiedades
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    
     var tituloHeader: String = ""
     
     var categories = ["", "", "POPULARES", "DEPARTAMENTOS", "TIENDAS"]
@@ -46,6 +47,7 @@ class PrincipalViewController: UIViewController {
         
 //        viewBottomBanner.layer.cornerRadius = 15.0
         self.navigationController?.navigationBar.isTranslucent = false
+        
         configureBarButtons()
         bannersRequest()
         favoritosRequest()
@@ -303,7 +305,7 @@ extension PrincipalViewController: UITableViewDataSource, UITableViewDelegate{
             let header = Bundle.main.loadNibNamed("HeaderPrincipal", owner: nil, options: nil)!.first as! HeaderPrincipalView
             
             header.lblNombreSeccion.text = categories[section]
-            header.imageViewSeccion.image = UIImage(named: "departamentos-gray")
+            header.imageViewSeccion.image = UIImage(named: "market-grey")
             header.btnAccion.isHidden = false
             header.btnAccion.setTitle("Privacidad", for: .normal)
             return header

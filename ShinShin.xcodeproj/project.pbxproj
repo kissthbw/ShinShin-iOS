@@ -23,6 +23,7 @@
 		A23D5AE322A45529008B4433 /* PreguntaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23D5AE222A45529008B4433 /* PreguntaTableViewCell.swift */; };
 		A23D5AE522A45C35008B4433 /* BonificacionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23D5AE422A45C35008B4433 /* BonificacionViewController.swift */; };
 		A23EBA1922C40E4F009BDDB9 /* HistoricoTicketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23EBA1822C40E4F009BDDB9 /* HistoricoTicketTableViewCell.swift */; };
+		A241C8E922DD23B6008B342C /* CustomCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A241C8E822DD23B6008B342C /* CustomCameraViewController.swift */; };
 		A24BF96A2259353F002DF555 /* UsuarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24BF9692259353F002DF555 /* UsuarioViewController.swift */; };
 		A254723122D255710014AE64 /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A254723022D255710014AE64 /* UIUtilities.swift */; };
 		A254723322D25A020014AE64 /* MLKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A254723222D25A020014AE64 /* MLKitExtensions.swift */; };
@@ -163,6 +164,7 @@
 		A23D5AE222A45529008B4433 /* PreguntaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreguntaTableViewCell.swift; sourceTree = "<group>"; };
 		A23D5AE422A45C35008B4433 /* BonificacionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonificacionViewController.swift; sourceTree = "<group>"; };
 		A23EBA1822C40E4F009BDDB9 /* HistoricoTicketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricoTicketTableViewCell.swift; sourceTree = "<group>"; };
+		A241C8E822DD23B6008B342C /* CustomCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCameraViewController.swift; sourceTree = "<group>"; };
 		A24BF9692259353F002DF555 /* UsuarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioViewController.swift; sourceTree = "<group>"; };
 		A254723022D255710014AE64 /* UIUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtilities.swift; sourceTree = "<group>"; };
 		A254723222D25A020014AE64 /* MLKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLKitExtensions.swift; sourceTree = "<group>"; };
@@ -481,6 +483,7 @@
 				A234CC5822A6C7BC00BCBC7A /* ProductoTicketTableViewCell.swift */,
 				A2F7E0B222B16B1900A96AB1 /* TotalTicketTableViewCell.swift */,
 				A2962A4022DB9C2B00FF85CF /* HeaderProductosTicket.xib */,
+				A241C8E822DD23B6008B342C /* CustomCameraViewController.swift */,
 			);
 			path = OCR;
 			sourceTree = "<group>";
@@ -925,6 +928,7 @@
 				A25B26B022C290DA006AEB7B /* Bonificacion.swift in Sources */,
 				A267D7C5222DDCF200153CB8 /* ProductoDetalleViewController.swift in Sources */,
 				A256FF7D22A9C43F00B977ED /* ContactoViewController.swift in Sources */,
+				A241C8E922DD23B6008B342C /* CustomCameraViewController.swift in Sources */,
 				A2883FEA22A840A500E930DA /* PopularItemCollectionViewCell.swift in Sources */,
 				A223095922B9EBA200DEA6EA /* MediosPagoView.swift in Sources */,
 				A26CBD0722A870C7002A5CD5 /* DeptoTableViewCell.swift in Sources */,
