@@ -27,6 +27,7 @@ class MediosBonificacion: Codable, CustomStringConvertible{
     var aliasMedioBonificacion: String?
     var vigenciaMedioBonificacion: String?
     var idCuentaMedioBonificacion: String?
+    var idTipo: Int?
     
     var catalogoMediosBonificacion: CatalogoMediosBonificacion?
     var usuario: Usuario?

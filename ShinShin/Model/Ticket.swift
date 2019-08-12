@@ -23,6 +23,12 @@ class Ticket: Codable, CustomStringConvertible{
     var subtotal: Double?
     var iva: Double?
     var total: Double?
+    var ticket_tienda: String?
+    var ticket_subTienda: String?
+    var ticket_transaccion: String?
+    var ticket_fecha: String?
+    var ticket_hora: String?
+    
     var productos: [Producto]?
     
     var description: String{

@@ -10,6 +10,7 @@ import UIKit
 
 class ActivacionTableViewController: UITableViewController {
 
+    @IBOutlet weak var lblMensaje: UILabel!
     @IBOutlet weak var txtField1: UITextField!
     @IBOutlet weak var txtField2: UITextField!
     @IBOutlet weak var txtField3: UITextField!
@@ -20,8 +21,27 @@ class ActivacionTableViewController: UITableViewController {
     @IBOutlet weak var v4: UIView!
     @IBOutlet weak var btnValidar: UIButton!
     
+    var mensaje: String?
+    let ID_RQT_ACTIVAR = "ID_RQT_ACTIVAR"
+    let ID_RQT_REENVIAR = "ID_RQT_REENVIAR"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        lblMensaje.text = "Te enviámos un SMS a [telefono] con un código de verificación"
+        
+        if let mensaje = mensaje{
+            if mensaje.count == 10{
+                let index = mensaje.index(mensaje.startIndex, offsetBy:
+                    6)
+                var mask = mensaje[index..<mensaje.endIndex]
+                print("\(mask)")
+                mask = "****" + mask
+                
+                let replaced = lblMensaje.text!.replacingOccurrences(of: "[telefono]", with: mask)
+                lblMensaje.text = replaced
+            }
+            
+        }
         
         txtField1.delegate = self
         txtField2.delegate = self
@@ -52,9 +72,18 @@ class ActivacionTableViewController: UITableViewController {
     }
 
     //MARK: - Actions
+    @IBAction func backAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func activateAction(_ sender: Any){
         print("Activando usuario")
         activateRequest()
+    }
+    
+    @IBAction func reenviarAction(_ sender: Any){
+        print("Reenviando codigo")
+        reenviarCodigoRequest()
     }
     
     //Helper methods
@@ -72,7 +101,22 @@ class ActivacionTableViewController: UITableViewController {
             let encoder = JSONEncoder()
             let json = try  encoder.encode(user)
             RESTHandler.delegate = self
-            RESTHandler.postOperationTo(RESTHandler.activarUsuario, with: json, and: "ACTIVATE")
+            RESTHandler.postOperationTo(RESTHandler.activarUsuario, with: json, and: ID_RQT_ACTIVAR)
+        }
+        catch{
+            
+        }
+    }
+    
+    func reenviarCodigoRequest(){
+        let user = Usuario()
+        user.idUsuario = Model.user?.idUsuario
+        
+        do{
+            let encoder = JSONEncoder()
+            let json = try  encoder.encode(user)
+            RESTHandler.delegate = self
+            RESTHandler.postOperationTo(RESTHandler.reenviarCodigo, with: json, and: ID_RQT_REENVIAR)
         }
         catch{
             
@@ -236,17 +280,27 @@ extension ActivacionTableViewController: RESTActionDelegate{
     func restActionDidSuccessful(data: Data, identifier: String) {
         print( "restActionDidSuccessful: \(data)" )
         
+        
         do{
             let decoder = JSONDecoder()
             
-            let rsp = try decoder.decode(SimpleResponse.self, from: data)
-            if rsp.code == 200{
-                let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "PrincipalNavigationController")
-                //        self.navigationController!.pushViewController(destViewController, animated: true)
-                self.present(destViewController, animated: true, completion: nil)
+            if identifier == ID_RQT_ACTIVAR{
+                let rsp = try decoder.decode(SimpleResponse.self, from: data)
+                if rsp.code == 200{
+                    let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "PrincipalNavigationController")
+                    //        self.navigationController!.pushViewController(destViewController, animated: true)
+                    self.present(destViewController, animated: true, completion: nil)
+                }
+                else if rsp.code == 500{
+                    showMessage(message: "El usuario ya existe")
+                }
             }
-            else if rsp.code == 500{
-                showMessage(message: "El usuario ya existe")
+                
+            else if identifier == ID_RQT_REENVIAR{
+                let rsp = try decoder.decode(SimpleResponse.self, from: data)
+                if rsp.code == 200{
+                    print("Codigo reenviado")
+                }
             }
         }
         catch{

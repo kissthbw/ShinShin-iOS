@@ -21,7 +21,7 @@ class OCRViewController: UIViewController {
     
     //MARK: - Propiedades
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var txtResults: UITextView!
+//    @IBOutlet weak var txtResults: UITextView!
     @IBOutlet weak var activity: UIActivityIndicatorView!
     @IBOutlet weak var btnProcesar: UIButton!
     
@@ -36,8 +36,14 @@ class OCRViewController: UIViewController {
         return annotationOverlayView
     }()
     
-    var lines: [String] = [String]()
+    var dic = [Int: [String]]()
+//    var lines: [String] = [String]()
+    var codigoBarras: String?
+    var procesado = false
+    var code = -1
     var datosTicket = OCRResponse()
+    var photos: [UIImage]?
+    var codeBar: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,10 +57,23 @@ class OCRViewController: UIViewController {
             ])
         
         btnProcesar.layer.cornerRadius = 10.0
-        btnProcesar.isEnabled = true
+        btnProcesar.isEnabled = false
+        btnProcesar.backgroundColor = UIColor(red: 241/255, green: 241/255, blue: 241/255, alpha: 1.0)
         activity.isHidden = true
         
         configureBarButtons()
+        
+        if let photos = photos{
+            clearResults()
+            
+            if let codeBar = codeBar{
+                codigoBarras = codeBar
+            }
+            
+            for (index, photo) in photos.enumerated() {
+                updateImageView(with: photo, andIndex: index)
+            }
+        }
     }
     
 
@@ -70,8 +89,8 @@ class OCRViewController: UIViewController {
     @IBAction func procesarAction(_ sender: Any) {
         //Consumir el servicio /tickets/analizar
         
-        performSegue(withIdentifier: "TicketDetailSegue", sender: self)
-//        analizarOCRRequest()
+//        performSegue(withIdentifier: "TicketDetailSegue", sender: self)
+        analizarOCRRequest()
     }
     
     //MARK: - Helper methods
@@ -140,7 +159,7 @@ class OCRViewController: UIViewController {
         }
     }
     
-    private func updateImageView(with image: UIImage) {
+    private func updateImageView(with image: UIImage, andIndex index: Int) {
         let orientation = UIApplication.shared.statusBarOrientation
         var scaledImageWidth: CGFloat = 0.0
         var scaledImageHeight: CGFloat = 0.0
@@ -152,6 +171,7 @@ class OCRViewController: UIViewController {
             scaledImageWidth = image.size.width * scaledImageHeight / image.size.height
             scaledImageHeight = imageView.bounds.size.height
         }
+        
         DispatchQueue.global(qos: .userInitiated).async {
             // Scale image while maintaining aspect ratio so it displays better in the UIImageView.
             var scaledImage = image.scaledImage(
@@ -161,7 +181,7 @@ class OCRViewController: UIViewController {
             guard let finalImage = scaledImage else { return }
             DispatchQueue.main.async {
                 self.imageView.image = finalImage
-                self.detectTextFrom(finalImage)
+                self.detectTextFrom(finalImage, andIndex: index)
             }
         }
     }
@@ -195,8 +215,20 @@ class OCRViewController: UIViewController {
         do{
             let encoder = JSONEncoder()
             let rqt = OCRRequest()
-            rqt.lineas = lines
+            var lineas = [String]()
+            for index in 0..<dic.count {
+                let l = dic[index]
+                for s in l!{
+                    lineas.append(s)
+                }
+            }
             
+//            for( index, value ) in dic{
+//                print("Index: \(index), lines: \(value)")
+//            }
+            
+            rqt.lineas = lineas
+
             let json = try encoder.encode(rqt)
             RESTHandler.delegate = self
             RESTHandler.postOperationTo(RESTHandler.analizarOCR, with: json, and: ID_RQT_ANALIZAR)
@@ -228,6 +260,11 @@ class OCRViewController: UIViewController {
         present(SideMenuManager.default.menuRightNavigationController!, animated: true, completion: nil)
     }
     
+    func clean(){
+        removeDetectionAnnotations()
+        imageView.image = nil
+    }
+    
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CameraSegue"{
@@ -237,14 +274,25 @@ class OCRViewController: UIViewController {
         if segue.identifier == "TicketDetailSegue"{
             let vc = segue.destination as! DatosTicketViewController
             vc.datosTicket = datosTicket
+            clean()
+        }
+        
+        if segue.identifier == "ErrorTicketSegue"{
+            let vc = segue.destination as! ErrorTicketViewController
+            if code == 203{
+                vc.mensaje = "No se detectaron productos válidos"
+                clean()
+            }
+            vc.delegate = self
         }
     }
     
     //MARK: - MLVision
-    func detectTextFrom(_ image: UIImage){
+    func detectTextFrom(_ image: UIImage, andIndex index: Int){
         activity.isHidden = false
         activity.startAnimating()
         var result = ""
+        
         print("Procesando imagen")
         //1
         let textRecognizer = vision.onDeviceTextRecognizer()
@@ -265,7 +313,7 @@ class OCRViewController: UIViewController {
                 return
             }
             
-            self.lines = [String]()
+            var lines = [String]()
             
             //Iterar sobre la respuesta
             for block in text.blocks{
@@ -286,7 +334,7 @@ class OCRViewController: UIViewController {
                     )
                     
                     print("Line: \(line.text)")
-                    self.lines.append(line.text)
+                    lines.append(line.text)
 //                    
 //                    print("Elements")
 //                    for element in line.elements{
@@ -295,11 +343,14 @@ class OCRViewController: UIViewController {
                 }
             }
             
+            self.dic[index] = lines
 //            print("\(self.lines)")
             self.activity.stopAnimating()
             self.activity.isHidden = true
-            self.txtResults.text = result
+//            self.txtResults.text = result
             self.btnProcesar.isEnabled = true
+            //255, 111, 0
+            self.btnProcesar.backgroundColor = UIColor(red: 255/255, green: 111/255, blue: 0/255, alpha: 1.0)
         }
     }
     
@@ -330,13 +381,32 @@ class OCRViewController: UIViewController {
 }
 
 extension OCRViewController: CustomCameraControllerDelegate{
-    func didCompletedTakePhoto(_ controller: CustomCameraViewController, withPhoto photo: UIImage) {
+    func didCompletedTakePhoto(_ controller: CustomCameraViewController, withPhotos photos: [UIImage], and codeBar: String?) {
         clearResults()
-        updateImageView(with: photo)
+        
+        if let codeBar = codeBar{
+            codigoBarras = codeBar
+        }
+        
+        for (index, photo) in photos.enumerated() {
+            updateImageView(with: photo, andIndex: index)
+        }
+        
         dismiss(animated: true)
     }
-    
-    
+}
+
+extension OCRViewController: ErrorTicketViewControllerDelegate{
+    func didCompleted(_ controller: ErrorTicketViewController) {
+        self.dismiss(animated: true, completion: nil)
+        
+        let controllers = self.navigationController?.viewControllers
+        for vc in controllers! {
+            if vc is CustomCameraViewController {
+                _ = self.navigationController?.popToViewController(vc as! CustomCameraViewController, animated: true)
+            }
+        }
+    }
 }
 
 extension OCRViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate{
@@ -345,7 +415,7 @@ extension OCRViewController: UINavigationControllerDelegate, UIImagePickerContro
         
         clearResults()
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            updateImageView(with: pickedImage)
+            updateImageView(with: pickedImage, andIndex: 0)
             //Verificar si se requiere ajustar la imagen
 //            imageView.image = pickedImage
             
@@ -368,7 +438,16 @@ extension OCRViewController: RESTActionDelegate{
                     datosTicket = rsp
                     performSegue(withIdentifier: "TicketDetailSegue", sender: self)
                 }
-                
+                else if rsp.code == 203{
+                    print("No existen productos")
+                    code = 203
+                    performSegue(withIdentifier: "ErrorTicketSegue", sender: self)
+                }
+                else{
+                    //Dirigir a pantalla de error
+                    performSegue(withIdentifier: "ErrorTicketSegue", sender: self)
+//                    self.showOCRError()
+                }
             }
             catch{
                 print("JSON Error: \(error)")
@@ -385,6 +464,21 @@ extension OCRViewController: RESTActionDelegate{
             title: "Whoops...",
             message: "Ocurrió un problema." +
             " Favor de interntar nuevamente",
+            preferredStyle: .alert)
+        
+        let action =
+            UIAlertAction(title: "OK",
+                          style: .default,
+                          handler: nil)
+        
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func showOCRError(){
+        let alert = UIAlertController(
+            title: "Whoops...",
+            message: "No se detectaron productos válidos",
             preferredStyle: .alert)
         
         let action =

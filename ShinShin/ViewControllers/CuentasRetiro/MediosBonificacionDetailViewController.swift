@@ -32,6 +32,7 @@ class MediosBonificacionDetailViewController: UITableViewController {
     var tipoCuenta: TipoCuenta = .Bancaria
     var sectionSelected = -1
     var item: MediosBonificacion?
+    
     weak var delegate: MediosBonificacionControllerDelegate?
     
     override func viewDidLoad() {
@@ -132,6 +133,7 @@ class MediosBonificacionDetailViewController: UITableViewController {
                 item.catalogoMediosBonificacion = cat
                 item.aliasMedioBonificacion = cell.txtNombre.text
                 item.cuentaMedioBonificacion = cell.txtTarjeta.text
+//                item.idTipo = cell.idTipoBancaria
                 item.vigenciaMedioBonificacion = "09/21"
                 guardarMedioBonificacionRequest(with: item)
             }
@@ -246,10 +248,11 @@ class MediosBonificacionDetailViewController: UITableViewController {
         catch{
             
         }
-    }    
+    }
+    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 650
+        return 750
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -338,7 +341,7 @@ extension MediosBonificacionDetailViewController: RESTActionDelegate{
         do{
             let decoder = JSONDecoder()
             
-                let rsp = try decoder.decode(SimpleResponse.self, from: data)
+            let rsp = try decoder.decode(SimpleResponse.self, from: data)
             delegate?.addItemViewController(self, didFinishAddind: "Tarjeta agregada")
         }
         catch{

@@ -41,6 +41,7 @@ class RESTHandler{
     //Usuario
     static let registrarUsuario = server + "/usuarios/usuario/registrar"
     static let activarUsuario = server + "/usuarios/usuario/activar"
+    static let reenviarCodigo = server + "/usuarios/usuario/reenviar"
     static let login = server + "/usuarios/usuario/login"
     static let login2 = server + "/usuarios/usuario/login2"
 
@@ -70,8 +71,10 @@ class RESTHandler{
     static let obtieneInformacionBonificacion = server + "/usuarios/usuario/totalBonificacion"
     static let obtieneMediosBonificacionPorUsuario = server + "/usuarios/usuario/mediosBonificacion"
     
+    static let obtieneTiposBancarias = server + "/catalogoMediosBonificacion/listTiposBancarias"
+    
     //Pantalla de Ticket
-    static let analizarOCR = server + "/tickets/analizar"
+    static let analizarOCR = server + "/tickets/analizar2"
     
     //Productos
     //http://shinshin-env.m7izq9trpe.us-east-2.elasticbeanstalk.com

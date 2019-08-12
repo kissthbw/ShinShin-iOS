@@ -105,6 +105,9 @@ PODS:
   - nanopb/encode (0.3.901)
   - Protobuf (3.7.0)
   - SideMenu (5.0.3)
+  - ZXingObjC (3.6.5):
+    - ZXingObjC/All (= 3.6.5)
+  - ZXingObjC/All (3.6.5)
 
 DEPENDENCIES:
   - Firebase/Core
@@ -112,6 +115,7 @@ DEPENDENCIES:
   - Firebase/MLVision
   - Firebase/MLVisionTextModel
   - SideMenu
+  - ZXingObjC (~> 3.6.4)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -133,6 +137,7 @@ SPEC REPOS:
     - nanopb
     - Protobuf
     - SideMenu
+    - ZXingObjC
 
 SPEC CHECKSUMS:
   Firebase: fa80b9d987ca014a1ba9357496ef2a0178b28b12
@@ -153,7 +158,8 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
   SideMenu: 1dcaabce84538c53325c287f7fe62999379a641c
+  ZXingObjC: fdbb269f25dd2032da343e06f10224d62f537bdb
 
-PODFILE CHECKSUM: c869892ee51536ac88cef544ba7ee078dcd6ffb1
+PODFILE CHECKSUM: 3dcae6fbc3a9701e3161c2a2fdcdd7305a975d35
 
 COCOAPODS: 1.7.3

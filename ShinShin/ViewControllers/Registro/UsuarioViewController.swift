@@ -17,15 +17,18 @@ class UsuarioViewController: UITableViewController {
     @IBOutlet weak var viewCorreo: UIView!
     @IBOutlet weak var txtCorreo: UITextField!
     
+    @IBOutlet weak var imagewCheckPassword: UIImageView!
     @IBOutlet weak var viewPassword: UIView!
     @IBOutlet weak var txtPassword: UITextField!
     
+    @IBOutlet weak var imagewCheckConfPassword: UIImageView!
     @IBOutlet weak var viewConfPassword: UIView!
     @IBOutlet weak var txtConfPassword: UITextField!
     
     @IBOutlet weak var viewTelefono: UIView!
     @IBOutlet weak var txtTelefono: UITextField!
     
+    @IBOutlet weak var viewShowPickerView: UIView!
     @IBOutlet weak var viewAnio: UIView!
     @IBOutlet weak var txtAnio: UITextField!
     @IBOutlet weak var viewDia: UIView!
@@ -45,6 +48,7 @@ class UsuarioViewController: UITableViewController {
     @IBOutlet weak var btnRegistrar: UIButton!
 //    @IBOutlet weak var btnActivar: UIButton!
     
+    var textFields = [UITextField]()
     let datePicker = UIDatePicker()
     let sexoPicker = UIPickerView()
     var sexos = [Sexo]()
@@ -59,10 +63,13 @@ class UsuarioViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        textFields = [txtNombre, txtCorreo, txtPassword, txtConfPassword,
+         txtTelefono, txtMes, txtDia, txtAnio,
+         txtSexo, txtCP]
 //        self.navigationController?.navigationBar.prefersLargeTitles = true
-        let textfields = [txtNombre, txtCorreo, txtPassword, txtConfPassword,
-        txtTelefono, txtMes, txtDia, txtAnio,
-        txtSexo, txtCP]
+//        let textfields = [txtNombre, txtCorreo, txtPassword, txtConfPassword,
+//        txtTelefono, txtMes, txtDia, txtAnio,
+//        txtSexo, txtCP]
         
         let s1 = Sexo()
         s1.idSexo = 1
@@ -85,7 +92,7 @@ class UsuarioViewController: UITableViewController {
         txtSexo.delegate = self
         txtCP.delegate = self
         
-        initUIElements(textfields)
+        initUIElements(textFields)
         showDatePicker()
         showSexoPicker()
     }
@@ -147,15 +154,15 @@ class UsuarioViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        let vc = segue.destination as! ActivacionTableViewController
+        vc.mensaje = txtTelefono.text
     }
-    */
     
     //MARK: - Actions
     @IBAction func showPassword(_ sender: Any) {
@@ -191,7 +198,29 @@ class UsuarioViewController: UITableViewController {
     
     @IBAction func registerAction(_ sender: Any){
         
+        var formCompleta = true
+        
         //Validar datos capturados
+        for textField in textFields {
+            if textField.text == "" {
+//                textField.layer.borderColor = UIColor.red.cgColor
+//                textField.layer.borderWidth = 1.0
+                formCompleta = false
+                break
+            }
+        }
+        
+        if !formCompleta{
+            showMessage(message: "Debes completar el formulario.", title: "ShingShing")
+            
+            return
+        }
+        
+        //Verificar que el switch este habilitado
+        if !switchAceptar.isOn{
+            showMessage(message: "Debes aceptar los terminos y condiciones.", title: "ShingShing")
+            return
+        }
         
         //Enviar peticion a back
         //La respuesta de esta peticion debe ser manejada en el metodo delegado
@@ -202,7 +231,8 @@ class UsuarioViewController: UITableViewController {
         //que realiza la activación del usuario, nuevamente la respuesta debe
         //manejarse en el metodo delegado
         print("Registrando usuario")
-        registerRequest()
+        performSegue(withIdentifier: "ActivarSegue", sender: nil)
+//        registerRequest()
     }
 
     @IBAction func shownDateView(_ sender: Any) {
@@ -210,6 +240,25 @@ class UsuarioViewController: UITableViewController {
         txtMes.isEnabled = true
         txtMes.becomeFirstResponder()
     }
+    
+    @IBAction func verifyPassword(_ sender: Any) {
+        let textField = sender as! UITextField
+        if textField == txtPassword{
+            print("Password")
+        }
+        
+        if textField == txtConfPassword{
+            if txtConfPassword.text == txtPassword.text{
+                imagewCheckPassword.isHidden = false
+                imagewCheckConfPassword.isHidden = false
+            }
+            else{
+                imagewCheckPassword.isHidden = true
+                imagewCheckConfPassword.isHidden = true
+            }
+        }
+    }
+    
     
     //MARK: - Helper methods
     func showDatePicker(){
@@ -343,8 +392,8 @@ class UsuarioViewController: UITableViewController {
             if let t = text{
 //                t.layer.borderWidth = 0.0
                 t.layer.cornerRadius = 10.0
-                t.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
-            }            
+//                t.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
+            }
         }
 
         viewNombre.layer.cornerRadius = 10.0
@@ -358,6 +407,13 @@ class UsuarioViewController: UITableViewController {
         viewSexo.layer.cornerRadius = 10.0
         viewCP.layer.cornerRadius = 10.0
         btnRegistrar.layer.cornerRadius = 10.0
+        viewShowPickerView.layer.cornerRadius = 10.0
+        
+        btnRegistrar.isEnabled = true
+        switchAceptar.isOn = false
+        imagewCheckPassword.isHidden = true
+        imagewCheckConfPassword.isHidden = true
+        
 //        btnActivar.layer.cornerRadius = 5.0
     }
 }
@@ -387,6 +443,23 @@ extension UsuarioViewController: UITextFieldDelegate{
         textField.resignFirstResponder()
         return true
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if textField == txtTelefono{
+            guard let textFieldText = textField.text,
+                let rangeOfTextToReplace = Range(range, in: textFieldText) else {
+                    return false
+            }
+            let substringToReplace = textFieldText[rangeOfTextToReplace]
+            let count = textFieldText.count - substringToReplace.count + string.count
+            
+            return count <= 10
+        }
+        else{
+            return true
+        }
+    }
 }
 
 //MARK: - RESTActionDelegate
@@ -408,7 +481,7 @@ extension UsuarioViewController: RESTActionDelegate{
                 performSegue(withIdentifier: "ActivarSegue", sender: nil)
             }
             else if rsp.code == 500{
-                showMessage(message: "El usuario ya existe")
+                showMessage(message: "El usuario ya existe", title: "Whoops...")
             }
         }
         catch{
@@ -420,9 +493,9 @@ extension UsuarioViewController: RESTActionDelegate{
         
     }
     
-    func showMessage(message: String){
+    func showMessage(message: String, title: String){
         let alert = UIAlertController(
-            title: "Whoops...",
+            title: title,
             message: message,
             preferredStyle: .alert)
         

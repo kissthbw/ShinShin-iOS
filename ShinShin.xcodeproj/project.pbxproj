@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9708815816D3909AA221B5F6 /* Pods_ShinShinUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C99941306ABD9123AD2346 /* Pods_ShinShinUITests.framework */; };
+		A20A118F22FC7D8B00CDA2A2 /* TicketDuplicadoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20A118E22FC7D8B00CDA2A2 /* TicketDuplicadoViewController.swift */; };
 		A20B145E22A036B300667D39 /* Page1.xib in Resources */ = {isa = PBXBuildFile; fileRef = A20B145D22A036B300667D39 /* Page1.xib */; };
 		A20B146022A0441600667D39 /* Page2.xib in Resources */ = {isa = PBXBuildFile; fileRef = A20B145F22A0441600667D39 /* Page2.xib */; };
 		A20BA6832264E5960030572F /* RESTHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20BA6822264E5960030572F /* RESTHandler.swift */; };
@@ -15,6 +16,7 @@
 		A223095722B9E6BC00DEA6EA /* MediosPagoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A223095622B9E6BC00DEA6EA /* MediosPagoView.xib */; };
 		A223095922B9EBA200DEA6EA /* MediosPagoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A223095822B9EBA200DEA6EA /* MediosPagoView.swift */; };
 		A225C57122DA859300529591 /* PreguntasHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A225C57022DA859300529591 /* PreguntasHeader.xib */; };
+		A226797822E3B05D00E1B726 /* TipoBancaria.swift in Sources */ = {isa = PBXBuildFile; fileRef = A226797722E3B05D00E1B726 /* TipoBancaria.swift */; };
 		A234CC5922A6C7BC00BCBC7A /* ProductoTicketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A234CC5822A6C7BC00BCBC7A /* ProductoTicketTableViewCell.swift */; };
 		A234CC5B22A6D76F00BCBC7A /* MediosBonificacionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A234CC5A22A6D76F00BCBC7A /* MediosBonificacionTableViewController.swift */; };
 		A234CC5D22A6DD8C00BCBC7A /* BancoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A234CC5C22A6DD8C00BCBC7A /* BancoTableViewCell.swift */; };
@@ -83,12 +85,14 @@
 		A2962A4522DBA75000FF85CF /* NotificationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2962A4422DBA75000FF85CF /* NotificationHeaderView.swift */; };
 		A2962A4722DBAB4E00FF85CF /* Notificacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2962A4622DBAB4E00FF85CF /* Notificacion.swift */; };
 		A297376C226638830071BE3E /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = A297376B226638830071BE3E /* Usuario.swift */; };
+		A29C59CA22F38CC7006A1F2D /* ErrorTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29C59C922F38CC7006A1F2D /* ErrorTicketViewController.swift */; };
 		A2A331B922837FAD000CDA4A /* Producto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A331B822837FAC000CDA4A /* Producto.swift */; };
 		A2BA0664229DA4A9009A2213 /* BannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BA0663229DA4A9009A2213 /* BannerTableViewCell.swift */; };
 		A2BA0666229DCF14009A2213 /* UITextField+image.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BA0665229DCF14009A2213 /* UITextField+image.swift */; };
 		A2BCBCA522C16C310000BBD0 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BCBCA422C16C310000BBD0 /* MenuViewController.swift */; };
 		A2C1644F22A5CDA900D65B54 /* DatosTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C1644E22A5CDA900D65B54 /* DatosTicketViewController.swift */; };
 		A2C38F9E22DCFAAE00C9E958 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A2C38F9D22DCFAAE00C9E958 /* GoogleService-Info.plist */; };
+		A2C52A8322E8B93300A01AB6 /* BarCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C52A8222E8B93300A01AB6 /* BarCodeViewController.swift */; };
 		A2CB392F22C427380031EBAF /* HeaderProductos.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2CB392E22C427380031EBAF /* HeaderProductos.xib */; };
 		A2CB393122C42AB20031EBAF /* HeaderProductosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB393022C42AB20031EBAF /* HeaderProductosView.swift */; };
 		A2D83A5222CCF90D003DE37F /* PrincipalBonificacionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D83A5122CCF90D003DE37F /* PrincipalBonificacionTableViewCell.swift */; };
@@ -149,6 +153,7 @@
 		37374FB6E3C716FF0540A83B /* Pods-ShinShinUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShinShinUITests.release.xcconfig"; path = "Target Support Files/Pods-ShinShinUITests/Pods-ShinShinUITests.release.xcconfig"; sourceTree = "<group>"; };
 		576DA65E3233183B0B23AAEA /* Pods-ShinShinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShinShinTests.debug.xcconfig"; path = "Target Support Files/Pods-ShinShinTests/Pods-ShinShinTests.debug.xcconfig"; sourceTree = "<group>"; };
 		99F5F9623ABDCCFE767D9EBE /* Pods-ShinShin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShinShin.debug.xcconfig"; path = "Target Support Files/Pods-ShinShin/Pods-ShinShin.debug.xcconfig"; sourceTree = "<group>"; };
+		A20A118E22FC7D8B00CDA2A2 /* TicketDuplicadoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketDuplicadoViewController.swift; sourceTree = "<group>"; };
 		A20B145D22A036B300667D39 /* Page1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Page1.xib; sourceTree = "<group>"; };
 		A20B145F22A0441600667D39 /* Page2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Page2.xib; sourceTree = "<group>"; };
 		A20BA6822264E5960030572F /* RESTHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTHandler.swift; sourceTree = "<group>"; };
@@ -156,6 +161,7 @@
 		A223095622B9E6BC00DEA6EA /* MediosPagoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediosPagoView.xib; sourceTree = "<group>"; };
 		A223095822B9EBA200DEA6EA /* MediosPagoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediosPagoView.swift; sourceTree = "<group>"; };
 		A225C57022DA859300529591 /* PreguntasHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreguntasHeader.xib; sourceTree = "<group>"; };
+		A226797722E3B05D00E1B726 /* TipoBancaria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipoBancaria.swift; sourceTree = "<group>"; };
 		A234CC5822A6C7BC00BCBC7A /* ProductoTicketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductoTicketTableViewCell.swift; sourceTree = "<group>"; };
 		A234CC5A22A6D76F00BCBC7A /* MediosBonificacionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediosBonificacionTableViewController.swift; sourceTree = "<group>"; };
 		A234CC5C22A6DD8C00BCBC7A /* BancoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BancoTableViewCell.swift; sourceTree = "<group>"; };
@@ -230,6 +236,7 @@
 		A2962A4422DBA75000FF85CF /* NotificationHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHeaderView.swift; sourceTree = "<group>"; };
 		A2962A4622DBAB4E00FF85CF /* Notificacion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notificacion.swift; sourceTree = "<group>"; };
 		A297376B226638830071BE3E /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
+		A29C59C922F38CC7006A1F2D /* ErrorTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTicketViewController.swift; sourceTree = "<group>"; };
 		A2A331B822837FAC000CDA4A /* Producto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Producto.swift; sourceTree = "<group>"; };
 		A2BA0663229DA4A9009A2213 /* BannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerTableViewCell.swift; sourceTree = "<group>"; };
 		A2BA0665229DCF14009A2213 /* UITextField+image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+image.swift"; sourceTree = "<group>"; };
@@ -237,6 +244,7 @@
 		A2C1644E22A5CDA900D65B54 /* DatosTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatosTicketViewController.swift; sourceTree = "<group>"; };
 		A2C38F9C22DCE55E00C9E958 /* ShinShin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShinShin.entitlements; sourceTree = "<group>"; };
 		A2C38F9D22DCFAAE00C9E958 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A2C52A8222E8B93300A01AB6 /* BarCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeViewController.swift; sourceTree = "<group>"; };
 		A2CB392E22C427380031EBAF /* HeaderProductos.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderProductos.xib; sourceTree = "<group>"; };
 		A2CB393022C42AB20031EBAF /* HeaderProductosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderProductosView.swift; sourceTree = "<group>"; };
 		A2D83A5122CCF90D003DE37F /* PrincipalBonificacionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalBonificacionTableViewCell.swift; sourceTree = "<group>"; };
@@ -441,6 +449,7 @@
 				A282596622C867C7009122DB /* Sexo.swift */,
 				A294A31F22D680A100C3B55C /* OCRResponse.swift */,
 				A2962A4622DBAB4E00FF85CF /* Notificacion.swift */,
+				A226797722E3B05D00E1B726 /* TipoBancaria.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -484,6 +493,9 @@
 				A2F7E0B222B16B1900A96AB1 /* TotalTicketTableViewCell.swift */,
 				A2962A4022DB9C2B00FF85CF /* HeaderProductosTicket.xib */,
 				A241C8E822DD23B6008B342C /* CustomCameraViewController.swift */,
+				A2C52A8222E8B93300A01AB6 /* BarCodeViewController.swift */,
+				A29C59C922F38CC7006A1F2D /* ErrorTicketViewController.swift */,
+				A20A118E22FC7D8B00CDA2A2 /* TicketDuplicadoViewController.swift */,
 			);
 			path = OCR;
 			sourceTree = "<group>";
@@ -942,6 +954,7 @@
 				A286B98322C6A1DC008F6B32 /* TerminosViewController.swift in Sources */,
 				A2DC770E22CA5F9000006C63 /* TicketOCRAnalyzer.swift in Sources */,
 				A23EBA1922C40E4F009BDDB9 /* HistoricoTicketTableViewCell.swift in Sources */,
+				A20A118F22FC7D8B00CDA2A2 /* TicketDuplicadoViewController.swift in Sources */,
 				A267D7C1222DDC8C00153CB8 /* LogInViewController.swift in Sources */,
 				A23D5AE322A45529008B4433 /* PreguntaTableViewCell.swift in Sources */,
 				A271296A22B2AEB70099CB0B /* PayPalDetailTableViewCell.swift in Sources */,
@@ -975,6 +988,7 @@
 				A24BF96A2259353F002DF555 /* UsuarioViewController.swift in Sources */,
 				A254723122D255710014AE64 /* UIUtilities.swift in Sources */,
 				A282596722C867C7009122DB /* Sexo.swift in Sources */,
+				A2C52A8322E8B93300A01AB6 /* BarCodeViewController.swift in Sources */,
 				A297376C226638830071BE3E /* Usuario.swift in Sources */,
 				A294A31E22D67FFE00C3B55C /* OCRRequest.swift in Sources */,
 				A25C63DB22B7E88D0040DEA6 /* Marca.swift in Sources */,
@@ -982,6 +996,7 @@
 				A267D7C3222DDCA800153CB8 /* ProductosTableViewController.swift in Sources */,
 				A26CBD0922A8710E002A5CD5 /* DeptoItemCollectionViewCell.swift in Sources */,
 				A2D83A5222CCF90D003DE37F /* PrincipalBonificacionTableViewCell.swift in Sources */,
+				A29C59CA22F38CC7006A1F2D /* ErrorTicketViewController.swift in Sources */,
 				A26FB1CA22CE7D3500003507 /* ConfirmacionBonificacionViewController.swift in Sources */,
 				A26E6211229F2C2A00F0CA76 /* TutorialViewController.swift in Sources */,
 				A26D47DB22B701D90040AC0D /* NotificacionesTableViewCell.swift in Sources */,
@@ -990,6 +1005,7 @@
 				A2BA0664229DA4A9009A2213 /* BannerTableViewCell.swift in Sources */,
 				A256FF7B22A9B30D00B977ED /* ProductoTableViewCell.swift in Sources */,
 				A2F7105022A5916900D9E2B0 /* BonificacionTableViewCell.swift in Sources */,
+				A226797822E3B05D00E1B726 /* TipoBancaria.swift in Sources */,
 				A26E620F229F17C300F0CA76 /* TutorialPageViewController.swift in Sources */,
 				A271296622B2A65C0099CB0B /* MediosBonificacionDetailViewController.swift in Sources */,
 				A2A331B922837FAD000CDA4A /* Producto.swift in Sources */,

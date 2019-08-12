@@ -128,22 +128,32 @@ class DatosTicketViewController: UIViewController {
             
             //Crear informacion de ticket
             let ticket = Ticket()
-            ticket.nombreTienda = "OXXO"
-            ticket.sucursal = "Periferico"
-            ticket.fecha = "2019-06-24"
+            let date = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            let result = formatter.string(from: date)
+            
+            ticket.nombreTienda = datosTicket.tienda
+            ticket.sucursal = ""
+            ticket.fecha = result
 //            ticket.hora = "2019-06-24T13:18:09"
-            ticket.subtotal = 91.56
-            ticket.iva = 17.44
-            ticket.total = 109
+            ticket.subtotal = total
+            ticket.iva = 0.0
+            ticket.total = total
+            ticket.ticket_tienda = datosTicket.tienda
+            ticket.ticket_subTienda = datosTicket.subTienda
+            ticket.ticket_fecha = datosTicket.fecha
+            ticket.ticket_hora = datosTicket.hora
+            ticket.ticket_transaccion = datosTicket.transaccion
             
             //Productos encontrados en el ticket
-            let p = Producto()
-            p.idProducto = 1
+//            let p = Producto()
+//            p.idProducto = 1
+//
+//            var productos = [Producto]()
+//            productos.append(p)
             
-            var productos = [Producto]()
-            productos.append(p)
-            
-            ticket.productos = productos
+            ticket.productos = datosTicket.productos
             user.tickets = [ticket]
 
 //            performSegue(withIdentifier: "EnviarTicketSegue", sender: self)
@@ -157,15 +167,19 @@ class DatosTicketViewController: UIViewController {
         }
     }
     
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "EnviarTicketSegue"{
+            let vc = segue.destination as! ProcesaTicketViewController
+            vc.total = total
+            vc.delegate = self
+        }
+        
+        if segue.identifier == "TicketDuplicadoSegue"{
+            let vc = segue.destination as! TicketDuplicadoViewController
+            vc.delegate = self
+        }
     }
-    */
 
 }
 
@@ -205,7 +219,7 @@ extension DatosTicketViewController: UITableViewDataSource, UITableViewDelegate{
         case 0:
             return 120
         case 1:
-            return 160
+            return 80
         case 2:
             return 70
         case 3:
@@ -272,6 +286,10 @@ extension DatosTicketViewController: RESTActionDelegate{
                     print("Ticker registrado de forma correcta")
                     performSegue(withIdentifier: "EnviarTicketSegue", sender: self)
                 }
+                else{
+                    print("Problemas el registrar ticket")
+                    performSegue(withIdentifier: "TicketDuplicadoSegue", sender: self)
+                }
             }
         }
         catch{
@@ -297,5 +315,33 @@ extension DatosTicketViewController: RESTActionDelegate{
         
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
+    }
+}
+
+extension DatosTicketViewController: ProcesaTicketViewControllerDelegate{
+    func didCompleted(_ controller: ProcesaTicketViewController) {
+        dismiss(animated: true, completion: nil)
+        
+        let controllers = self.navigationController?.viewControllers
+        for vc in controllers! {
+            if vc is CustomCameraViewController {
+                _ = self.navigationController?.popToViewController(vc as! CustomCameraViewController, animated: true)
+            }
+        }
+    }
+}
+
+extension DatosTicketViewController: TicketDuplicadoViewControllerDelegate{
+    func didCompleted(_ controller: TicketDuplicadoViewController) {
+        dismiss(animated: true, completion: nil)
+        
+        let controllers = self.navigationController?.viewControllers
+        for vc in controllers! {
+            if vc is CustomCameraViewController {
+                _ = self.navigationController?.popToViewController(vc as! CustomCameraViewController, animated: true)
+            }
+        }
+        
+//        self.navigationController?.popViewController(animated: true)
     }
 }

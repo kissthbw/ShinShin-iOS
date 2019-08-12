@@ -7,11 +7,13 @@ target 'ShinShin' do
   use_frameworks!
 
   # Pods for ShinShin
+
   pod 'SideMenu'
   pod 'Firebase/Core'
   pod 'Firebase/MLVision'
   pod 'Firebase/MLVisionTextModel'
   pod 'Firebase/Messaging'
+  pod 'ZXingObjC', '~> 3.6.4'
   
 
   target 'ShinShinTests' do
