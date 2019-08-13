@@ -59,13 +59,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No te preocupes, " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWk-Xi-3Wa">
-                                                    <rect key="frame" x="59.5" y="294" width="256.5" height="37.5"/>
+                                                    <rect key="frame" x="54" y="294" width="267" height="44"/>
                                                     <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito Black" pointSize="32"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B9Q-ge-LC2">
-                                                    <rect key="frame" x="65" y="341.5" width="245.5" height="59.5"/>
+                                                    <rect key="frame" x="68.5" y="348" width="238" height="70"/>
                                                     <string key="text">te enviarémos un correo con un 
 enlace para que la recuperes 
 tu contraseña ;-)</string>
@@ -74,7 +74,7 @@ tu contraseña ;-)</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8D4-4R-ISo">
-                                                    <rect key="frame" x="161.5" y="422" width="52" height="24"/>
+                                                    <rect key="frame" x="160.5" y="439" width="54" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="kdN-1r-iqD"/>
                                                     </constraints>
@@ -83,7 +83,7 @@ tu contraseña ;-)</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8zS-9X-cnp">
-                                                    <rect key="frame" x="37.5" y="454" width="300" height="48"/>
+                                                    <rect key="frame" x="37.5" y="471" width="300" height="48"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Lb-Jt-YSE">
                                                             <rect key="frame" x="43" y="12" width="224" height="24"/>
@@ -101,7 +101,7 @@ tu contraseña ;-)</string>
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zin-rq-e3t">
-                                                    <rect key="frame" x="37.5" y="519" width="300" height="48"/>
+                                                    <rect key="frame" x="37.5" y="536" width="300" height="48"/>
                                                     <color key="backgroundColor" red="1" green="0.43529411759999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="48" id="hP0-CE-DZM"/>
@@ -4189,7 +4189,7 @@ Shing</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="agregarFoto" translatesAutoresizingMaskIntoConstraints="NO" id="ddO-3i-VP2">
-                                                    <rect key="frame" x="137.5" y="59" width="100" height="100"/>
+                                                    <rect key="frame" x="137.5" y="59" width="100.00000000000001" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="LAn-YF-PLF"/>
                                                         <constraint firstAttribute="height" constant="100" id="jEe-Ov-Z6q"/>
