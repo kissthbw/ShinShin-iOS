@@ -16,6 +16,7 @@ class OCRResponse: Codable, CustomStringConvertible{
     var hora: String?
     var subTienda: String?
     var transaccion: String?
+    var tieneCB: Bool?
     
     var productos = [Producto]()
     

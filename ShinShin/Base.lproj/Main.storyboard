@@ -59,13 +59,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No te preocupes, " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWk-Xi-3Wa">
-                                                    <rect key="frame" x="54" y="294" width="267" height="44"/>
+                                                    <rect key="frame" x="59.5" y="294" width="256.5" height="37.5"/>
                                                     <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito Black" pointSize="32"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B9Q-ge-LC2">
-                                                    <rect key="frame" x="68.5" y="348" width="238" height="70"/>
+                                                    <rect key="frame" x="65" y="341.5" width="245.5" height="59.5"/>
                                                     <string key="text">te enviarémos un correo con un 
 enlace para que la recuperes 
 tu contraseña ;-)</string>
@@ -74,7 +74,7 @@ tu contraseña ;-)</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8D4-4R-ISo">
-                                                    <rect key="frame" x="160.5" y="439" width="54" height="24"/>
+                                                    <rect key="frame" x="161.5" y="422" width="52" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="kdN-1r-iqD"/>
                                                     </constraints>
@@ -83,7 +83,7 @@ tu contraseña ;-)</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8zS-9X-cnp">
-                                                    <rect key="frame" x="37.5" y="471" width="300" height="48"/>
+                                                    <rect key="frame" x="37.5" y="454" width="300" height="48"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Lb-Jt-YSE">
                                                             <rect key="frame" x="43" y="12" width="224" height="24"/>
@@ -101,7 +101,7 @@ tu contraseña ;-)</string>
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zin-rq-e3t">
-                                                    <rect key="frame" x="37.5" y="536" width="300" height="48"/>
+                                                    <rect key="frame" x="37.5" y="519" width="300" height="48"/>
                                                     <color key="backgroundColor" red="1" green="0.43529411759999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="48" id="hP0-CE-DZM"/>
@@ -791,6 +791,9 @@ tu contraseña ;-)</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f3D-Xy-3tN">
+                                <rect key="frame" x="16" y="30" width="343" height="463"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DPC-vf-M3o">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -809,7 +812,7 @@ tu contraseña ;-)</string>
                                 <rect key="frame" x="0.0" y="158.5" width="375" height="350"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ubica el código de barras aquí" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhu-I3-hTz">
-                                        <rect key="frame" x="57" y="18" width="229" height="24"/>
+                                        <rect key="frame" x="57" y="300" width="229" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -852,6 +855,17 @@ tu contraseña ;-)</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qKT-mA-2po">
+                                        <rect key="frame" x="8" y="72" width="59" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="20"/>
+                                        <state key="normal" title="Borrar">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="DELETEAction:" destination="wWE-de-MOa" eventType="touchUpInside" id="Cdg-kA-25F"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -864,8 +878,17 @@ tu contraseña ;-)</string>
                                     <action selector="changeFase:" destination="wWE-de-MOa" eventType="valueChanged" id="l5m-LA-XYQ"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="[Codigo de barras]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wl5-Az-ONT">
-                                <rect key="frame" x="8" y="80" width="359" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NqZ-zT-Tg7">
+                                <rect key="frame" x="10" y="76" width="42" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Omitir"/>
+                                <connections>
+                                    <action selector="OMITIRAction:" destination="wWE-de-MOa" eventType="touchUpInside" id="2GW-M2-ZrF"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="[Codigo de barras]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wl5-Az-ONT">
+                                <rect key="frame" x="8" y="138" width="359" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -873,12 +896,6 @@ tu contraseña ;-)</string>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="lx7-Uf-Fl0">
                                 <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
                             </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Lector CB?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ph-OG-Crb">
-                                <rect key="frame" x="202" y="79.5" width="90" height="24"/>
-                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Piy-KN-vNu">
                                 <rect key="frame" x="330" y="37" width="30" height="32"/>
                                 <constraints>
@@ -895,9 +912,6 @@ tu contraseña ;-)</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Piy-KN-vNu" firstAttribute="top" secondItem="PhM-Df-dgX" secondAttribute="top" constant="17" id="0LQ-kp-Rvk"/>
-                            <constraint firstItem="Wl5-Az-ONT" firstAttribute="top" secondItem="Piy-KN-vNu" secondAttribute="bottom" constant="11" id="2ri-2h-X6f"/>
-                            <constraint firstItem="Wl5-Az-ONT" firstAttribute="leading" secondItem="PhM-Df-dgX" secondAttribute="leading" constant="8" id="5wm-Ub-1U1"/>
-                            <constraint firstItem="Wl5-Az-ONT" firstAttribute="baseline" secondItem="4Ph-OG-Crb" secondAttribute="baseline" id="ARf-AJ-kVP"/>
                             <constraint firstItem="IZf-ox-LJw" firstAttribute="top" secondItem="Ng6-ow-MMB" secondAttribute="bottom" constant="52" id="EAB-6J-OyF"/>
                             <constraint firstItem="FCz-kc-cai" firstAttribute="bottom" secondItem="PhM-Df-dgX" secondAttribute="bottom" id="Et6-2R-wbx"/>
                             <constraint firstItem="DPC-vf-M3o" firstAttribute="trailing" secondItem="PhM-Df-dgX" secondAttribute="trailing" id="Gm2-dL-Slg"/>
@@ -905,24 +919,30 @@ tu contraseña ;-)</string>
                             <constraint firstItem="DPC-vf-M3o" firstAttribute="leading" secondItem="PhM-Df-dgX" secondAttribute="leading" id="QYq-qh-2VO"/>
                             <constraint firstItem="FCz-kc-cai" firstAttribute="trailing" secondItem="PhM-Df-dgX" secondAttribute="trailing" id="Qd3-db-COi"/>
                             <constraint firstItem="DPC-vf-M3o" firstAttribute="top" secondItem="PhM-Df-dgX" secondAttribute="top" id="RXK-9g-ObQ"/>
+                            <constraint firstItem="FCz-kc-cai" firstAttribute="top" secondItem="f3D-Xy-3tN" secondAttribute="bottom" constant="24" id="TBI-Sx-Mm8"/>
                             <constraint firstItem="lx7-Uf-Fl0" firstAttribute="centerX" secondItem="SiC-eW-ghM" secondAttribute="centerX" id="U9D-Q3-k8e"/>
+                            <constraint firstItem="f3D-Xy-3tN" firstAttribute="top" secondItem="PhM-Df-dgX" secondAttribute="top" constant="10" id="VSh-6D-pWD"/>
                             <constraint firstItem="IZf-ox-LJw" firstAttribute="centerY" secondItem="SiC-eW-ghM" secondAttribute="centerY" id="W8K-Zh-hGK"/>
                             <constraint firstItem="PhM-Df-dgX" firstAttribute="bottom" secondItem="DPC-vf-M3o" secondAttribute="bottom" id="Yjn-ni-XtA"/>
-                            <constraint firstItem="Wl5-Az-ONT" firstAttribute="centerX" secondItem="lx7-Uf-Fl0" secondAttribute="centerX" id="bA5-AJ-g3c"/>
-                            <constraint firstItem="Ng6-ow-MMB" firstAttribute="centerY" secondItem="Wl5-Az-ONT" secondAttribute="centerY" id="c2s-W7-UiL"/>
                             <constraint firstItem="IZf-ox-LJw" firstAttribute="centerX" secondItem="SiC-eW-ghM" secondAttribute="centerX" id="cpM-R0-amf"/>
-                            <constraint firstItem="Ng6-ow-MMB" firstAttribute="leading" secondItem="4Ph-OG-Crb" secondAttribute="trailing" constant="8" symbolic="YES" id="djQ-A3-Ugp"/>
                             <constraint firstItem="FCz-kc-cai" firstAttribute="leading" secondItem="PhM-Df-dgX" secondAttribute="leading" id="gXy-9e-ulj"/>
                             <constraint firstItem="lx7-Uf-Fl0" firstAttribute="centerY" secondItem="SiC-eW-ghM" secondAttribute="centerY" id="iug-LN-p6W"/>
                             <constraint firstItem="Ng6-ow-MMB" firstAttribute="top" secondItem="Piy-KN-vNu" secondAttribute="bottom" constant="7" id="lqe-5Z-Fkf"/>
                             <constraint firstItem="PhM-Df-dgX" firstAttribute="trailing" secondItem="Ng6-ow-MMB" secondAttribute="trailing" constant="26" id="ron-PS-GJd"/>
+                            <constraint firstItem="PhM-Df-dgX" firstAttribute="trailing" secondItem="f3D-Xy-3tN" secondAttribute="trailing" constant="16" id="xw4-rt-JR3"/>
+                            <constraint firstItem="f3D-Xy-3tN" firstAttribute="leading" secondItem="PhM-Df-dgX" secondAttribute="leading" constant="16" id="ynS-BK-B78"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PhM-Df-dgX"/>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="bottomConstraint" destination="Et6-2R-wbx" id="fKb-eV-1p0"/>
+                        <outlet property="btnBorrar" destination="qKT-mA-2po" id="gLe-2x-ZZq"/>
+                        <outlet property="btnOk" destination="Piy-KN-vNu" id="3xj-QC-5ah"/>
+                        <outlet property="btnOmitir" destination="NqZ-zT-Tg7" id="uFt-55-lEP"/>
+                        <outlet property="btnPhoto" destination="zci-a9-gyi" id="Ej3-SG-t7E"/>
                         <outlet property="controlesCamaraView" destination="FCz-kc-cai" id="xzL-3G-Z2z"/>
+                        <outlet property="imageView" destination="f3D-Xy-3tN" id="jcv-ba-XHt"/>
                         <outlet property="indicator" destination="lx7-Uf-Fl0" id="z9D-wL-X7Q"/>
                         <outlet property="lblCodigoBarras" destination="Wl5-Az-ONT" id="RSo-SN-GbC"/>
                         <outlet property="lblCountPhotos" destination="64c-sp-G5Y" id="Xxl-Cp-mI5"/>
@@ -931,11 +951,13 @@ tu contraseña ;-)</string>
                         <outlet property="scanView" destination="IZf-ox-LJw" id="KOf-NH-fqE"/>
                         <outlet property="switchFase" destination="Ng6-ow-MMB" id="t5r-yT-v32"/>
                         <segue destination="55A-J7-n13" kind="show" identifier="DetalleFotoSegue" id="9Cq-ZR-9Qs"/>
+                        <segue destination="f9I-bL-nTI" kind="show" identifier="TicketDetailSegue" id="da3-6v-vQc"/>
+                        <segue destination="txX-eW-sSS" kind="presentation" identifier="ErrorTicketSegue" id="LjV-57-taI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rTR-Om-D9E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3613.5999999999999" y="-1872.4137931034484"/>
+            <point key="canvasLocation" x="3614" y="-869"/>
         </scene>
         <!--Bar Code View Controller-->
         <scene sceneID="Whl-mB-It5">
@@ -1207,7 +1229,7 @@ tu contraseña ;-)</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cN-GL-zBa">
-                                                    <rect key="frame" x="36" y="115.5" width="303" height="44"/>
+                                                    <rect key="frame" x="36" y="108" width="303" height="37.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="303" id="QqU-XE-GFj"/>
                                                     </constraints>
@@ -1230,7 +1252,7 @@ tu contraseña ;-)</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crear tu cuenta" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyz-41-EC5">
-                                                    <rect key="frame" x="49.5" y="60" width="276" height="49.5"/>
+                                                    <rect key="frame" x="49.5" y="60" width="276" height="42"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="276" id="7Rg-PQ-156"/>
                                                     </constraints>
@@ -2097,13 +2119,13 @@ mayúsculas.</string>
                         <outlet property="activity" destination="gFC-Kg-cIX" id="KCF-UO-6I4"/>
                         <outlet property="btnProcesar" destination="i9I-5m-hXS" id="uWI-EN-r6U"/>
                         <outlet property="imageView" destination="C2o-QY-tO1" id="BRF-tH-uEc"/>
-                        <segue destination="f9I-bL-nTI" kind="show" identifier="TicketDetailSegue" id="asK-8r-Ajy"/>
-                        <segue destination="txX-eW-sSS" kind="presentation" identifier="ErrorTicketSegue" id="UfG-0i-Fva"/>
+                        <segue destination="f9I-bL-nTI" kind="show" identifier="TicketDetailSegue2" id="asK-8r-Ajy"/>
+                        <segue destination="txX-eW-sSS" kind="presentation" identifier="ErrorTicketSegue2" id="UfG-0i-Fva"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XUs-8O-7Ge" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3615.1999999999998" y="-869.41529235382313"/>
+            <point key="canvasLocation" x="3614" y="-111"/>
         </scene>
         <!--MediosBonificacionDetailVC-->
         <scene sceneID="Dhx-a2-oJR">
@@ -4189,7 +4211,7 @@ Shing</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="agregarFoto" translatesAutoresizingMaskIntoConstraints="NO" id="ddO-3i-VP2">
-                                                    <rect key="frame" x="137.5" y="59" width="100.00000000000001" height="100"/>
+                                                    <rect key="frame" x="137.5" y="59" width="100" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="LAn-YF-PLF"/>
                                                         <constraint firstAttribute="height" constant="100" id="jEe-Ov-Z6q"/>
@@ -4801,7 +4823,7 @@ CgoKA
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Mensaje de noticacion]" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P79-sr-vxi">
-                                            <rect key="frame" x="84" y="4" width="275" height="23.5"/>
+                                            <rect key="frame" x="84" y="4" width="275" height="20"/>
                                             <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="17"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -5707,7 +5729,9 @@ tener buena iluminación y
         <image name="x-orange" width="12" height="12"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="LjV-57-taI"/>
         <segue reference="ACn-e3-QpV"/>
+        <segue reference="da3-6v-vQc"/>
         <segue reference="ym2-Na-ioa"/>
         <segue reference="g3Q-Qd-pqc"/>
     </inferredMetricsTieBreakers>

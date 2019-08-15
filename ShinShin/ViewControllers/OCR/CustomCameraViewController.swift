@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import FirebaseMLVision
 import ZXingObjC
 
 protocol CustomCameraControllerDelegate: class{
@@ -21,16 +22,28 @@ class CustomCameraViewController: UIViewController {
     @IBOutlet weak var switchFase: UISwitch!
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var controlesCamaraView: UIView!
+    @IBOutlet weak var btnPhoto: UIButton!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var lblCodigoBarras: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var previewPhoto: UIImageView!
     @IBOutlet weak var lblCountPhotos: UILabel!
+    @IBOutlet weak var btnBorrar: UIButton!
+    @IBOutlet weak var btnOmitir: UIButton!
+    @IBOutlet weak var btnOk: UIButton!
     
+    lazy var vision = Vision.vision()
     var captureSession: AVCaptureSession!
     var stillImageOutput: AVCapturePhotoOutput!
     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
     var codigoBarras: String?
     var photos: [UIImage] = [UIImage]()
+    var dic = [Int: [String]]()
+    var code = -1
+    var datosTicket = OCRResponse()
+    var visiblePreview = false
+    
+    let ID_RQT_ANALIZAR = "ID_RQT_ANALIZAR"
     
     //MARK: - Enum para manejo de estados
     enum Fase {
@@ -68,6 +81,8 @@ class CustomCameraViewController: UIViewController {
     override func viewDidLayoutSubviews(){
         //El cambio sólo debe aplicar cuando esta habilitado el modo
         //de escaneo
+//        switchFase.isHidden = true
+        
         if fase == .escaner{
             if isFirstApplyOrientation == true { return }
             isFirstApplyOrientation = true
@@ -92,37 +107,14 @@ class CustomCameraViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-//        captureSession = AVCaptureSession()
-//        captureSession.sessionPreset = .medium
-//
-//        guard let backCamera = AVCaptureDevice.default(for: AVMediaType.video)
-//            else {
-//                print("Unable to access back camera!")
-//                return
-//        }
-//
-//        do {
-//            let input = try AVCaptureDeviceInput(device: backCamera)
-//            //Step 9
-//            stillImageOutput = AVCapturePhotoOutput()
-//
-//            if captureSession.canAddInput(input) && captureSession.canAddOutput(stillImageOutput) {
-//                captureSession.addInput(input)
-//                captureSession.addOutput(stillImageOutput)
-//                setupLivePreview()
-//            }
-//        }
-//        catch let error  {
-//            print("Error Unable to initialize back camera:  \(error.localizedDescription)")
-//        }
-//
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        fase = .camara
+        switchFase.isHidden = true
+        visiblePreview = false
         photos = [UIImage]()
         
         if fase == .camara{
@@ -146,13 +138,14 @@ class CustomCameraViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
-//        if fase == .camara{
-//            self.captureSession.stopRunning()
-//        }
-//        else if fase == .escaner{
-//            capture?.stop()
-//            isScanning = false
-//        }
+        print("Cerrando configuracion de camara")
+        if fase == .camara{
+            self.captureSession.stopRunning()
+        }
+        else if fase == .escaner{
+            capture?.stop()
+            isScanning = false
+        }
     }
     
     //MARK: - Navigation
@@ -163,13 +156,27 @@ class CustomCameraViewController: UIViewController {
             vc.photos = photos
             vc.codeBar = codigoBarras
         }
+        if segue.identifier == "TicketDetailSegue"{
+            let vc = segue.destination as! DatosTicketViewController
+            vc.datosTicket = datosTicket
+            clean()
+        }
+        
+        if segue.identifier == "ErrorTicketSegue"{
+            let vc = segue.destination as! ErrorTicketViewController
+            if code == 203{
+                vc.mensaje = "No se detectaron productos válidos"
+                clean()
+            }
+            vc.delegate = self
+        }
     }
     
     //MARK: - Actions
     @IBAction func didTakePhoto(_ sender: Any) {
         let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
-        settings.isAutoStillImageStabilizationEnabled =
-            self.stillImageOutput.isStillImageStabilizationSupported
+//        settings.isAutoStillImageStabilizationEnabled =
+//            self.stillImageOutput.isStillImageStabilizationSupported
 //        if settings.availablePreviewPhotoPixelFormatTypes.count > 0 {
 //            print("Preview")
 //            settings.previewPhotoFormat = [
@@ -216,7 +223,67 @@ class CustomCameraViewController: UIViewController {
     
     @IBAction func OKAction(_ sender: Any) {
 //        delegate?.didCompletedTakePhoto(self, withPhotos: photos, and: codigoBarras)
-        performSegue(withIdentifier: "DetalleFotoSegue", sender: self)
+//        performSegue(withIdentifier: "DetalleFotoSegue", sender: self)
+//        for (index, photo) in photos.enumerated() {
+//            updateImageView(with: photo, isPreview: false, andIndex: index)
+//        }
+        analizarOCRRequest()
+    }
+    
+    @IBAction func DELETEAction(_ sender: Any) {
+        
+        photos = [UIImage]()
+        dic = [Int: [String]]()
+        visiblePreview = false
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.previewPhoto.alpha = 0.0
+            self.lblCountPhotos.alpha = 0.0
+            self.btnOk.alpha = 0.0
+            self.btnOk.isEnabled = false
+            self.btnBorrar.alpha = 0.0
+            self.btnBorrar.isEnabled = false
+        }) { (Bool) in
+            self.previewPhoto.image = nil
+            self.lblCountPhotos.text = ""
+        }
+    }
+    
+    @IBAction func OMITIRAction(_ sender: Any) {
+        performSegue(withIdentifier: "TicketDetailSegue", sender: self)
+    }
+    
+    
+    //MARK: - Helper methods
+    func clean(){
+        imageView.image = nil
+    }
+    
+    func analizarOCRRequest(){
+        do{
+            let encoder = JSONEncoder()
+            let rqt = OCRRequest()
+            var lineas = [String]()
+            for index in 0..<dic.count {
+                let l = dic[index]
+                for s in l!{
+                    lineas.append(s)
+                }
+            }
+            
+            //            for( index, value ) in dic{
+            //                print("Index: \(index), lines: \(value)")
+            //            }
+            
+            rqt.lineas = lineas
+            
+            let json = try encoder.encode(rqt)
+            RESTHandler.delegate = self
+            RESTHandler.postOperationTo(RESTHandler.analizarOCR, with: json, and: ID_RQT_ANALIZAR)
+        }
+        catch{
+            
+        }
     }
     
     //MARK: - Animation methods
@@ -251,6 +318,8 @@ class CustomCameraViewController: UIViewController {
                        options: [.curveEaseIn],
                        animations: {
                         self.scanView?.alpha = alpha
+                        self.btnOmitir.alpha = alpha
+                        self.btnOmitir.isEnabled = true
                         },
                        completion: nil)
         
@@ -345,8 +414,14 @@ class CustomCameraViewController: UIViewController {
         indicator.isHidden = true
         lblCodigoBarras.text = ""
         if fase == .camara{
+            btnOk.alpha = 0.0
+            btnOk.isEnabled = false
+            btnOmitir.alpha = 0.0
+            btnOmitir.isEnabled = false
+            btnBorrar.alpha = 0.0
+            btnBorrar.isEnabled = false
             switchFase.isOn = false
-            scanView?.isHidden = true
+            scanView?.isHidden = false
             scanView?.alpha = 0.0
             bottomConstraint.constant = 0.0
         }
@@ -368,26 +443,52 @@ extension CustomCameraViewController: AVCapturePhotoCaptureDelegate{
         
         if let image = image{
             photos.append(image)
+            //Si los lblCountPhotos y previewPhoto estan ocultos se deben mostrar
+            if !visiblePreview{
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.btnOk.alpha = 1.0
+                    self.btnOk.isEnabled = true
+                    self.btnBorrar.alpha = 1.0
+                    self.btnBorrar.isEnabled = true
+                    self.previewPhoto.alpha = 1.0
+                    self.lblCountPhotos.alpha = 1.0
+                }, completion: nil)
+                
+                visiblePreview = !visiblePreview
+            }
             
             lblCountPhotos.text = String("\(photos.count)")
-//            showPreview(for: photo)
-            updateImageView(with: image)
+
+            updateImageView(with: image, isPreview: true, andIndex: 0)
+            updateImageView(with: image, isPreview: false, andIndex: 0)
         }
-//        delegate?.didCompletedTakePhoto(self, withPhoto: image!)
-//        delegate?.didCompletedTakePhoto(self, withPhoto: image!, and: codigoBarras)
+
     }
     
-    private func updateImageView(with image: UIImage) {
+    private func updateImageView(with image: UIImage, isPreview: Bool, andIndex index: Int) {
+        
+        btnPhoto.isEnabled = false
+        
         let orientation = UIApplication.shared.statusBarOrientation
         var scaledImageWidth: CGFloat = 0.0
         var scaledImageHeight: CGFloat = 0.0
+        
+        var tmpView: UIView = UIImageView()
+        if isPreview{
+            tmpView = previewPhoto
+        }
+        else{
+            tmpView = imageView
+        }
+        
+        
         switch orientation {
         case .portrait, .portraitUpsideDown, .unknown:
-            scaledImageWidth = previewPhoto.bounds.size.width
+            scaledImageWidth = tmpView.bounds.size.width
             scaledImageHeight = image.size.height * scaledImageWidth / image.size.width
         case .landscapeLeft, .landscapeRight:
             scaledImageWidth = image.size.width * scaledImageHeight / image.size.height
-            scaledImageHeight = previewPhoto.bounds.size.height
+            scaledImageHeight = tmpView.bounds.size.height
         }
         
         DispatchQueue.global(qos: .userInitiated).async {
@@ -398,8 +499,81 @@ extension CustomCameraViewController: AVCapturePhotoCaptureDelegate{
             scaledImage = scaledImage ?? image
             guard let finalImage = scaledImage else { return }
             DispatchQueue.main.async {
-                self.previewPhoto.image = finalImage
+                if isPreview{
+                    self.previewPhoto.image = finalImage
+                }
+                else{
+                    self.detectTextFrom(finalImage, andIndex: index)
+                    self.btnPhoto.isEnabled = true
+                }
             }
+        }
+    }
+}
+
+//MARK: - MLVision
+extension CustomCameraViewController{
+    func detectTextFrom(_ image: UIImage, andIndex index: Int){
+        var result = ""
+        
+        //1
+        let textRecognizer = vision.onDeviceTextRecognizer()
+        
+        //2
+        let metadata = VisionImageMetadata()
+        metadata.orientation = visionImageOrientation(from: image.imageOrientation)
+        
+        //3
+        let visionImage = VisionImage(image: image)
+        visionImage.metadata = metadata
+        
+        
+        textRecognizer.process(visionImage){text, error in
+            guard error == nil, let text = text else {
+                let errorString = error?.localizedDescription ?? "Error"
+                print("\(errorString)")
+                return
+            }
+            
+            var lines = [String]()
+            
+            //Iterar sobre la respuesta
+            for block in text.blocks{
+                
+                for line in block.lines {
+                    result.append(line.text + "\n")
+                    
+                    print("Line: \(line.text)")
+                    lines.append(line.text)
+                }
+            }
+            
+            self.dic[index] = lines
+        }
+    }
+    
+    func visionImageOrientation(
+        from imageOrientation: UIImage.Orientation
+        ) -> VisionDetectorImageOrientation {
+        switch imageOrientation {
+        case .up:
+            return .topLeft
+        case .down:
+            return .bottomRight
+        case .left:
+            return .leftBottom
+        case .right:
+            return .rightTop
+        case .upMirrored:
+            return .topRight
+        case .downMirrored:
+            return .bottomLeft
+        case .leftMirrored:
+            return .leftTop
+        case .rightMirrored:
+            return .rightBottom
+        @unknown default:
+            return .topLeft
         }
     }
 }
@@ -641,12 +815,13 @@ extension CustomCameraViewController: ZXCaptureDelegate{
         
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
 
-        fase = .camara
-        DispatchQueue.main.async {
-            self.indicator.isHidden = false
-            self.indicator.startAnimating()
-            self.manejaFases()
-        }
+//        fase = .camara
+//        DispatchQueue.main.async {
+//            self.indicator.isHidden = false
+//            self.indicator.startAnimating()
+//            self.manejaFases()
+//        }
+        performSegue(withIdentifier: "TicketDetailSegue", sender: self)
         
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
 //            guard let weakSelf = self else { return }
@@ -656,3 +831,97 @@ extension CustomCameraViewController: ZXCaptureDelegate{
     }
 }
 
+//MARK: - RESTActionDelegate
+extension CustomCameraViewController: RESTActionDelegate{
+    func restActionDidSuccessful(data: Data, identifier: String) {
+        
+        if identifier == ID_RQT_ANALIZAR{
+            do{
+                let decoder = JSONDecoder()
+                
+                let rsp = try decoder.decode(OCRResponse.self, from: data)
+                if rsp.code == 200{
+                    datosTicket = rsp
+                    code = 200
+                    print( "\(code)" )
+                    print( "Requiere lectura de codigo de barras: \(rsp.tieneCB!)" )
+                    fase = .escaner
+
+                    if let tieneCB = rsp.tieneCB, tieneCB{
+                        DispatchQueue.main.async {
+                            self.indicator.isHidden = false
+                            self.indicator.startAnimating()
+                            self.manejaFases()
+                        }
+                    }
+                    else{
+                        performSegue(withIdentifier: "TicketDetailSegue", sender: self)
+                    }
+                }
+                else if rsp.code == 203{
+                    print("No existen productos")
+                    code = 203
+                    print( "\(code)" )
+                    performSegue(withIdentifier: "ErrorTicketSegue", sender: self)
+                }
+                else{
+                    print( "Error" )
+                    //Dirigir a pantalla de error
+                    performSegue(withIdentifier: "ErrorTicketSegue", sender: self)
+                    //                    self.showOCRError()
+                }
+            }
+            catch{
+                print("JSON Error: \(error)")
+            }
+        }
+    }
+    
+    func restActionDidError() {
+        self.showNetworkError()
+    }
+    
+    func showNetworkError(){
+        let alert = UIAlertController(
+            title: "Whoops...",
+            message: "Ocurrió un problema." +
+            " Favor de interntar nuevamente",
+            preferredStyle: .alert)
+        
+        let action =
+            UIAlertAction(title: "OK",
+                          style: .default,
+                          handler: nil)
+        
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func showOCRError(){
+        let alert = UIAlertController(
+            title: "Whoops...",
+            message: "No se detectaron productos válidos",
+            preferredStyle: .alert)
+        
+        let action =
+            UIAlertAction(title: "OK",
+                          style: .default,
+                          handler: nil)
+        
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+}
+
+extension CustomCameraViewController: ErrorTicketViewControllerDelegate{
+    func didCompleted(_ controller: ErrorTicketViewController) {
+        self.dismiss(animated: true, completion: nil)
+        
+        let controllers = self.navigationController?.viewControllers
+        for vc in controllers! {
+            if vc is CustomCameraViewController {
+                _ = self.navigationController?.popToViewController(vc as! CustomCameraViewController, animated: true)
+            }
+        }
+    }
+}
