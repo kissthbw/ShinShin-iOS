@@ -3608,7 +3608,7 @@ capturado antes.
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ra-de-xvE">
-                                        <rect key="frame" x="115.5" y="183" width="144.5" height="86"/>
+                                        <rect key="frame" x="117" y="183" width="141.5" height="73.5"/>
                                         <string key="text">Sumaste $ 100
 a tu saldo,
 ¡Sigue así!</string>
@@ -3617,7 +3617,7 @@ a tu saldo,
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vf2-a6-yFS">
-                                        <rect key="frame" x="114" y="505" width="147" height="48"/>
+                                        <rect key="frame" x="114" y="492.5" width="147" height="48"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="147" id="7Kq-Zs-yLO"/>
@@ -3632,7 +3632,7 @@ a tu saldo,
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¡Listo!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLK-Lr-sVO">
-                                        <rect key="frame" x="141.5" y="117" width="92.5" height="44"/>
+                                        <rect key="frame" x="144.5" y="117" width="86" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="hXb-F0-mEb"/>
                                         </constraints>
@@ -3641,7 +3641,7 @@ a tu saldo,
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circulo-white-small" translatesAutoresizingMaskIntoConstraints="NO" id="ZHl-Rx-zLP">
-                                        <rect key="frame" x="99.5" y="310" width="176" height="176"/>
+                                        <rect key="frame" x="99.5" y="297.5" width="176" height="176"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="176" id="7h0-JC-iYd"/>
                                             <constraint firstAttribute="height" constant="176" id="952-MV-qZT"/>
@@ -4211,7 +4211,7 @@ Shing</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="agregarFoto" translatesAutoresizingMaskIntoConstraints="NO" id="ddO-3i-VP2">
-                                                    <rect key="frame" x="137.5" y="59" width="100" height="100"/>
+                                                    <rect key="frame" x="137.5" y="59" width="100.00000000000001" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="LAn-YF-PLF"/>
                                                         <constraint firstAttribute="height" constant="100" id="jEe-Ov-Z6q"/>

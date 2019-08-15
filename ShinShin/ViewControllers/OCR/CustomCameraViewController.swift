@@ -18,24 +18,28 @@ protocol CustomCameraControllerDelegate: class{
 
 class CustomCameraViewController: UIViewController {
 
+    //MARK: - Propiedades Oulets
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var switchFase: UISwitch!
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var controlesCamaraView: UIView!
-    @IBOutlet weak var btnPhoto: UIButton!
-    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var lblCodigoBarras: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var previewPhoto: UIImageView!
+    @IBOutlet weak var lblCodigoBarras: UILabel!
     @IBOutlet weak var lblCountPhotos: UILabel!
+    @IBOutlet weak var btnPhoto: UIButton!
     @IBOutlet weak var btnBorrar: UIButton!
     @IBOutlet weak var btnOmitir: UIButton!
     @IBOutlet weak var btnOk: UIButton!
     
+    //MARK: - Propiedades uso de MLVision
     lazy var vision = Vision.vision()
     var captureSession: AVCaptureSession!
     var stillImageOutput: AVCapturePhotoOutput!
     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
+    
+    //MARK: - Propiedades
     var codigoBarras: String?
     var photos: [UIImage] = [UIImage]()
     var dic = [Int: [String]]()
@@ -45,7 +49,6 @@ class CustomCameraViewController: UIViewController {
     
     let ID_RQT_ANALIZAR = "ID_RQT_ANALIZAR"
     
-    //MARK: - Enum para manejo de estados
     enum Fase {
         case inicial
         case escaner
@@ -81,8 +84,6 @@ class CustomCameraViewController: UIViewController {
     override func viewDidLayoutSubviews(){
         //El cambio sólo debe aplicar cuando esta habilitado el modo
         //de escaneo
-//        switchFase.isHidden = true
-        
         if fase == .escaner{
             if isFirstApplyOrientation == true { return }
             isFirstApplyOrientation = true
@@ -105,16 +106,10 @@ class CustomCameraViewController: UIViewController {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         fase = .camara
-        switchFase.isHidden = true
-        visiblePreview = false
         photos = [UIImage]()
         
         if fase == .camara{
@@ -124,21 +119,20 @@ class CustomCameraViewController: UIViewController {
             ZXSetup()
         }
         
-        lblCodigoBarras.text = ""
-        lblCountPhotos.text = ""
-        previewPhoto.image = nil
-        codigoBarras = ""
-        
         initUIElements()
         
         
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
-        print("Cerrando configuracion de camara")
+        
         if fase == .camara{
             self.captureSession.stopRunning()
         }
@@ -175,16 +169,6 @@ class CustomCameraViewController: UIViewController {
     //MARK: - Actions
     @IBAction func didTakePhoto(_ sender: Any) {
         let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
-//        settings.isAutoStillImageStabilizationEnabled =
-//            self.stillImageOutput.isStillImageStabilizationSupported
-//        if settings.availablePreviewPhotoPixelFormatTypes.count > 0 {
-//            print("Preview")
-//            settings.previewPhotoFormat = [
-//                kCVPixelBufferPixelFormatTypeKey : settings.availablePreviewPhotoPixelFormatTypes.first!,
-//                kCVPixelBufferWidthKey : 512,
-//                kCVPixelBufferHeightKey : 512
-//                ] as [String: Any]
-//        }
         
         stillImageOutput.capturePhoto(with: settings, delegate: self)
     }
@@ -222,16 +206,19 @@ class CustomCameraViewController: UIViewController {
     }
     
     @IBAction func OKAction(_ sender: Any) {
-//        delegate?.didCompletedTakePhoto(self, withPhotos: photos, and: codigoBarras)
-//        performSegue(withIdentifier: "DetalleFotoSegue", sender: self)
-//        for (index, photo) in photos.enumerated() {
-//            updateImageView(with: photo, isPreview: false, andIndex: index)
-//        }
         analizarOCRRequest()
     }
     
     @IBAction func DELETEAction(_ sender: Any) {
-        
+        resetUICamara()
+    }
+    
+    @IBAction func OMITIRAction(_ sender: Any) {
+        performSegue(withIdentifier: "TicketDetailSegue", sender: self)
+    }
+    
+    //MARK: - Animation methods
+    func resetUICamara(){
         photos = [UIImage]()
         dic = [Int: [String]]()
         visiblePreview = false
@@ -249,44 +236,6 @@ class CustomCameraViewController: UIViewController {
         }
     }
     
-    @IBAction func OMITIRAction(_ sender: Any) {
-        performSegue(withIdentifier: "TicketDetailSegue", sender: self)
-    }
-    
-    
-    //MARK: - Helper methods
-    func clean(){
-        imageView.image = nil
-    }
-    
-    func analizarOCRRequest(){
-        do{
-            let encoder = JSONEncoder()
-            let rqt = OCRRequest()
-            var lineas = [String]()
-            for index in 0..<dic.count {
-                let l = dic[index]
-                for s in l!{
-                    lineas.append(s)
-                }
-            }
-            
-            //            for( index, value ) in dic{
-            //                print("Index: \(index), lines: \(value)")
-            //            }
-            
-            rqt.lineas = lineas
-            
-            let json = try encoder.encode(rqt)
-            RESTHandler.delegate = self
-            RESTHandler.postOperationTo(RESTHandler.analizarOCR, with: json, and: ID_RQT_ANALIZAR)
-        }
-        catch{
-            
-        }
-    }
-    
-    //MARK: - Animation methods
     func manejaFases(){
         var alpha: CGFloat  = 1.0
         var bottomConstant: CGFloat = 0.0
@@ -308,11 +257,6 @@ class CustomCameraViewController: UIViewController {
             setupCaptureSession()
         }
         
-//        DispatchQueue.main.async {
-//            self.indicator.stopAnimating()
-////            self.indicator.isHidden = true
-//        }
-        
         UIView.animate(withDuration: 1.0,
                        delay: 0.0,
                        options: [.curveEaseIn],
@@ -320,7 +264,7 @@ class CustomCameraViewController: UIViewController {
                         self.scanView?.alpha = alpha
                         self.btnOmitir.alpha = alpha
                         self.btnOmitir.isEnabled = true
-                        },
+        },
                        completion: nil)
         
         UIView.animate(withDuration: 2.0,
@@ -332,11 +276,70 @@ class CustomCameraViewController: UIViewController {
                         self.bottomConstraint.constant = bottomConstant
                         self.view.setNeedsLayout()
                         self.view.layoutIfNeeded()
-                        },
+        },
                        completion: nil)
     }
     
     //MARK: - Helper methods
+    func clean(){
+        imageView.image = nil
+    }
+    
+    func analizarOCRRequest(){
+        do{
+            let encoder = JSONEncoder()
+            let rqt = OCRRequest()
+            var lineas = [String]()
+            for index in 0..<dic.count {
+                let l = dic[index]
+                for s in l!{
+                    lineas.append(s)
+                }
+            }
+            
+            rqt.lineas = lineas
+            
+            let json = try encoder.encode(rqt)
+            RESTHandler.delegate = self
+            RESTHandler.postOperationTo(RESTHandler.analizarOCR, with: json, and: ID_RQT_ANALIZAR)
+        }
+        catch{
+            
+        }
+    }
+
+    func initUIElements(){
+        //De acuerdo al flujo deben esar deshabilitados los componentes
+        //referentes a la captura de codigo de barras o la camara
+        //
+        indicator.isHidden = true
+        lblCodigoBarras.text = ""
+        lblCodigoBarras.text = ""
+        lblCountPhotos.text = ""
+        switchFase.isHidden = true
+        visiblePreview = false
+        previewPhoto.image = nil
+        codigoBarras = ""
+        
+        if fase == .camara{
+            btnOk.alpha = 0.0
+            btnOk.isEnabled = false
+            btnOmitir.alpha = 0.0
+            btnOmitir.isEnabled = false
+            btnBorrar.alpha = 0.0
+            btnBorrar.isEnabled = false
+            scanView?.isHidden = false
+            scanView?.alpha = 0.0
+            bottomConstraint.constant = 0.0
+        }
+        else if fase == .escaner{
+            scanView?.isHidden = false
+            scanView?.alpha = 1.0
+            bottomConstraint.constant = 150.0
+        }
+    }
+    
+    //MARK: - Camera Session
     func setupCaptureSession(){
         sessionQueue.sync {
             captureSession = AVCaptureSession()
@@ -405,32 +408,6 @@ class CustomCameraViewController: UIViewController {
 //                self.videoPreviewLayer.frame = self.previewView.bounds
 //            }
 //        }
-    }
-    
-    func initUIElements(){
-        //De acuerdo al flujo deben esar deshabilitados los componentes
-        //referentes a la captura de codigo de barras o la camara
-        //
-        indicator.isHidden = true
-        lblCodigoBarras.text = ""
-        if fase == .camara{
-            btnOk.alpha = 0.0
-            btnOk.isEnabled = false
-            btnOmitir.alpha = 0.0
-            btnOmitir.isEnabled = false
-            btnBorrar.alpha = 0.0
-            btnBorrar.isEnabled = false
-            switchFase.isOn = false
-            scanView?.isHidden = false
-            scanView?.alpha = 0.0
-            bottomConstraint.constant = 0.0
-        }
-        else if fase == .escaner{
-            switchFase.isOn = true
-            scanView?.isHidden = false
-            scanView?.alpha = 1.0
-            bottomConstraint.constant = 150.0
-        }
     }
 }
 
@@ -879,6 +856,7 @@ extension CustomCameraViewController: RESTActionDelegate{
     
     func restActionDidError() {
         self.showNetworkError()
+        resetUICamara()
     }
     
     func showNetworkError(){
