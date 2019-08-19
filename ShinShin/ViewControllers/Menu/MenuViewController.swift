@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 class MenuViewController: UIViewController {
 
@@ -53,6 +54,11 @@ class MenuViewController: UIViewController {
     
     //Agregar animacion de salida
     @IBAction func cerrarSesionAction(_ sender: Any) {
+        
+        if let id = Model.idRedSocial, id == 1{
+            GIDSignIn.sharedInstance().signOut()
+        }
+        
         self.performSegue(withIdentifier: "LogOutSegue", sender: self)
 //        let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "LogInViewController")
 //

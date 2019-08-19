@@ -39,6 +39,7 @@ class RESTHandler{
     static let server = "http://shinshin-env.m7izq9trpe.us-east-2.elasticbeanstalk.com"
     
     //Usuario
+    static let registrarSocialUsuario = server + "/usuarios/social/registrar"
     static let registrarUsuario = server + "/usuarios/usuario/registrar"
     static let activarUsuario = server + "/usuarios/usuario/activar"
     static let reenviarCodigo = server + "/usuarios/usuario/reenviar"

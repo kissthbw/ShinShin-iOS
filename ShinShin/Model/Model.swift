@@ -12,6 +12,7 @@ class Model{
     static var user: Usuario?
     static var totalBonificacion: Double?
     static var notificaciones: [Notificacion] = [Notificacion]()
+    static var idRedSocial: Int?
     
     init() {
         registerDefaults()

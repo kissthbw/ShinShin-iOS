@@ -11,6 +11,7 @@ import CoreData
 import Firebase
 import FirebaseMessaging
 import UserNotifications
+import GoogleSignIn
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         Messaging.messaging().delegate = self
+        GIDSignIn.sharedInstance().clientID = "362699089953-jm4oft9d3d391qku9r6bgu55o0gu8u09.apps.googleusercontent.com"
+        
+        GIDSignIn.sharedInstance().delegate = self
         
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
@@ -241,4 +245,81 @@ extension AppDelegate : MessagingDelegate {
         print("Received data message: \(remoteMessage.appData)")
     }
     // [END ios_10_data_message]
+}
+
+//MARK: - Google SignIn
+extension AppDelegate: GIDSignInDelegate{
+
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {    return GIDSignIn.sharedInstance().handle(url,
+                                                                                                                                                                     sourceApplication: sourceApplication,
+                                                                                                                                                                     annotation: annotation)
+    }
+    
+    @available(iOS 9.0, *)
+    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any])
+        -> Bool {
+            return GIDSignIn.sharedInstance().handle(url, sourceApplication:options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+                                                              annotation: [:])
+    }
+    
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
+              withError error: Error!) {
+        if let error = error {
+            if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
+                print("The user has not signed in before or they have since signed out.")
+            } else {
+                print("\(error.localizedDescription)")
+            }
+            NotificationCenter.default.post(
+                name: Notification.Name(rawValue: "ToggleAuthUINotification"), object: nil, userInfo: nil)
+            return
+        }
+        
+
+        //El usuario ShingShing necesita:
+        //nombre - user.profile.name
+        //fecha de nacimiento - Asignar un generico
+        //tel_movil - Asignar un generico
+        //correo_electronico user.profile.email
+        //usuario - user.profile.email
+        //contrasenia - user.profile.email
+        //codigo_postal - Asignar un generico
+        //estatus - Activo por default
+        //codigo verificacion - Asignar un generico
+        let su = Usuario()
+        su.nombre = user.profile.name
+        su.fechaNac = "1970-01-01"
+        su.telMovil = "+5215555555555"
+        su.correoElectronico = user.profile.email
+        su.usuario = user.profile.email
+        su.contrasenia = user.profile.email
+        su.codigoPostal = "00000"
+        su.idRedSocial = 1
+        su.idCatalogoSexo = 3
+        
+        
+        // Perform any operations on signed in user here.
+//        let userId = user.userID                  // For client-side use only!
+//        let idToken = user.authentication.idToken // Safe to send to the server
+//        let fullName = user.profile.name
+//        let givenName = user.profile.givenName
+//        let familyName = user.profile.familyName
+//        let email = user.profile.email
+        
+        
+        NotificationCenter.default.post(
+            name: Notification.Name(rawValue: "ToggleAuthUINotification"),
+            object: nil,
+            userInfo: ["user": su])
+    }
+
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
+              withError error: Error!) {
+        NotificationCenter.default.post(
+            name: Notification.Name(rawValue: "ToggleAuthUINotification"),
+            object: nil,
+            userInfo: ["statusText": "User has disconnected."])
+    }
 }

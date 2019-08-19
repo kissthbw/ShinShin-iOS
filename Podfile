@@ -14,7 +14,10 @@ target 'ShinShin' do
   pod 'Firebase/MLVisionTextModel'
   pod 'Firebase/Messaging'
   pod 'ZXingObjC', '~> 3.6.4'
-  
+  pod 'GoogleSignIn'
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'FacebookShare'
 
   target 'ShinShinTests' do
     inherit! :search_paths

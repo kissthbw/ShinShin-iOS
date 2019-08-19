@@ -78,6 +78,7 @@ extension CategoriaTableViewCell: UICollectionViewDataSource, UICollectionViewDe
             let g = CGFloat(Float(color[1]) ?? 0.0)
             let b = CGFloat(Float(color[2]) ?? 0.0)
             
+            //Enviar a Robert
             cell.viewBannerLeft.backgroundColor  = UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: 1.0)
             cell.viewBanner.backgroundColor  = UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: 1.0)
             

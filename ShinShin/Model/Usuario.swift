@@ -32,6 +32,7 @@ class Usuario: Codable, CustomStringConvertible{
     var correoElectronico: String?
     var codigoVerificacion: String?
     var idCatalogoSexo: Int?
+    var idRedSocial: Int?
     
     //Para el guardado del ticket
     var tickets: [Ticket]?

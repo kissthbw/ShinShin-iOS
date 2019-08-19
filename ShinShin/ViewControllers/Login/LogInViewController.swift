@@ -15,7 +15,7 @@
  */
 
 import UIKit
-
+import GoogleSignIn
 
 class LogInViewController: UIViewController {
 
@@ -26,12 +26,15 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var btnShowPlain: UIButton!
+    @IBOutlet weak var btnGoogleSignIn: GIDSignInButton!
     
     var isMenuVisible = false
     var showPassword = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         txtUser.delegate = self
         txtPassword.delegate = self
         
@@ -39,6 +42,15 @@ class LogInViewController: UIViewController {
         txtPassword.text = "kiss2101"
 
         initUIElements()
+        
+        GIDSignIn.sharedInstance().uiDelegate = self
+        //Habilita el inicio de sesion automatico
+//        GIDSignIn.sharedInstance().signIn()
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(LogInViewController.receiveToggleAuthUINotification(_:)),
+                                               name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
+                                               object: nil)
     }
     
     //MARK: - Actions
@@ -70,6 +82,11 @@ class LogInViewController: UIViewController {
 //        performSegue(withIdentifier: "PrincipalSegue", sender: nil)
     }
     
+    
+    @IBAction func signInGoogle(_ sender: Any) {
+        GIDSignIn.sharedInstance().signIn()
+    }
+    
     //MARK: - Helper methods
     func signinRequest(){
         let user = Usuario()
@@ -88,15 +105,62 @@ class LogInViewController: UIViewController {
     }
     
     func initUIElements(){
+//        btnGoogleSignIn.style = .iconOnly
+        let btnSize : CGFloat = 100
+        
+        var btnSignIn = UIButton(frame: CGRect(x: 0,y: 0,width: btnSize,height: btnSize))
+        btnSignIn.center = view.center
+        btnSignIn.setImage(UIImage(named: "gmail"), for: .normal)
+        btnSignIn.addTarget(self, action: #selector(btnSignInPressed), for: .touchUpInside)
+        
+        btnGoogleSignIn.addSubview(btnSignIn)
+        
         viewUser.layer.cornerRadius = 10.0
         viewPassword.layer.cornerRadius = 10.0
         btnLogin.layer.cornerRadius = 10.0
     }
-
+    
+    @objc
+    func btnSignInPressed() {
+        GIDSignIn.sharedInstance().signIn()
+    }
+    
+    @IBAction func GLogOut(_ sender: Any) {
+        GIDSignIn.sharedInstance().signOut()
+    }
+    
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     }
     
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self,
+                                                  name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
+                                                  object: nil)
+    }
+    
+    @objc func receiveToggleAuthUINotification(_ notification: NSNotification) {
+        if notification.name.rawValue == "ToggleAuthUINotification" {
+            if notification.userInfo != nil {
+                guard let su = notification.userInfo as? [String:Any] else { return }
+                
+                //Realizar inicio de sesion en back
+                //se debe verificar que el usuario exista, de no ser asi
+                //se guarda la informacion devuelta por google
+                let user = su["user"] as? Usuario
+                do{
+                    let encoder = JSONEncoder()
+                    let json = try encoder.encode(user)
+                    RESTHandler.delegate = self
+                    RESTHandler.postOperationTo(RESTHandler.registrarSocialUsuario, with: json, and: "REGISTER")
+                }
+                catch{
+                    //Mostrar popup con error
+                }
+            }
+        }
+    }
 }
 
 //MARK: - Extensions
@@ -113,6 +177,7 @@ extension LogInViewController: RESTActionDelegate{
             if rsp.code == 200{
                 Model.user = rsp.usuario
                 Model.totalBonificacion = rsp.bonificacion
+                Model.idRedSocial = 1 //Google
                 performSegue(withIdentifier: "PrincipalSegue", sender: nil)
             }
             else{
@@ -142,7 +207,7 @@ extension LogInViewController: RESTActionDelegate{
     }
     
     func restActionDidError() {
-
+        showMessage(message: "Error al conectar al servidor")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -156,4 +221,9 @@ extension LogInViewController: UITextFieldDelegate{
         textField.resignFirstResponder()
         return true
     }
+}
+
+
+extension LogInViewController: GIDSignInUIDelegate{
+    
 }
