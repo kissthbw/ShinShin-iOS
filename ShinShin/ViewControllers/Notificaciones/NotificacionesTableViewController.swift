@@ -115,7 +115,7 @@ class NotificacionesTableViewController: UITableViewController {
     
     @objc
     func showMenu(){
-        present(SideMenuManager.default.menuRightNavigationController!, animated: true, completion: nil)
+        present(SideMenuManager.default.rightMenuNavigationController!, animated: true, completion: nil)
     }
     
     // MARK: - Table view data source

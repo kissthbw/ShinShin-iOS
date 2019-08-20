@@ -39,11 +39,14 @@ class PrincipalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let menuNavigationController = storyboard!.instantiateViewController(withIdentifier: "MenuNavigationController") as! UISideMenuNavigationController
-        SideMenuManager.default.menuRightNavigationController = menuNavigationController
-        SideMenuManager.default.menuFadeStatusBar = false
-        SideMenuManager.default.menuPresentMode = .menuSlideIn
-        SideMenuManager.default.menuWidth = CGFloat(307)
+        let menuNavigationController = storyboard!.instantiateViewController(withIdentifier: "MenuNavigationController") as! SideMenuNavigationController
+        SideMenuManager.default.rightMenuNavigationController = menuNavigationController
+        menuNavigationController.presentationStyle = .menuSlideIn
+        menuNavigationController.menuWidth = CGFloat(307)
+        menuNavigationController.statusBarEndAlpha = 0
+//        SideMenuManager.default.menuFadeStatusBar = false
+//        SideMenuManager.default.menuPresentMode = .menuSlideIn
+//        SideMenuManager.default.menuWidth = CGFloat(307)
         
 //        viewBottomBanner.layer.cornerRadius = 15.0
         self.navigationController?.navigationBar.isTranslucent = false
@@ -163,7 +166,7 @@ class PrincipalViewController: UIViewController {
     
     @objc
     func showMenu(){
-        present(SideMenuManager.default.menuRightNavigationController!, animated: true, completion: nil)
+        present(SideMenuManager.default.rightMenuNavigationController!, animated: true, completion: nil)
     }
     
     func bannersRequest(){

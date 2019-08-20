@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShinShin/ViewControllers/CuentasRetiro/MediosBonificacionDetailViewController.swift"
-            timestampString = "586382726.704144"
+            timestampString = "588008628.611461"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "340"
@@ -154,7 +154,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShinShin/ViewControllers/OCR/CustomCameraViewController.swift"
-            timestampString = "587928999.92187"
+            timestampString = "588006925.195246"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "543"
@@ -169,13 +169,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ShinShin/AppDelegate.swift"
-            timestampString = "587938347.9730361"
+            filePath = "ShinShin/ViewControllers/Login/LogInViewController.swift"
+            timestampString = "588008628.640247"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "321"
-            endingLineNumber = "321"
-            landmarkName = "sign(_:didDisconnectWith:withError:)"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "receiveToggleAuthUINotification(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -186,12 +186,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShinShin/ViewControllers/Login/LogInViewController.swift"
-            timestampString = "587938347.973202"
+            timestampString = "588008628.641228"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
-            landmarkName = "receiveToggleAuthUINotification(_:)"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
+            landmarkName = "sign(_:didSignInFor:withError:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
