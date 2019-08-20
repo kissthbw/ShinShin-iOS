@@ -12,8 +12,8 @@ import Firebase
 import FirebaseMessaging
 import UserNotifications
 import GoogleSignIn
+import FBSDKCoreKit
 import FacebookCore
-
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -33,8 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        GIDSignIn.sharedInstance().delegate = self
         
         //Facebook SignIn
-        
-//        SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+
         
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
@@ -255,11 +255,17 @@ extension AppDelegate : MessagingDelegate {
     
     func application(_ application: UIApplication,
                      open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        
+//        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        
         return GIDSignIn.sharedInstance().handle(url)
     }
     
     @available(iOS 9.0, *)
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
+        
+        ApplicationDelegate.shared.application(app, open: url, options: options)
+        
         return GIDSignIn.sharedInstance().handle(url)
     }
 }

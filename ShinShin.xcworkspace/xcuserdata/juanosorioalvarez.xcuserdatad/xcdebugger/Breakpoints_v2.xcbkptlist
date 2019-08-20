@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShinShin/ViewControllers/CuentasRetiro/MediosBonificacionDetailViewController.swift"
-            timestampString = "588008628.611461"
+            timestampString = "588012439.3743401"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "340"
@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShinShin/ViewControllers/Login/LogInViewController.swift"
-            timestampString = "588008628.640247"
+            timestampString = "588031477.831396"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
             landmarkName = "receiveToggleAuthUINotification(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -185,13 +185,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ShinShin/ViewControllers/Login/LogInViewController.swift"
-            timestampString = "588008628.641228"
+            filePath = "ShinShin/ViewControllers/Menu/MenuViewController.swift"
+            timestampString = "588031477.832381"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "252"
-            endingLineNumber = "252"
-            landmarkName = "sign(_:didSignInFor:withError:)"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "cerrarSesionAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

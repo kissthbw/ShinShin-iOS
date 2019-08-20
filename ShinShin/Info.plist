@@ -28,6 +28,23 @@
 				<string>com.googleusercontent.apps.362699089953-jm4oft9d3d391qku9r6bgu55o0gu8u09</string>
 			</array>
 		</dict>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>fb480515842728115</string>
+            </array>
+        </dict>
+    </array>
+    <key>FacebookAppID</key>
+    <string>480515842728115</string>
+    <key>FacebookDisplayName</key>
+    <string>ShingShing</string>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>fbapi</string>
+        <string>fb-messenger-share-api</string>
+        <string>fbauth2</string>
+        <string>fbshareextension</string>
     </array>
 	<key>CFBundleVersion</key>
 	<string>1</string>

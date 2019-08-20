@@ -16,6 +16,10 @@
 
 import UIKit
 import GoogleSignIn
+import FacebookCore
+import FacebookLogin
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class LogInViewController: UIViewController {
 
@@ -30,12 +34,26 @@ class LogInViewController: UIViewController {
     
     var isMenuVisible = false
     var showPassword = false
+    var idRedSocial = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance()?.presentingViewController = self
+
+//        let loginButton = FBLoginButton(permissions: [.publicProfile, .email])
+//        loginButton.delegate = self
+//        loginButton.center = view.center
+//        self.view.addSubview(loginButton)
+//        if let accessToken = AccessToken.current {
+//            // User is already logged in with facebook
+//            print("User is already logged in")
+//            print(accessToken)
+//        }
+        
+//        let loginButton = FBLoginButton(readPermissions: [.publicProfile])
+
         
         // Automatically sign in the user.
 //        GIDSignIn.sharedInstance()?.restorePreviousSignIn()
@@ -89,7 +107,77 @@ class LogInViewController: UIViewController {
         GIDSignIn.sharedInstance().signIn()
     }
     
+    @IBAction func signInFacebook(_ sender: Any) {
+        let loginManager = LoginManager()
+        
+        
+        
+        loginManager.logIn(permissions: [.publicProfile, .email], viewController: self) { (loginResult) in
+            
+            switch loginResult {
+            case .failed(let error):
+                print(error)
+            case .cancelled:
+                print("User cancelled login.")
+            case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+                print(grantedPermissions)
+                print(declinedPermissions)
+                print(accessToken)
+                
+                self.showFacebookDetails(token: accessToken.tokenString)
+                
+                
+                print("Logged in!")
+            }
+            print("User logged in")
+        }
+    }
+    
     //MARK: - Helper methods
+    func showFacebookDetails(token: String){
+        let req = GraphRequest(graphPath: "me",
+                               parameters: ["fields": "email,first_name,last_name,gender,picture"],
+                               tokenString: token, version: "", httpMethod: HTTPMethod.get)
+        
+        req.start { (connection, result, error) in
+            if error == nil {
+                if let responseDictionary = result as? NSDictionary {
+                    
+                    let firstName = responseDictionary["first_name"] as? String ?? "User"
+                    let lastName = responseDictionary["last_name"] as? String ?? ""
+                    let email = responseDictionary["email"] as? String ?? ""
+                    let gender = responseDictionary["gender"] as? String ?? ""
+                    let id = responseDictionary["id"] as! String
+                    
+                    var pictureUrl = ""
+                    if let picture = responseDictionary["picture"] as? NSDictionary, let data = picture["data"] as? NSDictionary, let url = data["url"] as? String {
+                        pictureUrl = url
+                        
+                    }
+                    
+                    let su = Usuario()
+                    su.nombre = firstName + " " + lastName
+                    su.fechaNac = "1970-01-01"
+                    su.telMovil = "+5215555555555"
+                    su.correoElectronico = email
+                    su.usuario = email
+                    su.contrasenia = email
+                    su.codigoPostal = "00000"
+                    su.idRedSocial = 2
+                    su.idCatalogoSexo = 3
+                    self.idRedSocial = 2
+                    
+                    DispatchQueue.global(qos: .userInitiated).async {
+                        self.processSocialMediaSignIn(su)
+                    }
+                }
+            }else{
+                print("error in graph request:", error)
+                
+            }
+        }
+    }
+    
     func signinRequest(){
         let user = Usuario()
         user.usuario = txtUser.text!
@@ -196,7 +284,7 @@ extension LogInViewController: RESTActionDelegate{
             if rsp.code == 200{
                 Model.user = rsp.usuario
                 Model.totalBonificacion = rsp.bonificacion
-                Model.idRedSocial = 1 //Google
+                Model.idRedSocial = self.idRedSocial //Google = 1, Facebook = 2
                 print("Entrando...")
                 performSegue(withIdentifier: "PrincipalSegue", sender: nil)
             }
@@ -243,6 +331,25 @@ extension LogInViewController: UITextFieldDelegate{
     }
 }
 
+//MARK: - Facebook SignIn
+//extension LogInViewController: LoginButtonDelegate{
+//    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+//        let permissions = result?.grantedPermissions
+//
+//        if let permissions = permissions{
+//            for val in permissions {
+//                print(val)
+//            }
+//        }
+//
+//        print("User logged in")
+//
+//    }
+//
+//    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
+//        print("User logged out")
+//    }
+//}
 
 //MARK: - Google SignIn
 extension LogInViewController: GIDSignInDelegate{
@@ -281,7 +388,7 @@ extension LogInViewController: GIDSignInDelegate{
         su.codigoPostal = "00000"
         su.idRedSocial = 1
         su.idCatalogoSexo = 3
-        
+        self.idRedSocial = 1
         
         // Perform any operations on signed in user here.
         //        let userId = user.userID                  // For client-side use only!

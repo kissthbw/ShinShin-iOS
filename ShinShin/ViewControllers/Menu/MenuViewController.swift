@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleSignIn
+import FacebookLogin
 
 class MenuViewController: UIViewController {
 
@@ -55,8 +56,14 @@ class MenuViewController: UIViewController {
     //Agregar animacion de salida
     @IBAction func cerrarSesionAction(_ sender: Any) {
         
-        if let id = Model.idRedSocial, id == 1{
-            GIDSignIn.sharedInstance().signOut()
+        if let id = Model.idRedSocial{
+            if id == 1{
+                GIDSignIn.sharedInstance().signOut()
+            }
+            else if id == 2{
+                let loginManager = LoginManager()
+                loginManager.logOut()
+            }
         }
         
         self.performSegue(withIdentifier: "LogOutSegue", sender: self)
