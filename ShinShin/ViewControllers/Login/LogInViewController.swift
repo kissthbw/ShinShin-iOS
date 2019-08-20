@@ -26,7 +26,7 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var btnShowPlain: UIButton!
-    @IBOutlet weak var btnGoogleSignIn: GIDSignInButton!
+//    @IBOutlet weak var btnGoogleSignIn: GIDSignInButton!
     
     var isMenuVisible = false
     var showPassword = false
@@ -34,6 +34,11 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        
+        // Automatically sign in the user.
+//        GIDSignIn.sharedInstance()?.restorePreviousSignIn()
         
         txtUser.delegate = self
         txtPassword.delegate = self
@@ -42,10 +47,7 @@ class LogInViewController: UIViewController {
         txtPassword.text = "kiss2101"
 
         initUIElements()
-        
-        GIDSignIn.sharedInstance().uiDelegate = self
-        //Habilita el inicio de sesion automatico
-//        GIDSignIn.sharedInstance().signIn()
+
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(LogInViewController.receiveToggleAuthUINotification(_:)),
@@ -106,14 +108,14 @@ class LogInViewController: UIViewController {
     
     func initUIElements(){
 //        btnGoogleSignIn.style = .iconOnly
-        let btnSize : CGFloat = 100
-        
-        var btnSignIn = UIButton(frame: CGRect(x: 0,y: 0,width: btnSize,height: btnSize))
-        btnSignIn.center = view.center
-        btnSignIn.setImage(UIImage(named: "gmail"), for: .normal)
-        btnSignIn.addTarget(self, action: #selector(btnSignInPressed), for: .touchUpInside)
-        
-        btnGoogleSignIn.addSubview(btnSignIn)
+//        let btnSize : CGFloat = 100
+//        
+//        var btnSignIn = UIButton(frame: CGRect(x: 0,y: 0,width: btnSize,height: btnSize))
+//        btnSignIn.center = view.center
+//        btnSignIn.setImage(UIImage(named: "gmail"), for: .normal)
+//        btnSignIn.addTarget(self, action: #selector(btnSignInPressed), for: .touchUpInside)
+//        
+//        btnGoogleSignIn.addSubview(btnSignIn)
         
         viewUser.layer.cornerRadius = 10.0
         viewPassword.layer.cornerRadius = 10.0
@@ -141,6 +143,9 @@ class LogInViewController: UIViewController {
     }
     
     @objc func receiveToggleAuthUINotification(_ notification: NSNotification) {
+        
+        print("Procesando notificacion")
+        
         if notification.name.rawValue == "ToggleAuthUINotification" {
             if notification.userInfo != nil {
                 guard let su = notification.userInfo as? [String:Any] else { return }
@@ -159,6 +164,20 @@ class LogInViewController: UIViewController {
                     //Mostrar popup con error
                 }
             }
+            print("Saliendo de notificacion...")
+        }
+    }
+    
+    func processSocialMediaSignIn(_ user: Usuario){
+        do{
+            print("Procesando SignIn")
+            let encoder = JSONEncoder()
+            let json = try encoder.encode(user)
+            RESTHandler.delegate = self
+            RESTHandler.postOperationTo(RESTHandler.registrarSocialUsuario, with: json, and: "REGISTER")
+        }
+        catch{
+            //Mostrar popup con error
         }
     }
 }
@@ -178,6 +197,7 @@ extension LogInViewController: RESTActionDelegate{
                 Model.user = rsp.usuario
                 Model.totalBonificacion = rsp.bonificacion
                 Model.idRedSocial = 1 //Google
+                print("Entrando...")
                 performSegue(withIdentifier: "PrincipalSegue", sender: nil)
             }
             else{
@@ -224,6 +244,71 @@ extension LogInViewController: UITextFieldDelegate{
 }
 
 
-extension LogInViewController: GIDSignInUIDelegate{
+//MARK: - Google SignIn
+extension LogInViewController: GIDSignInDelegate{
     
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
+              withError error: Error!) {
+        if let error = error {
+            if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
+                print("The user has not signed in before or they have since signed out.")
+            } else {
+                print("\(error.localizedDescription)")
+            }
+            NotificationCenter.default.post(
+                name: Notification.Name(rawValue: "ToggleAuthUINotification"), object: nil, userInfo: nil)
+            return
+        }
+        
+        
+        //El usuario ShingShing necesita:
+        //nombre - user.profile.name
+        //fecha de nacimiento - Asignar un generico
+        //tel_movil - Asignar un generico
+        //correo_electronico user.profile.email
+        //usuario - user.profile.email
+        //contrasenia - user.profile.email
+        //codigo_postal - Asignar un generico
+        //estatus - Activo por default
+        //codigo verificacion - Asignar un generico
+        let su = Usuario()
+        su.nombre = user.profile.name
+        su.fechaNac = "1970-01-01"
+        su.telMovil = "+5215555555555"
+        su.correoElectronico = user.profile.email
+        su.usuario = user.profile.email
+        su.contrasenia = user.profile.email
+        su.codigoPostal = "00000"
+        su.idRedSocial = 1
+        su.idCatalogoSexo = 3
+        
+        
+        // Perform any operations on signed in user here.
+        //        let userId = user.userID                  // For client-side use only!
+        //        let idToken = user.authentication.idToken // Safe to send to the server
+        //        let fullName = user.profile.name
+        //        let givenName = user.profile.givenName
+        //        let familyName = user.profile.familyName
+        //        let email = user.profile.email
+        
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.processSocialMediaSignIn(su)
+        }
+        
+//        NotificationCenter.default.post(
+//            name: Notification.Name(rawValue: "ToggleAuthUINotification"),
+//            object: nil,
+//            userInfo: ["user": su])
+        print("Saliendo de metodo delegado de Google")
+    }
+    
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
+              withError error: Error!) {
+        NotificationCenter.default.post(
+            name: Notification.Name(rawValue: "ToggleAuthUINotification"),
+            object: nil,
+            userInfo: ["statusText": "User has disconnected."])
+    }
 }
