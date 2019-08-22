@@ -41,14 +41,13 @@ class UsuarioViewController: UITableViewController {
     
     @IBOutlet weak var viewCP: UIView!
     @IBOutlet weak var txtCP: UITextField!
-//    @IBOutlet weak var txtId: UITextField!
-//    @IBOutlet weak var txtCodigo: UITextField!
     @IBOutlet weak var switchAceptar: UISwitch!
     
     @IBOutlet weak var btnRegistrar: UIButton!
-//    @IBOutlet weak var btnActivar: UIButton!
     
+    weak var delegate: DismissViewControllerDelegate?
     var textFields = [UITextField]()
+    var viewFields = [UIView]()
     let datePicker = UIDatePicker()
     let sexoPicker = UIPickerView()
     var sexos = [Sexo]()
@@ -66,10 +65,10 @@ class UsuarioViewController: UITableViewController {
         textFields = [txtNombre, txtCorreo, txtPassword, txtConfPassword,
          txtTelefono, txtMes, txtDia, txtAnio,
          txtSexo, txtCP]
-//        self.navigationController?.navigationBar.prefersLargeTitles = true
-//        let textfields = [txtNombre, txtCorreo, txtPassword, txtConfPassword,
-//        txtTelefono, txtMes, txtDia, txtAnio,
-//        txtSexo, txtCP]
+        
+        viewFields = [viewNombre, viewCorreo, viewPassword, viewConfPassword,
+                      viewTelefono, viewMes, viewDia, viewAnio,
+                      viewSexo, viewCP]
         
         let s1 = Sexo()
         s1.idSexo = 1
@@ -81,90 +80,20 @@ class UsuarioViewController: UITableViewController {
         sexos.append(s1)
         sexos.append(s2)
         
-        txtNombre.delegate = self
-        txtCorreo.delegate = self
-        txtPassword.delegate = self
-        txtConfPassword.delegate = self
-        txtTelefono.delegate = self
-        txtMes.delegate = self
-        txtDia.delegate = self
-        txtAnio.delegate = self
-        txtSexo.delegate = self
-        txtCP.delegate = self
-        
-        initUIElements(textFields)
+        initUIElements()
         showDatePicker()
         showSexoPicker()
     }
 
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-////        self.tableView.endEditing(true);
-////        txtNombre.resignFirstResponder()
-//    }
-    // MARK: - Table view data source
-
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 1
-//    }
-
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
         let vc = segue.destination as! ActivacionTableViewController
         vc.mensaje = txtTelefono.text
+        vc.delegate = self
     }
     
-    //MARK: - Actions
+    //MARK: - UI Actions
     @IBAction func showPassword(_ sender: Any) {
         let source = sender as! UIButton
         
@@ -237,6 +166,8 @@ class UsuarioViewController: UITableViewController {
 
     @IBAction func shownDateView(_ sender: Any) {
 //        showDatePicker()
+        //Una vez que se despliegue el teclado
+        //se mostrarara la vista personaliza para seleccionar fecha
         txtMes.isEnabled = true
         txtMes.becomeFirstResponder()
     }
@@ -268,11 +199,11 @@ class UsuarioViewController: UITableViewController {
         //ToolBar
         let toolbar = UIToolbar();
         toolbar.sizeToFit()
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker));
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneDatePicker));
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker));
         
-        toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
+        toolbar.setItems([cancelButton,spaceButton,doneButton], animated: false)
         txtMes.inputAccessoryView = toolbar
         txtMes.inputView = datePicker
     }
@@ -287,12 +218,12 @@ class UsuarioViewController: UITableViewController {
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelSexoPicker));
         
-        toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
+        toolbar.setItems([cancelButton,spaceButton,doneButton], animated: false)
         txtSexo.inputAccessoryView = toolbar
         txtSexo.inputView = sexoPicker
     }
     
-    @objc func donedatePicker(){
+    @objc func doneDatePicker(){
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yyyy"
         let fecha = formatter.string(from: datePicker.date)
@@ -386,39 +317,36 @@ class UsuarioViewController: UITableViewController {
         }
     }
     
-    func initUIElements(_ elements: [UITextField?]){
+    func initUIElements(){
         
-        for text in elements {
-            if let t = text{
-//                t.layer.borderWidth = 0.0
-                t.layer.cornerRadius = 10.0
-//                t.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
-            }
+        for text in textFields {
+            text.layer.cornerRadius = 10.0
+            text.delegate = self
+        }
+        
+        for view in viewFields{
+            view.layer.cornerRadius = 10.0
         }
 
-        viewNombre.layer.cornerRadius = 10.0
-        viewCorreo.layer.cornerRadius = 10.0
-        viewPassword.layer.cornerRadius = 10.0
-        viewConfPassword.layer.cornerRadius = 10.0
-        viewTelefono.layer.cornerRadius = 10.0
-        viewAnio.layer.cornerRadius = 10.0
-        viewDia.layer.cornerRadius = 10.0
-        viewMes.layer.cornerRadius = 10.0
-        viewSexo.layer.cornerRadius = 10.0
-        viewCP.layer.cornerRadius = 10.0
         btnRegistrar.layer.cornerRadius = 10.0
-        viewShowPickerView.layer.cornerRadius = 10.0
-        
         btnRegistrar.isEnabled = true
         switchAceptar.isOn = false
         imagewCheckPassword.isHidden = true
         imagewCheckConfPassword.isHidden = true
-        
-//        btnActivar.layer.cornerRadius = 5.0
     }
 }
 
 //MARK: - Extensions
+extension UsuarioViewController: DismissViewControllerDelegate{
+    func didBackViewController() {
+        print("Al home")
+//        dismiss(animated: true, completion: nil)
+        dismiss(animated: true) {
+            self.delegate?.didBackViewController()
+        }
+    }
+}
+
 extension UsuarioViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -475,6 +403,7 @@ extension UsuarioViewController: RESTActionDelegate{
                 print( "Registro exitoso: \(rsp.id!)" )
                 let user = Usuario()
                 user.usuario = txtCorreo.text
+                user.contrasenia = txtPassword.text
                 user.idUsuario = rsp.id
                 Model.user = user
                 

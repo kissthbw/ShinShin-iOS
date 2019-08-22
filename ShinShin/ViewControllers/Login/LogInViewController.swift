@@ -221,6 +221,10 @@ class LogInViewController: UIViewController {
     
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "RegistroSegue"{
+            let vc = segue.destination as! UsuarioViewController
+            vc.delegate = self
+        }
     }
     
     
@@ -271,6 +275,15 @@ class LogInViewController: UIViewController {
 }
 
 //MARK: - Extensions
+extension LogInViewController: DismissViewControllerDelegate{
+    func didBackViewController() {
+        //Iniciar sesion con nuevo usuario registrado
+        print("Usuaario registrado: \(Model.user?.usuario), \(Model.user?.contrasenia)")
+        
+        //Lanzar servicio de login
+    }
+}
+
 //MARK: - RESTActionDelegate
 extension LogInViewController: RESTActionDelegate{
     func restActionDidSuccessful(data: Data, identifier: String) {

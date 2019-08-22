@@ -12,7 +12,7 @@ class HistoricoTicket: Codable{
     var code: Int?
     var message: String?
     var id: Int?
-    var tickets = [Ticket]()
+    var tickets: [Ticket]? = [Ticket]()
 }
 
 class Ticket: Codable, CustomStringConvertible{

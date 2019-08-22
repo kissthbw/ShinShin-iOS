@@ -26,7 +26,6 @@ enum SubProceso{
 class BonificacionViewController: UIViewController {
     
     //MARK: - Propiedades
-//    @IBOutlet weak var viewBottom: UIView!
     @IBOutlet weak var tableView: UITableView!
     
     let ID_RQT_BONIFICACION = "ID_RQT_BONIFICACION"
@@ -49,18 +48,25 @@ class BonificacionViewController: UIViewController {
     
     var selectedRow = -1
     var previousSelectedRow = -1
-    var tipoProceso: Proceso = .Historico
+    var tipoProceso: Proceso = .Retirar
     var tipoSubProceso: SubProceso = .NoSeleccionado
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isTranslucent = false
-//        viewBottom.layer.cornerRadius = 10.0
+        
+        
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 255/255, green: 111/255, blue: 0/255, alpha: 1)
-//        self.navigationController?.navigationBar.tintColor = UIColor(red: 255/255, green: 111/255, blue: 0/255, alpha: 1)
+
         configureBarButtons()
         catalogoMediosRequest()
+        
+        var cellNib = UINib(nibName: "TicketNotFound", bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: "TicketNotFoundCell")
+        
+        cellNib = UINib(nibName: "HistoricoNotFound", bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: "HistoricoNotFoundCell")
+        
         
         if tipoProceso == .Retirar{
             tableView.reloadSections(IndexSet(integersIn: 1...1), with: .fade)
@@ -322,9 +328,15 @@ extension BonificacionViewController: UITableViewDataSource, UITableViewDelegate
         }
         else{
             if tipoProceso == .Historico{
+                if bonificaciones.count == 0{
+                    return 500
+                }
                 return 60
             }
             else if tipoProceso == .Tickets{
+                if tickets.count == 0{
+                    return 500
+                }
                 return 60
             }
             else{
@@ -355,9 +367,16 @@ extension BonificacionViewController: UITableViewDataSource, UITableViewDelegate
         }
         else{
             if tipoProceso == .Historico{
+                if bonificaciones.count == 0{
+                    return 1
+                }
+                
                 return bonificaciones.count
             }
             else if tipoProceso == .Tickets{
+                if tickets.count == 0{
+                    return 1
+                }
                 return tickets.count
             }
             return 4
@@ -366,7 +385,7 @@ extension BonificacionViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        if tipoProceso == .Historico && section == 1{
+        if tipoProceso == .Historico && section == 1 && bonificaciones.count > 0{
             let header = Bundle.main.loadNibNamed("HistoricoBonificacionHeaderCell", owner: nil, options: nil)!.first as! UIView
             
             return header
@@ -376,7 +395,7 @@ extension BonificacionViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if tipoProceso == .Historico && section == 1{
+        if tipoProceso == .Historico && section == 1  && bonificaciones.count > 0{
             return 36
         }
         else{
@@ -396,26 +415,41 @@ extension BonificacionViewController: UITableViewDataSource, UITableViewDelegate
             //Section 2
             if tipoProceso == .Historico{
                 
-                let item = bonificaciones[indexPath.row]
-                
-                let cell = tableView.dequeueReusableCell(withIdentifier: "HistoricoBonificacionCell", for: indexPath) as! HistoricoBonificacionTableViewCell
-                
-                cell.lblTipo.text = item.mediosBonificacion?.aliasMedioBonificacion
-                cell.lblFecha.text = item.fechaBonificacion
-                cell.lblCantidad.text = Validations.formatWith(item.cantidadBonificacion)
-                
-                return cell
+                if bonificaciones.count == 0{
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "HistoricoNotFoundCell", for: indexPath) as! HistoricoNotFoundTableViewCell
+                    
+                    return cell
+                }
+                else{
+                    let item = bonificaciones[indexPath.row]
+                    
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "HistoricoBonificacionCell", for: indexPath) as! HistoricoBonificacionTableViewCell
+                    
+                    cell.lblTipo.text = item.mediosBonificacion?.aliasMedioBonificacion
+                    cell.lblFecha.text = item.fechaBonificacion
+                    cell.lblCantidad.text = Validations.formatWith(item.cantidadBonificacion)
+                    
+                    return cell
+                }
             }//Termina Hitorico
             else if tipoProceso == .Tickets{
                 
-                let cell = tableView.dequeueReusableCell(withIdentifier: "HistoricoTicketCell", for: indexPath) as! HistoricoTicketTableViewCell
-                
-                let item = tickets[indexPath.row]
-                cell.lblTienda.text = item.nombreTienda
-                cell.lblFecha.text = item.fecha
-                cell.lblCantidad.text = Validations.formatWith(item.total)
-                
-                return cell
+                if tickets.count == 0{
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "TicketNotFoundCell", for: indexPath) as! TicketNotFoundTableViewCell
+                    
+                    return cell
+                }
+                else{
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "HistoricoTicketCell", for: indexPath) as! HistoricoTicketTableViewCell
+                    
+                    //Mostrar cell cuando no hay tickets
+                    let item = tickets[indexPath.row]
+                    cell.lblTienda.text = item.nombreTienda
+                    cell.lblFecha.text = item.fecha
+                    cell.lblCantidad.text = Validations.formatWith(item.total)
+                    
+                    return cell
+                }
             }//Termina Tickets
             else{
                 //Para los casos de Proceso == retirar
@@ -460,7 +494,7 @@ extension BonificacionViewController: UITableViewDataSource, UITableViewDelegate
                 else{
                     if indexPath.row == 0{
                         let cell = tableView.dequeueReusableCell(withIdentifier: "BonificacionCell", for: indexPath) as! BonificacionTableViewCell
-                        
+                        cell.icon.image = UIImage(named: "retiroBnacario")
                         cell.lblTitulo.text = "Bancaria"
                         cell.btnArrow.tag = indexPath.row
                         cell.btnArrow.addTarget(self, action: #selector(selectBonificacionTableViewCell(_:)), for: .touchUpInside)
@@ -469,7 +503,7 @@ extension BonificacionViewController: UITableViewDataSource, UITableViewDelegate
                     }
                     else if indexPath.row == 1{
                         let cell = tableView.dequeueReusableCell(withIdentifier: "BonificacionCell", for: indexPath) as! BonificacionTableViewCell
-                        
+                        cell.icon.image = UIImage(named: "retiroPayPal")
                         cell.lblTitulo.text = "PayPal"
                         cell.btnArrow.tag = indexPath.row
                         cell.btnArrow.addTarget(self, action: #selector(selectBonificacionTableViewCell(_:)), for: .touchUpInside)
@@ -478,7 +512,7 @@ extension BonificacionViewController: UITableViewDataSource, UITableViewDelegate
                     }
                     else if indexPath.row == 2{
                         let cell = tableView.dequeueReusableCell(withIdentifier: "BonificacionCell", for: indexPath) as! BonificacionTableViewCell
-                        
+                        cell.icon.image = UIImage(named: "recargaTelefonica")
                         cell.lblTitulo.text = "Recarga telefónica"
                         cell.btnArrow.tag = indexPath.row
                         cell.btnArrow.addTarget(self, action: #selector(selectBonificacionTableViewCell(_:)), for: .touchUpInside)
@@ -593,8 +627,14 @@ extension BonificacionViewController: RESTActionDelegate{
                 
                 let rsp = try decoder.decode(HistoricoTicket.self, from: data)
                 if rsp.code == 200{
-                    tickets = rsp.tickets
-                    tableView.reloadSections(IndexSet(integersIn: 1...1), with: .fade)
+                    if let items = rsp.tickets{
+                        tickets = items
+                        tableView.reloadSections(IndexSet(integersIn: 1...1), with: .fade)
+                    }
+                    else{
+                        tickets = [Ticket]()
+                        tableView.reloadSections(IndexSet(integersIn: 1...1), with: .fade)
+                    }
                 }
                 
             }
@@ -608,10 +648,17 @@ extension BonificacionViewController: RESTActionDelegate{
                 
                 let rsp = try decoder.decode(HistoricoBonificacion.self, from: data)
                 
-//                if rsp.code == 200{
-                    bonificaciones = rsp.historicoMediosBonificaciones
-                tableView.reloadSections(IndexSet(integersIn: 1...1), with: .fade)
-//                }
+                if rsp.code == 200{
+                    
+                    if let items = rsp.historicoMediosBonificaciones{
+                        bonificaciones = items
+                        tableView.reloadSections(IndexSet(integersIn: 1...1), with: .fade)
+                    }
+                    else{
+                        bonificaciones = [Bonificacion]()
+                        tableView.reloadSections(IndexSet(integersIn: 1...1), with: .fade)
+                    }
+                }
                 
             }
             catch{

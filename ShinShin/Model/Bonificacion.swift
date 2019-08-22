@@ -12,7 +12,7 @@ class HistoricoBonificacion: Codable{
     var code: Int?
     var message: String?
     var id: Int?
-    var historicoMediosBonificaciones = [Bonificacion]()
+    var historicoMediosBonificaciones: [Bonificacion]? = [Bonificacion]()
 }
 
 class Bonificacion: Codable, CustomStringConvertible{
