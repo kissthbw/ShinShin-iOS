@@ -10,13 +10,15 @@ import UIKit
 
 class BonificacionTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var lblTitulo: UILabel!
     @IBOutlet weak var btnArrow: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        containerView.layer.cornerRadius = 10.0
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9708815816D3909AA221B5F6 /* Pods_ShinShinUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C99941306ABD9123AD2346 /* Pods_ShinShinUITests.framework */; };
+		A2096DFE230F43AD004DCE65 /* SolicitarBonificacionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2096DFD230F43AD004DCE65 /* SolicitarBonificacionTableViewController.swift */; };
 		A20A118F22FC7D8B00CDA2A2 /* TicketDuplicadoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20A118E22FC7D8B00CDA2A2 /* TicketDuplicadoViewController.swift */; };
 		A20B145E22A036B300667D39 /* Page1.xib in Resources */ = {isa = PBXBuildFile; fileRef = A20B145D22A036B300667D39 /* Page1.xib */; };
 		A20B146022A0441600667D39 /* Page2.xib in Resources */ = {isa = PBXBuildFile; fileRef = A20B145F22A0441600667D39 /* Page2.xib */; };
@@ -158,6 +159,7 @@
 		37374FB6E3C716FF0540A83B /* Pods-ShinShinUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShinShinUITests.release.xcconfig"; path = "Target Support Files/Pods-ShinShinUITests/Pods-ShinShinUITests.release.xcconfig"; sourceTree = "<group>"; };
 		576DA65E3233183B0B23AAEA /* Pods-ShinShinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShinShinTests.debug.xcconfig"; path = "Target Support Files/Pods-ShinShinTests/Pods-ShinShinTests.debug.xcconfig"; sourceTree = "<group>"; };
 		99F5F9623ABDCCFE767D9EBE /* Pods-ShinShin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShinShin.debug.xcconfig"; path = "Target Support Files/Pods-ShinShin/Pods-ShinShin.debug.xcconfig"; sourceTree = "<group>"; };
+		A2096DFD230F43AD004DCE65 /* SolicitarBonificacionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolicitarBonificacionTableViewController.swift; sourceTree = "<group>"; };
 		A20A118E22FC7D8B00CDA2A2 /* TicketDuplicadoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketDuplicadoViewController.swift; sourceTree = "<group>"; };
 		A20B145D22A036B300667D39 /* Page1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Page1.xib; sourceTree = "<group>"; };
 		A20B145F22A0441600667D39 /* Page2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Page2.xib; sourceTree = "<group>"; };
@@ -622,6 +624,7 @@
 				A2A8DA39230DED5800A0942C /* TicketNotFoundTableViewCell.swift */,
 				A2A8DA3B230DFC6F00A0942C /* HistoricoNotFoundTableViewCell.swift */,
 				A2A8DA3D230DFC8800A0942C /* HistoricoNotFound.xib */,
+				A2096DFD230F43AD004DCE65 /* SolicitarBonificacionTableViewController.swift */,
 			);
 			path = "Bonificaciones-Historico";
 			sourceTree = "<group>";
@@ -985,6 +988,7 @@
 				A234CC5B22A6D76F00BCBC7A /* MediosBonificacionTableViewController.swift in Sources */,
 				A26A0C7022BD58EF00AF5E2D /* UIImageView+DownloadImage.swift in Sources */,
 				A26CBD0522A857E8002A5CD5 /* PopularTableViewCell.swift in Sources */,
+				A2096DFE230F43AD004DCE65 /* SolicitarBonificacionTableViewController.swift in Sources */,
 				A2883FE822A81B0300E930DA /* BannerItemCollectionViewCell.swift in Sources */,
 				A267D78F222DD7AF00153CB8 /* AppDelegate.swift in Sources */,
 				A23E72A7230DAB3000CB2635 /* VerificacionViewController.swift in Sources */,

@@ -10,10 +10,10 @@ import UIKit
 
 class PayPalBonificacionTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var btnArrow: UIButton!
     @IBOutlet weak var txtCantidad: UITextField!
     @IBOutlet weak var txtCuenta: UITextField!
     @IBOutlet weak var btnSolicitar: UIButton!
+    @IBOutlet weak var btnBack: UIButton!
     
     var cuentas: [MediosBonificacion]? = nil
     var cuenta: MediosBonificacion? = nil
@@ -41,7 +41,7 @@ class PayPalBonificacionTableViewCell: UITableViewCell {
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelViewPicker));
         
-        toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
+        toolbar.setItems([cancelButton,spaceButton,doneButton], animated: false)
         txtCuenta.inputAccessoryView = toolbar
         txtCuenta.inputView = viewPicker
         

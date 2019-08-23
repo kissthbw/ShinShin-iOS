@@ -88,9 +88,15 @@ class UsuarioViewController: UITableViewController {
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! ActivacionTableViewController
-        vc.mensaje = txtTelefono.text
-        vc.delegate = self
+        if segue.identifier == "TerminosSegue"{
+            
+        }
+        
+        if segue.identifier == "ActivarSegue"{
+            let vc = segue.destination as! ActivacionTableViewController
+            vc.mensaje = txtTelefono.text
+            vc.delegate = self
+        }
     }
     
     //MARK: - UI Actions

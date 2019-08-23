@@ -49,13 +49,19 @@ class PrincipalBonificacionTableViewCell: UITableViewCell {
         let btn = sender as! UIButton
         
         if btnSelected == btn.tag{
-            print("No mover")
+//            print("No mover")
             return
         }
         
+        move(btn.tag)
+    }
+    
+    //MARK: - HelperMethods
+    func move(_ to: Int){
+        
         var x = -1
         
-        switch btn.tag {
+        switch to {
         case ProcesoTag.Retirar.rawValue:
             btnSelected = ProcesoTag.Retirar.rawValue
             x = 50
@@ -68,14 +74,8 @@ class PrincipalBonificacionTableViewCell: UITableViewCell {
         default:
             print("Error")
         }
-//        print("Button selected: \(sender)")
-        moveFrom(x)
-    }
-    
-    //MARK: - HelperMethods
-    func moveFrom(_ to: Int){
         
-        let frame = CGRect(x: CGFloat(to), y: indicatorView.frame.minY,
+        let frame = CGRect(x: CGFloat(x), y: indicatorView.frame.minY,
                            width: indicatorView.frame.width, height: indicatorView.frame.height)
         
         UIView.animate(withDuration: 0.5,

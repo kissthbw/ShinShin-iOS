@@ -14,8 +14,7 @@ class ConfirmacionBonificacionViewController: UIViewController {
     @IBOutlet weak var lblMensaje: UILabel!
     @IBOutlet weak var btnAceptar: UIButton!
     
-    var tipoSubProceso: SubProceso = .NoSeleccionado
-    
+    var tipoRetiro: TipoRetiro = .Bancario
     let mensajeHeaderBancoPayPal = "Recibimos \n tu $olicitud"
     let mensajeHeaderRecarga = "¡Recarga \n enviada!"
     
@@ -27,7 +26,7 @@ class ConfirmacionBonificacionViewController: UIViewController {
 
         btnAceptar.layer.cornerRadius = 10.0
         
-        if tipoSubProceso == .BanificacionBanco || tipoSubProceso == .BanificacionPayPal{
+        if tipoRetiro == .Bancario || tipoRetiro == .PayPal{
             lblHeader.text = mensajeHeaderBancoPayPal
             lblMensaje.text = mensajeBancoPayPal
         }

@@ -9,10 +9,10 @@
 import UIKit
 import SideMenu
 
-enum Proceso {
-    case Retirar
-    case Tickets
-    case Historico
+enum Proceso: Int {
+    case Retirar = 1
+    case Tickets = 2
+    case Historico = 3
     
 }
 
@@ -28,10 +28,11 @@ class BonificacionViewController: UIViewController {
     //MARK: - Propiedades
     @IBOutlet weak var tableView: UITableView!
     
-    let ID_RQT_BONIFICACION = "ID_RQT_BONIFICACION"
     let ID_RQT_TICKETS = "ID_RQT_TICKETS"
     let ID_RQT_BONIFICACIONES = "ID_RQT_BONIFICACIONES"
     let ID_RQT_CATALOGO = "ID_RQT_CATALOGO"
+    
+    var primeraVez = true
     
     //Arreglo de historico de tickets
     var bonificaciones = [Bonificacion]()
@@ -53,11 +54,9 @@ class BonificacionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 255/255, green: 111/255, blue: 0/255, alpha: 1)
-
+        
         configureBarButtons()
         catalogoMediosRequest()
         
@@ -79,9 +78,16 @@ class BonificacionViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 255/255, green: 111/255, blue: 0/255, alpha: 1)
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.navigationBar.barTintColor = .white
         self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.barTintColor = .white
     }
     
 //    override func willMove(toParent parent: UIViewController?) {
@@ -149,116 +155,6 @@ class BonificacionViewController: UIViewController {
         present(SideMenuManager.default.rightMenuNavigationController!, animated: true, completion: nil)
     }
     
-    @objc func guardarItem(){
-        if tipoSubProceso == .BanificacionBanco{
-            
-            if let cell = tmpCell as? BancoBonificacionTableViewCell{
-                print("Guardando solicitud de bonificacion")
-                let item = Bonificacion()
-                
-                item.cantidadBonificacion = Double( cell.txtCantidad.text! )
-                
-                let date = Date()
-                let formatter = DateFormatter()
-                formatter.dateFormat = "yyyy-MM-dd"
-                let fecha = formatter.string(from: date)
-                item.fechaBonificacion = fecha
-                
-                formatter.dateFormat = "yyyy-MM-dd'T'hh:mm:ss"
-                let hora = formatter.string(from: date)
-//                item.horaBonificacion = hora
-                
-                let medio = MediosBonificacion()
-                medio.idMediosBonificacion = cell.cuenta?.idMediosBonificacion
-                
-                let user = Usuario()
-                user.idUsuario = Model.user?.idUsuario
-                
-                item.mediosBonificacion = medio
-                item.usuario = user
-                
-                guardarBonificacionRequest(with: item)
-            }
-            
-            
-        }
-        else if tipoSubProceso == .BanificacionPayPal{
-            if let cell = tmpCell as? PayPalBonificacionTableViewCell{
-                print("Guardando solicitud de PayPal")
-                
-                let item = Bonificacion()
-                
-                item.cantidadBonificacion = Double( cell.txtCantidad.text! )
-                
-                let date = Date()
-                let formatter = DateFormatter()
-                formatter.dateFormat = "yyyy-MM-dd"
-                let fecha = formatter.string(from: date)
-                item.fechaBonificacion = fecha
-                
-                formatter.dateFormat = "yyyy-MM-dd'T'hh:mm:ss"
-                let hora = formatter.string(from: date)
-//                item.horaBonificacion = hora
-                
-                let medio = MediosBonificacion()
-                medio.idMediosBonificacion = cell.cuenta?.idMediosBonificacion
-                
-                let user = Usuario()
-                user.idUsuario = Model.user?.idUsuario
-                
-                item.mediosBonificacion = medio
-                item.usuario = user
-                
-                guardarBonificacionRequest(with: item)
-            }
-            
-        }
-        else if tipoSubProceso == .BanificacionRecarga{
-            if let cell = tmpCell as? RecargaBonificacionTableViewCell{
-                print("Guardando solicitud de Recarga")
-                
-                let item = Bonificacion()
-                
-                item.cantidadBonificacion = Double( cell.txtCantidad.text! )
-                
-                let date = Date()
-                let formatter = DateFormatter()
-                formatter.dateFormat = "yyyy-MM-dd"
-                let fecha = formatter.string(from: date)
-                item.fechaBonificacion = fecha
-                
-                formatter.dateFormat = "yyyy-MM-dd'T'hh:mm:ss"
-                let hora = formatter.string(from: date)
-//                item.horaBonificacion = hora
-                
-                let medio = MediosBonificacion()
-                medio.idMediosBonificacion = cell.cuenta?.idMediosBonificacion
-                
-                let user = Usuario()
-                user.idUsuario = Model.user?.idUsuario
-                
-                item.mediosBonificacion = medio
-                item.usuario = user
-                
-                guardarBonificacionRequest(with: item)
-            }
-        }
-        
-    }
-    
-    func guardarBonificacionRequest(with item: Bonificacion){
-        do{
-            let encoder = JSONEncoder()
-            
-            let json = try encoder.encode(item)
-            RESTHandler.delegate = self
-            RESTHandler.postOperationTo(RESTHandler.guardarBonificacion, with: json, and: ID_RQT_BONIFICACION)
-        }
-        catch{
-            
-        }
-    }
-    
     func obtieneHistoricoTicketsRequest(){
         do{
             let encoder = JSONEncoder()
@@ -302,13 +198,23 @@ class BonificacionViewController: UIViewController {
     }
     
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ConformacionSegue"{
-            let vc = segue.destination as! ConfirmacionBonificacionViewController
+        if segue.identifier == "SolicitarBonificacionSegue"{
+            let row = sender as! Int
+            print("Selected row: \(row)")
             
-            vc.tipoSubProceso = tipoSubProceso
+            let vc = segue.destination as! SolicitarBonificacionTableViewController
+            vc.medios = medios
+            if row == 0{
+                vc.tipoRetiro = .Bancario
+            }
+            else if row == 1{
+                vc.tipoRetiro = .PayPal
+            }
+            else{
+                vc.tipoRetiro = .Telefonica
+            }
+            
         }
     }
 
@@ -409,6 +315,12 @@ extension BonificacionViewController: UITableViewDataSource, UITableViewDelegate
         if indexPath.section == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "PrincipalBonificacionCell", for: indexPath) as! PrincipalBonificacionTableViewCell
            cell.lblBonificacion.text = Validations.formatWith(Model.totalBonificacion)
+            
+            if primeraVez{
+                cell.move( tipoProceso.rawValue )
+                primeraVez = false
+            }
+            
             return cell
         }
         else{
@@ -453,46 +365,7 @@ extension BonificacionViewController: UITableViewDataSource, UITableViewDelegate
             }//Termina Tickets
             else{
                 //Para los casos de Proceso == retirar
-                if tipoSubProceso == .BanificacionBanco && indexPath.row == selectedRow{
-                    
-                    let cuentas = medios.mediosBonificacion?[0].list
-                    
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "BancoBonificacionCell", for: indexPath) as! BancoBonificacionTableViewCell
-                    cell.cuentas = cuentas
-                    cell.btnArrow.tag = indexPath.row
-                    cell.btnArrow.addTarget(self, action: #selector(selectBonificacionTableViewCell(_:)), for: .touchUpInside)
-                    cell.btnSolicitar.addTarget(self, action: #selector(guardarItem), for: .touchUpInside)
-                    tmpCell = cell
-                    
-                    return cell
-                    
-                }
-                else  if tipoSubProceso == .BanificacionPayPal && indexPath.row == selectedRow{
-                    let cuentas = medios.mediosBonificacion?[1].list
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "PayPalBonificacionCell", for: indexPath) as! PayPalBonificacionTableViewCell
-                    cell.cuentas = cuentas
-                    cell.btnArrow.tag = indexPath.row
-                    cell.btnArrow.addTarget(self, action: #selector(selectBonificacionTableViewCell(_:)), for: .touchUpInside)
-                    cell.btnSolicitar.addTarget(self, action: #selector(guardarItem), for: .touchUpInside)
-                    tmpCell = cell
-                    
-                    return cell
-                    
-                }
-                else if tipoSubProceso == .BanificacionRecarga && indexPath.row == selectedRow{
-                    let cuentas = medios.mediosBonificacion?[2].list
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "RecargaBonificacionCell", for: indexPath) as! RecargaBonificacionTableViewCell
-                    cell.cuentas = cuentas
-                    cell.btnArrow.tag = indexPath.row
-                    cell.btnArrow.addTarget(self, action: #selector(selectBonificacionTableViewCell(_:)), for: .touchUpInside)
-                    cell.btnSolicitar.addTarget(self, action: #selector(guardarItem), for: .touchUpInside)
-                    tmpCell = cell
-                    //                cell.lblTitulo.text = "PayPal"
-                    return cell
-                    
-                }
-                else{
-                    if indexPath.row == 0{
+                if indexPath.row == 0{
                         let cell = tableView.dequeueReusableCell(withIdentifier: "BonificacionCell", for: indexPath) as! BonificacionTableViewCell
                         cell.icon.image = UIImage(named: "retiroBnacario")
                         cell.lblTitulo.text = "Bancaria"
@@ -500,8 +373,8 @@ extension BonificacionViewController: UITableViewDataSource, UITableViewDelegate
                         cell.btnArrow.addTarget(self, action: #selector(selectBonificacionTableViewCell(_:)), for: .touchUpInside)
                         
                         return cell
-                    }
-                    else if indexPath.row == 1{
+                }
+                else if indexPath.row == 1{
                         let cell = tableView.dequeueReusableCell(withIdentifier: "BonificacionCell", for: indexPath) as! BonificacionTableViewCell
                         cell.icon.image = UIImage(named: "retiroPayPal")
                         cell.lblTitulo.text = "PayPal"
@@ -509,8 +382,8 @@ extension BonificacionViewController: UITableViewDataSource, UITableViewDelegate
                         cell.btnArrow.addTarget(self, action: #selector(selectBonificacionTableViewCell(_:)), for: .touchUpInside)
                         
                         return cell
-                    }
-                    else if indexPath.row == 2{
+                }
+                else if indexPath.row == 2{
                         let cell = tableView.dequeueReusableCell(withIdentifier: "BonificacionCell", for: indexPath) as! BonificacionTableViewCell
                         cell.icon.image = UIImage(named: "recargaTelefonica")
                         cell.lblTitulo.text = "Recarga telefónica"
@@ -518,16 +391,14 @@ extension BonificacionViewController: UITableViewDataSource, UITableViewDelegate
                         cell.btnArrow.addTarget(self, action: #selector(selectBonificacionTableViewCell(_:)), for: .touchUpInside)
                         
                         return cell
-                    }
-                    else{
+                }
+                else{
                         let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyCell", for: indexPath)
                         
                         return cell
                     
-                    }
-
                 }
-                
+
             }
         }
         
@@ -538,8 +409,8 @@ extension BonificacionViewController: UITableViewDataSource, UITableViewDelegate
         
         let button = sender as! UIButton
         let row = button.tag
-        
-        updateCellRetirar(row)
+        performSegue(withIdentifier: "SolicitarBonificacionSegue", sender: row)
+//        updateCellRetirar(row)
     }
     
     func updateCellRetirar(_ row: Int){
@@ -601,27 +472,7 @@ extension BonificacionViewController: UITableViewDataSource, UITableViewDelegate
 extension BonificacionViewController: RESTActionDelegate{
     func restActionDidSuccessful(data: Data, identifier: String) {
         
-        if identifier == ID_RQT_BONIFICACION{
-            do{
-                let decoder = JSONDecoder()
-                
-                let rsp = try decoder.decode(InformacionUsuario.self, from: data)
-                if rsp.code == 200{
-                    print("Solicitud guardada con exito")
-                    Model.totalBonificacion = rsp.bonificacion
-                    //Actualizar tableView ha estado inicial
-                    tipoProceso = .Retirar
-                    updateCellRetirar(selectedRow)
-                    tableView.reloadSections(IndexSet(integersIn: 0...0), with: .fade)
-                    performSegue(withIdentifier: "ConformacionSegue", sender: self)
-                }
-                
-            }
-            catch{
-                print("JSON Error: \(error)")
-            }
-        }
-        else if identifier == ID_RQT_TICKETS{
+        if identifier == ID_RQT_TICKETS{
             do{
                 let decoder = JSONDecoder()
                 
