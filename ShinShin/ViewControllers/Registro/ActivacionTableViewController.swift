@@ -81,9 +81,9 @@ class ActivacionTableViewController: UITableViewController {
     
     @IBAction func activateAction(_ sender: Any){
         print("Activando usuario")
-//        activateRequest()
+        activateRequest()
         
-        performSegue(withIdentifier: "VerificacionSegue", sender: self)
+//        performSegue(withIdentifier: "VerificacionSegue", sender: self)
         
         //1. Dismiss
 //        dismiss(animated: true, completion: nil)
@@ -227,9 +227,7 @@ extension ActivacionTableViewController: RESTActionDelegate{
             if identifier == ID_RQT_ACTIVAR{
                 let rsp = try decoder.decode(SimpleResponse.self, from: data)
                 if rsp.code == 200{
-                    let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "PrincipalNavigationController")
-                    //        self.navigationController!.pushViewController(destViewController, animated: true)
-                    self.present(destViewController, animated: true, completion: nil)
+                    performSegue(withIdentifier: "VerificacionSegue", sender: self)
                 }
                 else if rsp.code == 500{
                     showMessage(message: "El usuario ya existe")
@@ -271,8 +269,9 @@ extension ActivacionTableViewController: RESTActionDelegate{
 
 extension ActivacionTableViewController: DismissViewControllerDelegate{
     func didBackViewController() {
-        dismiss(animated: true){
-            self.delegate?.didBackViewController()
-        }
+//        dismiss(animated: true){
+//            self.delegate?.didBackViewController()
+//        }
+        self.delegate?.didBackViewController()
     }
 }

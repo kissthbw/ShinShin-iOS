@@ -165,9 +165,9 @@ class UsuarioViewController: UITableViewController {
         //Al ingresar el codigo de verificacion se debe hacer una peticion a back
         //que realiza la activación del usuario, nuevamente la respuesta debe
         //manejarse en el metodo delegado
-        print("Registrando usuario")
-        performSegue(withIdentifier: "ActivarSegue", sender: nil)
-//        registerRequest()
+//        print("Registrando usuario")
+//        performSegue(withIdentifier: "ActivarSegue", sender: nil)
+        registerRequest()
     }
 
     @IBAction func shownDateView(_ sender: Any) {
@@ -345,11 +345,11 @@ class UsuarioViewController: UITableViewController {
 //MARK: - Extensions
 extension UsuarioViewController: DismissViewControllerDelegate{
     func didBackViewController() {
-        print("Al home")
+        self.delegate?.didBackViewController()
 //        dismiss(animated: true, completion: nil)
-        dismiss(animated: true) {
-            self.delegate?.didBackViewController()
-        }
+//        dismiss(animated: true) {
+//            self.delegate?.didBackViewController()
+//        }
     }
 }
 

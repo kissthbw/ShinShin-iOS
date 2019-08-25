@@ -36,10 +36,7 @@ class VerificacionViewController: UIViewController {
     
     //MARK: - UI Actions
     @IBAction func startAction(_ sender: Any) {
-        dismiss(animated: true){
-            self.delegate?.didBackViewController()
-        }
-        
+        self.delegate?.didBackViewController()
     }
     
 

@@ -96,7 +96,10 @@ class LogInViewController: UIViewController {
         //1. Validar campos (Habilitar boton solo cuando los campos esten llenos)
         
         //2. Realizar peticion a back
-        signinRequest()
+        let user = Usuario()
+        user.usuario = txtUser.text!
+        user.contrasenia = txtPassword.text!
+        signinRequest(with: user)
         
         //3. Habilitar acceso a pantalla principal
 //        performSegue(withIdentifier: "PrincipalSegue", sender: nil)
@@ -178,10 +181,10 @@ class LogInViewController: UIViewController {
         }
     }
     
-    func signinRequest(){
-        let user = Usuario()
-        user.usuario = txtUser.text!
-        user.contrasenia = txtPassword.text!
+    func signinRequest(with user: Usuario){
+//        let user = Usuario()
+//        user.usuario = txtUser.text!
+//        user.contrasenia = txtPassword.text!
         
         do{
             let encoder = JSONEncoder()
@@ -222,8 +225,11 @@ class LogInViewController: UIViewController {
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "RegistroSegue"{
-            let vc = segue.destination as! UsuarioViewController
+            let navigation = segue.destination as! UINavigationController
+            let vc = navigation.viewControllers.first as! UsuarioViewController
             vc.delegate = self
+//            let vc = segue.destination as! UsuarioViewController
+//            vc.delegate = self
         }
     }
     
@@ -278,7 +284,16 @@ class LogInViewController: UIViewController {
 extension LogInViewController: DismissViewControllerDelegate{
     func didBackViewController() {
         //Iniciar sesion con nuevo usuario registrado
-        print("Usuaario registrado: \(Model.user?.usuario), \(Model.user?.contrasenia)")
+//        print("Usuaario registrado: \(Model.user?.usuario), \(Model.user?.contrasenia)")
+        
+        let user = Usuario()
+        user.usuario = Model.user?.usuario
+        user.contrasenia = Model.user?.contrasenia
+        signinRequest(with: user)
+        
+        self.dismiss(animated: true){
+            self.signinRequest(with: user)
+        }
         
         //Lanzar servicio de login
     }
