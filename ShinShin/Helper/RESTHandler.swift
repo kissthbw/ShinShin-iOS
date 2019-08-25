@@ -42,6 +42,7 @@ class RESTHandler{
     static let registrarSocialUsuario = server + "/usuarios/social/registrar"
     static let registrarUsuario = server + "/usuarios/usuario/registrar"
     static let activarUsuario = server + "/usuarios/usuario/activar"
+    static let eliminarUsuario = server + "/usuarios/usuario/eliminar"
     static let reenviarCodigo = server + "/usuarios/usuario/reenviar"
     static let login = server + "/usuarios/usuario/login"
     static let login2 = server + "/usuarios/usuario/login2"

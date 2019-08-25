@@ -14,6 +14,7 @@ class BancoBonificacionTableViewCell: UITableViewCell {
     @IBOutlet weak var txtCuenta: UITextField!
     @IBOutlet weak var btnSolicitar: UIButton!
     @IBOutlet weak var btnBack: UIButton!
+    @IBOutlet weak var btnAgregar: UIButton!
     
     var cuentas: [MediosBonificacion]? = nil
     var cuenta: MediosBonificacion? = nil

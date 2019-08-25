@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9708815816D3909AA221B5F6 /* Pods_ShinShinUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C99941306ABD9123AD2346 /* Pods_ShinShinUITests.framework */; };
+		A2032EED23116FD800D6BF99 /* EliminarPerfilTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2032EEC23116FD800D6BF99 /* EliminarPerfilTableViewController.swift */; };
+		A2032EEF2311856100D6BF99 /* ConfirmarEliminarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2032EEE2311856000D6BF99 /* ConfirmarEliminarViewController.swift */; };
 		A2096DFE230F43AD004DCE65 /* SolicitarBonificacionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2096DFD230F43AD004DCE65 /* SolicitarBonificacionTableViewController.swift */; };
 		A20A118F22FC7D8B00CDA2A2 /* TicketDuplicadoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20A118E22FC7D8B00CDA2A2 /* TicketDuplicadoViewController.swift */; };
 		A20B145E22A036B300667D39 /* Page1.xib in Resources */ = {isa = PBXBuildFile; fileRef = A20B145D22A036B300667D39 /* Page1.xib */; };
@@ -159,6 +161,8 @@
 		37374FB6E3C716FF0540A83B /* Pods-ShinShinUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShinShinUITests.release.xcconfig"; path = "Target Support Files/Pods-ShinShinUITests/Pods-ShinShinUITests.release.xcconfig"; sourceTree = "<group>"; };
 		576DA65E3233183B0B23AAEA /* Pods-ShinShinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShinShinTests.debug.xcconfig"; path = "Target Support Files/Pods-ShinShinTests/Pods-ShinShinTests.debug.xcconfig"; sourceTree = "<group>"; };
 		99F5F9623ABDCCFE767D9EBE /* Pods-ShinShin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShinShin.debug.xcconfig"; path = "Target Support Files/Pods-ShinShin/Pods-ShinShin.debug.xcconfig"; sourceTree = "<group>"; };
+		A2032EEC23116FD800D6BF99 /* EliminarPerfilTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EliminarPerfilTableViewController.swift; sourceTree = "<group>"; };
+		A2032EEE2311856000D6BF99 /* ConfirmarEliminarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmarEliminarViewController.swift; sourceTree = "<group>"; };
 		A2096DFD230F43AD004DCE65 /* SolicitarBonificacionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolicitarBonificacionTableViewController.swift; sourceTree = "<group>"; };
 		A20A118E22FC7D8B00CDA2A2 /* TicketDuplicadoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketDuplicadoViewController.swift; sourceTree = "<group>"; };
 		A20B145D22A036B300667D39 /* Page1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Page1.xib; sourceTree = "<group>"; };
@@ -546,6 +550,8 @@
 			isa = PBXGroup;
 			children = (
 				A2F77AD522B52F0F000AC45A /* PerfilTableViewController.swift */,
+				A2032EEC23116FD800D6BF99 /* EliminarPerfilTableViewController.swift */,
+				A2032EEE2311856000D6BF99 /* ConfirmarEliminarViewController.swift */,
 			);
 			path = Perfil;
 			sourceTree = "<group>";
@@ -963,11 +969,13 @@
 				A256FF7D22A9C43F00B977ED /* ContactoViewController.swift in Sources */,
 				A241C8E922DD23B6008B342C /* CustomCameraViewController.swift in Sources */,
 				A2883FEA22A840A500E930DA /* PopularItemCollectionViewCell.swift in Sources */,
+				A2032EEF2311856100D6BF99 /* ConfirmarEliminarViewController.swift in Sources */,
 				A2A8DA3A230DED5800A0942C /* TicketNotFoundTableViewCell.swift in Sources */,
 				A223095922B9EBA200DEA6EA /* MediosPagoView.swift in Sources */,
 				A26CBD0722A870C7002A5CD5 /* DeptoTableViewCell.swift in Sources */,
 				A2FDF38222BC1FA30060577B /* InformacionUsuario.swift in Sources */,
 				A25C63DF22B7F71F0040DEA6 /* CatalogoMediosBonificacion.swift in Sources */,
+				A2032EED23116FD800D6BF99 /* EliminarPerfilTableViewController.swift in Sources */,
 				A27824F922A7228900A2885E /* CategoriaTableViewCell.swift in Sources */,
 				A2C1644F22A5CDA900D65B54 /* DatosTicketViewController.swift in Sources */,
 				A2BA0666229DCF14009A2213 /* UITextField+image.swift in Sources */,

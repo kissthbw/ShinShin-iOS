@@ -15,6 +15,8 @@ class RecargaBonificacionTableViewCell: UITableViewCell {
     @IBOutlet weak var txtCompania: UITextField!
     @IBOutlet weak var btnSolicitar: UIButton!
     @IBOutlet weak var btnBack: UIButton!
+    @IBOutlet weak var btnAgregar: UIButton!
+    
     
     var cuentas: [MediosBonificacion]? = nil
     var cuenta: MediosBonificacion? = nil

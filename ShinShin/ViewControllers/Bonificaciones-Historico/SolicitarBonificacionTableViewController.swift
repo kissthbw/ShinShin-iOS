@@ -9,10 +9,10 @@
 import UIKit
 import SideMenu
 
-enum TipoRetiro{
-    case Bancario
-    case PayPal
-    case Telefonica
+enum TipoRetiro: Int{
+    case Bancario = 1
+    case PayPal = 2
+    case Telefonica = 3
 }
 
 class SolicitarBonificacionTableViewController: UITableViewController {
@@ -60,6 +60,11 @@ class SolicitarBonificacionTableViewController: UITableViewController {
             let vc = segue.destination as! ConfirmacionBonificacionViewController
             vc.tipoRetiro = tipoRetiro
         }
+        else{
+            let vc = segue.destination as! MediosBonificacionDetailViewController
+            vc.sectionSelected = 1
+//            vc.delegate = self
+        }
     }
     
     // MARK: - Table view data source
@@ -102,6 +107,8 @@ extension SolicitarBonificacionTableViewController{
             let cuentas = medios.mediosBonificacion?[0].list
             
             cell.cuentas = cuentas
+            
+            cell.btnAgregar.addTarget(self, action: #selector(mostrarCuentas), for: .touchUpInside)
             cell.btnSolicitar.addTarget(self, action: #selector(guardarItem), for: .touchUpInside)
             cell.btnBack.addTarget(self, action: #selector(back), for: .touchUpInside)
             tmpCell = cell
@@ -113,6 +120,7 @@ extension SolicitarBonificacionTableViewController{
             let cuentas = medios.mediosBonificacion?[1].list
             
             cell.cuentas = cuentas
+            cell.btnAgregar.addTarget(self, action: #selector(mostrarCuentas), for: .touchUpInside)
             cell.btnSolicitar.addTarget(self, action: #selector(guardarItem), for: .touchUpInside)
             cell.btnBack.addTarget(self, action: #selector(back), for: .touchUpInside)
             tmpCell = cell
@@ -123,11 +131,19 @@ extension SolicitarBonificacionTableViewController{
             let cuentas = medios.mediosBonificacion?[2].list
             
             cell.cuentas = cuentas
+            cell.btnAgregar.addTarget(self, action: #selector(mostrarCuentas), for: .touchUpInside)
             cell.btnSolicitar.addTarget(self, action: #selector(guardarItem), for: .touchUpInside)
             cell.btnBack.addTarget(self, action: #selector(back), for: .touchUpInside)
             tmpCell = cell
             return cell
         }
+    }
+    
+    @objc func mostrarCuentas(){
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "MediosBonificacionDetailViewController") as! MediosBonificacionDetailViewController
+        vc.delegate = self
+        vc.sectionSelected = tipoRetiro.rawValue
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func guardarItem(){
@@ -237,6 +253,13 @@ extension SolicitarBonificacionTableViewController{
         catch{
             
         }
+    }
+}
+
+//MARK: - Extension
+extension SolicitarBonificacionTableViewController: MediosBonificacionControllerDelegate{
+    func addItemViewController(_ controller: MediosBonificacionDetailViewController, didFinishAddind item: String) {
+        print("Cuenta agregada: \(item)")
     }
 }
 
