@@ -19,8 +19,6 @@ import SideMenu
 class ProductoDetalleViewController: UIViewController {
 
     //MARK: - Propiedades
-    var item: Producto? = nil
-    
     @IBOutlet weak var topFrame: UIView!
     @IBOutlet weak var bottomframe: UIView!
     @IBOutlet weak var lblNombre: UILabel!
@@ -43,6 +41,9 @@ class ProductoDetalleViewController: UIViewController {
     @IBOutlet weak var icon9: UIView!
     @IBOutlet weak var icon10: UIView!
     
+    var item: Producto? = nil
+    var color: UIColor = UIColor(red: 255/255, green: 111/255, blue: 0/255, alpha: 1)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isTranslucent = false
@@ -52,14 +53,30 @@ class ProductoDetalleViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         if let edititem = item{
+            
+            if let colorBanner = edititem.colorBanner{
+                let components = colorBanner.components(separatedBy: ",")
+                
+                let r = CGFloat(Float(components[0]) ?? 0.0)
+                let g = CGFloat(Float(components[1]) ?? 0.0)
+                let b = CGFloat(Float(components[2]) ?? 0.0)
+                
+                //Enviar a Robert
+                color = UIColor(red: r/255, green: g/255, blue: b/255, alpha: 1.0)
+                self.navigationController?.navigationBar.barTintColor = color
+                bottomframe.backgroundColor = color
+                fakeView.backgroundColor = color
+                topFrame.backgroundColor = color
+            }
+            
             self.navigationController?.navigationBar.isTranslucent = false
-            self.navigationController?.navigationBar.barTintColor = UIColor(red: 255/255, green: 111/255, blue: 0/255, alpha: 1)
-            fakeView.backgroundColor = UIColor(red: 255/255, green: 111/255, blue: 0/255, alpha: 1)
+            self.navigationController?.navigationBar.barTintColor = color
+            fakeView.backgroundColor = color
             topFrame.layer.borderWidth = 0.0
-            topFrame.backgroundColor = UIColor(red: 255/255, green: 111/255, blue: 0/255, alpha: 1)
+            topFrame.backgroundColor = color
             bottomframe.layer.borderWidth = 0.0
             bottomframe.layer.cornerRadius = 20.0
-            bottomframe.backgroundColor = UIColor(red: 255/255, green: 111/255, blue: 0/255, alpha: 1)
+            bottomframe.backgroundColor = color
             lblNombre.text = edititem.nombreProducto
             lblPresentacion.text = edititem.contenido
             txtDescripcion.textAlignment = .left
@@ -86,6 +103,19 @@ class ProductoDetalleViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.layoutIfNeeded()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.setBackgroundImage(nil, for:.default)
+        self.navigationController?.navigationBar.shadowImage = nil
+        self.navigationController?.navigationBar.layoutIfNeeded()
+        
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.barTintColor = .white
     }
     
     override func willMove(toParent parent: UIViewController?) {

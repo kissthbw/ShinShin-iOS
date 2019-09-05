@@ -27,11 +27,26 @@ class ProductosTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isTranslucent = false
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Actualizando")
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        
+        
+        self.tableView.refreshControl = refreshControl
+        
         configureBarButtons()
         productosRequest()
     }
     
     //MARK: - Actions
+    @objc func refresh(){
+        productosRequest()
+        
+        DispatchQueue.main.async {
+            self.tableView.refreshControl?.endRefreshing()
+        }
+    }
 
     //MARK: - Helper methods
     func configureBarButtons(){
