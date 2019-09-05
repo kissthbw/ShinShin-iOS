@@ -18,7 +18,7 @@ class TerminosViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func back(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
     /*

@@ -10,6 +10,14 @@ import UIKit
 
 class PrivacidadViewController: UIViewController {
 
+    //MARK: - Propiedades
+    enum Origen{
+        case Inicio
+        case Registro
+    }
+    
+    var origen: Origen = .Inicio
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,7 +26,12 @@ class PrivacidadViewController: UIViewController {
     
     //MARK:  - Actions
     @IBAction func back(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        if origen == .Inicio{
+            self.dismiss(animated: true, completion: nil)
+        }
+        else if origen == .Registro{
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
 

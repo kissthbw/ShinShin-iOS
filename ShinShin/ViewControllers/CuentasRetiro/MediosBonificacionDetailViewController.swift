@@ -133,8 +133,11 @@ class MediosBonificacionDetailViewController: UITableViewController {
                 item.catalogoMediosBonificacion = cat
                 item.aliasMedioBonificacion = cell.txtNombre.text
                 item.cuentaMedioBonificacion = cell.txtTarjeta.text
-//                item.idTipo = cell.idTipoBancaria
-                item.vigenciaMedioBonificacion = "09/21"
+                item.idTipo = cell.idTipoBancaria
+                
+                let vigencia = cell.txtMes.text! + "/" + cell.txtAnio.text!
+                
+                item.vigenciaMedioBonificacion = vigencia
                 guardarMedioBonificacionRequest(with: item)
             }
         }

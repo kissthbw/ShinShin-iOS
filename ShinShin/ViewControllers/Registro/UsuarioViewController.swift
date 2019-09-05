@@ -92,6 +92,11 @@ class UsuarioViewController: UITableViewController {
             
         }
         
+        if segue.identifier == "PrivacidadSegue"{
+            let vc = segue.destination as! PrivacidadViewController
+            vc.origen = .Registro
+        }
+        
         if segue.identifier == "ActivarSegue"{
             let vc = segue.destination as! ActivacionTableViewController
             vc.mensaje = txtTelefono.text

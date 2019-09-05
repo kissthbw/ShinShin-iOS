@@ -68,6 +68,8 @@ class RESTHandler{
     
     static let obtieneHistoricoTickets = server + "/usuarios/usuario/historicoTickets"
     
+    static let detalleTicket = server + "/tickets/detalle/"
+    
     static let obtieneHistoricoBonificaciones = server + "/usuarios/usuario/historicoBonificaciones"
     
     static let obtieneInformacionBonificacion = server + "/usuarios/usuario/totalBonificacion"

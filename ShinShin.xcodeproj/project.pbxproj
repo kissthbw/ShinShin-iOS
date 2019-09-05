@@ -35,6 +35,7 @@
 		A254723322D25A020014AE64 /* MLKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A254723222D25A020014AE64 /* MLKitExtensions.swift */; };
 		A256FF7B22A9B30D00B977ED /* ProductoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A256FF7A22A9B30C00B977ED /* ProductoTableViewCell.swift */; };
 		A256FF7D22A9C43F00B977ED /* ContactoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A256FF7C22A9C43F00B977ED /* ContactoViewController.swift */; };
+		A258E9CD23147740006C3EB9 /* TicketProductoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A258E9CC23147740006C3EB9 /* TicketProductoTableViewCell.swift */; };
 		A25B26AA22C282AD006AEB7B /* BancoBonificacionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25B26A922C282AD006AEB7B /* BancoBonificacionTableViewCell.swift */; };
 		A25B26AC22C28871006AEB7B /* PayPalBonificacionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25B26AB22C28871006AEB7B /* PayPalBonificacionTableViewCell.swift */; };
 		A25B26AE22C28893006AEB7B /* RecargaBonificacionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25B26AD22C28893006AEB7B /* RecargaBonificacionTableViewCell.swift */; };
@@ -89,12 +90,14 @@
 		A2962A4522DBA75000FF85CF /* NotificationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2962A4422DBA75000FF85CF /* NotificationHeaderView.swift */; };
 		A2962A4722DBAB4E00FF85CF /* Notificacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2962A4622DBAB4E00FF85CF /* Notificacion.swift */; };
 		A297376C226638830071BE3E /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = A297376B226638830071BE3E /* Usuario.swift */; };
+		A29C1AC2231985BE006CE771 /* CAGradientLayer+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29C1AC1231985BE006CE771 /* CAGradientLayer+Gradient.swift */; };
 		A29C59CA22F38CC7006A1F2D /* ErrorTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29C59C922F38CC7006A1F2D /* ErrorTicketViewController.swift */; };
 		A2A331B922837FAD000CDA4A /* Producto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A331B822837FAC000CDA4A /* Producto.swift */; };
 		A2A8DA38230DEC4000A0942C /* TicketNotFound.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2A8DA37230DEC4000A0942C /* TicketNotFound.xib */; };
 		A2A8DA3A230DED5800A0942C /* TicketNotFoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A8DA39230DED5800A0942C /* TicketNotFoundTableViewCell.swift */; };
 		A2A8DA3C230DFC6F00A0942C /* HistoricoNotFoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A8DA3B230DFC6F00A0942C /* HistoricoNotFoundTableViewCell.swift */; };
 		A2A8DA3E230DFC8800A0942C /* HistoricoNotFound.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2A8DA3D230DFC8800A0942C /* HistoricoNotFound.xib */; };
+		A2AF1EF1231436040051AA64 /* TicketDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AF1EF0231436040051AA64 /* TicketDetailTableViewController.swift */; };
 		A2BA0664229DA4A9009A2213 /* BannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BA0663229DA4A9009A2213 /* BannerTableViewCell.swift */; };
 		A2BA0666229DCF14009A2213 /* UITextField+image.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BA0665229DCF14009A2213 /* UITextField+image.swift */; };
 		A2BCBCA522C16C310000BBD0 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BCBCA422C16C310000BBD0 /* MenuViewController.swift */; };
@@ -188,6 +191,7 @@
 		A254723222D25A020014AE64 /* MLKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLKitExtensions.swift; sourceTree = "<group>"; };
 		A256FF7A22A9B30C00B977ED /* ProductoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductoTableViewCell.swift; sourceTree = "<group>"; };
 		A256FF7C22A9C43F00B977ED /* ContactoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactoViewController.swift; sourceTree = "<group>"; };
+		A258E9CC23147740006C3EB9 /* TicketProductoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketProductoTableViewCell.swift; sourceTree = "<group>"; };
 		A25B26A922C282AD006AEB7B /* BancoBonificacionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BancoBonificacionTableViewCell.swift; sourceTree = "<group>"; };
 		A25B26AB22C28871006AEB7B /* PayPalBonificacionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayPalBonificacionTableViewCell.swift; sourceTree = "<group>"; };
 		A25B26AD22C28893006AEB7B /* RecargaBonificacionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecargaBonificacionTableViewCell.swift; sourceTree = "<group>"; };
@@ -248,12 +252,14 @@
 		A2962A4422DBA75000FF85CF /* NotificationHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHeaderView.swift; sourceTree = "<group>"; };
 		A2962A4622DBAB4E00FF85CF /* Notificacion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notificacion.swift; sourceTree = "<group>"; };
 		A297376B226638830071BE3E /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
+		A29C1AC1231985BE006CE771 /* CAGradientLayer+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+Gradient.swift"; sourceTree = "<group>"; };
 		A29C59C922F38CC7006A1F2D /* ErrorTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTicketViewController.swift; sourceTree = "<group>"; };
 		A2A331B822837FAC000CDA4A /* Producto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Producto.swift; sourceTree = "<group>"; };
 		A2A8DA37230DEC4000A0942C /* TicketNotFound.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TicketNotFound.xib; sourceTree = "<group>"; };
 		A2A8DA39230DED5800A0942C /* TicketNotFoundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketNotFoundTableViewCell.swift; sourceTree = "<group>"; };
 		A2A8DA3B230DFC6F00A0942C /* HistoricoNotFoundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricoNotFoundTableViewCell.swift; sourceTree = "<group>"; };
 		A2A8DA3D230DFC8800A0942C /* HistoricoNotFound.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoricoNotFound.xib; sourceTree = "<group>"; };
+		A2AF1EF0231436040051AA64 /* TicketDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketDetailTableViewController.swift; sourceTree = "<group>"; };
 		A2BA0663229DA4A9009A2213 /* BannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerTableViewCell.swift; sourceTree = "<group>"; };
 		A2BA0665229DCF14009A2213 /* UITextField+image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+image.swift"; sourceTree = "<group>"; };
 		A2BCBCA422C16C310000BBD0 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -341,6 +347,7 @@
 				A2DC770D22CA5F9000006C63 /* TicketOCRAnalyzer.swift */,
 				A254723022D255710014AE64 /* UIUtilities.swift */,
 				A254723222D25A020014AE64 /* MLKitExtensions.swift */,
+				A29C1AC1231985BE006CE771 /* CAGradientLayer+Gradient.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -631,6 +638,8 @@
 				A2A8DA3B230DFC6F00A0942C /* HistoricoNotFoundTableViewCell.swift */,
 				A2A8DA3D230DFC8800A0942C /* HistoricoNotFound.xib */,
 				A2096DFD230F43AD004DCE65 /* SolicitarBonificacionTableViewController.swift */,
+				A2AF1EF0231436040051AA64 /* TicketDetailTableViewController.swift */,
+				A258E9CC23147740006C3EB9 /* TicketProductoTableViewCell.swift */,
 			);
 			path = "Bonificaciones-Historico";
 			sourceTree = "<group>";
@@ -977,6 +986,7 @@
 				A25C63DF22B7F71F0040DEA6 /* CatalogoMediosBonificacion.swift in Sources */,
 				A2032EED23116FD800D6BF99 /* EliminarPerfilTableViewController.swift in Sources */,
 				A27824F922A7228900A2885E /* CategoriaTableViewCell.swift in Sources */,
+				A258E9CD23147740006C3EB9 /* TicketProductoTableViewCell.swift in Sources */,
 				A2C1644F22A5CDA900D65B54 /* DatosTicketViewController.swift in Sources */,
 				A2BA0666229DCF14009A2213 /* UITextField+image.swift in Sources */,
 				A2F7E0B322B16B1A00A96AB1 /* TotalTicketTableViewCell.swift in Sources */,
@@ -998,6 +1008,7 @@
 				A26CBD0522A857E8002A5CD5 /* PopularTableViewCell.swift in Sources */,
 				A2096DFE230F43AD004DCE65 /* SolicitarBonificacionTableViewController.swift in Sources */,
 				A2883FE822A81B0300E930DA /* BannerItemCollectionViewCell.swift in Sources */,
+				A29C1AC2231985BE006CE771 /* CAGradientLayer+Gradient.swift in Sources */,
 				A267D78F222DD7AF00153CB8 /* AppDelegate.swift in Sources */,
 				A23E72A7230DAB3000CB2635 /* VerificacionViewController.swift in Sources */,
 				A25B26AA22C282AD006AEB7B /* BancoBonificacionTableViewCell.swift in Sources */,
@@ -1022,6 +1033,7 @@
 				A282596722C867C7009122DB /* Sexo.swift in Sources */,
 				A2C52A8322E8B93300A01AB6 /* BarCodeViewController.swift in Sources */,
 				A297376C226638830071BE3E /* Usuario.swift in Sources */,
+				A2AF1EF1231436040051AA64 /* TicketDetailTableViewController.swift in Sources */,
 				A294A31E22D67FFE00C3B55C /* OCRRequest.swift in Sources */,
 				A25C63DB22B7E88D0040DEA6 /* Marca.swift in Sources */,
 				A26D47D922B700D70040AC0D /* NotificacionesTableViewController.swift in Sources */,

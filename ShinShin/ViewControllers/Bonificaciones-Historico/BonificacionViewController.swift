@@ -54,8 +54,13 @@ class BonificacionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 255/255, green: 111/255, blue: 0/255, alpha: 1)
+        
+//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
+//        self.navigationController?.navigationBar.shadowImage = UIImage()
+//        self.navigationController?.navigationBar.layoutIfNeeded()
+//
+//        self.navigationController?.navigationBar.isTranslucent = false
+//        self.navigationController?.navigationBar.barTintColor = UIColor(red: 255/255, green: 111/255, blue: 0/255, alpha: 1)
         
         configureBarButtons()
         catalogoMediosRequest()
@@ -78,14 +83,22 @@ class BonificacionViewController: UIViewController {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 255/255, green: 111/255, blue: 0/255, alpha: 1)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.layoutIfNeeded()
+        
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 255/255, green: 111/255, blue: 0/255, alpha: 1.0)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.setBackgroundImage(nil, for:.default)
+        self.navigationController?.navigationBar.shadowImage = nil
+        self.navigationController?.navigationBar.layoutIfNeeded()
+        
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.barTintColor = .white
     }
@@ -216,6 +229,12 @@ class BonificacionViewController: UIViewController {
             }
             
         }
+        
+        if segue.identifier == "DetalleTicketSegue"{
+            let indexPath = sender as! IndexPath
+            let vc = segue.destination as! TicketDetailTableViewController
+            vc.idTicket = indexPath.row
+        }
     }
 
 }
@@ -237,13 +256,13 @@ extension BonificacionViewController: UITableViewDataSource, UITableViewDelegate
                 if bonificaciones.count == 0{
                     return 500
                 }
-                return 60
+                return 40
             }
             else if tipoProceso == .Tickets{
                 if tickets.count == 0{
                     return 500
                 }
-                return 60
+                return 40
             }
             else{
                 if tipoSubProceso == .BanificacionBanco && indexPath.row == selectedRow{
@@ -460,11 +479,18 @@ extension BonificacionViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if indexPath.section == 1 && tipoProceso == .Tickets{
+            return indexPath
+        }
+        
         return nil
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if indexPath.section == 1 && tipoProceso == .Tickets{
+            tableView.deselectRow(at: indexPath, animated: true)
+            performSegue(withIdentifier: "DetalleTicketSegue", sender: indexPath)
+        }
     }
 }
 

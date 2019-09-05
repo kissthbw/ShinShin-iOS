@@ -11,6 +11,7 @@ import UIKit
 class PrincipalBonificacionTableViewCell: UITableViewCell {
 
     //MARK: - Propiedades
+    @IBOutlet weak var gradientView: UIView!
     @IBOutlet weak var lblBonificacion: UILabel!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var buttonsView: UIView!
@@ -31,6 +32,12 @@ class PrincipalBonificacionTableViewCell: UITableViewCell {
         btnRetirar.tag = ProcesoTag.Retirar.rawValue
         btnTickets.tag = ProcesoTag.Tickets.rawValue
         btnHistorial.tag = ProcesoTag.Historico.rawValue
+        
+        let alpha = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.0)
+        
+        let gradient = CAGradientLayer(start: .bottomLeft, end: .center, colors: [UIColor.white.cgColor, alpha.cgColor], type: .axial)
+        gradient.frame = gradientView.bounds
+        gradientView.layer.addSublayer(gradient)
         
         bottomView.layer.cornerRadius = 10.0
         lblBonificacion.text = Validations.formatWith(Model.totalBonificacion)
