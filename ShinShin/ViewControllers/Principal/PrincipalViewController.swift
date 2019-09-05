@@ -41,14 +41,23 @@ class PrincipalViewController: UIViewController {
         
         let menuNavigationController = storyboard!.instantiateViewController(withIdentifier: "MenuNavigationController") as! SideMenuNavigationController
         SideMenuManager.default.rightMenuNavigationController = menuNavigationController
-        menuNavigationController.presentationStyle = .menuSlideIn
-        menuNavigationController.menuWidth = CGFloat(307)
-        menuNavigationController.statusBarEndAlpha = 0
-//        SideMenuManager.default.menuFadeStatusBar = false
-//        SideMenuManager.default.menuPresentMode = .menuSlideIn
-//        SideMenuManager.default.menuWidth = CGFloat(307)
         
-//        viewBottomBanner.layer.cornerRadius = 15.0
+        var presentationStyle = SideMenuPresentationStyle()
+        presentationStyle = .menuSlideIn
+        presentationStyle.backgroundColor = .black
+//        presentationStyle.menuStartAlpha = 1.0
+        presentationStyle.onTopShadowOpacity = 1 //Agrega un blur al menu
+        presentationStyle.presentingEndAlpha = 0.4
+        
+        var settings = SideMenuSettings()
+        settings.presentationStyle = presentationStyle
+        settings.menuWidth = CGFloat(307)
+        settings.statusBarEndAlpha = 0.0
+        settings.allowPushOfSameClassTwice = false
+        
+        menuNavigationController.settings = settings
+        
+        
         self.navigationController?.navigationBar.isTranslucent = false
         
         configureBarButtons()
