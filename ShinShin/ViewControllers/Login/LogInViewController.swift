@@ -24,6 +24,8 @@ import FBSDKLoginKit
 class LogInViewController: UIViewController {
 
     //MARK: - Propiedades
+    @IBOutlet weak var gradientView: UIView!
+    @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var viewUser: UIView!
     @IBOutlet weak var txtUser: UITextField!
     @IBOutlet weak var viewPassword: UIView!
@@ -36,8 +38,22 @@ class LogInViewController: UIViewController {
     var showPassword = false
     var idRedSocial = -1
     
+//    override var prefersStatusBarHidden: Bool {
+//        return true
+//    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNeedsStatusBarAppearanceUpdate()
+        
+//        let statusBar = UIApplication.shared.value(forKey: "statusBar") as? UIView
+//        if statusBar?.responds(to: #selector(setter: UIView.backgroundColor)) ?? false {
+//            statusBar?.backgroundColor =  UIColor(red: 255/255, green: 111/255, blue: 0/255, alpha: 1)
+//        }
         
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance()?.presentingViewController = self
@@ -213,6 +229,13 @@ class LogInViewController: UIViewController {
 //        
 //        btnGoogleSignIn.addSubview(btnSignIn)
         
+        let alpha = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.0)
+        
+        let gradient = CAGradientLayer(start: .bottomLeft, end: .center, colors: [UIColor.white.cgColor, alpha.cgColor], type: .axial)
+        gradient.frame = gradientView.bounds
+        gradientView.layer.addSublayer(gradient)
+        
+        cardView.layer.cornerRadius = 15.0
         viewUser.layer.cornerRadius = 10.0
         viewPassword.layer.cornerRadius = 10.0
         btnLogin.layer.cornerRadius = 10.0

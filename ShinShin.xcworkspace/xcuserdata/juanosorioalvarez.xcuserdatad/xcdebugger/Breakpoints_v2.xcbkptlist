@@ -137,22 +137,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ShinShin/ViewControllers/Login/LogInViewController.swift"
-            timestampString = "589763432.750828"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
-            landmarkName = "receiveToggleAuthUINotification(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "ShinShin/ViewControllers/Perfil/EliminarPerfilTableViewController.swift"
             timestampString = "588406663.219157"
             startingColumnNumber = "9223372036854775807"
