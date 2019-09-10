@@ -14,19 +14,28 @@ class PrivacidadViewController: UIViewController {
     enum Origen{
         case Inicio
         case Registro
+        case Menu
     }
     
     var origen: Origen = .Inicio
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+//    }
+//
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+//    }
     
     //MARK:  - Actions
     @IBAction func back(_ sender: Any) {
-        if origen == .Inicio{
+        if origen == .Inicio || origen == .Menu{
             self.dismiss(animated: true, completion: nil)
         }
         else if origen == .Registro{

@@ -23,6 +23,8 @@ class PayPalBonificacionTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        txtCuenta.layer.cornerRadius = 10
+        txtCantidad.layer.cornerRadius = 10
         btnSolicitar.layer.cornerRadius = 10
         showViewPicker()
     }

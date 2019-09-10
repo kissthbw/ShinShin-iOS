@@ -138,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShinShin/ViewControllers/Login/LogInViewController.swift"
-            timestampString = "589390971.344947"
+            timestampString = "589763432.750828"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "249"
@@ -160,22 +160,6 @@
             startingLineNumber = "69"
             endingLineNumber = "69"
             landmarkName = "eliminarPerfilRequest()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ShinShin/ViewControllers/CuentasRetiro/MediosBonificacionDetailViewController.swift"
-            timestampString = "589140600.523334"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "guardarItem()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

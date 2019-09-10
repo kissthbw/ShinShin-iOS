@@ -65,7 +65,6 @@ class LogInViewController: UIViewController {
         txtPassword.text = "kiss2101"
 
         initUIElements()
-
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(LogInViewController.receiveToggleAuthUINotification(_:)),
@@ -94,6 +93,12 @@ class LogInViewController: UIViewController {
     
     @IBAction func signin(_ sender: Any) {
         //1. Validar campos (Habilitar boton solo cuando los campos esten llenos)
+        if Validations.isEmpty(value: txtUser.text!) || Validations.isEmpty(value: txtPassword.text!){
+            
+            showMessage(message: "Ingresa todos los datos")
+            
+            return
+        }
         
         //2. Realizar peticion a back
         let user = Usuario()

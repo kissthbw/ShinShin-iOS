@@ -89,8 +89,11 @@ class MenuViewController: UIViewController {
             else if button.tag == 3{
                 vc.tipoProceso = .Historico
             }
-            
-            
+        }
+        
+        if segue.identifier == "PrivacidadSegue"{
+            let vc = segue.destination as! PrivacidadViewController
+            vc.origen = .Menu
         }
     }
 

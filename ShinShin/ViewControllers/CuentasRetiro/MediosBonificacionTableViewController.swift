@@ -15,6 +15,7 @@ class MediosBonificacionTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
     @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var lblMensaje: UILabel!
     
     var medios: MediosBonificacionRSP = MediosBonificacionRSP()
     let ID_RQT_CATALOGO = "CATALOGO"
@@ -198,7 +199,7 @@ extension MediosBonificacionTableViewController: UITableViewDataSource, UITableV
         if section == 1{
             header.btnAccion.tag = section
             header.imageViewLogo.image = UIImage(named: "money-grey")
-            header.btnAccion.setTitle("+ Tarjeta", for: .normal)
+            header.btnAccion.setTitle("+ Cuenta", for: .normal)
         }
         else if section == 2{
             header.btnAccion.tag = section
@@ -302,7 +303,7 @@ extension MediosBonificacionTableViewController: UITableViewDataSource, UITableV
 extension MediosBonificacionTableViewController: MediosBonificacionControllerDelegate{
     
     func addItemViewController(_ controller: MediosBonificacionDetailViewController, didFinishAddind item: String) {
-        
+        lblMensaje.text = item
         
         UIView.animate(withDuration: 2.0,
                        delay: 0.0,

@@ -27,11 +27,14 @@ class MediosBonificacionDetailViewController: UITableViewController {
     }
     
     let ID_RQT_GUARDAR = "ID_RQT_GUARDAR"
+    let ID_RQT_ELIMINAR = "ID_RQT_ELIMINAR"
+    let ID_RQT_ACTUALIZAR = "ID_RQT_ACTUALIZAR"
     
     var tmpCell: UITableViewCell?
     var tipoCuenta: TipoCuenta = .Bancaria
     var sectionSelected = -1
     var item: MediosBonificacion?
+    var idMedio = -1
     
     weak var delegate: MediosBonificacionControllerDelegate?
     
@@ -119,6 +122,71 @@ class MediosBonificacionDetailViewController: UITableViewController {
         present(SideMenuManager.default.rightMenuNavigationController!, animated: true, completion: nil)
     }
     
+    @objc func actualizarItem(){
+        if tipoCuenta == .Bancaria{
+            if let cell = tmpCell as? BancoDetailTableViewCell{
+                let item = MediosBonificacion()
+                item.idMediosBonificacion = idMedio
+                let cat = CatalogoMediosBonificacion()
+                cat.idCatalogoMedioBonificacion = 1
+                let user = Usuario()
+                user.idUsuario = Model.user?.idUsuario
+                
+                item.usuario = user
+                item.catalogoMediosBonificacion = cat
+                item.aliasMedioBonificacion = cell.txtNombre.text
+                item.cuentaMedioBonificacion = cell.txtTarjeta.text
+                item.idTipo = cell.idTipoBancaria
+                
+                let vigencia = cell.txtMes.text! + "/" + cell.txtAnio.text!
+                
+                item.vigenciaMedioBonificacion = vigencia
+                actualizarMedioBonificacionRequest(with: item)
+            }
+        }
+        else if tipoCuenta == .PayPal{
+            if let cell = tmpCell as? PayPalDetailTableViewCell{
+                let item = MediosBonificacion()
+                item.idMediosBonificacion = idMedio
+                let cat = CatalogoMediosBonificacion()
+                cat.idCatalogoMedioBonificacion = 2
+                let user = Usuario()
+                user.idUsuario = Model.user?.idUsuario
+                
+                item.usuario = user
+                item.catalogoMediosBonificacion = cat
+                item.aliasMedioBonificacion = cell.txtNombre.text
+                item.idCuentaMedioBonificacion = cell.txtId.text
+                item.cuentaMedioBonificacion = cell.txtEmail.text
+                actualizarMedioBonificacionRequest(with: item)
+            }
+        }
+        else if tipoCuenta == .Recarga{
+            if let cell = tmpCell as? RecargaDetailTableViewCell{
+                let item = MediosBonificacion()
+                item.idMediosBonificacion = idMedio
+                let cat = CatalogoMediosBonificacion()
+                cat.idCatalogoMedioBonificacion = 3
+                let user = Usuario()
+                user.idUsuario = Model.user?.idUsuario
+                
+                item.usuario = user
+                item.catalogoMediosBonificacion = cat
+                item.aliasMedioBonificacion = cell.txtNombre.text
+                item.cuentaMedioBonificacion = cell.txtNumero.text
+                item.companiaMedioBonificacion = cell.txtCompania.text
+                actualizarMedioBonificacionRequest(with: item)
+            }
+        }
+    }
+    
+    @objc func eliminarItem(){
+        let item = MediosBonificacion()
+        item.idMediosBonificacion = idMedio
+        
+        eliminarMedioBonificacionRequest(with: item)
+    }
+    
     @objc func guardarItem(){
         //guardarMedioBonificacionUsuario
         if tipoCuenta == .Bancaria{
@@ -181,12 +249,25 @@ class MediosBonificacionDetailViewController: UITableViewController {
         
         if let itemToEdit = item{
             
-            //            cell.btnGuardar.addTarget(self, action: #selector(guardarItem), for: .touchUpInside)
+            idMedio = itemToEdit.idMediosBonificacion!
             cell.txtNombre.text = itemToEdit.aliasMedioBonificacion
+            cell.idTipo = itemToEdit.idTipo!
+            cell.idTipoBancaria = itemToEdit.idTipo!
+//            cell.txtTipo.text = itemToEdit.idMediosBonificacion
+            let components = itemToEdit.vigenciaMedioBonificacion?.components(separatedBy: "/")
+            
+            cell.txtMes.text = components![0]
+            cell.txtAnio.text = components![1]
             cell.txtTarjeta.text = itemToEdit.cuentaMedioBonificacion
             
+            
+            cell.btnEliminar.isHidden = false
+            cell.btnEliminar.addTarget(self, action: #selector(eliminarItem), for: .touchUpInside)
+            cell.btnGuardar.addTarget(self, action: #selector(actualizarItem), for: .touchUpInside)
+            tmpCell = cell
         }
         else{
+            cell.btnEliminar.isHidden = true
             cell.btnGuardar.addTarget(self, action: #selector(guardarItem), for: .touchUpInside)
             tmpCell = cell
         }
@@ -203,13 +284,20 @@ class MediosBonificacionDetailViewController: UITableViewController {
         cell.txtEmail.delegate = self
         
         if let itemToEdit = item{
+            idMedio = itemToEdit.idMediosBonificacion!
             cell.txtNombre.text = itemToEdit.aliasMedioBonificacion
             cell.txtId.text = itemToEdit.idCuentaMedioBonificacion
             cell.txtEmail.text = itemToEdit.cuentaMedioBonificacion
             
-            //            cell.btnGuardar.addTarget(self, action: #selector(guardarItem), for: .touchUpInside)
+            cell.btnEliminar.isHidden = false
+            
+            cell.btnEliminar.addTarget(self, action: #selector(eliminarItem), for: .touchUpInside)
+            cell.btnGuardar.addTarget(self, action: #selector(actualizarItem), for: .touchUpInside)
+            tmpCell = cell
+            
         }
         else{
+            cell.btnEliminar.isHidden = true
             cell.btnGuardar.addTarget(self, action: #selector(guardarItem), for: .touchUpInside)
             tmpCell = cell
         }
@@ -222,22 +310,50 @@ class MediosBonificacionDetailViewController: UITableViewController {
         tipoCuenta = .Recarga
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecargaDetailCell", for: indexPath) as! RecargaDetailTableViewCell
         
-        cell.txtNombre.delegate = self
-        cell.txtNumero.delegate = self
-        cell.txtCompania.delegate = self
-        
         if let itemToEdit = item{
+            idMedio = itemToEdit.idMediosBonificacion!
             cell.txtNombre.text = itemToEdit.aliasMedioBonificacion
             cell.txtNumero.text = itemToEdit.cuentaMedioBonificacion
             cell.txtCompania.text = itemToEdit.companiaMedioBonificacion
-            //            cell.btnGuardar.addTarget(self, action: #selector(guardarItem), for: .touchUpInside)
+            cell.btnEliminar.isHidden = false
+            
+            cell.btnEliminar.addTarget(self, action: #selector(eliminarItem), for: .touchUpInside)
+            cell.btnGuardar.addTarget(self, action: #selector(actualizarItem), for: .touchUpInside)
+            tmpCell = cell
         }
         else{
+            cell.btnEliminar.isHidden = true
             cell.btnGuardar.addTarget(self, action: #selector(guardarItem), for: .touchUpInside)
             tmpCell = cell
         }
         
         return cell
+    }
+    
+    func eliminarMedioBonificacionRequest(with item: MediosBonificacion){
+        do{
+            let encoder = JSONEncoder()
+            
+            let json = try encoder.encode(item)
+            RESTHandler.delegate = self
+            RESTHandler.postOperationTo(RESTHandler.eliminarMedioBonificacionUsuario, with: json, and: ID_RQT_GUARDAR)
+        }
+        catch{
+            
+        }
+    }
+    
+    func actualizarMedioBonificacionRequest(with item: MediosBonificacion){
+        do{
+            let encoder = JSONEncoder()
+            
+            let json = try encoder.encode(item)
+            RESTHandler.delegate = self
+            RESTHandler.postOperationTo(RESTHandler.actualizarMedioBonificacionUsuario, with: json, and: ID_RQT_ACTUALIZAR)
+        }
+        catch{
+            
+        }
     }
     
     func guardarMedioBonificacionRequest(with item: MediosBonificacion){
@@ -276,40 +392,6 @@ class MediosBonificacionDetailViewController: UITableViewController {
         }
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     // MARK: - Navigation
 
@@ -327,6 +409,7 @@ class MediosBonificacionDetailViewController: UITableViewController {
 extension MediosBonificacionDetailViewController: CompaniaTelefonicaTableViewControllerDelegate{
     
     func selectItemViewController(_ controller: CompaniaTelefonicaTableViewController, didFinishAddind item: String) {
+        
         if let cell = tmpCell as? RecargaDetailTableViewCell{
             cell.txtCompania.text = item
             self.navigationController?.popViewController(animated: true)
@@ -343,9 +426,21 @@ extension MediosBonificacionDetailViewController: RESTActionDelegate{
         
         do{
             let decoder = JSONDecoder()
+           
+            if identifier == ID_RQT_GUARDAR{
+                let rsp = try decoder.decode(SimpleResponse.self, from: data)
+                delegate?.addItemViewController(self, didFinishAddind: "Tarjeta agregada")
+            }
             
-            let rsp = try decoder.decode(SimpleResponse.self, from: data)
-            delegate?.addItemViewController(self, didFinishAddind: "Tarjeta agregada")
+            if identifier == ID_RQT_ELIMINAR{
+                let rsp = try decoder.decode(SimpleResponse.self, from: data)
+                delegate?.addItemViewController(self, didFinishAddind: "Aqui no pasó nada, cuenta eliminada")
+            }
+            
+            if identifier == ID_RQT_ACTUALIZAR{
+                let rsp = try decoder.decode(SimpleResponse.self, from: data)
+                delegate?.addItemViewController(self, didFinishAddind: "Cambios guardados")
+            }
         }
         catch{
             print("JSON Error: \(error)")

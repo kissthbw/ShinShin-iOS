@@ -25,6 +25,7 @@ class BancoDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var viewAnio: UIView!
     
     @IBOutlet weak var btnGuardar: UIButton!
+    @IBOutlet weak var btnEliminar: UIButton!
     
     enum UITextTags: Int{
         case TxtMes = 1
@@ -43,6 +44,7 @@ class BancoDetailTableViewCell: UITableViewCell {
     let ID_RQT_TIPOS = "ID_RQT_TIPOS"
     var tipoCuentaSelected: TipoCuenta = .clabe
     var focusedTextField = -1
+    var idTipo = -1
     
     var meses = ["01","02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
     var anios: [String] = [String]()
@@ -91,8 +93,6 @@ class BancoDetailTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     //MARK: - Actions
@@ -271,6 +271,17 @@ extension BancoDetailTableViewCell: RESTActionDelegate{
                 let rsp = try decoder.decode(ListaTipoBancaria.self, from: data)
                 if let list = rsp.tiposBancarias{
                     listTiposBancaria = list
+                    
+                    if idTipo > -1{
+                        
+                        for item in listTiposBancaria{
+                            if item.idTipo! == idTipo{
+                                self.txtTipo.text = item.descripcionBancaria
+                            }
+                        }
+                        
+                        
+                    }
                 }
             }
         }

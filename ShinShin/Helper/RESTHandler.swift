@@ -61,6 +61,8 @@ class RESTHandler{
     //Pantalla de medios de bonificacion
     static let obtieneCatalogoMediosBonificacion = server + "/catalogoMediosBonificacion/list"
     static let guardarMedioBonificacionUsuario = server + "/mediosBonificacion/mediosBonificacion/guardar"
+    static let actualizarMedioBonificacionUsuario = server + "/mediosBonificacion//mediosBonificacion/actualizar"
+    static let eliminarMedioBonificacionUsuario = server + "/mediosBonificacion/mediosBonificacion/eliminar"
     
     
     //Pantalla de retiros

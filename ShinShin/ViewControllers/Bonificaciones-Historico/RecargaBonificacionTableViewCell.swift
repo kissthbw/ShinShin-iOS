@@ -24,6 +24,10 @@ class RecargaBonificacionTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        txtCantidad.layer.cornerRadius = 10
+        txtNumero.layer.cornerRadius = 10
+        txtCompania.layer.cornerRadius = 10
         btnSolicitar.layer.cornerRadius = 10
         showViewPicker()
     }

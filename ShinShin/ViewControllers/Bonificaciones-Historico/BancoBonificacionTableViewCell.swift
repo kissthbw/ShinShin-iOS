@@ -23,6 +23,8 @@ class BancoBonificacionTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        txtCantidad.layer.cornerRadius = 10.0
+        txtCuenta.layer.cornerRadius = 10.0
         btnSolicitar.layer.cornerRadius = 10
         showViewPicker()
     }

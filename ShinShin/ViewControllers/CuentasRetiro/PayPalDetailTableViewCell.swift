@@ -14,11 +14,14 @@ class PayPalDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var txtId: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var btnGuardar: UIButton!
-    
+    @IBOutlet weak var btnEliminar: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        txtNombre.layer.cornerRadius = 10.0
+        txtId.layer.cornerRadius = 10.0
+        txtEmail.layer.cornerRadius = 10.0
         btnGuardar.layer.cornerRadius = 10.0
     }
 
