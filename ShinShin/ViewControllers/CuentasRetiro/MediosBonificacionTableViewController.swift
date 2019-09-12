@@ -275,21 +275,26 @@ extension MediosBonificacionTableViewController: UITableViewDataSource, UITableV
     func configureCell(atIndexPath indexPath: IndexPath, withItem item: MediosBonificacion?) -> UITableViewCell{
         if indexPath.section == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "BancoCell", for: indexPath) as! BancoTableViewCell
-            cell.lblCuenta.text = item?.cuentaMedioBonificacion
-            cell.lblVigencia.text = item?.vigenciaMedioBonificacion
-            cell.lblTipo.text = "Visa"
+            
+            if let item = item{
+                cell.lblAlias.text = item.aliasMedioBonificacion
+                cell.lblCuenta.text = item.cuentaMedioBonificacion
+                cell.lblTipo.text = item.banco ?? "Sin nombre"
+            }
             
             return cell
         }
         else if( indexPath.section == 2 ){
             let cell = tableView.dequeueReusableCell(withIdentifier: "PayPalCell", for: indexPath) as! PayPalTableViewCell
             
-            cell.lblCuenta.text = item?.cuentaMedioBonificacion
+            cell.lblAlias.text = item?.aliasMedioBonificacion
+            cell.lblID.text = item?.cuentaMedioBonificacion
             
             return cell
         }
         else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "RecargaCell", for: indexPath) as! RecargaTableViewCell
+            cell.lblAlias.text = item?.aliasMedioBonificacion
             cell.lblNumero.text = item?.cuentaMedioBonificacion
             cell.lblCompania.text = item?.companiaMedioBonificacion
             

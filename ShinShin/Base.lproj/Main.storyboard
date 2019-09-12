@@ -2257,176 +2257,115 @@ ganar dinero por tus compras.</string>
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="750"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FB6-yK-ZZw">
-                                            <rect key="frame" x="37.5" y="693" width="300" height="1"/>
-                                            <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cBg-SZ-xqD" userLabel="viewBack">
+                                            <rect key="frame" x="0.0" y="13" width="73" height="40"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9T-Zl-3t3">
+                                                    <rect key="frame" x="37" y="9" width="36" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Atras"/>
+                                                    <connections>
+                                                        <action selector="back:" destination="2y3-A5-u91" eventType="touchUpInside" id="7EQ-TQ-oZ2"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Lv-eV-Cuc">
+                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="back"/>
+                                                    <connections>
+                                                        <action selector="back:" destination="S3U-y2-XI3" eventType="touchUpInside" id="6Uo-6t-D2s"/>
+                                                        <action selector="back:" destination="49m-Ja-d5k" eventType="touchUpInside" id="JEN-Fg-zty"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="1" id="EM4-Qe-zHb"/>
-                                                <constraint firstAttribute="width" constant="300" id="zZD-ET-m6d"/>
+                                                <constraint firstAttribute="width" constant="73" id="GKG-3z-b6S"/>
+                                                <constraint firstAttribute="height" constant="40" id="KwI-4m-SNS"/>
                                             </constraints>
                                         </view>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="money-grey" translatesAutoresizingMaskIntoConstraints="NO" id="flJ-7f-Cu3">
-                                            <rect key="frame" x="16" y="64" width="24" height="24"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="24" id="E9x-41-d9h"/>
-                                                <constraint firstAttribute="height" constant="24" id="h0S-ku-HXM"/>
-                                            </constraints>
-                                        </imageView>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FB6-yK-ZZw">
+                                            <rect key="frame" x="37.5" y="693" width="300" height="1"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BANCARIA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhU-19-ZpX">
-                                            <rect key="frame" x="48" y="64" width="93" height="24"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="93" id="bQs-NQ-blA"/>
-                                                <constraint firstAttribute="height" constant="24" id="mDw-WF-n0L"/>
-                                            </constraints>
+                                            <rect key="frame" x="19" y="64" width="334" height="24"/>
                                             <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito Black" pointSize="17"/>
+                                            <color key="textColor" red="0.79215686269999996" green="0.79215686269999996" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nueva cuenta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2H-0t-9GK">
+                                            <rect key="frame" x="19" y="88" width="334" height="44"/>
+                                            <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito Black" pointSize="32"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No. de tarjeta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHY-qX-sBD">
-                                            <rect key="frame" x="139.5" y="260" width="96" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="4nC-hE-biG"/>
-                                                <constraint firstAttribute="width" constant="96" id="ERH-sF-1HR"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
-                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vencimiento" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6E-NM-ZFo">
-                                            <rect key="frame" x="165" y="361" width="172" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="UrA-IG-cpk"/>
-                                                <constraint firstAttribute="width" constant="172" id="nCl-F9-V4a"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
-                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZKj-BU-YuH">
-                                            <rect key="frame" x="17.5" y="369" width="340" height="121"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jPh-Fm-3hm">
+                                            <rect key="frame" x="37.5" y="264" width="300.5" height="74"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tipo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3J8-GS-eBu">
-                                                    <rect key="frame" x="20" y="20" width="82" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No. de tarjeta / Cuenta" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHY-qX-sBD">
+                                                    <rect key="frame" x="0.5" y="0.0" width="236" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hq1-Ig-9dc">
-                                                    <rect key="frame" x="148" y="20" width="82" height="21"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xfN-5y-C5Y">
+                                                    <rect key="frame" x="0.0" y="26" width="238" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito SemiBold" pointSize="15"/>
-                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Año" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K5I-ij-fc6">
-                                                    <rect key="frame" x="238" y="20" width="82" height="21"/>
+                                                    <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="maskExpression" value="{dddd}-{dddd}-{dddd}-{dddd}"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="maskTemplate" value="X"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </textField>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="succes-green" translatesAutoresizingMaskIntoConstraints="NO" id="9NB-ID-ouP">
+                                                    <rect key="frame" x="211.5" y="39" width="22" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito SemiBold" pointSize="15"/>
-                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NdT-RV-gDc">
-                                                    <rect key="frame" x="20" y="53" width="82" height="48"/>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o5o-ob-At4">
+                                                    <rect key="frame" x="250.5" y="26" width="50" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P2k-ri-azz">
-                                                            <rect key="frame" x="21" y="8" width="40" height="32"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera-orange" translatesAutoresizingMaskIntoConstraints="NO" id="vQX-Hl-918">
+                                                            <rect key="frame" x="11" y="14" width="29" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                </view>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Gd-bv-w9M">
-                                                    <rect key="frame" x="148" y="53" width="82" height="48"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6BH-cA-kS8">
-                                                            <rect key="frame" x="8" y="8" width="66" height="30"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sgk-rI-c4v">
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="48"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="textColor"/>
-                                                            <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="17"/>
-                                                            <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                                        </textField>
+                                                        </button>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                </view>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qAu-ts-SUj">
-                                                    <rect key="frame" x="238" y="53" width="82" height="48"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KnB-QU-aVT">
-                                                            <rect key="frame" x="8" y="9" width="66" height="30"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="textColor"/>
-                                                            <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="17"/>
-                                                            <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                                        </textField>
-                                                    </subviews>
-                                                    <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="1" green="0.43529411759999997" blue="0.0" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="340" id="6GR-1i-DcV"/>
-                                                <constraint firstAttribute="height" constant="121" id="W6D-e1-FGe"/>
+                                                <constraint firstAttribute="width" constant="300.5" id="Kfd-pi-aPE"/>
+                                                <constraint firstAttribute="height" constant="74" id="yk5-ES-xSA"/>
                                             </constraints>
                                         </view>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="[Nueva tarjeta]" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5VU-PZ-Gle">
-                                            <rect key="frame" x="16" y="88" width="343" height="45"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="343" id="KRk-2W-8md"/>
-                                                <constraint firstAttribute="height" constant="45" id="fQV-yY-7M0"/>
-                                            </constraints>
-                                            <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito Black" pointSize="30"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xfN-5y-C5Y">
-                                            <rect key="frame" x="37.5" y="290" width="300" height="45"/>
-                                            <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="45" id="eHh-Tq-75b"/>
-                                                <constraint firstAttribute="width" constant="300" id="gWN-Qu-bZI"/>
-                                            </constraints>
-                                            <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="17"/>
-                                            <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="maskExpression" value="{dddd}-{dddd}-{dddd}-{dddd}"/>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="maskTemplate" value="X"/>
-                                            </userDefinedRuntimeAttributes>
-                                        </textField>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Banco destino" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cft-eg-7J2">
+                                            <rect key="frame" x="137.5" y="368" width="100" height="20.5"/>
+                                            <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BMz-EN-VUv">
-                                            <rect key="frame" x="37.5" y="501" width="300" height="48"/>
+                                            <rect key="frame" x="34.5" y="584" width="306" height="48"/>
                                             <color key="backgroundColor" red="1" green="0.43529411759999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="300" id="Kvt-LH-bXa"/>
-                                                <constraint firstAttribute="height" constant="48" id="VjR-Ba-gZZ"/>
+                                                <constraint firstAttribute="height" constant="48" id="OMc-bo-maT"/>
+                                                <constraint firstAttribute="width" constant="306" id="kp2-JW-vdu"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="17"/>
                                             <state key="normal" title="Guardar">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
-                                        </button>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rpR-kE-WLE">
-                                            <rect key="frame" x="140" y="354" width="1" height="104"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        </view>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Lv-eV-Cuc">
-                                            <rect key="frame" x="0.0" y="13" width="40" height="40"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="40" id="Jna-bd-8uJ"/>
-                                                <constraint firstAttribute="height" constant="40" id="xop-Qr-Jh3"/>
-                                            </constraints>
-                                            <state key="normal" image="back"/>
-                                            <connections>
-                                                <action selector="back:" destination="S3U-y2-XI3" eventType="touchUpInside" id="6Uo-6t-D2s"/>
-                                                <action selector="back:" destination="49m-Ja-d5k" eventType="touchUpInside" id="JEN-Fg-zty"/>
-                                            </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dUK-fL-TKG">
                                             <rect key="frame" x="101" y="686" width="173" height="74"/>
@@ -2446,34 +2385,22 @@ ganar dinero por tus compras.</string>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="74" id="SQc-dG-QHA"/>
-                                                <constraint firstAttribute="width" constant="173" id="V5r-nB-JXz"/>
+                                                <constraint firstAttribute="width" constant="173" id="6sF-pU-mwT"/>
+                                                <constraint firstAttribute="height" constant="74" id="aSg-7Z-zmK"/>
                                             </constraints>
                                         </view>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9T-Zl-3t3">
-                                            <rect key="frame" x="37" y="22" width="36" height="22"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Atras"/>
-                                            <connections>
-                                                <action selector="back:" destination="2y3-A5-u91" eventType="touchUpInside" id="7EQ-TQ-oZ2"/>
-                                            </connections>
-                                        </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tipo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ml-cV-0lq">
-                                            <rect key="frame" x="139.5" y="159" width="96" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="96" id="1af-3S-1xr"/>
-                                                <constraint firstAttribute="height" constant="21" id="eVy-pu-vh2"/>
-                                            </constraints>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tipo de cuenta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ml-cV-0lq">
+                                            <rect key="frame" x="135.5" y="160" width="104.5" height="21"/>
                                             <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mm9-Gk-fXj">
-                                            <rect key="frame" x="37.5" y="189" width="300" height="45"/>
+                                            <rect key="frame" x="36" y="192" width="303" height="48"/>
                                             <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="300" id="OBx-Yl-o3E"/>
-                                                <constraint firstAttribute="height" constant="45" id="vtc-dL-1hr"/>
+                                                <constraint firstAttribute="height" constant="48" id="PQ2-Yd-hLw"/>
+                                                <constraint firstAttribute="width" constant="303" id="pFd-Rm-4kJ"/>
                                             </constraints>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="17"/>
@@ -2483,273 +2410,299 @@ ganar dinero por tus compras.</string>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="maskTemplate" value="X"/>
                                             </userDefinedRuntimeAttributes>
                                         </textField>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e39-yC-Z78">
-                                            <rect key="frame" x="137" y="567" width="101" height="24"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="du0-Rn-1gN">
+                                            <rect key="frame" x="36" y="400" width="303" height="48"/>
+                                            <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="303" id="Qbl-hB-Un3"/>
+                                                <constraint firstAttribute="height" constant="48" id="zES-lc-U6i"/>
+                                            </constraints>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="17"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="maskExpression" value="{dddd}-{dddd}-{dddd}-{dddd}"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="maskTemplate" value="X"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </textField>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre corto" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXF-cX-UqW">
+                                            <rect key="frame" x="138.5" y="472" width="98.5" height="20.5"/>
+                                            <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="01O-3z-8AI">
+                                            <rect key="frame" x="36" y="504" width="303" height="48"/>
+                                            <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="48" id="X62-Pm-xhP"/>
+                                                <constraint firstAttribute="width" constant="303" id="uCQ-rq-jdR"/>
+                                            </constraints>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="17"/>
+                                            <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="maskExpression" value="{dddd}-{dddd}-{dddd}-{dddd}"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="maskTemplate" value="X"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e39-yC-Z78">
+                                            <rect key="frame" x="137" y="640" width="101" height="33"/>
                                             <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="15"/>
                                             <state key="normal" title="Eliminar tarjeta"/>
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="FB6-yK-ZZw" firstAttribute="centerX" secondItem="xr5-RL-XLX" secondAttribute="centerX" id="0Gz-vr-cJF"/>
-                                        <constraint firstItem="Mm9-Gk-fXj" firstAttribute="top" secondItem="8Ml-cV-0lq" secondAttribute="bottom" constant="9" id="1D9-uK-Bf9"/>
-                                        <constraint firstItem="0Lv-eV-Cuc" firstAttribute="top" secondItem="xr5-RL-XLX" secondAttribute="top" constant="13" id="310-0y-MIo"/>
-                                        <constraint firstItem="xfN-5y-C5Y" firstAttribute="top" secondItem="OHY-qX-sBD" secondAttribute="bottom" constant="9" id="3cW-7S-1di"/>
-                                        <constraint firstItem="8Ml-cV-0lq" firstAttribute="centerX" secondItem="xr5-RL-XLX" secondAttribute="centerX" id="5Iu-lW-Err"/>
-                                        <constraint firstItem="hhU-19-ZpX" firstAttribute="leading" secondItem="flJ-7f-Cu3" secondAttribute="trailing" constant="8" id="7Df-Ky-Q6e"/>
-                                        <constraint firstItem="5VU-PZ-Gle" firstAttribute="top" secondItem="hhU-19-ZpX" secondAttribute="bottom" id="8gV-Q6-5p3"/>
-                                        <constraint firstItem="ZKj-BU-YuH" firstAttribute="centerX" secondItem="xr5-RL-XLX" secondAttribute="centerX" id="B8w-fT-i0D"/>
-                                        <constraint firstItem="flJ-7f-Cu3" firstAttribute="leading" secondItem="xr5-RL-XLX" secondAttribute="leading" constant="16" id="Bfl-xT-p8a"/>
-                                        <constraint firstAttribute="trailing" secondItem="j6E-NM-ZFo" secondAttribute="trailing" constant="38" id="DIr-qg-jHj"/>
-                                        <constraint firstItem="dUK-fL-TKG" firstAttribute="top" secondItem="BMz-EN-VUv" secondAttribute="bottom" constant="137" id="Efw-pc-e7T"/>
-                                        <constraint firstItem="xfN-5y-C5Y" firstAttribute="centerX" secondItem="xr5-RL-XLX" secondAttribute="centerX" id="Fcw-aU-DEo"/>
-                                        <constraint firstItem="5VU-PZ-Gle" firstAttribute="centerX" secondItem="xr5-RL-XLX" secondAttribute="centerX" id="G3H-yE-J9m"/>
-                                        <constraint firstItem="ZKj-BU-YuH" firstAttribute="top" secondItem="xfN-5y-C5Y" secondAttribute="bottom" constant="34" id="MOT-h1-pbh"/>
-                                        <constraint firstItem="8Ml-cV-0lq" firstAttribute="top" secondItem="5VU-PZ-Gle" secondAttribute="bottom" constant="26" id="NxV-aI-Sey"/>
-                                        <constraint firstItem="dUK-fL-TKG" firstAttribute="centerX" secondItem="xr5-RL-XLX" secondAttribute="centerX" id="OOS-9G-3vz"/>
-                                        <constraint firstItem="j6E-NM-ZFo" firstAttribute="top" secondItem="xfN-5y-C5Y" secondAttribute="bottom" constant="26" id="QS5-Ja-lrw"/>
-                                        <constraint firstItem="BMz-EN-VUv" firstAttribute="centerX" secondItem="xr5-RL-XLX" secondAttribute="centerX" id="R26-oi-hCc"/>
-                                        <constraint firstItem="OHY-qX-sBD" firstAttribute="centerX" secondItem="xr5-RL-XLX" secondAttribute="centerX" id="bYN-XX-J2q"/>
-                                        <constraint firstItem="BMz-EN-VUv" firstAttribute="top" secondItem="ZKj-BU-YuH" secondAttribute="bottom" constant="11" id="cuX-G7-yjr"/>
-                                        <constraint firstItem="FB6-yK-ZZw" firstAttribute="top" secondItem="BMz-EN-VUv" secondAttribute="bottom" constant="144" id="fo8-cl-9zD"/>
-                                        <constraint firstItem="OHY-qX-sBD" firstAttribute="top" secondItem="Mm9-Gk-fXj" secondAttribute="bottom" constant="26" id="fsC-Ox-7jF"/>
-                                        <constraint firstItem="Mm9-Gk-fXj" firstAttribute="centerX" secondItem="xr5-RL-XLX" secondAttribute="centerX" id="omq-A8-a9w"/>
-                                        <constraint firstItem="0Lv-eV-Cuc" firstAttribute="leading" secondItem="xr5-RL-XLX" secondAttribute="leading" id="p9D-IU-PlS"/>
-                                        <constraint firstItem="hhU-19-ZpX" firstAttribute="top" secondItem="xr5-RL-XLX" secondAttribute="top" constant="64" id="wUa-3l-mnp"/>
-                                        <constraint firstItem="flJ-7f-Cu3" firstAttribute="top" secondItem="0Lv-eV-Cuc" secondAttribute="bottom" constant="11" id="xxA-5G-SWC"/>
+                                        <constraint firstItem="cft-eg-7J2" firstAttribute="centerX" secondItem="xr5-RL-XLX" secondAttribute="centerX" id="3h4-RC-YsD"/>
+                                        <constraint firstItem="Mm9-Gk-fXj" firstAttribute="top" secondItem="xr5-RL-XLX" secondAttribute="top" constant="192" id="7mB-5b-zCh"/>
+                                        <constraint firstItem="hhU-19-ZpX" firstAttribute="leading" secondItem="xr5-RL-XLX" secondAttribute="leadingMargin" constant="3" id="7rq-Ao-9zj"/>
+                                        <constraint firstItem="du0-Rn-1gN" firstAttribute="top" secondItem="xr5-RL-XLX" secondAttribute="top" constant="400" id="8nE-Hm-l4v"/>
+                                        <constraint firstItem="jPh-Fm-3hm" firstAttribute="top" secondItem="xr5-RL-XLX" secondAttribute="top" constant="264" id="9Ep-Io-Ko4"/>
+                                        <constraint firstItem="01O-3z-8AI" firstAttribute="centerX" secondItem="xr5-RL-XLX" secondAttribute="centerX" id="CEY-x8-l0f"/>
+                                        <constraint firstItem="cft-eg-7J2" firstAttribute="top" secondItem="xr5-RL-XLX" secondAttribute="top" constant="368" id="CvD-SU-dy1"/>
+                                        <constraint firstItem="cBg-SZ-xqD" firstAttribute="top" secondItem="xr5-RL-XLX" secondAttribute="top" constant="13" id="EFO-9G-Zmh"/>
+                                        <constraint firstItem="e39-yC-Z78" firstAttribute="centerX" secondItem="xr5-RL-XLX" secondAttribute="centerX" id="FkD-O1-M9b"/>
+                                        <constraint firstItem="8Ml-cV-0lq" firstAttribute="top" secondItem="xr5-RL-XLX" secondAttribute="top" constant="160" id="H8N-Im-eJi"/>
+                                        <constraint firstItem="jXF-cX-UqW" firstAttribute="top" secondItem="xr5-RL-XLX" secondAttribute="top" constant="472" id="KLc-qr-t1q"/>
+                                        <constraint firstItem="8Ml-cV-0lq" firstAttribute="centerX" secondItem="xr5-RL-XLX" secondAttribute="centerX" id="Kd9-vL-3vF"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="hhU-19-ZpX" secondAttribute="trailing" constant="6" id="Mcs-Y1-puB"/>
+                                        <constraint firstItem="hhU-19-ZpX" firstAttribute="top" secondItem="xr5-RL-XLX" secondAttribute="top" constant="64" id="RUJ-nQ-JTv"/>
+                                        <constraint firstItem="du0-Rn-1gN" firstAttribute="centerX" secondItem="xr5-RL-XLX" secondAttribute="centerX" id="T1N-D2-3tM"/>
+                                        <constraint firstItem="Q2H-0t-9GK" firstAttribute="top" secondItem="xr5-RL-XLX" secondAttribute="top" constant="88" id="UGa-ip-m26"/>
+                                        <constraint firstItem="jXF-cX-UqW" firstAttribute="centerX" secondItem="xr5-RL-XLX" secondAttribute="centerX" id="Vwc-hs-VNJ"/>
+                                        <constraint firstItem="Q2H-0t-9GK" firstAttribute="leading" secondItem="xr5-RL-XLX" secondAttribute="leadingMargin" constant="3" id="f0y-zH-tsU"/>
+                                        <constraint firstItem="jPh-Fm-3hm" firstAttribute="centerX" secondItem="xr5-RL-XLX" secondAttribute="centerX" id="hc2-j4-T7b"/>
+                                        <constraint firstItem="e39-yC-Z78" firstAttribute="top" secondItem="xr5-RL-XLX" secondAttribute="top" constant="640" id="hnK-8n-sgs"/>
+                                        <constraint firstItem="BMz-EN-VUv" firstAttribute="centerX" secondItem="xr5-RL-XLX" secondAttribute="centerX" id="hx1-ee-8jK"/>
+                                        <constraint firstItem="BMz-EN-VUv" firstAttribute="top" secondItem="xr5-RL-XLX" secondAttribute="top" constant="584" id="oKl-3J-Rcf"/>
+                                        <constraint firstItem="cBg-SZ-xqD" firstAttribute="leading" secondItem="xr5-RL-XLX" secondAttribute="leading" id="p93-eJ-dKJ"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Q2H-0t-9GK" secondAttribute="trailing" constant="6" id="qij-Jn-H42"/>
+                                        <constraint firstItem="dUK-fL-TKG" firstAttribute="top" secondItem="xr5-RL-XLX" secondAttribute="top" constant="686" id="ryi-gd-whr"/>
+                                        <constraint firstItem="01O-3z-8AI" firstAttribute="top" secondItem="xr5-RL-XLX" secondAttribute="top" constant="504" id="sR6-Id-qOk"/>
+                                        <constraint firstItem="Mm9-Gk-fXj" firstAttribute="centerX" secondItem="xr5-RL-XLX" secondAttribute="centerX" id="vi7-Mr-9Vo"/>
+                                        <constraint firstItem="dUK-fL-TKG" firstAttribute="centerX" secondItem="xr5-RL-XLX" secondAttribute="centerX" id="xAQ-NU-2Ox"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="btnEliminar" destination="e39-yC-Z78" id="Nra-Hl-xaY"/>
                                     <outlet property="btnGuardar" destination="BMz-EN-VUv" id="AQH-HB-Ocq"/>
-                                    <outlet property="txtAnio" destination="KnB-QU-aVT" id="omn-zn-Jku"/>
-                                    <outlet property="txtMes" destination="6BH-cA-kS8" id="qth-ax-7qD"/>
-                                    <outlet property="txtNombre" destination="5VU-PZ-Gle" id="pKy-YH-bwf"/>
+                                    <outlet property="imgCheck" destination="9NB-ID-ouP" id="1bE-n6-hpV"/>
+                                    <outlet property="lblTitulo" destination="Q2H-0t-9GK" id="gHZ-2g-a8F"/>
+                                    <outlet property="txtAlias" destination="01O-3z-8AI" id="6X4-B5-XTr"/>
+                                    <outlet property="txtBanco" destination="du0-Rn-1gN" id="we7-h7-nrE"/>
                                     <outlet property="txtTarjeta" destination="xfN-5y-C5Y" id="Wfv-Ad-g7a"/>
                                     <outlet property="txtTipo" destination="Mm9-Gk-fXj" id="MtH-xi-SAw"/>
-                                    <outlet property="viewAnio" destination="qAu-ts-SUj" id="sFa-7y-q5t"/>
-                                    <outlet property="viewMes" destination="8Gd-bv-w9M" id="327-eh-DV0"/>
-                                    <outlet property="viewTipo" destination="NdT-RV-gDc" id="5aY-er-PNN"/>
+                                    <outlet property="viewScanner" destination="o5o-ob-At4" id="SG2-Wg-ol1"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="RecargaDetailCell" rowHeight="500" id="1Tz-uT-L8s" customClass="RecargaDetailTableViewCell" customModule="ShinShin" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="778" width="375" height="500"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="RecargaDetailCell" rowHeight="600" id="1Tz-uT-L8s" customClass="RecargaDetailTableViewCell" customModule="ShinShin" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="778" width="375" height="600"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Tz-uT-L8s" id="lJJ-4C-b95">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="499.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recarga-grey" translatesAutoresizingMaskIntoConstraints="NO" id="eDq-5S-zV6">
-                                            <rect key="frame" x="16" y="64" width="24" height="24"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="24" id="1Fm-qg-0ng"/>
-                                                <constraint firstAttribute="height" constant="24" id="aAr-6N-Wf1"/>
-                                            </constraints>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RECARGA TELÉFONICA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dW-nj-2I3">
-                                            <rect key="frame" x="48" y="64" width="196" height="24"/>
+                                            <rect key="frame" x="19" y="64" width="348" height="24"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="24" id="TGn-Oz-3rw"/>
-                                                <constraint firstAttribute="width" constant="196" id="gpa-8o-LTc"/>
+                                                <constraint firstAttribute="height" constant="24" id="0mP-3d-5Sb"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito Black" pointSize="17"/>
-                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.79215686269999996" green="0.79215686269999996" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="[Nuevo número]" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nme-sd-g1g">
-                                            <rect key="frame" x="16" y="88" width="343" height="45"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="343" id="3q3-hW-oK5"/>
-                                                <constraint firstAttribute="height" constant="45" id="M90-Kf-RhX"/>
-                                            </constraints>
-                                            <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito Black" pointSize="30"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compañia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8E-MW-xhC">
-                                            <rect key="frame" x="37" y="260" width="301" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="KHG-XI-FUn"/>
-                                                <constraint firstAttribute="width" constant="301" id="UMe-bY-8Ht"/>
-                                            </constraints>
+                                            <rect key="frame" x="152" y="260" width="71" height="20.5"/>
                                             <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="[55-5555-5555]" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oTZ-6k-jxM">
-                                            <rect key="frame" x="37.5" y="189" width="300" height="45"/>
+                                            <rect key="frame" x="36" y="189" width="303" height="48"/>
                                             <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="45" id="cqn-Nl-tSf"/>
-                                                <constraint firstAttribute="width" constant="300" id="eMi-3c-rTw"/>
+                                                <constraint firstAttribute="height" constant="48" id="bBm-Dd-Psy"/>
+                                                <constraint firstAttribute="width" constant="303" id="oUF-ZO-110"/>
                                             </constraints>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="17"/>
                                             <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="[Compañia]" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="990-tj-wzH">
-                                            <rect key="frame" x="37.5" y="289" width="300" height="45"/>
+                                            <rect key="frame" x="36" y="290" width="303" height="48"/>
                                             <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="45" id="0n3-Qh-756"/>
-                                                <constraint firstAttribute="width" constant="300" id="aRT-4s-3cE"/>
+                                                <constraint firstAttribute="width" constant="303" id="IPh-cB-4gX"/>
+                                                <constraint firstAttribute="height" constant="48" id="ua7-xi-btK"/>
                                             </constraints>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="17"/>
                                             <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                         </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Telefono" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMk-ww-1hk">
-                                            <rect key="frame" x="37.5" y="159" width="300" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="3wN-Tw-OOm"/>
-                                                <constraint firstAttribute="width" constant="300" id="Zub-4x-8G2"/>
-                                            </constraints>
+                                            <rect key="frame" x="157.5" y="160" width="60.5" height="20.5"/>
                                             <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Fl-KS-kqb">
-                                            <rect key="frame" x="37.5" y="370" width="300" height="48"/>
+                                            <rect key="frame" x="34.5" y="474" width="306" height="48"/>
                                             <color key="backgroundColor" red="1" green="0.43529411759999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="300" id="6JJ-FJ-x0d"/>
-                                                <constraint firstAttribute="height" constant="48" id="9UO-yh-WGi"/>
+                                                <constraint firstAttribute="width" constant="306" id="6Uo-dP-pTg"/>
+                                                <constraint firstAttribute="height" constant="48" id="7lq-hX-lJk"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="17"/>
                                             <state key="normal" title="Guardar">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKv-v7-0e7">
-                                            <rect key="frame" x="0.0" y="13" width="40" height="40"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FE6-Te-2BG">
+                                            <rect key="frame" x="0.0" y="13" width="73" height="40"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NYc-LZ-wYg">
+                                                    <rect key="frame" x="37" y="1" width="36" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Atras"/>
+                                                    <connections>
+                                                        <action selector="back:" destination="2y3-A5-u91" eventType="touchUpInside" id="8sh-vj-Dp7"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKv-v7-0e7">
+                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="back"/>
+                                                    <connections>
+                                                        <action selector="back:" destination="S3U-y2-XI3" eventType="touchUpInside" id="NcT-wo-xep"/>
+                                                        <action selector="back:" destination="49m-Ja-d5k" eventType="touchUpInside" id="zhe-2M-Rs7"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="40" id="6UB-RZ-yYu"/>
-                                                <constraint firstAttribute="width" constant="40" id="rdn-rR-uZQ"/>
+                                                <constraint firstAttribute="height" constant="40" id="7y8-9w-Zig"/>
+                                                <constraint firstAttribute="width" constant="73" id="Grx-3a-UPG"/>
                                             </constraints>
-                                            <state key="normal" image="back"/>
-                                            <connections>
-                                                <action selector="back:" destination="S3U-y2-XI3" eventType="touchUpInside" id="NcT-wo-xep"/>
-                                                <action selector="back:" destination="49m-Ja-d5k" eventType="touchUpInside" id="zhe-2M-Rs7"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NYc-LZ-wYg">
-                                            <rect key="frame" x="37" y="22" width="36" height="22"/>
-                                            <state key="normal" title="Atras"/>
-                                            <connections>
-                                                <action selector="back:" destination="2y3-A5-u91" eventType="touchUpInside" id="8sh-vj-Dp7"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rXO-hG-64B">
-                                            <rect key="frame" x="133" y="432" width="109" height="33"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nuevo número" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nq3-sR-csi">
+                                            <rect key="frame" x="19" y="88" width="334" height="48"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="48" id="BH6-ys-bQt"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito Black" pointSize="32"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre corto" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Yu-S8-yWo">
+                                            <rect key="frame" x="138.5" y="362" width="98.5" height="20.5"/>
+                                            <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yan-Cu-QOY">
+                                            <rect key="frame" x="36" y="394" width="303" height="48"/>
+                                            <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="48" id="V74-7G-T2v"/>
+                                                <constraint firstAttribute="width" constant="303" id="jj6-L2-xLl"/>
+                                            </constraints>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="17"/>
+                                            <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="maskExpression" value="{dddd}-{dddd}-{dddd}-{dddd}"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="maskTemplate" value="X"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rXO-hG-64B">
+                                            <rect key="frame" x="133" y="530" width="109" height="33"/>
                                             <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="15"/>
                                             <state key="normal" title="Eliminar numero"/>
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="990-tj-wzH" firstAttribute="top" secondItem="c8E-MW-xhC" secondAttribute="bottom" constant="8" id="65Q-7h-WLx"/>
-                                        <constraint firstItem="2dW-nj-2I3" firstAttribute="leading" secondItem="eDq-5S-zV6" secondAttribute="trailing" constant="8" id="9Ez-oL-sYn"/>
-                                        <constraint firstItem="dKv-v7-0e7" firstAttribute="leading" secondItem="lJJ-4C-b95" secondAttribute="leading" id="BdK-MO-j37"/>
-                                        <constraint firstItem="0Fl-KS-kqb" firstAttribute="top" secondItem="990-tj-wzH" secondAttribute="bottom" constant="36" id="CRu-0c-825"/>
-                                        <constraint firstItem="nme-sd-g1g" firstAttribute="top" secondItem="2dW-nj-2I3" secondAttribute="bottom" id="KG4-ir-Vcm"/>
-                                        <constraint firstItem="oTZ-6k-jxM" firstAttribute="top" secondItem="vMk-ww-1hk" secondAttribute="bottom" constant="9" id="Luw-ix-ZkV"/>
-                                        <constraint firstItem="990-tj-wzH" firstAttribute="centerX" secondItem="lJJ-4C-b95" secondAttribute="centerX" id="NTr-oa-6ox"/>
-                                        <constraint firstItem="vMk-ww-1hk" firstAttribute="centerX" secondItem="lJJ-4C-b95" secondAttribute="centerX" id="PkU-7u-U05"/>
-                                        <constraint firstItem="2dW-nj-2I3" firstAttribute="top" secondItem="lJJ-4C-b95" secondAttribute="top" constant="64" id="R9h-R4-pqm"/>
-                                        <constraint firstItem="eDq-5S-zV6" firstAttribute="leading" secondItem="lJJ-4C-b95" secondAttribute="leading" constant="16" id="RJP-2h-Nvo"/>
-                                        <constraint firstItem="oTZ-6k-jxM" firstAttribute="centerX" secondItem="lJJ-4C-b95" secondAttribute="centerX" id="SJO-Nv-FFa"/>
-                                        <constraint firstItem="NYc-LZ-wYg" firstAttribute="centerY" secondItem="dKv-v7-0e7" secondAttribute="centerY" id="VZV-Gk-zUd"/>
-                                        <constraint firstItem="vMk-ww-1hk" firstAttribute="top" secondItem="nme-sd-g1g" secondAttribute="bottom" constant="26" id="Z35-sx-gCK"/>
-                                        <constraint firstItem="c8E-MW-xhC" firstAttribute="leading" secondItem="NYc-LZ-wYg" secondAttribute="leading" id="ZxT-wF-zX3"/>
-                                        <constraint firstItem="c8E-MW-xhC" firstAttribute="top" secondItem="oTZ-6k-jxM" secondAttribute="bottom" constant="26" id="agQ-F7-lQl"/>
-                                        <constraint firstItem="eDq-5S-zV6" firstAttribute="top" secondItem="dKv-v7-0e7" secondAttribute="bottom" constant="11" id="bUr-MF-xHU"/>
-                                        <constraint firstItem="nme-sd-g1g" firstAttribute="centerX" secondItem="lJJ-4C-b95" secondAttribute="centerX" id="dwV-16-Cjr"/>
-                                        <constraint firstItem="0Fl-KS-kqb" firstAttribute="centerX" secondItem="lJJ-4C-b95" secondAttribute="centerX" id="ivi-9E-fCo"/>
-                                        <constraint firstItem="2dW-nj-2I3" firstAttribute="top" secondItem="NYc-LZ-wYg" secondAttribute="bottom" constant="20" id="jhO-sP-txZ"/>
-                                        <constraint firstItem="dKv-v7-0e7" firstAttribute="top" secondItem="lJJ-4C-b95" secondAttribute="top" constant="13" id="meQ-dA-2fT"/>
-                                        <constraint firstItem="c8E-MW-xhC" firstAttribute="centerX" secondItem="lJJ-4C-b95" secondAttribute="centerX" id="wMk-46-O2c"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="nq3-sR-csi" secondAttribute="trailing" constant="14" id="1a3-Ho-jIo"/>
+                                        <constraint firstItem="rXO-hG-64B" firstAttribute="centerX" secondItem="lJJ-4C-b95" secondAttribute="centerX" id="1p3-iT-3x2"/>
+                                        <constraint firstItem="oTZ-6k-jxM" firstAttribute="top" secondItem="lJJ-4C-b95" secondAttribute="top" constant="189" id="7Wl-Co-xel"/>
+                                        <constraint firstItem="nq3-sR-csi" firstAttribute="leading" secondItem="lJJ-4C-b95" secondAttribute="leadingMargin" constant="11" id="G7A-RE-Yzn"/>
+                                        <constraint firstItem="2dW-nj-2I3" firstAttribute="top" secondItem="lJJ-4C-b95" secondAttribute="top" constant="64" id="HG2-4l-yTV"/>
+                                        <constraint firstItem="2Yu-S8-yWo" firstAttribute="centerX" secondItem="lJJ-4C-b95" secondAttribute="centerX" id="IE4-It-hRY"/>
+                                        <constraint firstItem="rXO-hG-64B" firstAttribute="top" secondItem="lJJ-4C-b95" secondAttribute="top" constant="530" id="OtM-mV-jKc"/>
+                                        <constraint firstItem="0Fl-KS-kqb" firstAttribute="centerX" secondItem="lJJ-4C-b95" secondAttribute="centerX" id="Owx-mm-wsr"/>
+                                        <constraint firstItem="990-tj-wzH" firstAttribute="top" secondItem="lJJ-4C-b95" secondAttribute="top" constant="290" id="R7s-nJ-WJI"/>
+                                        <constraint firstItem="yan-Cu-QOY" firstAttribute="top" secondItem="lJJ-4C-b95" secondAttribute="top" constant="394" id="RAH-P0-Hep"/>
+                                        <constraint firstItem="2dW-nj-2I3" firstAttribute="leading" secondItem="lJJ-4C-b95" secondAttribute="leadingMargin" constant="11" id="YOU-Jc-3DF"/>
+                                        <constraint firstItem="FE6-Te-2BG" firstAttribute="leading" secondItem="lJJ-4C-b95" secondAttribute="leading" id="fHJ-91-QLi"/>
+                                        <constraint firstItem="2Yu-S8-yWo" firstAttribute="top" secondItem="lJJ-4C-b95" secondAttribute="top" constant="362" id="hu8-ln-p7e"/>
+                                        <constraint firstItem="vMk-ww-1hk" firstAttribute="top" secondItem="lJJ-4C-b95" secondAttribute="top" constant="160" id="idO-MF-Q6f"/>
+                                        <constraint firstItem="990-tj-wzH" firstAttribute="centerX" secondItem="lJJ-4C-b95" secondAttribute="centerX" id="pBE-07-kM3"/>
+                                        <constraint firstItem="nq3-sR-csi" firstAttribute="top" secondItem="lJJ-4C-b95" secondAttribute="top" constant="88" id="qle-5O-WYc"/>
+                                        <constraint firstItem="yan-Cu-QOY" firstAttribute="centerX" secondItem="lJJ-4C-b95" secondAttribute="centerX" id="rbE-fV-ZRL"/>
+                                        <constraint firstItem="oTZ-6k-jxM" firstAttribute="centerX" secondItem="lJJ-4C-b95" secondAttribute="centerX" id="sVC-uL-ble"/>
+                                        <constraint firstItem="vMk-ww-1hk" firstAttribute="centerX" secondItem="lJJ-4C-b95" secondAttribute="centerX" id="tVr-DX-31A"/>
+                                        <constraint firstItem="2dW-nj-2I3" firstAttribute="trailing" secondItem="lJJ-4C-b95" secondAttribute="trailingMargin" id="wpn-11-wUa"/>
+                                        <constraint firstItem="0Fl-KS-kqb" firstAttribute="top" secondItem="lJJ-4C-b95" secondAttribute="top" constant="474" id="xgU-1F-fe7"/>
+                                        <constraint firstItem="c8E-MW-xhC" firstAttribute="centerX" secondItem="lJJ-4C-b95" secondAttribute="centerX" id="yCB-2C-C7R"/>
+                                        <constraint firstItem="FE6-Te-2BG" firstAttribute="top" secondItem="lJJ-4C-b95" secondAttribute="top" constant="13" id="ya5-ap-Ffw"/>
+                                        <constraint firstItem="c8E-MW-xhC" firstAttribute="top" secondItem="lJJ-4C-b95" secondAttribute="top" constant="260" id="ygP-TI-9xQ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="btnEliminar" destination="rXO-hG-64B" id="6Tf-BT-Tbw"/>
                                     <outlet property="btnGuardar" destination="0Fl-KS-kqb" id="Uld-2o-F9J"/>
+                                    <outlet property="lblTitulo" destination="nq3-sR-csi" id="Uaf-UM-a1i"/>
+                                    <outlet property="txtAlias" destination="yan-Cu-QOY" id="5Nf-2W-enS"/>
                                     <outlet property="txtCompania" destination="990-tj-wzH" id="X2q-C9-xaV"/>
-                                    <outlet property="txtNombre" destination="nme-sd-g1g" id="yHQ-u5-nZL"/>
                                     <outlet property="txtNumero" destination="oTZ-6k-jxM" id="Rl3-11-EB1"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PayPalDetailCell" rowHeight="500" id="Nvn-3e-UwP" customClass="PayPalDetailTableViewCell" customModule="ShinShin" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="1278" width="375" height="500"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PayPalDetailCell" rowHeight="580" id="Nvn-3e-UwP" customClass="PayPalDetailTableViewCell" customModule="ShinShin" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="1378" width="375" height="580"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nvn-3e-UwP" id="2bc-8y-jeH">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="499.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="580"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paypal-grey" translatesAutoresizingMaskIntoConstraints="NO" id="pez-fU-65p">
-                                            <rect key="frame" x="16" y="64" width="24" height="24"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="24" id="mEN-RM-lcn"/>
-                                                <constraint firstAttribute="height" constant="24" id="mMl-6L-PoK"/>
-                                            </constraints>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PAYPAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvN-h8-TDl">
-                                            <rect key="frame" x="48" y="64" width="66" height="24"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="66" id="d8t-Aa-5qV"/>
-                                                <constraint firstAttribute="height" constant="24" id="pbV-ci-Udv"/>
-                                            </constraints>
+                                            <rect key="frame" x="19" y="64" width="334" height="24"/>
                                             <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito Black" pointSize="17"/>
-                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.79215686269999996" green="0.79215686269999996" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="[Nueva cuenta]" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FU5-5b-2TU">
-                                            <rect key="frame" x="16" y="88" width="343" height="45"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="45" id="C0S-f1-U5v"/>
-                                                <constraint firstAttribute="width" constant="343" id="zOJ-DK-qd3"/>
-                                            </constraints>
-                                            <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito Black" pointSize="30"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correo electrónico" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWV-qn-g0O">
-                                            <rect key="frame" x="37" y="260" width="301" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="301" id="97S-E1-iVa"/>
-                                                <constraint firstAttribute="height" constant="21" id="UKu-2S-P3d"/>
-                                            </constraints>
+                                            <rect key="frame" x="123" y="261" width="129" height="21"/>
                                             <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="[0155555555]" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mBj-Lb-U6s">
-                                            <rect key="frame" x="37.5" y="189" width="300" height="45"/>
+                                            <rect key="frame" x="36" y="189" width="303" height="48"/>
                                             <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="300" id="pd5-z3-cjP"/>
-                                                <constraint firstAttribute="height" constant="45" id="vMD-pV-rE5"/>
+                                                <constraint firstAttribute="width" constant="303" id="8c4-Ya-gkn"/>
+                                                <constraint firstAttribute="height" constant="48" id="IdX-HL-cXa"/>
                                             </constraints>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="17"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="[aaaaa@bbbb.com]" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ClW-bm-VDY">
-                                            <rect key="frame" x="37.5" y="289" width="300" height="45"/>
+                                            <rect key="frame" x="36" y="290" width="303" height="48"/>
                                             <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="300" id="OrB-bC-jik"/>
-                                                <constraint firstAttribute="height" constant="45" id="e5P-bG-zSW"/>
+                                                <constraint firstAttribute="width" constant="303" id="M97-9y-Qcv"/>
+                                                <constraint firstAttribute="height" constant="48" id="V17-yA-L8R"/>
                                             </constraints>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="17"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oF0-nT-q0P">
-                                            <rect key="frame" x="37.5" y="370" width="300" height="48"/>
+                                            <rect key="frame" x="34.5" y="474" width="306" height="48"/>
                                             <color key="backgroundColor" red="1" green="0.43529411759999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="48" id="3rh-4x-VEV"/>
-                                                <constraint firstAttribute="width" constant="300" id="zJH-Ab-QFi"/>
+                                                <constraint firstAttribute="height" constant="48" id="dkG-uG-oop"/>
+                                                <constraint firstAttribute="width" constant="306" id="fov-3L-2ru"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="17"/>
                                             <state key="normal" title="Guardar">
@@ -2757,74 +2710,108 @@ ganar dinero por tus compras.</string>
                                             </state>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eO7-57-cW0">
-                                            <rect key="frame" x="37.5" y="159" width="300" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="300" id="iTe-8z-tF4"/>
-                                                <constraint firstAttribute="height" constant="21" id="pSY-Wa-eqy"/>
-                                            </constraints>
+                                            <rect key="frame" x="179.5" y="160" width="16" height="21"/>
                                             <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lbe-3m-RPp">
-                                            <rect key="frame" x="0.0" y="13" width="40" height="40"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SoN-zN-mLO">
+                                            <rect key="frame" x="0.0" y="13" width="73" height="40"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q1s-Lh-Vul">
+                                                    <rect key="frame" x="37" y="9" width="36" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Atras"/>
+                                                    <connections>
+                                                        <action selector="back:" destination="2y3-A5-u91" eventType="touchUpInside" id="RGC-4V-3i8"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lbe-3m-RPp">
+                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="back"/>
+                                                    <connections>
+                                                        <action selector="back:" destination="S3U-y2-XI3" eventType="touchUpInside" id="erE-hr-VS0"/>
+                                                        <action selector="back:" destination="49m-Ja-d5k" eventType="touchUpInside" id="zQg-Gy-5li"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="40" id="H8i-bI-PkL"/>
-                                                <constraint firstAttribute="height" constant="40" id="U9V-cK-rxz"/>
+                                                <constraint firstAttribute="width" constant="73" id="bLz-xG-ekX"/>
+                                                <constraint firstAttribute="height" constant="40" id="rQc-Ei-EK9"/>
                                             </constraints>
-                                            <state key="normal" image="back"/>
-                                            <connections>
-                                                <action selector="back:" destination="S3U-y2-XI3" eventType="touchUpInside" id="erE-hr-VS0"/>
-                                                <action selector="back:" destination="49m-Ja-d5k" eventType="touchUpInside" id="zQg-Gy-5li"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q1s-Lh-Vul">
-                                            <rect key="frame" x="37" y="22" width="36" height="22"/>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nueva cuenta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGG-rt-Oxk">
+                                            <rect key="frame" x="19" y="88" width="334" height="48"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="36" id="S1O-qZ-OWK"/>
-                                                <constraint firstAttribute="height" constant="22" id="eCg-ex-4bA"/>
+                                                <constraint firstAttribute="height" constant="48" id="oIb-4D-oDC"/>
                                             </constraints>
-                                            <state key="normal" title="Atras"/>
-                                            <connections>
-                                                <action selector="back:" destination="2y3-A5-u91" eventType="touchUpInside" id="RGC-4V-3i8"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7W-n8-Vzb">
-                                            <rect key="frame" x="136" y="432" width="103" height="33"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito Black" pointSize="32"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre corto" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fqw-AF-7Gy">
+                                            <rect key="frame" x="138.5" y="362" width="98.5" height="20.5"/>
+                                            <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h8J-8X-v2T">
+                                            <rect key="frame" x="36" y="394" width="303" height="48"/>
+                                            <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="303" id="Qvu-H4-gQi"/>
+                                                <constraint firstAttribute="height" constant="48" id="loK-Wd-tBU"/>
+                                            </constraints>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="17"/>
+                                            <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="maskExpression" value="{dddd}-{dddd}-{dddd}-{dddd}"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="maskTemplate" value="X"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7W-n8-Vzb">
+                                            <rect key="frame" x="136" y="530" width="103" height="33"/>
                                             <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="15"/>
                                             <state key="normal" title="Eliminar cuenta"/>
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="jvN-h8-TDl" firstAttribute="leading" secondItem="pez-fU-65p" secondAttribute="trailing" constant="8" id="7te-tk-4vC"/>
-                                        <constraint firstItem="ClW-bm-VDY" firstAttribute="top" secondItem="qWV-qn-g0O" secondAttribute="bottom" constant="8" id="AxN-9O-htH"/>
-                                        <constraint firstItem="qWV-qn-g0O" firstAttribute="centerX" secondItem="2bc-8y-jeH" secondAttribute="centerX" id="Com-yO-Txl"/>
-                                        <constraint firstItem="eO7-57-cW0" firstAttribute="centerX" secondItem="2bc-8y-jeH" secondAttribute="centerX" id="D36-P0-zDJ"/>
-                                        <constraint firstItem="q1s-Lh-Vul" firstAttribute="leading" secondItem="Lbe-3m-RPp" secondAttribute="trailing" constant="-3" id="Dd3-xJ-blD"/>
-                                        <constraint firstItem="FU5-5b-2TU" firstAttribute="centerX" secondItem="2bc-8y-jeH" secondAttribute="centerX" id="EI9-1i-kwL"/>
-                                        <constraint firstItem="pez-fU-65p" firstAttribute="top" secondItem="Lbe-3m-RPp" secondAttribute="bottom" constant="11" id="Ixq-ZE-Ghs"/>
-                                        <constraint firstItem="qWV-qn-g0O" firstAttribute="top" secondItem="mBj-Lb-U6s" secondAttribute="bottom" constant="26" id="QVf-lU-LAG"/>
-                                        <constraint firstItem="pez-fU-65p" firstAttribute="leading" secondItem="2bc-8y-jeH" secondAttribute="leadingMargin" constant="8" id="TIM-pw-W4h"/>
-                                        <constraint firstItem="ClW-bm-VDY" firstAttribute="centerX" secondItem="2bc-8y-jeH" secondAttribute="centerX" id="TPH-Rf-edA"/>
-                                        <constraint firstItem="Lbe-3m-RPp" firstAttribute="leading" secondItem="2bc-8y-jeH" secondAttribute="leading" id="WV4-pS-cz1"/>
-                                        <constraint firstItem="q1s-Lh-Vul" firstAttribute="top" secondItem="2bc-8y-jeH" secondAttribute="top" constant="22" id="baO-0e-PW0"/>
-                                        <constraint firstItem="mBj-Lb-U6s" firstAttribute="top" secondItem="eO7-57-cW0" secondAttribute="bottom" constant="9" id="gFs-Vt-2aS"/>
-                                        <constraint firstItem="oF0-nT-q0P" firstAttribute="top" secondItem="ClW-bm-VDY" secondAttribute="bottom" constant="36" id="nWR-bg-82V"/>
-                                        <constraint firstItem="mBj-Lb-U6s" firstAttribute="centerX" secondItem="2bc-8y-jeH" secondAttribute="centerX" id="tPH-2Z-2FP"/>
-                                        <constraint firstItem="FU5-5b-2TU" firstAttribute="top" secondItem="jvN-h8-TDl" secondAttribute="bottom" id="tZM-aq-dmW"/>
-                                        <constraint firstItem="Lbe-3m-RPp" firstAttribute="top" secondItem="2bc-8y-jeH" secondAttribute="top" constant="13" id="uCW-nh-Y9l"/>
-                                        <constraint firstItem="jvN-h8-TDl" firstAttribute="top" secondItem="q1s-Lh-Vul" secondAttribute="bottom" constant="20" id="vib-nw-jLN"/>
-                                        <constraint firstItem="oF0-nT-q0P" firstAttribute="centerX" secondItem="2bc-8y-jeH" secondAttribute="centerX" id="wOG-KR-gwX"/>
-                                        <constraint firstItem="eO7-57-cW0" firstAttribute="top" secondItem="FU5-5b-2TU" secondAttribute="bottom" constant="26" id="x2N-gt-Pj9"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="jvN-h8-TDl" secondAttribute="trailing" constant="14" id="0Ip-QV-sh3"/>
+                                        <constraint firstItem="mBj-Lb-U6s" firstAttribute="top" secondItem="2bc-8y-jeH" secondAttribute="top" constant="189" id="7FK-R1-xDj"/>
+                                        <constraint firstItem="BGG-rt-Oxk" firstAttribute="top" secondItem="2bc-8y-jeH" secondAttribute="top" constant="88" id="8SA-yu-M1g"/>
+                                        <constraint firstItem="oF0-nT-q0P" firstAttribute="top" secondItem="2bc-8y-jeH" secondAttribute="top" constant="474" id="8WD-7X-4Yy"/>
+                                        <constraint firstItem="h8J-8X-v2T" firstAttribute="centerX" secondItem="2bc-8y-jeH" secondAttribute="centerX" id="FWM-9G-dEE"/>
+                                        <constraint firstItem="qWV-qn-g0O" firstAttribute="centerX" secondItem="2bc-8y-jeH" secondAttribute="centerX" id="Hkq-qg-J6a"/>
+                                        <constraint firstItem="Fqw-AF-7Gy" firstAttribute="centerX" secondItem="2bc-8y-jeH" secondAttribute="centerX" id="JW0-Uu-tBa"/>
+                                        <constraint firstItem="eO7-57-cW0" firstAttribute="top" secondItem="2bc-8y-jeH" secondAttribute="top" constant="160" id="JXk-UD-two"/>
+                                        <constraint firstItem="jvN-h8-TDl" firstAttribute="top" secondItem="2bc-8y-jeH" secondAttribute="top" constant="64" id="RLG-k9-KeE"/>
+                                        <constraint firstItem="qWV-qn-g0O" firstAttribute="top" secondItem="2bc-8y-jeH" secondAttribute="top" constant="261" id="W5S-7n-pfU"/>
+                                        <constraint firstItem="eO7-57-cW0" firstAttribute="centerX" secondItem="2bc-8y-jeH" secondAttribute="centerX" id="Yb6-V1-EDQ"/>
+                                        <constraint firstItem="jvN-h8-TDl" firstAttribute="leading" secondItem="2bc-8y-jeH" secondAttribute="leadingMargin" constant="11" id="axP-Ki-V4g"/>
+                                        <constraint firstItem="h7W-n8-Vzb" firstAttribute="top" secondItem="2bc-8y-jeH" secondAttribute="top" constant="530" id="coW-TJ-a0i"/>
+                                        <constraint firstItem="SoN-zN-mLO" firstAttribute="top" secondItem="2bc-8y-jeH" secondAttribute="top" constant="13" id="eV4-We-yQd"/>
+                                        <constraint firstItem="oF0-nT-q0P" firstAttribute="centerX" secondItem="2bc-8y-jeH" secondAttribute="centerX" id="eci-Bv-dHV"/>
+                                        <constraint firstItem="ClW-bm-VDY" firstAttribute="centerX" secondItem="2bc-8y-jeH" secondAttribute="centerX" id="kkk-2e-ZOt"/>
+                                        <constraint firstItem="h8J-8X-v2T" firstAttribute="top" secondItem="2bc-8y-jeH" secondAttribute="top" constant="394" id="q2M-o0-XOl"/>
+                                        <constraint firstItem="BGG-rt-Oxk" firstAttribute="leading" secondItem="2bc-8y-jeH" secondAttribute="leadingMargin" constant="11" id="q3h-bM-Qri"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="BGG-rt-Oxk" secondAttribute="trailing" constant="14" id="ttL-mU-C4G"/>
+                                        <constraint firstItem="mBj-Lb-U6s" firstAttribute="centerX" secondItem="2bc-8y-jeH" secondAttribute="centerX" id="vwY-Wd-osM"/>
+                                        <constraint firstItem="ClW-bm-VDY" firstAttribute="top" secondItem="2bc-8y-jeH" secondAttribute="top" constant="290" id="vxH-Ss-bJ1"/>
+                                        <constraint firstItem="Fqw-AF-7Gy" firstAttribute="top" secondItem="2bc-8y-jeH" secondAttribute="top" constant="362" id="wio-ql-RXN"/>
+                                        <constraint firstItem="h7W-n8-Vzb" firstAttribute="centerX" secondItem="2bc-8y-jeH" secondAttribute="centerX" id="x8o-4y-kCj"/>
+                                        <constraint firstItem="SoN-zN-mLO" firstAttribute="leading" secondItem="2bc-8y-jeH" secondAttribute="leading" id="zEz-i9-y7U"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="btnEliminar" destination="h7W-n8-Vzb" id="jqF-8q-WYj"/>
                                     <outlet property="btnGuardar" destination="oF0-nT-q0P" id="6lP-ml-1r1"/>
+                                    <outlet property="lblTitulo" destination="BGG-rt-Oxk" id="HcI-f9-iur"/>
+                                    <outlet property="txtAlias" destination="h8J-8X-v2T" id="itn-yo-WMo"/>
                                     <outlet property="txtEmail" destination="ClW-bm-VDY" id="fhe-0B-tyi"/>
                                     <outlet property="txtId" destination="mBj-Lb-U6s" id="9VU-XW-QkN"/>
-                                    <outlet property="txtNombre" destination="FU5-5b-2TU" id="nvI-7u-1ky"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -2837,7 +2824,7 @@ ganar dinero por tus compras.</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x8G-Tr-dv9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="118" y="2964"/>
+            <point key="canvasLocation" x="117.59999999999999" y="2963.568215892054"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="9VO-4J-mZH">
@@ -4582,7 +4569,7 @@ a tu saldo,
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZ4-I6-db5">
-                                        <rect key="frame" x="36" y="100" width="60" height="60"/>
+                                        <rect key="frame" x="36" y="90" width="238" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="retirarAction:" destination="v1g-14-MbK" eventType="touchUpInside" id="sVM-Fg-uK0"/>
@@ -4827,25 +4814,25 @@ Shing</string>
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="47"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="[Cuenta****]" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARq-vY-g71">
-                                                    <rect key="frame" x="16" y="11" width="83" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="[Cuenta****]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARq-vY-g71">
+                                                    <rect key="frame" x="120" y="11" width="112" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="15"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="[MM/YY]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJa-Or-JQJ">
-                                                    <rect key="frame" x="121" y="11" width="57" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="[Alias]" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJa-Or-JQJ">
+                                                    <rect key="frame" x="16" y="11" width="96" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="[Tipo tarjeta]" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kf6-oJ-fnT">
-                                                    <rect key="frame" x="249" y="12" width="84" height="21"/>
+                                                    <rect key="frame" x="249" y="11" width="84" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="15"/>
-                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.79215686269999996" green="0.79215686269999996" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iql-rr-rnk">
@@ -4863,9 +4850,9 @@ Shing</string>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="lblAlias" destination="wJa-Or-JQJ" id="7xH-bz-Rky"/>
                                             <outlet property="lblCuenta" destination="ARq-vY-g71" id="5kX-j1-aPF"/>
                                             <outlet property="lblTipo" destination="Kf6-oJ-fnT" id="zKL-Fm-Gas"/>
-                                            <outlet property="lblVigencia" destination="wJa-Or-JQJ" id="36k-XN-zFX"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PayPalCell" rowHeight="47" id="J4F-FD-B4C" customClass="PayPalTableViewCell" customModule="ShinShin" customModuleProvider="target">
@@ -4875,8 +4862,8 @@ Shing</string>
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="47"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="[Cuenta PayPal]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LkB-cu-2qg">
-                                                    <rect key="frame" x="16" y="11" width="317" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="[Cuenta PayPal]" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LkB-cu-2qg">
+                                                    <rect key="frame" x="16" y="11" width="96" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="15"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -4889,6 +4876,13 @@ Shing</string>
                                                         <constraint firstAttribute="height" constant="1" id="IFg-D2-Jz9"/>
                                                     </constraints>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="[ID]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jfo-Ns-xo1">
+                                                    <rect key="frame" x="120" y="11" width="108" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="15"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="LTc-ne-5XJ" secondAttribute="bottom" constant="1" id="cMf-JA-NzN"/>
@@ -4897,7 +4891,8 @@ Shing</string>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="lblCuenta" destination="LkB-cu-2qg" id="isr-mh-F4l"/>
+                                            <outlet property="lblAlias" destination="LkB-cu-2qg" id="XP1-kE-c5H"/>
+                                            <outlet property="lblID" destination="Jfo-Ns-xo1" id="tPl-SD-Vjk"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="RecargaCell" rowHeight="47" id="6pF-cF-Y1l" customClass="RecargaTableViewCell" customModule="ShinShin" customModuleProvider="target">
@@ -4911,11 +4906,11 @@ Shing</string>
                                                     <rect key="frame" x="257" y="10" width="76" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="15"/>
-                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.79215686269999996" green="0.79215686269999996" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="[Numero telefonico]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1d-70-qtv">
-                                                    <rect key="frame" x="16" y="11" width="229" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="[5555555555]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1d-70-qtv">
+                                                    <rect key="frame" x="120" y="11" width="108" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="15"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -4928,6 +4923,13 @@ Shing</string>
                                                         <constraint firstAttribute="height" constant="1" id="3aI-wW-TXV"/>
                                                     </constraints>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="[Alias]" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMd-Te-ipo">
+                                                    <rect key="frame" x="16" y="11" width="96" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="15"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="erl-XT-Y8s" firstAttribute="leading" secondItem="f5o-BH-Quw" secondAttribute="leading" id="D7Y-5m-LJw"/>
@@ -4936,6 +4938,7 @@ Shing</string>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="lblAlias" destination="VMd-Te-ipo" id="ihy-vl-dp5"/>
                                             <outlet property="lblCompania" destination="e9b-w1-NbY" id="zAy-vZ-wEk"/>
                                             <outlet property="lblNumero" destination="c1d-70-qtv" id="Wpo-L4-oeg"/>
                                         </connections>
@@ -4998,7 +5001,7 @@ Shing</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="agregarFoto" translatesAutoresizingMaskIntoConstraints="NO" id="ddO-3i-VP2">
-                                                    <rect key="frame" x="137.5" y="59" width="100" height="100"/>
+                                                    <rect key="frame" x="137.5" y="59" width="100.00000000000001" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="LAn-YF-PLF"/>
                                                         <constraint firstAttribute="height" constant="100" id="jEe-Ov-Z6q"/>
@@ -6630,6 +6633,7 @@ tener buena iluminación y
         <image name="barrilito-xl" width="119" height="119"/>
         <image name="bonafont" width="44" height="36"/>
         <image name="calendar-grey" width="12" height="12"/>
+        <image name="camera-orange" width="12" height="12"/>
         <image name="camera-white" width="12" height="12"/>
         <image name="check-white" width="12" height="12"/>
         <image name="chedraui" width="20" height="16"/>
@@ -6659,14 +6663,11 @@ tener buena iluminación y
         <image name="menu-contacto" width="16" height="16"/>
         <image name="menu-cuenta" width="16" height="16"/>
         <image name="menu-user" width="16" height="16"/>
-        <image name="money-grey" width="12" height="12"/>
         <image name="money-white" width="12" height="12"/>
         <image name="ok_placeholder" width="64" height="64"/>
         <image name="password-right-grey" width="12" height="12"/>
-        <image name="paypal-grey" width="12" height="12"/>
         <image name="producto_detail_placeholder" width="64" height="64"/>
         <image name="question-white" width="12" height="12"/>
-        <image name="recarga-grey" width="12" height="12"/>
         <image name="sams" width="20" height="16"/>
         <image name="succes-green" width="12" height="12"/>
         <image name="triangle" width="32" height="32"/>
@@ -6675,7 +6676,7 @@ tener buena iluminación y
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="LjV-57-taI"/>
-        <segue reference="vCv-Yz-YPE"/>
+        <segue reference="ACn-e3-QpV"/>
         <segue reference="da3-6v-vQc"/>
         <segue reference="ym2-Na-ioa"/>
         <segue reference="zBg-7t-0hQ"/>

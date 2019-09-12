@@ -10,7 +10,8 @@ import UIKit
 
 class PayPalTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var lblCuenta: UILabel!
+    @IBOutlet weak var lblAlias: UILabel!
+    @IBOutlet weak var lblID: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

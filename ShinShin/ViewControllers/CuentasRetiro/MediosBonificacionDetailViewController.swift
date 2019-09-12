@@ -35,6 +35,7 @@ class MediosBonificacionDetailViewController: UITableViewController {
     var sectionSelected = -1
     var item: MediosBonificacion?
     var idMedio = -1
+    var mensaje = ""
     
     weak var delegate: MediosBonificacionControllerDelegate?
     
@@ -125,57 +126,73 @@ class MediosBonificacionDetailViewController: UITableViewController {
     @objc func actualizarItem(){
         if tipoCuenta == .Bancaria{
             if let cell = tmpCell as? BancoDetailTableViewCell{
-                let item = MediosBonificacion()
-                item.idMediosBonificacion = idMedio
-                let cat = CatalogoMediosBonificacion()
-                cat.idCatalogoMedioBonificacion = 1
-                let user = Usuario()
-                user.idUsuario = Model.user?.idUsuario
-                
-                item.usuario = user
-                item.catalogoMediosBonificacion = cat
-                item.aliasMedioBonificacion = cell.txtNombre.text
-                item.cuentaMedioBonificacion = cell.txtTarjeta.text
-                item.idTipo = cell.idTipoBancaria
-                
-                let vigencia = cell.txtMes.text! + "/" + cell.txtAnio.text!
-                
-                item.vigenciaMedioBonificacion = vigencia
-                actualizarMedioBonificacionRequest(with: item)
+                let resp = cell.isValid()
+                if resp.valid{
+                    let item = MediosBonificacion()
+                    item.idMediosBonificacion = idMedio
+                    let cat = CatalogoMediosBonificacion()
+                    cat.idCatalogoMedioBonificacion = 1
+                    let user = Usuario()
+                    user.idUsuario = Model.user?.idUsuario
+                    
+                    item.usuario = user
+                    item.catalogoMediosBonificacion = cat
+                    item.aliasMedioBonificacion = cell.txtAlias.text
+                    item.cuentaMedioBonificacion = cell.txtTarjeta.text
+                    item.idTipo = cell.idTipoBancaria
+                    item.banco = cell.txtBanco.text
+                    
+                    actualizarMedioBonificacionRequest(with: item)
+                }
+                else{
+                    present(resp.alert!, animated: true, completion: nil)
+                }
             }
         }
         else if tipoCuenta == .PayPal{
             if let cell = tmpCell as? PayPalDetailTableViewCell{
-                let item = MediosBonificacion()
-                item.idMediosBonificacion = idMedio
-                let cat = CatalogoMediosBonificacion()
-                cat.idCatalogoMedioBonificacion = 2
-                let user = Usuario()
-                user.idUsuario = Model.user?.idUsuario
-                
-                item.usuario = user
-                item.catalogoMediosBonificacion = cat
-                item.aliasMedioBonificacion = cell.txtNombre.text
-                item.idCuentaMedioBonificacion = cell.txtId.text
-                item.cuentaMedioBonificacion = cell.txtEmail.text
-                actualizarMedioBonificacionRequest(with: item)
+                let resp = cell.isValid()
+                if resp.valid{
+                    let item = MediosBonificacion()
+                    item.idMediosBonificacion = idMedio
+                    let cat = CatalogoMediosBonificacion()
+                    cat.idCatalogoMedioBonificacion = 2
+                    let user = Usuario()
+                    user.idUsuario = Model.user?.idUsuario
+                    
+                    item.usuario = user
+                    item.catalogoMediosBonificacion = cat
+                    item.idCuentaMedioBonificacion = cell.txtId.text
+                    item.cuentaMedioBonificacion = cell.txtEmail.text
+                    item.aliasMedioBonificacion = cell.txtAlias.text
+                    actualizarMedioBonificacionRequest(with: item)
+                }
+                else{
+                    present(resp.alert!, animated: true, completion: nil)
+                }
             }
         }
         else if tipoCuenta == .Recarga{
             if let cell = tmpCell as? RecargaDetailTableViewCell{
-                let item = MediosBonificacion()
-                item.idMediosBonificacion = idMedio
-                let cat = CatalogoMediosBonificacion()
-                cat.idCatalogoMedioBonificacion = 3
-                let user = Usuario()
-                user.idUsuario = Model.user?.idUsuario
-                
-                item.usuario = user
-                item.catalogoMediosBonificacion = cat
-                item.aliasMedioBonificacion = cell.txtNombre.text
-                item.cuentaMedioBonificacion = cell.txtNumero.text
-                item.companiaMedioBonificacion = cell.txtCompania.text
-                actualizarMedioBonificacionRequest(with: item)
+                let resp = cell.isValid()
+                if resp.valid{
+                    let item = MediosBonificacion()
+                    item.idMediosBonificacion = idMedio
+                    let cat = CatalogoMediosBonificacion()
+                    cat.idCatalogoMedioBonificacion = 3
+                    let user = Usuario()
+                    user.idUsuario = Model.user?.idUsuario
+                    
+                    item.usuario = user
+                    item.catalogoMediosBonificacion = cat
+                    item.cuentaMedioBonificacion = cell.txtNumero.text
+                    item.companiaMedioBonificacion = cell.txtCompania.text
+                    item.aliasMedioBonificacion = cell.txtAlias.text
+                    actualizarMedioBonificacionRequest(with: item)
+                }
+                else{
+                    present(resp.alert!, animated: true, completion: nil)
+                }
             }
         }
     }
@@ -191,54 +208,71 @@ class MediosBonificacionDetailViewController: UITableViewController {
         //guardarMedioBonificacionUsuario
         if tipoCuenta == .Bancaria{
             if let cell = tmpCell as? BancoDetailTableViewCell{
-                let item = MediosBonificacion()
-                let cat = CatalogoMediosBonificacion()
-                cat.idCatalogoMedioBonificacion = 1
-                let user = Usuario()
-                user.idUsuario = Model.user?.idUsuario
-                
-                item.usuario = user
-                item.catalogoMediosBonificacion = cat
-                item.aliasMedioBonificacion = cell.txtNombre.text
-                item.cuentaMedioBonificacion = cell.txtTarjeta.text
-                item.idTipo = cell.idTipoBancaria
-                
-                let vigencia = cell.txtMes.text! + "/" + cell.txtAnio.text!
-                
-                item.vigenciaMedioBonificacion = vigencia
-                guardarMedioBonificacionRequest(with: item)
+                let resp = cell.isValid()
+                if resp.valid{
+                    let item = MediosBonificacion()
+                    let cat = CatalogoMediosBonificacion()
+                    cat.idCatalogoMedioBonificacion = 1
+                    let user = Usuario()
+                    user.idUsuario = Model.user?.idUsuario
+                    
+                    item.usuario = user
+                    item.catalogoMediosBonificacion = cat
+                    item.aliasMedioBonificacion = cell.txtAlias.text
+                    item.cuentaMedioBonificacion = cell.txtTarjeta.text
+                    item.idTipo = cell.idTipoBancaria
+                    item.banco = cell.txtBanco.text
+                    
+                    guardarMedioBonificacionRequest(with: item)
+                }
+                else{
+                    present(resp.alert!, animated: true, completion: nil)
+                }
             }
         }
         else if tipoCuenta == .PayPal{
             if let cell = tmpCell as? PayPalDetailTableViewCell{
-                let item = MediosBonificacion()
-                let cat = CatalogoMediosBonificacion()
-                cat.idCatalogoMedioBonificacion = 2
-                let user = Usuario()
-                user.idUsuario = Model.user?.idUsuario
-                
-                item.usuario = user
-                item.catalogoMediosBonificacion = cat
-                item.aliasMedioBonificacion = cell.txtNombre.text
-                item.idCuentaMedioBonificacion = cell.txtId.text
-                item.cuentaMedioBonificacion = cell.txtEmail.text
-                guardarMedioBonificacionRequest(with: item)
+                let resp = cell.isValid()
+                if resp.valid{
+                    let item = MediosBonificacion()
+                    let cat = CatalogoMediosBonificacion()
+                    cat.idCatalogoMedioBonificacion = 2
+                    let user = Usuario()
+                    user.idUsuario = Model.user?.idUsuario
+                    
+                    item.usuario = user
+                    item.catalogoMediosBonificacion = cat
+                    item.idCuentaMedioBonificacion = cell.txtId.text
+                    item.cuentaMedioBonificacion = cell.txtEmail.text
+                    item.aliasMedioBonificacion = cell.txtAlias.text
+                    guardarMedioBonificacionRequest(with: item)
+                }
+                else{
+                    present(resp.alert!, animated: true, completion: nil)
+                }
             }
         }
         else if tipoCuenta == .Recarga{
             if let cell = tmpCell as? RecargaDetailTableViewCell{
-                let item = MediosBonificacion()
-                let cat = CatalogoMediosBonificacion()
-                cat.idCatalogoMedioBonificacion = 3
-                let user = Usuario()
-                user.idUsuario = Model.user?.idUsuario
                 
-                item.usuario = user
-                item.catalogoMediosBonificacion = cat
-                item.aliasMedioBonificacion = cell.txtNombre.text
-                item.cuentaMedioBonificacion = cell.txtNumero.text
-                item.companiaMedioBonificacion = cell.txtCompania.text
-                guardarMedioBonificacionRequest(with: item)
+                let resp = cell.isValid()
+                if resp.valid{
+                    let item = MediosBonificacion()
+                    let cat = CatalogoMediosBonificacion()
+                    cat.idCatalogoMedioBonificacion = 3
+                    let user = Usuario()
+                    user.idUsuario = Model.user?.idUsuario
+                    
+                    item.usuario = user
+                    item.catalogoMediosBonificacion = cat
+                    item.cuentaMedioBonificacion = cell.txtNumero.text
+                    item.companiaMedioBonificacion = cell.txtCompania.text
+                    item.aliasMedioBonificacion = cell.txtAlias.text
+                    guardarMedioBonificacionRequest(with: item)
+                }
+                else{
+                    present(resp.alert!, animated: true, completion: nil)
+                }
             }
         }
     }
@@ -248,19 +282,16 @@ class MediosBonificacionDetailViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BancoDetailCell", for: indexPath) as! BancoDetailTableViewCell
         
         if let itemToEdit = item{
-            
             idMedio = itemToEdit.idMediosBonificacion!
-            cell.txtNombre.text = itemToEdit.aliasMedioBonificacion
+            mensaje = "Aqui no pasó nada, cuenta eliminada"
+
             cell.idTipo = itemToEdit.idTipo!
             cell.idTipoBancaria = itemToEdit.idTipo!
-//            cell.txtTipo.text = itemToEdit.idMediosBonificacion
-            let components = itemToEdit.vigenciaMedioBonificacion?.components(separatedBy: "/")
             
-            cell.txtMes.text = components![0]
-            cell.txtAnio.text = components![1]
+            cell.lblTitulo.text = itemToEdit.aliasMedioBonificacion
             cell.txtTarjeta.text = itemToEdit.cuentaMedioBonificacion
-            
-            
+            cell.txtBanco.text = itemToEdit.banco
+            cell.txtAlias.text = itemToEdit.aliasMedioBonificacion
             cell.btnEliminar.isHidden = false
             cell.btnEliminar.addTarget(self, action: #selector(eliminarItem), for: .touchUpInside)
             cell.btnGuardar.addTarget(self, action: #selector(actualizarItem), for: .touchUpInside)
@@ -279,22 +310,17 @@ class MediosBonificacionDetailViewController: UITableViewController {
         tipoCuenta = .PayPal
         let cell = tableView.dequeueReusableCell(withIdentifier: "PayPalDetailCell", for: indexPath) as! PayPalDetailTableViewCell
         
-        cell.txtNombre.delegate = self
-        cell.txtId.delegate = self
-        cell.txtEmail.delegate = self
-        
         if let itemToEdit = item{
             idMedio = itemToEdit.idMediosBonificacion!
-            cell.txtNombre.text = itemToEdit.aliasMedioBonificacion
+            mensaje = "Aqui no pasó nada, cuenta eliminada"
+            cell.lblTitulo.text = itemToEdit.aliasMedioBonificacion
             cell.txtId.text = itemToEdit.idCuentaMedioBonificacion
             cell.txtEmail.text = itemToEdit.cuentaMedioBonificacion
-            
+            cell.txtAlias.text = itemToEdit.aliasMedioBonificacion
             cell.btnEliminar.isHidden = false
-            
             cell.btnEliminar.addTarget(self, action: #selector(eliminarItem), for: .touchUpInside)
             cell.btnGuardar.addTarget(self, action: #selector(actualizarItem), for: .touchUpInside)
             tmpCell = cell
-            
         }
         else{
             cell.btnEliminar.isHidden = true
@@ -312,11 +338,12 @@ class MediosBonificacionDetailViewController: UITableViewController {
         
         if let itemToEdit = item{
             idMedio = itemToEdit.idMediosBonificacion!
-            cell.txtNombre.text = itemToEdit.aliasMedioBonificacion
+            mensaje = "Aqui no pasó nada, número eliminado"
+            cell.lblTitulo.text = itemToEdit.aliasMedioBonificacion
             cell.txtNumero.text = itemToEdit.cuentaMedioBonificacion
             cell.txtCompania.text = itemToEdit.companiaMedioBonificacion
             cell.btnEliminar.isHidden = false
-            
+            cell.txtAlias.text = itemToEdit.aliasMedioBonificacion
             cell.btnEliminar.addTarget(self, action: #selector(eliminarItem), for: .touchUpInside)
             cell.btnGuardar.addTarget(self, action: #selector(actualizarItem), for: .touchUpInside)
             tmpCell = cell
@@ -336,7 +363,7 @@ class MediosBonificacionDetailViewController: UITableViewController {
             
             let json = try encoder.encode(item)
             RESTHandler.delegate = self
-            RESTHandler.postOperationTo(RESTHandler.eliminarMedioBonificacionUsuario, with: json, and: ID_RQT_GUARDAR)
+            RESTHandler.postOperationTo(RESTHandler.eliminarMedioBonificacionUsuario, with: json, and: ID_RQT_ELIMINAR)
         }
         catch{
             
@@ -434,7 +461,7 @@ extension MediosBonificacionDetailViewController: RESTActionDelegate{
             
             if identifier == ID_RQT_ELIMINAR{
                 let rsp = try decoder.decode(SimpleResponse.self, from: data)
-                delegate?.addItemViewController(self, didFinishAddind: "Aqui no pasó nada, cuenta eliminada")
+                delegate?.addItemViewController(self, didFinishAddind: mensaje)
             }
             
             if identifier == ID_RQT_ACTUALIZAR{

@@ -10,6 +10,7 @@ import UIKit
 
 class RecargaTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var lblAlias: UILabel!
     @IBOutlet weak var lblNumero: UILabel!
     @IBOutlet weak var lblCompania: UILabel!    
 

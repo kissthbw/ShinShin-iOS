@@ -10,11 +10,12 @@ import UIKit
 
 class RecargaDetailTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var txtNombre: UITextField!
+    @IBOutlet weak var lblTitulo: UILabel!
     @IBOutlet weak var txtNumero: UITextField!{
         didSet { txtNumero?.addDoneCancelToolbar() }
     }
     @IBOutlet weak var txtCompania: UITextField!
+    @IBOutlet weak var txtAlias: UITextField!
     @IBOutlet weak var btnGuardar: UIButton!
     @IBOutlet weak var btnEliminar: UIButton!
     
@@ -32,7 +33,7 @@ class RecargaDetailTableViewCell: UITableViewCell {
         txtNumero.delegate = self
         txtNumero.tag = UITextTags.TxtNumero.rawValue
         
-        txtNombre.layer.cornerRadius = 10.0
+        txtAlias.layer.cornerRadius = 10.0
         txtNumero.layer.cornerRadius = 10.0
         txtCompania.layer.cornerRadius = 10.0
         btnGuardar.layer.cornerRadius = 10.0
@@ -107,5 +108,17 @@ extension RecargaDetailTableViewCell: UITextFieldDelegate{
         else{
             return true
         }
+    }
+}
+
+extension RecargaDetailTableViewCell{
+    func isValid() -> (valid: Bool, alert: UIAlertController?){
+        if Validations.isEmpty(value: txtAlias.text!) || Validations.isEmpty(value: txtNumero.text!) || Validations.isEmpty(value: txtCompania.text!){
+            let alert = Validations.show(message: "Ingresa todos los datos", with: "ShingShing")
+            
+            return (false, alert)
+        }
+        
+        return (true, nil)
     }
 }

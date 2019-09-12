@@ -10,8 +10,8 @@ import UIKit
 
 class BancoTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var lblAlias: UILabel!
     @IBOutlet weak var lblCuenta: UILabel!
-    @IBOutlet weak var lblVigencia: UILabel!
     @IBOutlet weak var lblTipo: UILabel!
 
     override func awakeFromNib() {
