@@ -13,6 +13,8 @@ class PrincipalViewController: UIViewController {
 
     //MARK: - Propiedades
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var lblMensaje: UILabel!
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
     
     var tituloHeader: String = ""
@@ -38,6 +40,8 @@ class PrincipalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        cardView.layer.cornerRadius = 10.0
         
         let menuNavigationController = storyboard!.instantiateViewController(withIdentifier: "MenuNavigationController") as! SideMenuNavigationController
         SideMenuManager.default.rightMenuNavigationController = menuNavigationController
@@ -65,6 +69,39 @@ class PrincipalViewController: UIViewController {
         favoritosRequest()
         catalogoTiendasRequest()
         catalogoDepartamentosRequest()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if Model.perfilActualizado{
+            Model.perfilActualizado = false
+            UIView.animate(withDuration: 2.0,
+                           delay: 0.0,
+                           usingSpringWithDamping: 0.5,
+                           initialSpringVelocity: 5.0,
+                           options: [.curveEaseIn],
+                           animations: {
+                            self.topConstraint.constant = 50
+                            self.view.setNeedsLayout()
+                            self.view.layoutIfNeeded()
+            }, completion: { (true) in
+                UIView.animate(withDuration: 2.0,
+                               delay: 0.0,
+                               usingSpringWithDamping: 0.5,
+                               initialSpringVelocity: 5.0,
+                               options: [.curveEaseIn],
+                               animations: {
+                                self.topConstraint.constant = 0
+                                self.view.setNeedsLayout()
+                                self.view.layoutIfNeeded()
+                }, completion: nil)
+            })
+
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     //MARK: - Actions

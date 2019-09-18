@@ -11,9 +11,11 @@ import UIKit
 extension UIImageView{
     func loadImage(url: URL) ->URLSessionDownloadTask{
         let session = URLSession.shared
+        var urlRequest = URLRequest(url: url)
+        urlRequest.cachePolicy = URLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData
         
         //1. URLSessionDownloadTask save in a temp file istead of in memory
-        let downloadTask = session.downloadTask(with: url) {
+        let downloadTask = session.downloadTask(with: urlRequest) {
             [weak self] url, response, error in
             
             //url: temp file

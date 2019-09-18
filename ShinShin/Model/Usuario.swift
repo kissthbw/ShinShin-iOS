@@ -33,6 +33,9 @@ class Usuario: Codable, CustomStringConvertible{
     var codigoVerificacion: String?
     var idCatalogoSexo: Int?
     var idRedSocial: Int?
+    var imageData: String?
+    var contraseniaActual: String?
+    var imgUrl: String?
     
     //Para el guardado del ticket
     var tickets: [Ticket]?

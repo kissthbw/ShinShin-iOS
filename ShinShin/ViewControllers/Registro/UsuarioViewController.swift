@@ -339,6 +339,7 @@ class UsuarioViewController: UITableViewController {
             view.layer.cornerRadius = 10.0
         }
 
+        viewShowPickerView.layer.cornerRadius = 10.0
         btnRegistrar.layer.cornerRadius = 10.0
         btnRegistrar.isEnabled = true
         switchAceptar.isOn = false

@@ -15,6 +15,7 @@
 		A20B145E22A036B300667D39 /* Page1.xib in Resources */ = {isa = PBXBuildFile; fileRef = A20B145D22A036B300667D39 /* Page1.xib */; };
 		A20B146022A0441600667D39 /* Page2.xib in Resources */ = {isa = PBXBuildFile; fileRef = A20B145F22A0441600667D39 /* Page2.xib */; };
 		A20BA6832264E5960030572F /* RESTHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20BA6822264E5960030572F /* RESTHandler.swift */; };
+		A2112C71232DEDA500C4CFBA /* CameraHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2112C70232DEDA500C4CFBA /* CameraHandler.swift */; };
 		A214F7D522CC002000314D78 /* HistoricoBonificacionHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A214F7D422CC002000314D78 /* HistoricoBonificacionHeaderCell.xib */; };
 		A223095722B9E6BC00DEA6EA /* MediosPagoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A223095622B9E6BC00DEA6EA /* MediosPagoView.xib */; };
 		A223095922B9EBA200DEA6EA /* MediosPagoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A223095822B9EBA200DEA6EA /* MediosPagoView.swift */; };
@@ -171,6 +172,7 @@
 		A20B145D22A036B300667D39 /* Page1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Page1.xib; sourceTree = "<group>"; };
 		A20B145F22A0441600667D39 /* Page2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Page2.xib; sourceTree = "<group>"; };
 		A20BA6822264E5960030572F /* RESTHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTHandler.swift; sourceTree = "<group>"; };
+		A2112C70232DEDA500C4CFBA /* CameraHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHandler.swift; sourceTree = "<group>"; };
 		A214F7D422CC002000314D78 /* HistoricoBonificacionHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoricoBonificacionHeaderCell.xib; sourceTree = "<group>"; };
 		A223095622B9E6BC00DEA6EA /* MediosPagoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediosPagoView.xib; sourceTree = "<group>"; };
 		A223095822B9EBA200DEA6EA /* MediosPagoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediosPagoView.swift; sourceTree = "<group>"; };
@@ -559,6 +561,7 @@
 				A2F77AD522B52F0F000AC45A /* PerfilTableViewController.swift */,
 				A2032EEC23116FD800D6BF99 /* EliminarPerfilTableViewController.swift */,
 				A2032EEE2311856000D6BF99 /* ConfirmarEliminarViewController.swift */,
+				A2112C70232DEDA500C4CFBA /* CameraHandler.swift */,
 			);
 			path = Perfil;
 			sourceTree = "<group>";
@@ -1002,6 +1005,7 @@
 				A271296C22B2AEC40099CB0B /* RecargaDetailTableViewCell.swift in Sources */,
 				A25C63E322B7FC730040DEA6 /* Ticket.swift in Sources */,
 				A265419022B953290042C382 /* CatalogoDepartamentos.swift in Sources */,
+				A2112C71232DEDA500C4CFBA /* CameraHandler.swift in Sources */,
 				A2962A4522DBA75000FF85CF /* NotificationHeaderView.swift in Sources */,
 				A234CC5B22A6D76F00BCBC7A /* MediosBonificacionTableViewController.swift in Sources */,
 				A26A0C7022BD58EF00AF5E2D /* UIImageView+DownloadImage.swift in Sources */,
