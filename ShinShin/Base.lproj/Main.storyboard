@@ -836,6 +836,84 @@ tu contraseña ;-)</string>
             </objects>
             <point key="canvasLocation" x="2756.521739130435" y="-105.13392857142857"/>
         </scene>
+        <!--Detalle Fotos View Controller-->
+        <scene sceneID="rXg-6g-Ick">
+            <objects>
+                <viewController id="AQZ-wU-bU7" customClass="DetalleFotosViewController" customModule="ShinShin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bHn-zc-B8c">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hem-AD-pTt">
+                                <rect key="frame" x="16" y="89" width="343" height="446"/>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="at6-Y6-uKW">
+                                <rect key="frame" x="0.0" y="17" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="back-arrow"/>
+                                <connections>
+                                    <action selector="back:" destination="AQZ-wU-bU7" eventType="touchUpInside" id="dL9-No-zOF"/>
+                                    <action selector="back:" destination="49m-Ja-d5k" eventType="touchUpInside" id="hdu-Lr-J0O"/>
+                                    <action selector="cerrar:" destination="wWE-de-MOa" eventType="touchUpInside" id="60a-QO-4bL"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gpx-2a-wfg">
+                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lgf-Ux-pls">
+                                        <rect key="frame" x="43" y="27" width="140" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="17"/>
+                                        <state key="normal" title="Agregar fotos">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addPhotoAction:" destination="AQZ-wU-bU7" eventType="touchUpInside" id="vGz-yb-4yy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27V-5g-PFm">
+                                        <rect key="frame" x="191" y="26" width="140" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="0.43529411759999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="17"/>
+                                        <state key="normal" title="Listo">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="readyAction:" destination="AQZ-wU-bU7" eventType="touchUpInside" id="6KE-n6-6OB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="6Be-AS-hsx"/>
+                                    <constraint firstAttribute="width" constant="375" id="j0j-ne-UTw"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Hem-AD-pTt" firstAttribute="leading" secondItem="JCe-hY-3Ku" secondAttribute="leading" constant="16" id="9C8-Xo-3he"/>
+                            <constraint firstItem="Gpx-2a-wfg" firstAttribute="centerX" secondItem="bHn-zc-B8c" secondAttribute="centerX" id="b9e-gt-hiY"/>
+                            <constraint firstItem="Hem-AD-pTt" firstAttribute="top" secondItem="JCe-hY-3Ku" secondAttribute="top" constant="69" id="lbX-ej-ivA"/>
+                            <constraint firstItem="JCe-hY-3Ku" firstAttribute="trailing" secondItem="Hem-AD-pTt" secondAttribute="trailing" constant="16" id="ufs-cr-Qnm"/>
+                            <constraint firstItem="Gpx-2a-wfg" firstAttribute="bottom" secondItem="JCe-hY-3Ku" secondAttribute="bottom" id="z4r-uP-NrP"/>
+                            <constraint firstItem="Gpx-2a-wfg" firstAttribute="top" secondItem="Hem-AD-pTt" secondAttribute="bottom" constant="32" id="zee-Mm-CNm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="JCe-hY-3Ku"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnAgregar" destination="Lgf-Ux-pls" id="Jkd-gc-MXW"/>
+                        <outlet property="btnListo" destination="27V-5g-PFm" id="jNM-EA-VAh"/>
+                        <outlet property="scrollView" destination="Hem-AD-pTt" id="5iw-Cp-WRR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5P8-ss-pNx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3421.5999999999999" y="-1611.5442278860571"/>
+        </scene>
         <!--Custom Camera View Controller-->
         <scene sceneID="Zt4-sR-Y8Z">
             <objects>
@@ -845,11 +923,11 @@ tu contraseña ;-)</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f3D-Xy-3tN">
-                                <rect key="frame" x="16" y="30" width="343" height="463"/>
+                                <rect key="frame" x="16" y="30" width="343" height="513"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DPC-vf-M3o">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dab-9r-zW5">
                                 <rect key="frame" x="0.0" y="20" width="64" height="64"/>
@@ -879,10 +957,10 @@ tu contraseña ;-)</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FCz-kc-cai">
-                                <rect key="frame" x="0.0" y="517" width="375" height="150"/>
+                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zci-a9-gyi">
-                                        <rect key="frame" x="137" y="42" width="100" height="100"/>
+                                        <rect key="frame" x="147" y="10" width="80" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" backgroundImage="CTA-cam"/>
                                         <connections>
@@ -890,26 +968,15 @@ tu contraseña ;-)</string>
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="question-white" translatesAutoresizingMaskIntoConstraints="NO" id="tsV-4p-ZGh">
-                                        <rect key="frame" x="95" y="80" width="24" height="24"/>
+                                        <rect key="frame" x="83" y="38" width="24" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flash-white" translatesAutoresizingMaskIntoConstraints="NO" id="jjn-3M-a6q">
-                                        <rect key="frame" x="255" y="80" width="24" height="24"/>
+                                        <rect key="frame" x="115" y="38" width="24" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q3y-BL-lze">
-                                        <rect key="frame" x="287" y="42" width="80" height="100"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64c-sp-G5Y">
-                                        <rect key="frame" x="287" y="33" width="11" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qKT-mA-2po">
-                                        <rect key="frame" x="8" y="72" width="59" height="40"/>
+                                        <rect key="frame" x="8" y="30" width="59" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="20"/>
                                         <state key="normal" title="Borrar">
@@ -919,10 +986,22 @@ tu contraseña ;-)</string>
                                             <action selector="DELETEAction:" destination="wWE-de-MOa" eventType="touchUpInside" id="Cdg-kA-25F"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LiE-z0-PH5">
+                                        <rect key="frame" x="252" y="30" width="80" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <segue destination="AQZ-wU-bU7" kind="presentation" identifier="DetalleFotosSegue" id="fat-BN-gG1"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q3y-BL-lze">
+                                        <rect key="frame" x="254" y="32" width="36" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="2CT-5W-RBF"/>
+                                    <constraint firstAttribute="height" constant="100" id="2CT-5W-RBF"/>
                                 </constraints>
                             </view>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ng6-ow-MMB">
@@ -998,7 +1077,7 @@ tu contraseña ;-)</string>
                         <outlet property="imageView" destination="f3D-Xy-3tN" id="jcv-ba-XHt"/>
                         <outlet property="indicator" destination="lx7-Uf-Fl0" id="z9D-wL-X7Q"/>
                         <outlet property="lblCodigoBarras" destination="Wl5-Az-ONT" id="RSo-SN-GbC"/>
-                        <outlet property="lblCountPhotos" destination="64c-sp-G5Y" id="Xxl-Cp-mI5"/>
+                        <outlet property="previewButton" destination="LiE-z0-PH5" id="b93-Qh-IaD"/>
                         <outlet property="previewPhoto" destination="q3y-BL-lze" id="0sA-iJ-lT0"/>
                         <outlet property="previewView" destination="DPC-vf-M3o" id="9Q9-n6-Gkn"/>
                         <outlet property="scanView" destination="IZf-ox-LJw" id="KOf-NH-fqE"/>
@@ -1282,7 +1361,7 @@ tu contraseña ;-)</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cN-GL-zBa">
-                                                    <rect key="frame" x="36" y="100" width="303" height="37.5"/>
+                                                    <rect key="frame" x="36" y="107.5" width="303" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="303" id="QqU-XE-GFj"/>
                                                     </constraints>
@@ -1305,7 +1384,7 @@ tu contraseña ;-)</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crear tu cuenta" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyz-41-EC5">
-                                                    <rect key="frame" x="49.5" y="52" width="276" height="42"/>
+                                                    <rect key="frame" x="49.5" y="52" width="276" height="49.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="276" id="7Rg-PQ-156"/>
                                                     </constraints>
@@ -3914,7 +3993,7 @@ ganar dinero por tus compras.</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cyx-Cn-ih1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-727.20000000000005" y="798.35082458770626"/>
+            <point key="canvasLocation" x="-802" y="687"/>
         </scene>
         <!--Confirmacion Bonificacion View Controller-->
         <scene sceneID="atz-7L-kZM">
@@ -5025,7 +5104,7 @@ Shing</string>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Au-yV-2qI">
-                                                    <rect key="frame" x="155.5" y="202" width="64" height="24"/>
+                                                    <rect key="frame" x="155.5" y="202" width="64" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="17"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -5042,7 +5121,7 @@ Shing</string>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZ8-Tt-xO0">
-                                                    <rect key="frame" x="166" y="294" width="43.5" height="24"/>
+                                                    <rect key="frame" x="166" y="294" width="43.5" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="17"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -5070,13 +5149,13 @@ Shing</string>
                                                     <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teléfono" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygh-Vs-Uug">
-                                                    <rect key="frame" x="153.5" y="386" width="68.5" height="24"/>
+                                                    <rect key="frame" x="153.5" y="386" width="68.5" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="17"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cumpleaños" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ahm-Y3-JPR">
-                                                    <rect key="frame" x="138.5" y="478" width="98.5" height="24"/>
+                                                    <rect key="frame" x="138.5" y="478" width="98.5" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="17"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -5116,7 +5195,7 @@ Shing</string>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contraseña actual" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gav-1U-2ch">
-                                                    <rect key="frame" x="115.5" y="785" width="144" height="24"/>
+                                                    <rect key="frame" x="115.5" y="785" width="144" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="17"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -5155,7 +5234,7 @@ Shing</string>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contraseña nueva" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlB-fI-zel">
-                                                    <rect key="frame" x="116" y="880" width="143" height="24"/>
+                                                    <rect key="frame" x="116" y="880" width="143" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="17"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -5194,7 +5273,7 @@ Shing</string>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirma tu contraseña nueva" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEa-Yj-12G">
-                                                    <rect key="frame" x="67.5" y="985" width="240" height="24"/>
+                                                    <rect key="frame" x="67.5" y="985" width="240" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="17"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -6893,7 +6972,7 @@ tener buena iluminación y
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="LjV-57-taI"/>
-        <segue reference="ACn-e3-QpV"/>
+        <segue reference="vCv-Yz-YPE"/>
         <segue reference="da3-6v-vQc"/>
         <segue reference="ym2-Na-ioa"/>
         <segue reference="g3Q-Qd-pqc"/>

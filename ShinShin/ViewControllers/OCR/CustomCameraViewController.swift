@@ -26,8 +26,8 @@ class CustomCameraViewController: UIViewController {
     @IBOutlet weak var controlesCamaraView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var previewPhoto: UIImageView!
+    @IBOutlet weak var previewButton: UIButton!
     @IBOutlet weak var lblCodigoBarras: UILabel!
-    @IBOutlet weak var lblCountPhotos: UILabel!
     @IBOutlet weak var btnPhoto: UIButton!
     @IBOutlet weak var btnBorrar: UIButton!
     @IBOutlet weak var btnOmitir: UIButton!
@@ -76,6 +76,8 @@ class CustomCameraViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        btnOk.alpha = 0.0
     }
     
     //Este metodo es llamada cada vez que los limites del view del
@@ -110,7 +112,6 @@ class CustomCameraViewController: UIViewController {
         super.viewWillAppear(animated)
         
         fase = .camara
-        photos = [UIImage]()
         
         if fase == .camara{
             setupCaptureSession()
@@ -119,7 +120,10 @@ class CustomCameraViewController: UIViewController {
             ZXSetup()
         }
         
-        initUIElements()
+        if !Model.mantenerCamara{
+            photos = [UIImage]()
+           initUIElements()
+        }
         
         
         navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -132,7 +136,6 @@ class CustomCameraViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
-        
         if fase == .camara{
             self.captureSession.stopRunning()
         }
@@ -145,18 +148,27 @@ class CustomCameraViewController: UIViewController {
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //        delegate?.didCompletedTakePhoto(self, withPhotos: photos, and: codigoBarras)
+        if segue.identifier == "DetalleFotosSegue"{
+            Model.mantenerCamara = true
+            let vc = segue.destination as! DetalleFotosViewController
+            vc.photos = self.photos
+            vc.delegate = self
+        }
         if segue.identifier == "DetalleFotoSegue"{
+            Model.mantenerCamara = false
             let vc = segue.destination as! OCRViewController
             vc.photos = photos
             vc.codeBar = codigoBarras
         }
         if segue.identifier == "TicketDetailSegue"{
+            Model.mantenerCamara = false
             let vc = segue.destination as! DatosTicketViewController
             vc.datosTicket = datosTicket
             clean()
         }
         
         if segue.identifier == "ErrorTicketSegue"{
+            Model.mantenerCamara = false
             let vc = segue.destination as! ErrorTicketViewController
             if code == 203{
                 vc.mensaje = "No se detectaron productos válidos"
@@ -225,14 +237,14 @@ class CustomCameraViewController: UIViewController {
         
         UIView.animate(withDuration: 0.5, animations: {
             self.previewPhoto.alpha = 0.0
-            self.lblCountPhotos.alpha = 0.0
+            self.previewButton.alpha = 0.0
+            self.previewButton.isEnabled = false
             self.btnOk.alpha = 0.0
             self.btnOk.isEnabled = false
             self.btnBorrar.alpha = 0.0
             self.btnBorrar.isEnabled = false
         }) { (Bool) in
             self.previewPhoto.image = nil
-            self.lblCountPhotos.text = ""
         }
     }
     
@@ -315,11 +327,14 @@ class CustomCameraViewController: UIViewController {
         indicator.isHidden = true
         lblCodigoBarras.text = ""
         lblCodigoBarras.text = ""
-        lblCountPhotos.text = ""
         switchFase.isHidden = true
         visiblePreview = false
         previewPhoto.image = nil
+        
         codigoBarras = ""
+        
+        previewButton.layer.cornerRadius = 10.0
+        previewPhoto.layer.cornerRadius = 10.0
         
         if fase == .camara{
             btnOk.alpha = 0.0
@@ -328,6 +343,8 @@ class CustomCameraViewController: UIViewController {
             btnOmitir.isEnabled = false
             btnBorrar.alpha = 0.0
             btnBorrar.isEnabled = false
+            previewButton.alpha = 0.0
+            previewButton.isEnabled = false
             scanView?.isHidden = false
             scanView?.alpha = 0.0
             bottomConstraint.constant = 0.0
@@ -428,13 +445,12 @@ extension CustomCameraViewController: AVCapturePhotoCaptureDelegate{
                     self.btnBorrar.alpha = 1.0
                     self.btnBorrar.isEnabled = true
                     self.previewPhoto.alpha = 1.0
-                    self.lblCountPhotos.alpha = 1.0
+                    self.previewButton.alpha = 1.0
+                    self.previewButton.isEnabled = true
                 }, completion: nil)
                 
                 visiblePreview = !visiblePreview
             }
-            
-            lblCountPhotos.text = String("\(photos.count)")
 
             updateImageView(with: image, isPreview: true, andIndex: 0)
             updateImageView(with: image, isPreview: false, andIndex: 0)
@@ -902,4 +918,14 @@ extension CustomCameraViewController: ErrorTicketViewControllerDelegate{
             }
         }
     }
+}
+
+extension CustomCameraViewController: DetalleFotosViewControllerDelegate{
+    func processPhotosViewController(_ controller: DetalleFotosViewController) {
+        self.dismiss(animated: true, completion: nil)
+        
+        analizarOCRRequest()
+    }
+    
+    
 }

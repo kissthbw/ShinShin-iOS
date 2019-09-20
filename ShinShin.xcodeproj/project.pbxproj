@@ -76,6 +76,7 @@
 		A271296C22B2AEC40099CB0B /* RecargaDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A271296B22B2AEC40099CB0B /* RecargaDetailTableViewCell.swift */; };
 		A27824F722A71C9F00A2885E /* PrincipalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27824F622A71C9F00A2885E /* PrincipalViewController.swift */; };
 		A27824F922A7228900A2885E /* CategoriaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27824F822A7228900A2885E /* CategoriaTableViewCell.swift */; };
+		A27F34AF2332A529007D3323 /* DetalleFotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27F34AE2332A529007D3323 /* DetalleFotosViewController.swift */; };
 		A27F3FFF22A426DE0026A4F3 /* AyudaViewControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27F3FFE22A426DE0026A4F3 /* AyudaViewControlller.swift */; };
 		A282596522C843B1009122DB /* FotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282596422C843B1009122DB /* FotoTableViewCell.swift */; };
 		A282596722C867C7009122DB /* Sexo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282596622C867C7009122DB /* Sexo.swift */; };
@@ -239,6 +240,7 @@
 		A271296B22B2AEC40099CB0B /* RecargaDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecargaDetailTableViewCell.swift; sourceTree = "<group>"; };
 		A27824F622A71C9F00A2885E /* PrincipalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalViewController.swift; sourceTree = "<group>"; };
 		A27824F822A7228900A2885E /* CategoriaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriaTableViewCell.swift; sourceTree = "<group>"; };
+		A27F34AE2332A529007D3323 /* DetalleFotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalleFotosViewController.swift; sourceTree = "<group>"; };
 		A27F3FFE22A426DE0026A4F3 /* AyudaViewControlller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AyudaViewControlller.swift; sourceTree = "<group>"; };
 		A282596422C843B1009122DB /* FotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotoTableViewCell.swift; sourceTree = "<group>"; };
 		A282596622C867C7009122DB /* Sexo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sexo.swift; sourceTree = "<group>"; };
@@ -521,6 +523,7 @@
 				A2C52A8222E8B93300A01AB6 /* BarCodeViewController.swift */,
 				A29C59C922F38CC7006A1F2D /* ErrorTicketViewController.swift */,
 				A20A118E22FC7D8B00CDA2A2 /* TicketDuplicadoViewController.swift */,
+				A27F34AE2332A529007D3323 /* DetalleFotosViewController.swift */,
 			);
 			path = OCR;
 			sourceTree = "<group>";
@@ -1033,6 +1036,7 @@
 				A27F3FFF22A426DE0026A4F3 /* AyudaViewControlller.swift in Sources */,
 				A2FDF37E22BBDCA70060577B /* CompaniaTelefonicaTableViewController.swift in Sources */,
 				A24BF96A2259353F002DF555 /* UsuarioViewController.swift in Sources */,
+				A27F34AF2332A529007D3323 /* DetalleFotosViewController.swift in Sources */,
 				A254723122D255710014AE64 /* UIUtilities.swift in Sources */,
 				A282596722C867C7009122DB /* Sexo.swift in Sources */,
 				A2C52A8322E8B93300A01AB6 /* BarCodeViewController.swift in Sources */,

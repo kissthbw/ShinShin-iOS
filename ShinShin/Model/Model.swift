@@ -14,6 +14,7 @@ class Model{
     static var notificaciones: [Notificacion] = [Notificacion]()
     static var idRedSocial: Int?
     static var perfilActualizado: Bool = false
+    static var mantenerCamara = false
     
     init() {
         registerDefaults()

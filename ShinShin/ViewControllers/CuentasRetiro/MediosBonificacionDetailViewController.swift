@@ -285,8 +285,10 @@ class MediosBonificacionDetailViewController: UITableViewController {
             idMedio = itemToEdit.idMediosBonificacion!
             mensaje = "Aqui no pasó nada, cuenta eliminada"
 
-            cell.idTipo = itemToEdit.idTipo!
-            cell.idTipoBancaria = itemToEdit.idTipo!
+            if let tipo = itemToEdit.idTipo{
+                cell.idTipo = tipo
+                cell.idTipoBancaria = tipo
+            }
             
             cell.lblTitulo.text = itemToEdit.aliasMedioBonificacion
             cell.txtTarjeta.text = itemToEdit.cuentaMedioBonificacion
