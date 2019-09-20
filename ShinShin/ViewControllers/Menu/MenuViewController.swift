@@ -13,6 +13,12 @@ import FacebookLogin
 class MenuViewController: UIViewController {
 
     //MARK: - Propiedades
+    @IBOutlet weak var viewUser: UIView!
+    @IBOutlet weak var viewPerfil: UIView!
+    @IBOutlet weak var viewRetiro: UIView!
+    @IBOutlet weak var viewAyuda: UIView!
+    @IBOutlet weak var viewContacto: UIView!
+    
     @IBOutlet weak var viewIconoUser: UIView!
     @IBOutlet weak var btnRetirar: UIButton!
     @IBOutlet weak var btnTickets: UIButton!
@@ -22,7 +28,13 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewIconoUser.layer.cornerRadius = 35.0
+        viewUser.layer.cornerRadius = 35.0
+        viewIconoUser.layer.cornerRadius = viewIconoUser.frame.width / 2
+        viewPerfil.layer.cornerRadius = 10.0
+        viewRetiro.layer.cornerRadius = 10.0
+        viewAyuda.layer.cornerRadius = 10.0
+        viewContacto.layer.cornerRadius = 10.0
+        
         lblBonificacion.text = Validations.formatWith(Model.totalBonificacion)
         btnRetirar.layer.cornerRadius = 20.0
         btnRetirar.tag = 1

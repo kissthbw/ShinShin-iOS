@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "money-white.png",
+      "filename" : "white.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "money-white-1.png",
+      "filename" : "white@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "money-white-2.png",
+      "filename" : "white@3x.png",
       "scale" : "3x"
     }
   ],

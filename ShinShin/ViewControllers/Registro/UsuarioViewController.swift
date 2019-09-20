@@ -17,10 +17,12 @@ class UsuarioViewController: UITableViewController {
     @IBOutlet weak var viewCorreo: UIView!
     @IBOutlet weak var txtCorreo: UITextField!
     
+    @IBOutlet weak var btnShowPlain: UIButton!
     @IBOutlet weak var imagewCheckPassword: UIImageView!
     @IBOutlet weak var viewPassword: UIView!
     @IBOutlet weak var txtPassword: UITextField!
     
+    @IBOutlet weak var btnConfShowPlain: UIButton!
     @IBOutlet weak var imagewCheckConfPassword: UIImageView!
     @IBOutlet weak var viewConfPassword: UIView!
     @IBOutlet weak var txtConfPassword: UITextField!
@@ -52,8 +54,8 @@ class UsuarioViewController: UITableViewController {
     let sexoPicker = UIPickerView()
     var sexos = [Sexo]()
     var sexo: Int = -1
-    var showPassword = false
-    var showConfPassword = false
+    var showPassword = true
+    var showConfPassword = true
     
     enum ButtonTag: Int{
         case btnPassword = 1
@@ -110,21 +112,25 @@ class UsuarioViewController: UITableViewController {
         
         if source.tag == ButtonTag.btnPassword.rawValue{
             if showPassword{
-                txtPassword.isSecureTextEntry = true
+                txtPassword.isSecureTextEntry = false
+                btnShowPlain.setBackgroundImage(UIImage(named: "eye-grey"), for: .normal)
                 showPassword = !showPassword
             }
             else{
-                txtPassword.isSecureTextEntry = false
+                txtPassword.isSecureTextEntry = true
+                btnShowPlain.setBackgroundImage(UIImage(named: "eyeClose-grey"), for: .normal)
                 showPassword = !showPassword
             }
         }
         else if source.tag == ButtonTag.btnConfPassword.rawValue{
             if showConfPassword{
                 txtConfPassword.isSecureTextEntry = true
+                btnConfShowPlain.setBackgroundImage(UIImage(named: "eye-grey"), for: .normal)
                 showConfPassword = !showConfPassword
             }
             else{
                 txtConfPassword.isSecureTextEntry = false
+                btnConfShowPlain.setBackgroundImage(UIImage(named: "eyeClose-grey"), for: .normal)
                 showConfPassword = !showConfPassword
             }
         }
@@ -342,6 +348,7 @@ class UsuarioViewController: UITableViewController {
         viewShowPickerView.layer.cornerRadius = 10.0
         btnRegistrar.layer.cornerRadius = 10.0
         btnRegistrar.isEnabled = true
+        switchAceptar.onTintColor = UIColor(red: 255/255, green: 111/255, blue: 0/255, alpha: 1.0)
         switchAceptar.isOn = false
         imagewCheckPassword.isHidden = true
         imagewCheckConfPassword.isHidden = true

@@ -143,7 +143,7 @@ class BonificacionViewController: UIViewController {
         notif.tintColor = .white
         
         let user = UIBarButtonItem(
-            image: UIImage(named: "bar-user-white"),
+            image: UIImage(named: "menu-white"),
             style: .plain,
             target: self,
             action: #selector(showMenu))

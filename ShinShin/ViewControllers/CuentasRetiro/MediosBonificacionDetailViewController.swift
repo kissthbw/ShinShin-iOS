@@ -96,7 +96,7 @@ class MediosBonificacionDetailViewController: UITableViewController {
         notif.tintColor = .black
         
         let user = UIBarButtonItem(
-            image: UIImage(named: "bar-user-grey"),
+            image: UIImage(named: "menu-grey"),
             style: .plain,
             target: self,
             action: #selector(showMenu))

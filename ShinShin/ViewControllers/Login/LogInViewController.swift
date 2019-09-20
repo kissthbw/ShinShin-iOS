@@ -33,9 +33,12 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var btnShowPlain: UIButton!
 //    @IBOutlet weak var btnGoogleSignIn: GIDSignInButton!
+    @IBOutlet weak var viewMail: UIView!
+    @IBOutlet weak var viewGoogle: UIView!
+    @IBOutlet weak var viewFacebook: UIView!
     
     var isMenuVisible = false
-    var showPassword = false
+    var showPassword = true
     var idRedSocial = -1
     
 //    override var prefersStatusBarHidden: Bool {
@@ -94,13 +97,13 @@ class LogInViewController: UIViewController {
     
     @IBAction func showPlain(_ sender: Any) {
         if showPassword{
-            txtPassword.isSecureTextEntry = true
-            btnShowPlain.setBackgroundImage(UIImage(named: "password-right-grey"), for: .normal)
+            txtPassword.isSecureTextEntry = false
+            btnShowPlain.setBackgroundImage(UIImage(named: "eye-grey"), for: .normal)
             showPassword = !showPassword
         }
         else{
-            txtPassword.isSecureTextEntry = false
-            btnShowPlain.setBackgroundImage(UIImage(named: "password-right-orange"), for: .normal)
+            txtPassword.isSecureTextEntry = true
+            btnShowPlain.setBackgroundImage(UIImage(named: "eyeClose-grey"), for: .normal)
             showPassword = !showPassword
         }
     }
@@ -235,6 +238,9 @@ class LogInViewController: UIViewController {
         gradient.frame = gradientView.bounds
         gradientView.layer.addSublayer(gradient)
         
+        viewMail.layer.cornerRadius = 10.0
+        viewGoogle.layer.cornerRadius = 10.0
+        viewFacebook.layer.cornerRadius = 10.0
         cardView.layer.cornerRadius = 15.0
         viewUser.layer.cornerRadius = 10.0
         viewPassword.layer.cornerRadius = 10.0
