@@ -51,14 +51,21 @@ class TutorialViewController: UIViewController {
         //UIScrolView
         let view1 = Bundle.main.loadNibNamed("Page1", owner: nil, options: nil)!.first as! UIView
         let view2 = Bundle.main.loadNibNamed("Page2", owner: nil, options: nil)!.first as! UIView
+        let view3 = Bundle.main.loadNibNamed("Page3", owner: nil, options: nil)!.first as! UIView
+        let view4 = Bundle.main.loadNibNamed("Page4", owner: nil, options: nil)!.first as! UIView
         
         scrollView.delegate = self
         scrollView.isPagingEnabled = true
-        scrollView.contentSize.width = view1.frame.width * 2
+        scrollView.contentSize.width = view1.frame.width * 4
         
         view2.frame = CGRect(x: view1.frame.width, y: 0, width: view2.frame.width, height: view2.frame.height)
+        view3.frame = CGRect(x: view1.frame.width * 2, y: 0, width: view2.frame.width, height: view2.frame.height)
+        view4.frame = CGRect(x: view1.frame.width * 3, y: 0, width: view2.frame.width, height: view2.frame.height)
+        
         scrollView.addSubview(view1)
         scrollView.addSubview(view2)
+        scrollView.addSubview(view3)
+        scrollView.addSubview(view4)
         
         //PageControl
         

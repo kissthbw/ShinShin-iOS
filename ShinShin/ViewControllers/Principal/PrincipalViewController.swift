@@ -41,6 +41,17 @@ class PrincipalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Si es primera vez, mostrar intro
+        if Model.isFirtsTime(){
+            let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "TutorialViewController")
+            destViewController.modalPresentationStyle = .fullScreen
+            destViewController.modalTransitionStyle = .coverVertical
+            
+            Model.handleFirstTime()
+            
+            self.present(destViewController, animated: true, completion: nil)
+        }
+        
         cardView.layer.cornerRadius = 10.0
         
         let menuNavigationController = storyboard!.instantiateViewController(withIdentifier: "MenuNavigationController") as! SideMenuNavigationController

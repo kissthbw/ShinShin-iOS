@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Light.ttf">
+            <string>Nunito-Light</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -16,42 +19,25 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFr-Jm-hcT">
-                    <rect key="frame" x="48" y="400" width="279" height="112"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Puedes ver todos los productos que te dan $ por comprarlos." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFr-Jm-hcT">
+                    <rect key="frame" x="48" y="378" width="279" height="112"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="279" id="9EM-No-sDP"/>
                         <constraint firstAttribute="height" constant="112" id="pcB-kd-uqU"/>
                     </constraints>
-                    <attributedString key="attributedText">
-                        <fragment>
-                            <string key="content">Aquí vamos a poner
-</string>
-                            <attributes>
-                                <font key="NSFont" metaFont="system" size="17"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                            </attributes>
-                        </fragment>
-                        <fragment>
-                            <string key="content">una instrucción especial
-sobre la app para orientar
-a los usuarios ;-)</string>
-                            <attributes>
-                                <font key="NSFont" metaFont="system" size="17"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                            </attributes>
-                        </fragment>
-                    </attributedString>
+                    <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="21"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circulo-280x280" translatesAutoresizingMaskIntoConstraints="NO" id="X6X-UP-Miq">
-                    <rect key="frame" x="96.5" y="162" width="182" height="182"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tour-2" translatesAutoresizingMaskIntoConstraints="NO" id="X6X-UP-Miq">
+                    <rect key="frame" x="47.5" y="142" width="280" height="180"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="182" id="2ZA-fq-Znu"/>
-                        <constraint firstAttribute="width" constant="182" id="n9v-Bg-ROT"/>
+                        <constraint firstAttribute="height" constant="180" id="2ZA-fq-Znu"/>
+                        <constraint firstAttribute="width" constant="280" id="n9v-Bg-ROT"/>
                     </constraints>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="1" green="0.43529411759999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="rFr-Jm-hcT" firstAttribute="top" secondItem="X6X-UP-Miq" secondAttribute="bottom" constant="56" id="0A5-Ya-qfC"/>
                 <constraint firstItem="X6X-UP-Miq" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="142" id="DDm-vj-fOU"/>
@@ -63,6 +49,6 @@ a los usuarios ;-)</string>
         </view>
     </objects>
     <resources>
-        <image name="circulo-280x280" width="140" height="140"/>
+        <image name="tour-2" width="280" height="180"/>
     </resources>
 </document>

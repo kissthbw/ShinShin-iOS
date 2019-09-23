@@ -389,7 +389,7 @@ extension BonificacionViewController: UITableViewDataSource, UITableViewDelegate
                         cell.icon.image = UIImage(named: "retiroBnacario")
                         cell.lblTitulo.text = "Bancaria"
                         cell.btnArrow.tag = indexPath.row
-                        cell.btnArrow.addTarget(self, action: #selector(selectBonificacionTableViewCell(_:)), for: .touchUpInside)
+//                        cell.btnArrow.addTarget(self, action: #selector(selectBonificacionTableViewCell(_:)), for: .touchUpInside)
                         
                         return cell
                 }
@@ -479,7 +479,8 @@ extension BonificacionViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        if indexPath.section == 1 && tipoProceso == .Tickets{
+        if indexPath.section == 1 && tipoProceso == .Tickets ||
+            indexPath.section == 1 && tipoProceso == .Retirar{
             return indexPath
         }
         
@@ -490,6 +491,11 @@ extension BonificacionViewController: UITableViewDataSource, UITableViewDelegate
         if indexPath.section == 1 && tipoProceso == .Tickets{
             tableView.deselectRow(at: indexPath, animated: true)
             performSegue(withIdentifier: "DetalleTicketSegue", sender: indexPath)
+        }
+        
+        if indexPath.section == 1 && tipoProceso == .Retirar{
+            tableView.deselectRow(at: indexPath, animated: true)
+            performSegue(withIdentifier: "SolicitarBonificacionSegue", sender: indexPath.row)
         }
     }
 }

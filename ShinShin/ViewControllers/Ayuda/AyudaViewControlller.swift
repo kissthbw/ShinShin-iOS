@@ -9,19 +9,54 @@
 import UIKit
 import SideMenu
 
-class AyudaViewControlller: UIViewController {
+class AyudaViewControlller: UITableViewController {
 
     //MARK: - Propiedades
-    @IBOutlet weak var viewTour: UIView!
-    @IBOutlet weak var tableView: UITableView!
     var toggle = false
+    var previusSelectedRow = -1
     var selectedRow = -1
-    var isMenuVisible = false
+    var primeraVez = true
+    
+    var item1 = FAQ()
+    let item2 = FAQ()
+    let item3 = FAQ()
+    let item4 = FAQ()
+    let item5 = FAQ()
+    let item6 = FAQ()
+    
+    
+    var preguntas: [FAQ] = [FAQ]()
+    let sections = 2
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isTranslucent = false
+        
+            item1.pregunta = "¿Qué es Shing Shing?"
+            item1.respuesta = "Es la app que te da $ por tus compras que realizas en las principales tiendas de autoservicios en México, como lo son Aurera, Chedraui, Costco, Comercial, Extra, Neto, Oxxo, Soriana, Superama y Waltmart Así que, no lo olvides, guarda tus Tickets y tómale una foto desde la app para comenzar a ganar $ por tus compras. ¡Haz Shing Shing!"
+        
+            item2.pregunta = "¿Qué Productos participan?"
+            item2.respuesta = "Algunos de los productos que te dan $ por comprarlos y escanear el ticket de su compra son: Cuéntanos, ¿Qué producto te gustaría que te diera $ por comprarlo? (Input)"
+        
+            item3.pregunta = "¿Qué Tickets puedo subir?"
+            item3.respuesta = "Todos los Tickets de las principales tiendas de auto servicio como, Aurera, Chedraui, Costco, Comercial, Extra, Neto, Oxxo, Soriana, Superama y Waltmart."
+        
+            item4.pregunta = "¿Tengo límite de tickets para subir?"
+            item4.respuesta = "No! Sube cuantos tickets tengamos ;-)"
+        
+            item5.pregunta = "¿Cuánto tiempo tarda en verse reflejado el dinero en mi cuenta Bacaria/Paypal?"
+            item5.respuesta = "Es muy rapido, no más de 24 horas despues de haber solicitado el retiro.En caso de haberlo solicitado en fín de semana, en el transcurso del siguiente día hábil, verás el deposito reflejado en tu cuenta.En el caso de las recargas teléfonicas, pasan inmediatamente."
+        
+            item6.pregunta = "¿Cuánto es lo mínimo que puedo retirar de mi cuenta?"
+            item6.respuesta = "Desde $10 y hasta $500 por día"
+
+        preguntas.append(item1)
+        preguntas.append(item2)
+        preguntas.append(item3)
+        preguntas.append(item4)
+        preguntas.append(item5)
+        preguntas.append(item6)
         configureBarButtons()
         initUIElements()
     }
@@ -30,7 +65,6 @@ class AyudaViewControlller: UIViewController {
     
     //MARK: - Helper methods
     func initUIElements(){
-        viewTour.layer.cornerRadius = 10.0
     }
     
     func configureBarButtons(){
@@ -112,56 +146,110 @@ class AyudaViewControlller: UIViewController {
 }
 
 //MARK: - Extensions
-extension AyudaViewControlller: UITableViewDelegate, UITableViewDataSource{
+extension AyudaViewControlller{
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return sections
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "      PREGUNTAS FRECUENTES"
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = Bundle.main.loadNibNamed("PreguntasHeader", owner: nil, options: nil)!.first as! UIView
-
-        return header
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PreguntaCell", for: indexPath) as! PreguntaTableViewCell
-        cell.lblPregunta.text = "Pregunta 1"
-        
-        if toggle{
-            cell.txtRespuesta.text = "Para poder realizar una bonificación es necesario ir a la sección de bonificaciones"
-        }
-
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-//        tableView.reloadRows(at: [indexPath], with: .fade)
-        toggle = !toggle
-        selectedRow = indexPath.row
-        tableView.beginUpdates()
-        tableView.endUpdates()
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if toggle && selectedRow == indexPath.row{
-            return 120
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0{
+            return 1
         }
         else{
-            return 44
+            return preguntas.count
+        }
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0{
+            return 280
+        }else{
+            if toggle && selectedRow == indexPath.row{
+//                if previewSelectedRow > -1{
+//                    return 48
+//                }
+//                else{
+//                    return 300
+//                }
+                return 300
+            }
+            else{
+                return 48
+            }
+//            return 300
+        }
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0{
+            return 0
+        }
+        else{
+            return 50
         }
     }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 1{
+            let header = Bundle.main.loadNibNamed("PreguntasHeader", owner: nil, options: nil)!.first as! UIView
+            
+            return header
+        }
+        else{
+            return nil
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AyudaCell", for: indexPath) as! AyudaTableViewCell
+            
+            return cell
+        }
+        else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PreguntaCell", for: indexPath) as! PreguntaTableViewCell
+            cell.lblPregunta.text = preguntas[indexPath.row].pregunta
+            cell.txtRespuesta.text = preguntas[indexPath.row].respuesta
+            cell.tag = indexPath.row
+            cell.btnShow.tag = indexPath.row
+//            cell.btnShow.addTarget(self, action: #selector(mostrarRespuesta), for: .touchUpInside)
+            return cell
+        }
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            tableView.deselectRow(at: indexPath, animated: true)
+            
+        toggle = !toggle
+        
+        selectedRow = indexPath.row
+        if primeraVez{
+            primeraVez = false
+            previusSelectedRow = selectedRow
+        }
+        
+        if indexPath.row == previusSelectedRow{
+            previusSelectedRow = selectedRow
+            print("Misma row")
+        }
+        else{
+            previusSelectedRow = indexPath.row
+            print("Seleciona otra row")
+        }
+    
+        
+//        previewSelectedRow = indexPath.row
+        
+        tableView.beginUpdates()
+        tableView.endUpdates()
+        }
+    
+//    @objc func mostrarRespuesta(_ sender: Any?){
+//        let cell = sender as? UIButton
+//        print( "Row selected: \(cell?.tag)" )
+//    }
 }

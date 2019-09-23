@@ -11,8 +11,8 @@ import UIKit
 class PreguntaTableViewCell: UITableViewCell {
 
     @IBOutlet weak var lblPregunta: UILabel!
+    @IBOutlet weak var btnShow: UIButton!
     @IBOutlet weak var txtRespuesta: UITextView!
-    @IBOutlet weak var btnArrow: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

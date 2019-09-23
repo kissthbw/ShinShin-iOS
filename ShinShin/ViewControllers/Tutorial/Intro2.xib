@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Light.ttf">
+            <string>Nunito-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="intro-2" translatesAutoresizingMaskIntoConstraints="NO" id="7dp-jk-8J3">
+                    <rect key="frame" x="47.5" y="152" width="280" height="180"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="180" id="hpg-xe-A1D"/>
+                        <constraint firstAttribute="width" constant="280" id="umM-TW-qcr"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgr-Kl-D7T">
+                    <rect key="frame" x="48" y="378" width="279" height="141"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="141" id="h9Y-L2-ZcX"/>
+                        <constraint firstAttribute="width" constant="279" id="pHj-32-E8f"/>
+                    </constraints>
+                    <string key="text">Aquí recibirás $ por las compras que hagas en tus tiendas de autoservicio favoritas.
+
+</string>
+                    <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="21"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Tgr-Kl-D7T" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="378" id="D6J-2M-zut"/>
+                <constraint firstItem="7dp-jk-8J3" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="152" id="ESV-ob-UVD"/>
+                <constraint firstItem="7dp-jk-8J3" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ODE-JI-EZe"/>
+                <constraint firstItem="Tgr-Kl-D7T" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="mK7-v6-NYW"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="138.40000000000001" y="120.98950524737631"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="intro-2" width="280" height="180"/>
+    </resources>
+</document>

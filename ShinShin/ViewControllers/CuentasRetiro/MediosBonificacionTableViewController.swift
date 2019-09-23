@@ -198,7 +198,7 @@ extension MediosBonificacionTableViewController: UITableViewDataSource, UITableV
         
         if section == 1{
             header.btnAccion.tag = section
-            header.imageViewLogo.image = UIImage(named: "money-grey")
+            header.imageViewLogo.image = UIImage(named: "bank-grey")
             header.btnAccion.setTitle("+ Cuenta", for: .normal)
         }
         else if section == 2{

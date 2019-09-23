@@ -18,10 +18,17 @@ class Model{
     
     init() {
         registerDefaults()
-        handleFirstTime()
+//        handleFirstTime()
     }
     
-    func handleFirstTime(){
+    class func isFirtsTime() -> Bool{
+        let userDefaults = UserDefaults.standard
+        let firstTime = userDefaults.bool(forKey: "FirstTime")
+        
+        return firstTime
+    }
+    
+    class func handleFirstTime(){
         let userDefaults = UserDefaults.standard
         let firstTime = userDefaults.bool(forKey: "FirstTime")
         
@@ -34,8 +41,9 @@ class Model{
         else{
             print("Ya no es primera vez")
         }
-        
     }
+    
+    
     
     func documentsDirectory() -> URL{
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
