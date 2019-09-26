@@ -15,6 +15,7 @@ class BannerItemCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lblContenido: UILabel!
     @IBOutlet weak var lblBonificacion: UILabel!
     @IBOutlet weak var btnMasInfo: UIButton!
+    @IBOutlet weak var btnMasInfoBig: UIButton!
     @IBOutlet weak var imageViewBanner: UIImageView!
     @IBOutlet weak var viewMain: UIView!
     @IBOutlet weak var viewBanner: UIView!

@@ -57,13 +57,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No te preocupes, " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWk-Xi-3Wa">
-                                                    <rect key="frame" x="54" y="294" width="267" height="44"/>
+                                                    <rect key="frame" x="59.5" y="294" width="256.5" height="37.5"/>
                                                     <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito Black" pointSize="32"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B9Q-ge-LC2">
-                                                    <rect key="frame" x="68.5" y="348" width="238" height="70"/>
+                                                    <rect key="frame" x="65" y="341.5" width="245.5" height="59.5"/>
                                                     <string key="text">te enviarémos un correo con un 
 enlace para que la recuperes 
 tu contraseña ;-)</string>
@@ -72,7 +72,7 @@ tu contraseña ;-)</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8D4-4R-ISo">
-                                                    <rect key="frame" x="160.5" y="439" width="54" height="24"/>
+                                                    <rect key="frame" x="161.5" y="422" width="52" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="kdN-1r-iqD"/>
                                                     </constraints>
@@ -81,7 +81,7 @@ tu contraseña ;-)</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8zS-9X-cnp">
-                                                    <rect key="frame" x="37.5" y="471" width="300" height="48"/>
+                                                    <rect key="frame" x="37.5" y="454" width="300" height="48"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Lb-Jt-YSE">
                                                             <rect key="frame" x="43" y="12" width="224" height="24"/>
@@ -98,7 +98,7 @@ tu contraseña ;-)</string>
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zin-rq-e3t">
-                                                    <rect key="frame" x="37.5" y="536" width="300" height="48"/>
+                                                    <rect key="frame" x="37.5" y="519" width="300" height="48"/>
                                                     <color key="backgroundColor" red="1" green="0.43529411759999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="48" id="hP0-CE-DZM"/>
@@ -212,7 +212,7 @@ tu contraseña ;-)</string>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xg-Ke-ccO">
-                                                <rect key="frame" x="160.5" y="173" width="54" height="24"/>
+                                                <rect key="frame" x="161.5" y="173" width="52" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="cYu-Ye-Tqp"/>
                                                 </constraints>
@@ -238,7 +238,7 @@ tu contraseña ;-)</string>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contraseña" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3f-Ph-75L">
-                                                <rect key="frame" x="142" y="277" width="91" height="24"/>
+                                                <rect key="frame" x="143.5" y="277" width="88" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="tow-oZ-mld"/>
                                                 </constraints>
@@ -287,7 +287,7 @@ tu contraseña ;-)</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9s-wR-RNB">
-                                                <rect key="frame" x="99" y="461" width="177" height="24"/>
+                                                <rect key="frame" x="100" y="461" width="175" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="0Bv-Go-l1y"/>
                                                 </constraints>
@@ -298,7 +298,7 @@ tu contraseña ;-)</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcI-Bx-sg2">
-                                                <rect key="frame" x="126" y="587" width="123" height="24"/>
+                                                <rect key="frame" x="127.5" y="587" width="120" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="7Vm-6D-iwr"/>
                                                 </constraints>
@@ -323,7 +323,7 @@ tu contraseña ;-)</string>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" red="0.74901960784313726" green="0.87450980392156863" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uXx-Qf-mLZ" userLabel="google">
                                                         <rect key="frame" x="92" y="0.0" width="80" height="64"/>
@@ -338,7 +338,7 @@ tu contraseña ;-)</string>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" red="1" green="0.91764705882352937" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vcO-HK-Rp6" userLabel="cuenta">
                                                         <rect key="frame" x="184" y="0.0" width="80" height="64"/>
@@ -1573,7 +1573,7 @@ tu contraseña ;-)</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cN-GL-zBa">
-                                                    <rect key="frame" x="36" y="107.5" width="303" height="44"/>
+                                                    <rect key="frame" x="36" y="100" width="303" height="37.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="303" id="QqU-XE-GFj"/>
                                                     </constraints>
@@ -1596,7 +1596,7 @@ tu contraseña ;-)</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crear tu cuenta" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyz-41-EC5">
-                                                    <rect key="frame" x="49.5" y="52" width="276" height="49.5"/>
+                                                    <rect key="frame" x="49.5" y="52" width="276" height="42"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="276" id="7Rg-PQ-156"/>
                                                     </constraints>
@@ -2581,7 +2581,7 @@ ganar dinero por tus compras.</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nueva cuenta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2H-0t-9GK">
-                                            <rect key="frame" x="19" y="88" width="334" height="44"/>
+                                            <rect key="frame" x="19" y="88" width="334" height="37.5"/>
                                             <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito Black" pointSize="32"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2634,7 +2634,7 @@ ganar dinero por tus compras.</string>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Banco destino" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cft-eg-7J2">
-                                            <rect key="frame" x="137.5" y="368" width="100" height="20.5"/>
+                                            <rect key="frame" x="139" y="368" width="97" height="17.5"/>
                                             <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2651,30 +2651,8 @@ ganar dinero por tus compras.</string>
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                         </button>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dUK-fL-TKG">
-                                            <rect key="frame" x="101" y="686" width="173" height="74"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="visa" translatesAutoresizingMaskIntoConstraints="NO" id="5y2-df-VJL">
-                                                    <rect key="frame" x="88" y="28" width="65" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="american" translatesAutoresizingMaskIntoConstraints="NO" id="rfx-oZ-O7l">
-                                                    <rect key="frame" x="62" y="22" width="32" height="32"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="master" translatesAutoresizingMaskIntoConstraints="NO" id="7iU-cj-8vX">
-                                                    <rect key="frame" x="20" y="20" width="34" height="34"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="173" id="6sF-pU-mwT"/>
-                                                <constraint firstAttribute="height" constant="74" id="aSg-7Z-zmK"/>
-                                            </constraints>
-                                        </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tipo de cuenta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ml-cV-0lq">
-                                            <rect key="frame" x="135.5" y="160" width="104.5" height="20.5"/>
+                                            <rect key="frame" x="137.5" y="160" width="100.5" height="17.5"/>
                                             <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2708,7 +2686,7 @@ ganar dinero por tus compras.</string>
                                             </userDefinedRuntimeAttributes>
                                         </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre corto" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXF-cX-UqW">
-                                            <rect key="frame" x="138.5" y="472" width="98.5" height="20.5"/>
+                                            <rect key="frame" x="141" y="472" width="93.5" height="17.5"/>
                                             <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2728,7 +2706,7 @@ ganar dinero por tus compras.</string>
                                             </userDefinedRuntimeAttributes>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e39-yC-Z78">
-                                            <rect key="frame" x="137" y="640" width="101" height="33"/>
+                                            <rect key="frame" x="137.5" y="640" width="100" height="30"/>
                                             <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="15"/>
                                             <state key="normal" title="Eliminar tarjeta"/>
                                         </button>
@@ -2766,10 +2744,8 @@ ganar dinero por tus compras.</string>
                                         <constraint firstItem="BMz-EN-VUv" firstAttribute="top" secondItem="xr5-RL-XLX" secondAttribute="top" constant="584" id="oKl-3J-Rcf"/>
                                         <constraint firstItem="cBg-SZ-xqD" firstAttribute="leading" secondItem="xr5-RL-XLX" secondAttribute="leading" id="p93-eJ-dKJ"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Q2H-0t-9GK" secondAttribute="trailing" constant="6" id="qij-Jn-H42"/>
-                                        <constraint firstItem="dUK-fL-TKG" firstAttribute="top" secondItem="xr5-RL-XLX" secondAttribute="top" constant="686" id="ryi-gd-whr"/>
                                         <constraint firstItem="01O-3z-8AI" firstAttribute="top" secondItem="xr5-RL-XLX" secondAttribute="top" constant="504" id="sR6-Id-qOk"/>
                                         <constraint firstItem="Mm9-Gk-fXj" firstAttribute="centerX" secondItem="xr5-RL-XLX" secondAttribute="centerX" id="vi7-Mr-9Vo"/>
-                                        <constraint firstItem="dUK-fL-TKG" firstAttribute="centerX" secondItem="xr5-RL-XLX" secondAttribute="centerX" id="xAQ-NU-2Ox"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -2802,7 +2778,7 @@ ganar dinero por tus compras.</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compañia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8E-MW-xhC">
-                                            <rect key="frame" x="152" y="260" width="71" height="20.5"/>
+                                            <rect key="frame" x="153" y="260" width="69" height="17.5"/>
                                             <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2828,7 +2804,7 @@ ganar dinero por tus compras.</string>
                                             <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                         </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Telefono" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMk-ww-1hk">
-                                            <rect key="frame" x="157.5" y="160" width="60.5" height="20.5"/>
+                                            <rect key="frame" x="159.5" y="160" width="56.5" height="17.5"/>
                                             <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2882,7 +2858,7 @@ ganar dinero por tus compras.</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre corto" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Yu-S8-yWo">
-                                            <rect key="frame" x="138.5" y="362" width="98.5" height="20.5"/>
+                                            <rect key="frame" x="141" y="362" width="93.5" height="17.5"/>
                                             <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2902,7 +2878,7 @@ ganar dinero por tus compras.</string>
                                             </userDefinedRuntimeAttributes>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rXO-hG-64B">
-                                            <rect key="frame" x="133" y="530" width="109" height="33"/>
+                                            <rect key="frame" x="133" y="530" width="109" height="30"/>
                                             <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="15"/>
                                             <state key="normal" title="Eliminar numero"/>
                                         </button>
@@ -2969,7 +2945,7 @@ ganar dinero por tus compras.</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correo electrónico" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWV-qn-g0O">
-                                            <rect key="frame" x="123" y="261" width="129" height="20.5"/>
+                                            <rect key="frame" x="125.5" y="261" width="124.5" height="17.5"/>
                                             <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -3007,7 +2983,7 @@ ganar dinero por tus compras.</string>
                                             </state>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eO7-57-cW0">
-                                            <rect key="frame" x="179.5" y="160" width="16" height="20.5"/>
+                                            <rect key="frame" x="180.5" y="160" width="14.5" height="17.5"/>
                                             <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -3049,7 +3025,7 @@ ganar dinero por tus compras.</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre corto" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fqw-AF-7Gy">
-                                            <rect key="frame" x="138.5" y="362" width="98.5" height="20.5"/>
+                                            <rect key="frame" x="141" y="362" width="93.5" height="17.5"/>
                                             <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -3069,7 +3045,7 @@ ganar dinero por tus compras.</string>
                                             </userDefinedRuntimeAttributes>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7W-n8-Vzb">
-                                            <rect key="frame" x="136" y="530" width="103" height="33"/>
+                                            <rect key="frame" x="135.5" y="530" width="104" height="30"/>
                                             <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="15"/>
                                             <state key="normal" title="Eliminar cuenta"/>
                                         </button>
@@ -3211,7 +3187,7 @@ ganar dinero por tus compras.</string>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bancario" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G11-ov-8tg">
-                                            <rect key="frame" x="18" y="96" width="135" height="40"/>
+                                            <rect key="frame" x="18" y="96" width="127.5" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="w1M-dM-VJN"/>
                                             </constraints>
@@ -3220,13 +3196,13 @@ ganar dinero por tus compras.</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Retiro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbb-M8-dvQ">
-                                            <rect key="frame" x="47" y="64" width="50" height="24"/>
+                                            <rect key="frame" x="47" y="64" width="45.5" height="20"/>
                                             <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito Black" pointSize="17"/>
                                             <color key="textColor" red="0.79215686269999996" green="0.79215686269999996" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cantidad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5e-2n-ktD">
-                                            <rect key="frame" x="155.5" y="168" width="64" height="24"/>
+                                            <rect key="frame" x="157" y="168" width="61.5" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="5j5-ea-Sen"/>
                                             </constraints>
@@ -3245,7 +3221,7 @@ ganar dinero por tus compras.</string>
                                             <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                         </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cuenta destino" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cER-my-OcG">
-                                            <rect key="frame" x="134.5" y="269" width="106" height="24"/>
+                                            <rect key="frame" x="136.5" y="269" width="102" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="cro-gt-OvD"/>
                                             </constraints>
@@ -3254,7 +3230,7 @@ ganar dinero por tus compras.</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kML-Xy-9Fu">
-                                            <rect key="frame" x="135.5" y="450" width="104" height="33"/>
+                                            <rect key="frame" x="136" y="450" width="103" height="30"/>
                                             <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="15"/>
                                             <state key="normal" title="Agregar cuenta">
                                                 <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3331,7 +3307,7 @@ ganar dinero por tus compras.</string>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cantidad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEt-Mp-sgK">
-                                            <rect key="frame" x="155.5" y="168" width="64" height="24"/>
+                                            <rect key="frame" x="157" y="168" width="61.5" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="znO-c6-cx0"/>
                                             </constraints>
@@ -3350,7 +3326,7 @@ ganar dinero por tus compras.</string>
                                             <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                         </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cuenta destino" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djN-M3-81s">
-                                            <rect key="frame" x="134.5" y="269" width="106" height="24"/>
+                                            <rect key="frame" x="136.5" y="269" width="102" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="dXP-k0-TNt"/>
                                             </constraints>
@@ -3374,7 +3350,7 @@ ganar dinero por tus compras.</string>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PayPal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdt-HH-4Fi">
-                                            <rect key="frame" x="18" y="96" width="341" height="44"/>
+                                            <rect key="frame" x="18" y="96" width="341" height="37.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="341" id="dZ6-fK-tt9"/>
                                             </constraints>
@@ -3393,13 +3369,13 @@ ganar dinero por tus compras.</string>
                                             <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                         </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Retiro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oip-Ed-YZX">
-                                            <rect key="frame" x="47" y="64" width="50" height="24"/>
+                                            <rect key="frame" x="47" y="64" width="45.5" height="20"/>
                                             <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito Black" pointSize="17"/>
                                             <color key="textColor" red="0.79215686269999996" green="0.79215686269999996" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UiM-0G-smL">
-                                            <rect key="frame" x="135.5" y="450" width="104" height="33"/>
+                                            <rect key="frame" x="136" y="450" width="103" height="30"/>
                                             <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="15"/>
                                             <state key="normal" title="Agregar cuenta">
                                                 <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3475,18 +3451,8 @@ ganar dinero por tus compras.</string>
                                                 <constraint firstAttribute="height" constant="40" id="T43-4u-Zz1"/>
                                             </constraints>
                                         </view>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="[55-5555-5555]" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xJe-VM-FSW">
-                                            <rect key="frame" x="36" y="399" width="303" height="48"/>
-                                            <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="48" id="Rgx-jz-y2K"/>
-                                                <constraint firstAttribute="width" constant="303" id="VXZ-e8-4VG"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="17"/>
-                                            <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                        </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recarga" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h36-16-gla">
-                                            <rect key="frame" x="18" y="96" width="125" height="44"/>
+                                            <rect key="frame" x="18" y="96" width="119" height="37.5"/>
                                             <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito Black" pointSize="32"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -3502,7 +3468,7 @@ ganar dinero por tus compras.</string>
                                             <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                         </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Número telefónico" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgu-h2-X5c">
-                                            <rect key="frame" x="122.5" y="269" width="130" height="24"/>
+                                            <rect key="frame" x="126" y="269" width="123.5" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="zi0-Ol-mJW"/>
                                             </constraints>
@@ -3510,25 +3476,15 @@ ganar dinero por tus compras.</string>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Número telefónico" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBO-aP-W95">
-                                            <rect key="frame" x="122.5" y="370" width="130" height="24"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="24" id="IqG-rb-5SV"/>
-                                                <constraint firstAttribute="width" constant="130" id="Tef-hW-4WK"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
-                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THA-NZ-IpQ">
-                                            <rect key="frame" x="34.5" y="479" width="306" height="48"/>
+                                            <rect key="frame" x="34.5" y="379" width="306" height="48"/>
                                             <color key="backgroundColor" red="1" green="0.42745098040000001" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="306" id="3Ur-P9-7gx"/>
                                                 <constraint firstAttribute="height" constant="48" id="pCZ-XZ-gTN"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="17"/>
-                                            <state key="normal" title="Solicitar Retiro">
+                                            <state key="normal" title="Recarga">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                             <connections>
@@ -3536,7 +3492,7 @@ ganar dinero por tus compras.</string>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cantidad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MwA-UP-Zb2">
-                                            <rect key="frame" x="155.5" y="168" width="64" height="24"/>
+                                            <rect key="frame" x="157" y="168" width="61.5" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="210-eC-lYZ"/>
                                             </constraints>
@@ -3555,14 +3511,14 @@ ganar dinero por tus compras.</string>
                                             <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mae-oI-t7z">
-                                            <rect key="frame" x="132.5" y="551" width="110" height="33"/>
+                                            <rect key="frame" x="133.5" y="450" width="108" height="30"/>
                                             <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="15"/>
                                             <state key="normal" title="Agregar número">
                                                 <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Retiro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBA-K8-i8r">
-                                            <rect key="frame" x="47" y="64" width="50" height="24"/>
+                                            <rect key="frame" x="47" y="64" width="45.5" height="20"/>
                                             <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito Black" pointSize="17"/>
                                             <color key="textColor" red="0.79215686269999996" green="0.79215686269999996" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -3577,7 +3533,7 @@ ganar dinero por tus compras.</string>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="cUZ-1B-86n" firstAttribute="centerX" secondItem="xvv-Dj-LwA" secondAttribute="centerX" id="0Tr-nW-Lls"/>
-                                        <constraint firstItem="THA-NZ-IpQ" firstAttribute="top" secondItem="xvv-Dj-LwA" secondAttribute="top" constant="479" id="0d7-oP-3Dz"/>
+                                        <constraint firstItem="THA-NZ-IpQ" firstAttribute="top" secondItem="xvv-Dj-LwA" secondAttribute="top" constant="379" id="0d7-oP-3Dz"/>
                                         <constraint firstItem="kw4-ie-SVS" firstAttribute="centerX" secondItem="xvv-Dj-LwA" secondAttribute="centerX" id="0wA-xl-7tB"/>
                                         <constraint firstItem="QuN-ez-jQG" firstAttribute="top" secondItem="xvv-Dj-LwA" secondAttribute="top" constant="4" id="7uH-XK-yW0"/>
                                         <constraint firstItem="kw4-ie-SVS" firstAttribute="top" secondItem="xvv-Dj-LwA" secondAttribute="top" constant="298" id="CFK-jk-Jmj"/>
@@ -3586,20 +3542,16 @@ ganar dinero por tus compras.</string>
                                         <constraint firstItem="hgu-h2-X5c" firstAttribute="top" secondItem="xvv-Dj-LwA" secondAttribute="top" constant="269" id="QEi-bs-Xpl"/>
                                         <constraint firstItem="hgu-h2-X5c" firstAttribute="centerX" secondItem="xvv-Dj-LwA" secondAttribute="centerX" id="QNY-b5-09R"/>
                                         <constraint firstItem="VBA-K8-i8r" firstAttribute="top" secondItem="xvv-Dj-LwA" secondAttribute="top" constant="64" id="QYP-Mu-pqk"/>
-                                        <constraint firstItem="VBO-aP-W95" firstAttribute="top" secondItem="xvv-Dj-LwA" secondAttribute="top" constant="370" id="SIr-Qh-kgp"/>
                                         <constraint firstItem="h36-16-gla" firstAttribute="top" secondItem="xvv-Dj-LwA" secondAttribute="top" constant="96" id="SrH-mH-uXC"/>
                                         <constraint firstItem="cUZ-1B-86n" firstAttribute="top" secondItem="xvv-Dj-LwA" secondAttribute="top" constant="197" id="Ugb-L9-fNA"/>
-                                        <constraint firstItem="xJe-VM-FSW" firstAttribute="centerX" secondItem="xvv-Dj-LwA" secondAttribute="centerX" id="UrU-nV-YNR"/>
                                         <constraint firstItem="DUw-m3-KPT" firstAttribute="top" secondItem="xvv-Dj-LwA" secondAttribute="top" constant="64" id="VKH-2W-Zoe"/>
                                         <constraint firstItem="mae-oI-t7z" firstAttribute="centerX" secondItem="xvv-Dj-LwA" secondAttribute="centerX" id="dvX-Te-HgL"/>
                                         <constraint firstItem="MwA-UP-Zb2" firstAttribute="top" secondItem="xvv-Dj-LwA" secondAttribute="top" constant="168" id="fep-9o-ojZ"/>
                                         <constraint firstItem="h36-16-gla" firstAttribute="leading" secondItem="xvv-Dj-LwA" secondAttribute="leading" constant="18" id="gpj-es-BpF"/>
-                                        <constraint firstItem="mae-oI-t7z" firstAttribute="top" secondItem="xvv-Dj-LwA" secondAttribute="top" constant="551" id="hkK-ay-PrS"/>
+                                        <constraint firstItem="mae-oI-t7z" firstAttribute="top" secondItem="xvv-Dj-LwA" secondAttribute="top" constant="450" id="hkK-ay-PrS"/>
                                         <constraint firstItem="QuN-ez-jQG" firstAttribute="leading" secondItem="xvv-Dj-LwA" secondAttribute="leading" id="kRW-7I-O6i"/>
                                         <constraint firstItem="VBA-K8-i8r" firstAttribute="leading" secondItem="xvv-Dj-LwA" secondAttribute="leading" constant="47" id="lFF-6W-FFC"/>
-                                        <constraint firstItem="xJe-VM-FSW" firstAttribute="top" secondItem="xvv-Dj-LwA" secondAttribute="top" constant="399" id="v65-LX-WaY"/>
                                         <constraint firstItem="MwA-UP-Zb2" firstAttribute="centerX" secondItem="xvv-Dj-LwA" secondAttribute="centerX" id="yP4-uv-DvF"/>
-                                        <constraint firstItem="VBO-aP-W95" firstAttribute="centerX" secondItem="xvv-Dj-LwA" secondAttribute="centerX" id="yub-Jc-LFv"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -3607,7 +3559,6 @@ ganar dinero por tus compras.</string>
                                     <outlet property="btnBack" destination="uwz-ab-OHO" id="BvF-cA-kij"/>
                                     <outlet property="btnSolicitar" destination="THA-NZ-IpQ" id="CXl-uY-gfm"/>
                                     <outlet property="txtCantidad" destination="cUZ-1B-86n" id="ujB-nu-UUe"/>
-                                    <outlet property="txtCompania" destination="xJe-VM-FSW" id="iIN-SQ-ZuZ"/>
                                     <outlet property="txtNumero" destination="kw4-ie-SVS" id="4iQ-RF-vET"/>
                                 </connections>
                             </tableViewCell>
@@ -3763,6 +3714,9 @@ ganar dinero por tus compras.</string>
                                             <outlet property="btnTickets" destination="we3-Eu-TvP" id="eUK-13-fp4"/>
                                             <outlet property="buttonsView" destination="F8q-PP-flE" id="9ch-wq-X72"/>
                                             <outlet property="gradientView" destination="ccf-93-QQa" id="qjX-TZ-WNd"/>
+                                            <outlet property="imgHistorial" destination="04y-aR-lTC" id="zeV-cb-Xg2"/>
+                                            <outlet property="imgRetirar" destination="3gs-Kt-XBQ" id="bg5-Um-BY0"/>
+                                            <outlet property="imgTickets" destination="euF-7A-VCI" id="U1S-fE-hHQ"/>
                                             <outlet property="indicatorView" destination="Eu1-FL-XGu" id="szJ-v4-rhQ"/>
                                             <outlet property="lblBonificacion" destination="cW4-wI-c4r" id="VNv-Gj-11L"/>
                                         </connections>
@@ -4231,7 +4185,7 @@ ganar dinero por tus compras.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUt-Re-bLf">
-                                <rect key="frame" x="73.5" y="394" width="228.5" height="96"/>
+                                <rect key="frame" x="73.5" y="394" width="228" height="96"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="96" id="i3r-0c-0E9"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="238" id="vCy-HU-Zsw"/>
@@ -4674,7 +4628,7 @@ capturado antes.
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ra-de-xvE">
-                                        <rect key="frame" x="115.5" y="183" width="144.5" height="86"/>
+                                        <rect key="frame" x="117" y="183" width="141.5" height="73.5"/>
                                         <string key="text">Sumaste $ 100
 a tu saldo,
 ¡Sigue así!</string>
@@ -4683,7 +4637,7 @@ a tu saldo,
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vf2-a6-yFS">
-                                        <rect key="frame" x="114" y="505" width="147" height="48"/>
+                                        <rect key="frame" x="114" y="492.5" width="147" height="48"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="147" id="7Kq-Zs-yLO"/>
@@ -4698,7 +4652,7 @@ a tu saldo,
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¡Listo!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLK-Lr-sVO">
-                                        <rect key="frame" x="141.5" y="117" width="92.5" height="44"/>
+                                        <rect key="frame" x="144.5" y="117" width="86" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="hXb-F0-mEb"/>
                                         </constraints>
@@ -4707,7 +4661,7 @@ a tu saldo,
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circulo-white-small" translatesAutoresizingMaskIntoConstraints="NO" id="ZHl-Rx-zLP">
-                                        <rect key="frame" x="99.5" y="310" width="176" height="176"/>
+                                        <rect key="frame" x="99.5" y="297.5" width="176" height="176"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="176" id="7h0-JC-iYd"/>
                                             <constraint firstAttribute="height" constant="176" id="952-MV-qZT"/>
@@ -4924,7 +4878,7 @@ a tu saldo,
                                 </constraints>
                                 <state key="normal" title="Privacidad"/>
                                 <connections>
-                                    <segue destination="49m-Ja-d5k" kind="presentation" identifier="PrivacidadSegue" id="tgW-0Z-fNu"/>
+                                    <segue destination="49m-Ja-d5k" kind="show" identifier="PrivacidadSegue" id="tgW-0Z-fNu"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019 | 1.0" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2x-gY-t6U">
@@ -6032,7 +5986,6 @@ Cg
                                 <state key="normal" title="Inicio"/>
                                 <connections>
                                     <action selector="back:" destination="49m-Ja-d5k" eventType="touchUpInside" id="EQD-S6-eWh"/>
-                                    <action selector="closeAction:" destination="RAc-zb-Ipd" eventType="touchUpInside" id="d3s-kJ-sup"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -6048,6 +6001,12 @@ Cg
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4Ib-fE-THC"/>
                     </view>
+                    <navigationItem key="navigationItem" id="I4M-5j-ZrL"/>
+                    <connections>
+                        <outlet property="btnArrow" destination="njm-YN-UBD" id="38W-BG-Bh2"/>
+                        <outlet property="btnInicio" destination="M2w-Af-tsC" id="K3z-kq-eDh"/>
+                        <outlet property="topConstraint" destination="aFn-Ut-Ii5" id="2Jz-mm-4Bg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UzS-Ab-FUB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -6203,7 +6162,7 @@ CgoKA
                                 </constraints>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="continue" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1lb-ci-k7b">
                                 <rect key="frame" x="37.5" y="208" width="300" height="48"/>
@@ -6212,9 +6171,9 @@ CgoKA
                                     <constraint firstAttribute="height" constant="48" id="Djc-c4-lvJ"/>
                                     <constraint firstAttribute="width" constant="300" id="Kqz-0y-LPa"/>
                                 </constraints>
-                                <color key="textColor" red="0.79215686269999996" green="0.79215686269999996" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="continue" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B36-Vp-zoV">
                                 <rect key="frame" x="34.5" y="272" width="306" height="48"/>
@@ -6287,7 +6246,7 @@ CgoKA
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Mensaje de noticacion]" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P79-sr-vxi">
-                                            <rect key="frame" x="84" y="4" width="275" height="23.5"/>
+                                            <rect key="frame" x="84" y="4" width="275" height="20"/>
                                             <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="17"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -6360,11 +6319,11 @@ CgoKA
                                 </subviews>
                                 <color key="backgroundColor" red="0.29803921570000003" green="0.85098039219999999" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IWl-hP-RL5">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IWl-hP-RL5">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FotoCell" rowHeight="200" id="EGf-fn-CJH" customClass="FotoTableViewCell" customModule="ShinShin" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FotoCell" rowHeight="200" id="EGf-fn-CJH" customClass="FotoTableViewCell" customModule="ShinShin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EGf-fn-CJH" id="p93-zw-Znd">
@@ -6504,7 +6463,7 @@ Ticket.</string>
                                             <outlet property="lblMensaje" destination="54l-Ij-sIK" id="9s0-AY-vPN"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CategoriaCell" rowHeight="160" id="AZ3-uC-5X9" customClass="CategoriaTableViewCell" customModule="ShinShin" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CategoriaCell" rowHeight="160" id="AZ3-uC-5X9" customClass="CategoriaTableViewCell" customModule="ShinShin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="228" width="375" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AZ3-uC-5X9" id="AU3-XH-rVe">
@@ -6577,6 +6536,10 @@ Ticket.</string>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
+                                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJX-M4-bE4" userLabel="btnMas">
+                                                                                <rect key="frame" x="119" y="0.0" width="216" height="136"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                            </button>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
@@ -6623,6 +6586,7 @@ Ticket.</string>
                                                             <size key="customSize" width="335" height="136"/>
                                                             <connections>
                                                                 <outlet property="btnMasInfo" destination="HdK-fq-cUt" id="xBW-JA-PI0"/>
+                                                                <outlet property="btnMasInfoBig" destination="XJX-M4-bE4" id="fje-KT-7gl"/>
                                                                 <outlet property="imageViewBanner" destination="Jw0-ge-7ME" id="rsv-V5-VwJ"/>
                                                                 <outlet property="lblBaner" destination="h8Q-LY-5D7" id="oHX-sy-eJq"/>
                                                                 <outlet property="lblBonificacion" destination="iEn-nk-UXR" id="reu-QI-5cK"/>
@@ -6651,7 +6615,7 @@ Ticket.</string>
                                             <outlet property="collectionView" destination="y77-90-c31" id="fHT-72-Wjh"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PopularesCell" rowHeight="210" id="VT8-9m-KLl" customClass="PopularTableViewCell" customModule="ShinShin" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PopularesCell" rowHeight="210" id="VT8-9m-KLl" customClass="PopularTableViewCell" customModule="ShinShin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="388" width="375" height="210"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VT8-9m-KLl" id="zMv-2s-xpA">
@@ -6783,7 +6747,7 @@ Ticket.</string>
                                             <outlet property="collectionView" destination="GpE-Ak-TE5" id="mRU-3v-9cQ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DepartamentosCell" rowHeight="82" id="DbO-MA-oGt" customClass="DeptoTableViewCell" customModule="ShinShin" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DepartamentosCell" rowHeight="82" id="DbO-MA-oGt" customClass="DeptoTableViewCell" customModule="ShinShin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="598" width="375" height="82"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DbO-MA-oGt" id="OTU-pM-7qN">
@@ -6869,53 +6833,63 @@ Ticket.</string>
                                             <outlet property="collectionView" destination="U2M-ti-wxg" id="MOt-lE-WHp"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TiendasCell" rowHeight="164" id="s49-ww-L39" customClass="TiendaTableViewCell" customModule="ShinShin" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="680" width="375" height="164"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="QueProductosCell" rowHeight="500" id="s49-ww-L39" customClass="QueProductosTableViewCell" customModule="ShinShin" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="680" width="375" height="500"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s49-ww-L39" id="rim-8r-rMc">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="164"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0ex-Og-Qyf">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="164"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZv-rI-P6D">
+                                                    <rect key="frame" x="15" y="10" width="345" height="85"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="7" minimumInteritemSpacing="7" id="cVG-Lg-FxX">
-                                                        <size key="itemSize" width="60" height="60"/>
-                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                        <inset key="sectionInset" minX="19" minY="5" maxX="7" maxY="5"/>
-                                                    </collectionViewFlowLayout>
-                                                    <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TiendaItemCell" id="hDu-6X-8lP" customClass="TiendaItemCollectionViewCell" customModule="ShinShin" customModuleProvider="target">
-                                                            <rect key="frame" x="19" y="5" width="60" height="60"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Cuéntanos,">
+                                                            <attributes>
+                                                                <font key="NSFont" size="17" name="Nunito-Light"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                        <fragment>
+                                                            <string key="content">
+¿Qué producto te gustaría
+ver en Shing Shing?</string>
+                                                            <attributes>
+                                                                <font key="NSFont" size="17" name="Nunito-Black"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5M-Dy-w4K">
+                                                    <rect key="frame" x="37" y="166" width="300" height="48"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.99607843139999996" green="0.85882352939999995" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito Black" pointSize="17"/>
+                                                    <state key="normal" title="Enviar">
+                                                        <color key="titleColor" red="1" green="0.43529411759999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                </button>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eWz-Qb-o9u">
+                                                    <rect key="frame" x="37" y="103" width="300" height="48"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0pw-fV-PFI">
+                                                            <rect key="frame" x="8" y="7" width="284" height="34"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="producto_detail_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="aYY-fk-ISy">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    </imageView>
-                                                                </subviews>
-                                                            </view>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <size key="customSize" width="60" height="60"/>
-                                                            <connections>
-                                                                <outlet property="imageView" destination="aYY-fk-ISy" id="Qus-X1-eQK"/>
-                                                            </connections>
-                                                        </collectionViewCell>
-                                                    </cells>
-                                                    <connections>
-                                                        <outlet property="dataSource" destination="s49-ww-L39" id="b0n-oU-722"/>
-                                                        <outlet property="delegate" destination="s49-ww-L39" id="HvA-g8-bYC"/>
-                                                    </connections>
-                                                </collectionView>
+                                                            <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="17"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="collectionView" destination="0ex-Og-Qyf" id="tuC-d5-Hac"/>
+                                            <outlet property="btnEnviar" destination="c5M-Dy-w4K" id="Bb9-QZ-fAV"/>
+                                            <outlet property="txtProductos" destination="0pw-fV-PFI" id="PPO-hN-DsF"/>
+                                            <outlet property="viewText" destination="eWz-Qb-o9u" id="Rhf-MZ-Auj"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -7189,7 +7163,6 @@ tener buena iluminación y
         <image name="Superama" width="20" height="16"/>
         <image name="Waltmart" width="20" height="16"/>
         <image name="agregarFoto" width="51.5" height="50"/>
-        <image name="american" width="20" height="16"/>
         <image name="ayuda-bold-blue" width="24" height="24"/>
         <image name="back" width="14" height="21.5"/>
         <image name="back-arrow" width="64" height="64"/>
@@ -7221,7 +7194,6 @@ tener buena iluminación y
         <image name="logo" width="50" height="50"/>
         <image name="mail-bold-blue" width="24" height="24"/>
         <image name="mail-grey" width="24" height="24"/>
-        <image name="master" width="20" height="16"/>
         <image name="money-bold-blue" width="24" height="24"/>
         <image name="ok_placeholder" width="64" height="64"/>
         <image name="paypal-grey-light" width="24" height="24"/>
@@ -7237,7 +7209,6 @@ tener buena iluminación y
         <image name="triangle" width="32" height="32"/>
         <image name="user-bold" width="24" height="24"/>
         <image name="user-orange" width="24" height="24"/>
-        <image name="visa" width="20" height="16"/>
         <image name="x-orange" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>

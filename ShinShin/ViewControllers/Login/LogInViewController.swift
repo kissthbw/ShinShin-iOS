@@ -233,8 +233,9 @@ class LogInViewController: UIViewController {
 //        btnGoogleSignIn.addSubview(btnSignIn)
         
         let alpha = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.0)
+        let final = UIColor(red: 254/255, green: 219/255, blue: 191/255, alpha: 1.0)
         
-        let gradient = CAGradientLayer(start: .bottomLeft, end: .center, colors: [UIColor.white.cgColor, alpha.cgColor], type: .axial)
+        let gradient = CAGradientLayer(start: .bottomLeft, end: .center, colors: [final.cgColor, alpha.cgColor], type: .axial)
         gradient.frame = gradientView.bounds
         gradientView.layer.addSublayer(gradient)
         

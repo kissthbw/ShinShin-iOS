@@ -15,6 +15,9 @@ class PrincipalBonificacionTableViewCell: UITableViewCell {
     @IBOutlet weak var lblBonificacion: UILabel!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var buttonsView: UIView!
+    @IBOutlet weak var imgRetirar: UIImageView!
+    @IBOutlet weak var imgTickets: UIImageView!
+    @IBOutlet weak var imgHistorial: UIImageView!
     @IBOutlet weak var btnRetirar: UIButton!
     @IBOutlet weak var btnTickets: UIButton!
     @IBOutlet weak var btnHistorial: UIButton!
@@ -24,6 +27,7 @@ class PrincipalBonificacionTableViewCell: UITableViewCell {
         case Retirar = 1, Tickets, Historico
     }
     
+    let unselectedColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.6)
     var btnSelected = ProcesoTag.Retirar.rawValue
     
     override func awakeFromNib() {
@@ -34,8 +38,9 @@ class PrincipalBonificacionTableViewCell: UITableViewCell {
         btnHistorial.tag = ProcesoTag.Historico.rawValue
         
         let alpha = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.0)
+        let final = UIColor(red: 254/255, green: 219/255, blue: 191/255, alpha: 1.0)
         
-        let gradient = CAGradientLayer(start: .bottomLeft, end: .center, colors: [UIColor.white.cgColor, alpha.cgColor], type: .axial)
+        let gradient = CAGradientLayer(start: .bottomLeft, end: .center, colors: [final.cgColor, alpha.cgColor], type: .axial)
         gradient.frame = gradientView.bounds
         gradientView.layer.addSublayer(gradient)
         
@@ -71,12 +76,30 @@ class PrincipalBonificacionTableViewCell: UITableViewCell {
         switch to {
         case ProcesoTag.Retirar.rawValue:
             btnSelected = ProcesoTag.Retirar.rawValue
+            imgRetirar.alpha = 1.0
+            imgTickets.alpha = 0.6
+            imgHistorial.alpha = 0.6
+            btnRetirar.setTitleColor(.white, for: .normal)
+            btnTickets.setTitleColor(unselectedColor, for: .normal)
+            btnHistorial.setTitleColor(unselectedColor, for: .normal)
             x = 50
         case ProcesoTag.Tickets.rawValue:
             btnSelected = ProcesoTag.Tickets.rawValue
+            imgRetirar.alpha = 0.6
+            imgTickets.alpha = 1.0
+            imgHistorial.alpha = 0.6
+            btnRetirar.setTitleColor(unselectedColor, for: .normal)
+            btnTickets.setTitleColor(.white, for: .normal)
+            btnHistorial.setTitleColor(unselectedColor, for: .normal)
             x = 156
         case ProcesoTag.Historico.rawValue:
+            imgRetirar.alpha = 0.6
+            imgTickets.alpha = 0.6
+            imgHistorial.alpha = 1.0
             btnSelected = ProcesoTag.Historico.rawValue
+            btnRetirar.setTitleColor(unselectedColor, for: .normal)
+            btnTickets.setTitleColor(unselectedColor, for: .normal)
+            btnHistorial.setTitleColor(.white, for: .normal)
             x = 270
         default:
             print("Error")

@@ -120,6 +120,7 @@
 		A2DC770E22CA5F9000006C63 /* TicketOCRAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DC770D22CA5F9000006C63 /* TicketOCRAnalyzer.swift */; };
 		A2ED3E1B22B0244400A12D3A /* TiendaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ED3E1A22B0244400A12D3A /* TiendaTableViewCell.swift */; };
 		A2ED3E1D22B0258E00A12D3A /* TiendaItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ED3E1C22B0258E00A12D3A /* TiendaItemCollectionViewCell.swift */; };
+		A2EFC1E6233982EC00380459 /* QueProductosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EFC1E5233982EC00380459 /* QueProductosTableViewCell.swift */; };
 		A2F0AA7822AEB4200069A84A /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2F0AA6A22AEB41E0069A84A /* Nunito-Light.ttf */; };
 		A2F0AA7922AEB4200069A84A /* Nunito-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2F0AA6B22AEB41E0069A84A /* Nunito-ExtraLight.ttf */; };
 		A2F0AA7A22AEB4200069A84A /* Nunito-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2F0AA6C22AEB41E0069A84A /* Nunito-ExtraLightItalic.ttf */; };
@@ -294,6 +295,7 @@
 		A2DC770D22CA5F9000006C63 /* TicketOCRAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketOCRAnalyzer.swift; sourceTree = "<group>"; };
 		A2ED3E1A22B0244400A12D3A /* TiendaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiendaTableViewCell.swift; sourceTree = "<group>"; };
 		A2ED3E1C22B0258E00A12D3A /* TiendaItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiendaItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		A2EFC1E5233982EC00380459 /* QueProductosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueProductosTableViewCell.swift; sourceTree = "<group>"; };
 		A2F0AA6A22AEB41E0069A84A /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
 		A2F0AA6B22AEB41E0069A84A /* Nunito-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraLight.ttf"; sourceTree = "<group>"; };
 		A2F0AA6C22AEB41E0069A84A /* Nunito-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
@@ -524,6 +526,7 @@
 				A26CBD0822A8710E002A5CD5 /* DeptoItemCollectionViewCell.swift */,
 				A2ED3E1C22B0258E00A12D3A /* TiendaItemCollectionViewCell.swift */,
 				A282596422C843B1009122DB /* FotoTableViewCell.swift */,
+				A2EFC1E5233982EC00380459 /* QueProductosTableViewCell.swift */,
 			);
 			path = Principal;
 			sourceTree = "<group>";
@@ -1017,6 +1020,7 @@
 				A256FF7D22A9C43F00B977ED /* ContactoViewController.swift in Sources */,
 				A241C8E922DD23B6008B342C /* CustomCameraViewController.swift in Sources */,
 				A2883FEA22A840A500E930DA /* PopularItemCollectionViewCell.swift in Sources */,
+				A2EFC1E6233982EC00380459 /* QueProductosTableViewCell.swift in Sources */,
 				A2032EEF2311856100D6BF99 /* ConfirmarEliminarViewController.swift in Sources */,
 				A2A8DA3A230DED5800A0942C /* TicketNotFoundTableViewCell.swift in Sources */,
 				A223095922B9EBA200DEA6EA /* MediosPagoView.swift in Sources */,

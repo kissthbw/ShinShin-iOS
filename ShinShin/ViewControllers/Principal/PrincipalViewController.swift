@@ -81,7 +81,7 @@ class PrincipalViewController: UIViewController {
         catalogoTiendasRequest()
         catalogoDepartamentosRequest()
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if Model.perfilActualizado{
@@ -321,7 +321,7 @@ extension PrincipalViewController: UITableViewDataSource, UITableViewDelegate{
             return 82
         }
         else if indexPath.section == 4{
-            return 164
+            return 500
         }
         else{
             return 44
@@ -376,7 +376,7 @@ extension PrincipalViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 || section == 1{
+        if section == 0 || section == 1 || section == 4{
             
             return 0
         }
@@ -419,14 +419,23 @@ extension PrincipalViewController: UITableViewDataSource, UITableViewDelegate{
             return cell
         }
         else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TiendasCell", for: indexPath) as! TiendaTableViewCell
-            cell.list = catalogoTiendas.tiendas
+            let cell = tableView.dequeueReusableCell(withIdentifier: "QueProductosCell", for: indexPath) as! QueProductosTableViewCell
+            cell.txtProductos.delegate = self
+            
+            
             return cell
         }
         
     }
     
     
+}
+
+extension PrincipalViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
 
 //MARK: - RESTActionDelegate

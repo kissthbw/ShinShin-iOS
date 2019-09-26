@@ -88,7 +88,7 @@ class ContactoViewController: UIViewController {
     
     @objc
     func showHome(){
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     @objc

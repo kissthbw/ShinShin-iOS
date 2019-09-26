@@ -26,25 +26,11 @@ class NotificacionesTableViewController: UITableViewController {
         else{
             print("Con notificaciones dummy")
             let item = Notificacion()
-            item.title = "Se agregaron $25 a tu cuenta"
+            item.title = "¡Bienvenido a Shing Shing!"
             item.body = "dd/mm/aaaaa"
             item.fecha = "dd/mm/aaaaa"
             item.imagen = "agregar"
             items.append(item)
-            
-            let item2 = Notificacion()
-            item2.title = "Solicitaste un retiro por $100 que se vera reflejado en tu cuenta ****2150"
-            item.body = "dd/mm/aaaaa"
-            item2.fecha = "dd/mm/aaaaa"
-            item2.imagen = "retiro"
-            items.append(item2)
-            
-            let item3 = Notificacion()
-            item3.title = "Llegó Agua Bonafont 500 ml \n - Gana $5"
-            item.body = "dd/mm/aaaaa"
-            item3.fecha = "dd/mm/aaaaa"
-            item3.imagen = "bonafont"
-            items.append(item3)
         }
         
         configureBarButtons()
@@ -104,7 +90,7 @@ class NotificacionesTableViewController: UITableViewController {
     
     @objc
     func showHome(){
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     @objc
