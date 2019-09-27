@@ -25,7 +25,7 @@ class MediosBonificacionTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isTranslucent = false
+//        self.navigationController?.navigationBar.isTranslucent = false
         cardView.layer.cornerRadius = 10.0
         configureBarButtons()
         

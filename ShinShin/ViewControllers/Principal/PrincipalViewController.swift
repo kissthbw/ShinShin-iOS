@@ -72,8 +72,9 @@ class PrincipalViewController: UIViewController {
         
         menuNavigationController.settings = settings
         
-        
-        self.navigationController?.navigationBar.isTranslucent = false
+//        self.navigationController?.navigationBar.setBackgroundImage(nil, for:.default)
+//        self.navigationController?.navigationBar.shadowImage = nil
+//        self.navigationController?.navigationBar.layoutIfNeeded()
         
         configureBarButtons()
         bannersRequest()
@@ -109,6 +110,9 @@ class PrincipalViewController: UIViewController {
             })
 
         }
+        
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.barTintColor = .white
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -57,13 +57,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No te preocupes, " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWk-Xi-3Wa">
-                                                    <rect key="frame" x="59.5" y="294" width="256.5" height="37.5"/>
+                                                    <rect key="frame" x="54" y="294" width="267" height="44"/>
                                                     <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito Black" pointSize="32"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B9Q-ge-LC2">
-                                                    <rect key="frame" x="65" y="341.5" width="245.5" height="59.5"/>
+                                                    <rect key="frame" x="68.5" y="348" width="238" height="70"/>
                                                     <string key="text">te enviarémos un correo con un 
 enlace para que la recuperes 
 tu contraseña ;-)</string>
@@ -72,7 +72,7 @@ tu contraseña ;-)</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8D4-4R-ISo">
-                                                    <rect key="frame" x="161.5" y="422" width="52" height="24"/>
+                                                    <rect key="frame" x="160.5" y="439" width="54" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="kdN-1r-iqD"/>
                                                     </constraints>
@@ -81,7 +81,7 @@ tu contraseña ;-)</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8zS-9X-cnp">
-                                                    <rect key="frame" x="37.5" y="454" width="300" height="48"/>
+                                                    <rect key="frame" x="37.5" y="471" width="300" height="48"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Lb-Jt-YSE">
                                                             <rect key="frame" x="43" y="12" width="224" height="24"/>
@@ -98,7 +98,7 @@ tu contraseña ;-)</string>
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zin-rq-e3t">
-                                                    <rect key="frame" x="37.5" y="519" width="300" height="48"/>
+                                                    <rect key="frame" x="37.5" y="536" width="300" height="48"/>
                                                     <color key="backgroundColor" red="1" green="0.43529411759999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="48" id="hP0-CE-DZM"/>
@@ -212,7 +212,7 @@ tu contraseña ;-)</string>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xg-Ke-ccO">
-                                                <rect key="frame" x="161.5" y="173" width="52" height="24"/>
+                                                <rect key="frame" x="160.5" y="173" width="54" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="cYu-Ye-Tqp"/>
                                                 </constraints>
@@ -238,7 +238,7 @@ tu contraseña ;-)</string>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contraseña" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3f-Ph-75L">
-                                                <rect key="frame" x="143.5" y="277" width="88" height="24"/>
+                                                <rect key="frame" x="142" y="277" width="91" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="tow-oZ-mld"/>
                                                 </constraints>
@@ -287,7 +287,7 @@ tu contraseña ;-)</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9s-wR-RNB">
-                                                <rect key="frame" x="100" y="461" width="175" height="24"/>
+                                                <rect key="frame" x="99" y="461" width="177" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="0Bv-Go-l1y"/>
                                                 </constraints>
@@ -298,7 +298,7 @@ tu contraseña ;-)</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcI-Bx-sg2">
-                                                <rect key="frame" x="127.5" y="587" width="120" height="24"/>
+                                                <rect key="frame" x="126" y="587" width="123" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="7Vm-6D-iwr"/>
                                                 </constraints>
@@ -1573,7 +1573,7 @@ tu contraseña ;-)</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cN-GL-zBa">
-                                                    <rect key="frame" x="36" y="100" width="303" height="37.5"/>
+                                                    <rect key="frame" x="36" y="107.5" width="303" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="303" id="QqU-XE-GFj"/>
                                                     </constraints>
@@ -1596,7 +1596,7 @@ tu contraseña ;-)</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crear tu cuenta" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyz-41-EC5">
-                                                    <rect key="frame" x="49.5" y="52" width="276" height="42"/>
+                                                    <rect key="frame" x="49.5" y="52" width="276" height="49.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="276" id="7Rg-PQ-156"/>
                                                     </constraints>
@@ -2581,7 +2581,7 @@ ganar dinero por tus compras.</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nueva cuenta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2H-0t-9GK">
-                                            <rect key="frame" x="19" y="88" width="334" height="37.5"/>
+                                            <rect key="frame" x="19" y="88" width="334" height="44"/>
                                             <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito Black" pointSize="32"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2634,7 +2634,7 @@ ganar dinero por tus compras.</string>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Banco destino" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cft-eg-7J2">
-                                            <rect key="frame" x="139" y="368" width="97" height="17.5"/>
+                                            <rect key="frame" x="137.5" y="368" width="100" height="20.5"/>
                                             <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2652,7 +2652,7 @@ ganar dinero por tus compras.</string>
                                             </state>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tipo de cuenta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ml-cV-0lq">
-                                            <rect key="frame" x="137.5" y="160" width="100.5" height="17.5"/>
+                                            <rect key="frame" x="135.5" y="160" width="104.5" height="20.5"/>
                                             <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2686,7 +2686,7 @@ ganar dinero por tus compras.</string>
                                             </userDefinedRuntimeAttributes>
                                         </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre corto" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXF-cX-UqW">
-                                            <rect key="frame" x="141" y="472" width="93.5" height="17.5"/>
+                                            <rect key="frame" x="138.5" y="472" width="98.5" height="20.5"/>
                                             <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2706,7 +2706,7 @@ ganar dinero por tus compras.</string>
                                             </userDefinedRuntimeAttributes>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e39-yC-Z78">
-                                            <rect key="frame" x="137.5" y="640" width="100" height="30"/>
+                                            <rect key="frame" x="137" y="640" width="101" height="33"/>
                                             <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="15"/>
                                             <state key="normal" title="Eliminar tarjeta"/>
                                         </button>
@@ -2778,7 +2778,7 @@ ganar dinero por tus compras.</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compañia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8E-MW-xhC">
-                                            <rect key="frame" x="153" y="260" width="69" height="17.5"/>
+                                            <rect key="frame" x="152" y="260" width="71" height="20.5"/>
                                             <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2804,7 +2804,7 @@ ganar dinero por tus compras.</string>
                                             <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                         </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Telefono" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMk-ww-1hk">
-                                            <rect key="frame" x="159.5" y="160" width="56.5" height="17.5"/>
+                                            <rect key="frame" x="157.5" y="160" width="60.5" height="20.5"/>
                                             <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2858,7 +2858,7 @@ ganar dinero por tus compras.</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre corto" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Yu-S8-yWo">
-                                            <rect key="frame" x="141" y="362" width="93.5" height="17.5"/>
+                                            <rect key="frame" x="138.5" y="362" width="98.5" height="20.5"/>
                                             <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2878,7 +2878,7 @@ ganar dinero por tus compras.</string>
                                             </userDefinedRuntimeAttributes>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rXO-hG-64B">
-                                            <rect key="frame" x="133" y="530" width="109" height="30"/>
+                                            <rect key="frame" x="133" y="530" width="109" height="33"/>
                                             <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="15"/>
                                             <state key="normal" title="Eliminar numero"/>
                                         </button>
@@ -2945,7 +2945,7 @@ ganar dinero por tus compras.</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correo electrónico" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWV-qn-g0O">
-                                            <rect key="frame" x="125.5" y="261" width="124.5" height="17.5"/>
+                                            <rect key="frame" x="123" y="261" width="129" height="20.5"/>
                                             <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2983,7 +2983,7 @@ ganar dinero por tus compras.</string>
                                             </state>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eO7-57-cW0">
-                                            <rect key="frame" x="180.5" y="160" width="14.5" height="17.5"/>
+                                            <rect key="frame" x="179.5" y="160" width="16" height="20.5"/>
                                             <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -3025,7 +3025,7 @@ ganar dinero por tus compras.</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre corto" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fqw-AF-7Gy">
-                                            <rect key="frame" x="141" y="362" width="93.5" height="17.5"/>
+                                            <rect key="frame" x="138.5" y="362" width="98.5" height="20.5"/>
                                             <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -3045,7 +3045,7 @@ ganar dinero por tus compras.</string>
                                             </userDefinedRuntimeAttributes>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7W-n8-Vzb">
-                                            <rect key="frame" x="135.5" y="530" width="104" height="30"/>
+                                            <rect key="frame" x="136" y="530" width="103" height="33"/>
                                             <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="15"/>
                                             <state key="normal" title="Eliminar cuenta"/>
                                         </button>
@@ -3187,7 +3187,7 @@ ganar dinero por tus compras.</string>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bancario" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G11-ov-8tg">
-                                            <rect key="frame" x="18" y="96" width="127.5" height="40"/>
+                                            <rect key="frame" x="18" y="96" width="135" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="w1M-dM-VJN"/>
                                             </constraints>
@@ -3196,13 +3196,13 @@ ganar dinero por tus compras.</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Retiro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbb-M8-dvQ">
-                                            <rect key="frame" x="47" y="64" width="45.5" height="20"/>
+                                            <rect key="frame" x="47" y="64" width="50" height="23.5"/>
                                             <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito Black" pointSize="17"/>
                                             <color key="textColor" red="0.79215686269999996" green="0.79215686269999996" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cantidad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5e-2n-ktD">
-                                            <rect key="frame" x="157" y="168" width="61.5" height="24"/>
+                                            <rect key="frame" x="155.5" y="168" width="64" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="5j5-ea-Sen"/>
                                             </constraints>
@@ -3221,7 +3221,7 @@ ganar dinero por tus compras.</string>
                                             <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                         </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cuenta destino" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cER-my-OcG">
-                                            <rect key="frame" x="136.5" y="269" width="102" height="24"/>
+                                            <rect key="frame" x="134.5" y="269" width="106" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="cro-gt-OvD"/>
                                             </constraints>
@@ -3230,7 +3230,7 @@ ganar dinero por tus compras.</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kML-Xy-9Fu">
-                                            <rect key="frame" x="136" y="450" width="103" height="30"/>
+                                            <rect key="frame" x="135.5" y="450" width="104" height="33"/>
                                             <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="15"/>
                                             <state key="normal" title="Agregar cuenta">
                                                 <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3307,7 +3307,7 @@ ganar dinero por tus compras.</string>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cantidad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEt-Mp-sgK">
-                                            <rect key="frame" x="157" y="168" width="61.5" height="24"/>
+                                            <rect key="frame" x="155.5" y="168" width="64" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="znO-c6-cx0"/>
                                             </constraints>
@@ -3326,7 +3326,7 @@ ganar dinero por tus compras.</string>
                                             <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                         </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cuenta destino" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djN-M3-81s">
-                                            <rect key="frame" x="136.5" y="269" width="102" height="24"/>
+                                            <rect key="frame" x="134.5" y="269" width="106" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="dXP-k0-TNt"/>
                                             </constraints>
@@ -3350,7 +3350,7 @@ ganar dinero por tus compras.</string>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PayPal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdt-HH-4Fi">
-                                            <rect key="frame" x="18" y="96" width="341" height="37.5"/>
+                                            <rect key="frame" x="18" y="96" width="341" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="341" id="dZ6-fK-tt9"/>
                                             </constraints>
@@ -3369,13 +3369,13 @@ ganar dinero por tus compras.</string>
                                             <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                         </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Retiro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oip-Ed-YZX">
-                                            <rect key="frame" x="47" y="64" width="45.5" height="20"/>
+                                            <rect key="frame" x="47" y="64" width="50" height="23.5"/>
                                             <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito Black" pointSize="17"/>
                                             <color key="textColor" red="0.79215686269999996" green="0.79215686269999996" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UiM-0G-smL">
-                                            <rect key="frame" x="136" y="450" width="103" height="30"/>
+                                            <rect key="frame" x="135.5" y="450" width="104" height="33"/>
                                             <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="15"/>
                                             <state key="normal" title="Agregar cuenta">
                                                 <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3452,7 +3452,7 @@ ganar dinero por tus compras.</string>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recarga" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h36-16-gla">
-                                            <rect key="frame" x="18" y="96" width="119" height="37.5"/>
+                                            <rect key="frame" x="18" y="96" width="124.5" height="44"/>
                                             <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito Black" pointSize="32"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -3468,7 +3468,7 @@ ganar dinero por tus compras.</string>
                                             <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                         </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Número telefónico" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgu-h2-X5c">
-                                            <rect key="frame" x="126" y="269" width="123.5" height="24"/>
+                                            <rect key="frame" x="122.5" y="269" width="130" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="zi0-Ol-mJW"/>
                                             </constraints>
@@ -3492,7 +3492,7 @@ ganar dinero por tus compras.</string>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cantidad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MwA-UP-Zb2">
-                                            <rect key="frame" x="157" y="168" width="61.5" height="24"/>
+                                            <rect key="frame" x="155.5" y="168" width="64" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="210-eC-lYZ"/>
                                             </constraints>
@@ -3511,14 +3511,14 @@ ganar dinero por tus compras.</string>
                                             <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mae-oI-t7z">
-                                            <rect key="frame" x="133.5" y="450" width="108" height="30"/>
+                                            <rect key="frame" x="132.5" y="450" width="110" height="33"/>
                                             <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="15"/>
                                             <state key="normal" title="Agregar número">
                                                 <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Retiro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBA-K8-i8r">
-                                            <rect key="frame" x="47" y="64" width="45.5" height="20"/>
+                                            <rect key="frame" x="47" y="64" width="50" height="23.5"/>
                                             <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito Black" pointSize="17"/>
                                             <color key="textColor" red="0.79215686269999996" green="0.79215686269999996" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -4185,7 +4185,7 @@ ganar dinero por tus compras.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUt-Re-bLf">
-                                <rect key="frame" x="73.5" y="394" width="228" height="96"/>
+                                <rect key="frame" x="73.5" y="394" width="228.5" height="96"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="96" id="i3r-0c-0E9"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="238" id="vCy-HU-Zsw"/>
@@ -4628,7 +4628,7 @@ capturado antes.
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ra-de-xvE">
-                                        <rect key="frame" x="117" y="183" width="141.5" height="73.5"/>
+                                        <rect key="frame" x="115.5" y="183" width="144.5" height="86"/>
                                         <string key="text">Sumaste $ 100
 a tu saldo,
 ¡Sigue así!</string>
@@ -4637,7 +4637,7 @@ a tu saldo,
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vf2-a6-yFS">
-                                        <rect key="frame" x="114" y="492.5" width="147" height="48"/>
+                                        <rect key="frame" x="114" y="505" width="147" height="48"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="147" id="7Kq-Zs-yLO"/>
@@ -4652,7 +4652,7 @@ a tu saldo,
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¡Listo!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLK-Lr-sVO">
-                                        <rect key="frame" x="144.5" y="117" width="86" height="44"/>
+                                        <rect key="frame" x="141.5" y="117" width="92.5" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="hXb-F0-mEb"/>
                                         </constraints>
@@ -4661,7 +4661,7 @@ a tu saldo,
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circulo-white-small" translatesAutoresizingMaskIntoConstraints="NO" id="ZHl-Rx-zLP">
-                                        <rect key="frame" x="99.5" y="297.5" width="176" height="176"/>
+                                        <rect key="frame" x="99.5" y="310" width="176" height="176"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="176" id="7h0-JC-iYd"/>
                                             <constraint firstAttribute="height" constant="176" id="952-MV-qZT"/>
@@ -4716,13 +4716,17 @@ a tu saldo,
                                         <rect key="frame" x="24" y="90" width="250" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZ4-I6-db5" userLabel="btnSaldo">
-                                                <rect key="frame" x="6" y="0.0" width="238" height="80"/>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cEa-WX-fxd" userLabel="viewUser">
+                                                <rect key="frame" x="8" y="10" width="60" height="60"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <connections>
-                                                    <action selector="retirarAction:" destination="v1g-14-MbK" eventType="touchUpInside" id="sVM-Fg-uK0"/>
-                                                </connections>
-                                            </button>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user-orange" translatesAutoresizingMaskIntoConstraints="NO" id="XMf-Ms-f81">
+                                                        <rect key="frame" x="14" y="14" width="32" height="32"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Disponible" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FvM-G9-hZ0">
                                                 <rect key="frame" x="89" y="12" width="131" height="18"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -4751,17 +4755,13 @@ a tu saldo,
                                                 </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cEa-WX-fxd" userLabel="viewUser">
-                                                <rect key="frame" x="8" y="10" width="60" height="60"/>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZ4-I6-db5" userLabel="btnSaldo">
+                                                <rect key="frame" x="6" y="0.0" width="238" height="80"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user-orange" translatesAutoresizingMaskIntoConstraints="NO" id="XMf-Ms-f81">
-                                                        <rect key="frame" x="14" y="14" width="32" height="32"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    </imageView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
+                                                <connections>
+                                                    <action selector="retirarAction:" destination="v1g-14-MbK" eventType="touchUpInside" id="sVM-Fg-uK0"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
                                     </view>
@@ -5328,7 +5328,7 @@ Shing</string>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Au-yV-2qI">
-                                                    <rect key="frame" x="155.5" y="202" width="64" height="23.5"/>
+                                                    <rect key="frame" x="157" y="202" width="61.5" height="20"/>
                                                     <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="17"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -5344,7 +5344,7 @@ Shing</string>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZ8-Tt-xO0">
-                                                    <rect key="frame" x="166" y="294" width="43.5" height="23.5"/>
+                                                    <rect key="frame" x="166.5" y="294" width="42" height="20"/>
                                                     <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="17"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -5370,13 +5370,13 @@ Shing</string>
                                                     <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teléfono" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygh-Vs-Uug">
-                                                    <rect key="frame" x="153.5" y="386" width="68.5" height="23.5"/>
+                                                    <rect key="frame" x="155.5" y="386" width="64" height="20"/>
                                                     <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="17"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cumpleaños" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ahm-Y3-JPR">
-                                                    <rect key="frame" x="138.5" y="478" width="98.5" height="23.5"/>
+                                                    <rect key="frame" x="139.5" y="478" width="96.5" height="20"/>
                                                     <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="17"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -5415,7 +5415,7 @@ Shing</string>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contraseña actual" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gav-1U-2ch">
-                                                    <rect key="frame" x="115.5" y="785" width="144" height="23.5"/>
+                                                    <rect key="frame" x="118" y="785" width="139" height="20"/>
                                                     <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="17"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -5453,7 +5453,7 @@ Shing</string>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contraseña nueva" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlB-fI-zel">
-                                                    <rect key="frame" x="116" y="880" width="143" height="23.5"/>
+                                                    <rect key="frame" x="118.5" y="880" width="138.5" height="20"/>
                                                     <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="17"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -5491,7 +5491,7 @@ Shing</string>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirma tu contraseña nueva" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEa-Yj-12G">
-                                                    <rect key="frame" x="67.5" y="985" width="240" height="23.5"/>
+                                                    <rect key="frame" x="73" y="985" width="229" height="20"/>
                                                     <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="17"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -5526,7 +5526,7 @@ y minúsculas.</string>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pPP-ox-ieg">
-                                                    <rect key="frame" x="136" y="1260" width="103" height="33"/>
+                                                    <rect key="frame" x="135.5" y="1260" width="104" height="30"/>
                                                     <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="15"/>
                                                     <state key="normal" title="Eliminar cuenta"/>
                                                 </button>
@@ -5661,7 +5661,7 @@ y minúsculas.</string>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cambio de contraseña" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJf-J5-jDx">
-                                                    <rect key="frame" x="81.5" y="740" width="212.5" height="27.5"/>
+                                                    <rect key="frame" x="86" y="740" width="203.5" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito Black" pointSize="20"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -5878,7 +5878,7 @@ Ayudanos a conocer el motivo de tu partida.</string>
             <objects>
                 <viewController id="49m-Ja-d5k" userLabel="PrivacidadVC" customClass="PrivacidadViewController" customModule="ShinShin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Lr-zQ-j9C">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacidad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T88-40-SVH">
@@ -5891,7 +5891,7 @@ Ayudanos a conocer el motivo de tu partida.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Alz-nd-Cd2">
-                                <rect key="frame" x="18" y="108" width="341" height="519"/>
+                                <rect key="frame" x="18" y="108" width="341" height="539"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <attributedString key="attributedText">
                                     <fragment>
@@ -6246,7 +6246,7 @@ CgoKA
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Mensaje de noticacion]" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P79-sr-vxi">
-                                            <rect key="frame" x="84" y="4" width="275" height="20"/>
+                                            <rect key="frame" x="84" y="4" width="275" height="23.5"/>
                                             <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="17"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -7213,7 +7213,7 @@ tener buena iluminación y
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="LjV-57-taI"/>
-        <segue reference="vCv-Yz-YPE"/>
+        <segue reference="tgW-0Z-fNu"/>
         <segue reference="da3-6v-vQc"/>
         <segue reference="ym2-Na-ioa"/>
         <segue reference="g3Q-Qd-pqc"/>

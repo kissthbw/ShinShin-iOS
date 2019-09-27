@@ -95,12 +95,13 @@ class BonificacionViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.barTintColor = .white
+        
         self.navigationController?.navigationBar.setBackgroundImage(nil, for:.default)
         self.navigationController?.navigationBar.shadowImage = nil
         self.navigationController?.navigationBar.layoutIfNeeded()
-        
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.navigationBar.barTintColor = .white
     }
     
 //    override func willMove(toParent parent: UIViewController?) {
@@ -154,6 +155,13 @@ class BonificacionViewController: UIViewController {
     
     @objc
     func showHome(){
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.barTintColor = .white
+        
+        self.navigationController?.navigationBar.setBackgroundImage(nil, for:.default)
+        self.navigationController?.navigationBar.shadowImage = nil
+        self.navigationController?.navigationBar.layoutIfNeeded()
+        
         self.navigationController?.popToRootViewController(animated: true)
     }
     

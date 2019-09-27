@@ -31,7 +31,7 @@ class AyudaViewControlller: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isTranslucent = false
+//        self.navigationController?.navigationBar.isTranslucent = false
         
             item1.pregunta = "¿Qué es Shing Shing?"
             item1.respuesta = "Es la app que te da $ por tus compras que realizas en las principales tiendas de autoservicios en México, como lo son Aurera, Chedraui, Costco, Comercial, Extra, Neto, Oxxo, Soriana, Superama y Waltmart Así que, no lo olvides, guarda tus Tickets y tómale una foto desde la app para comenzar a ganar $ por tus compras. ¡Haz Shing Shing!"

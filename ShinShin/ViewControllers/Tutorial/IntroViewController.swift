@@ -18,7 +18,7 @@ class IntroViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isTranslucent = false
+//        self.navigationController?.navigationBar.isTranslucent = false
         initUIElements()
     }
     
