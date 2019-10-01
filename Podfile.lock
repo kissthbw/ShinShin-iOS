@@ -4,6 +4,7 @@ PODS:
     - AppAuth/ExternalUserAgent (= 1.2.0)
   - AppAuth/Core (1.2.0)
   - AppAuth/ExternalUserAgent (1.2.0)
+  - CardIO (5.4.1)
   - FacebookCore (0.8.0):
     - FBSDKCoreKit (~> 5.0)
   - FacebookLogin (0.8.0):
@@ -154,6 +155,7 @@ PODS:
   - ZXingObjC/All (3.6.5)
 
 DEPENDENCIES:
+  - CardIO
   - FacebookCore
   - FacebookLogin
   - FacebookShare
@@ -168,6 +170,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AppAuth
+    - CardIO
     - FacebookCore
     - FacebookLogin
     - FacebookShare
@@ -202,6 +205,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AppAuth: bce82c76043657c99d91e7882e8a9e1a93650cd4
+  CardIO: 56983b39b62f495fc6dae9ad7cf875143df06443
   FacebookCore: 563bb4cbcd7dd86cf89f3729252140bf256aacaa
   FacebookLogin: 8b966ae661e95e7dba837d7cc49cc464ce003dba
   FacebookShare: e75d5e81ef7bd7aab2f865446c4c27015b43bae6
@@ -234,6 +238,6 @@ SPEC CHECKSUMS:
   SideMenu: ba47df99f8efc13848b5b67c11a88a770280ab03
   ZXingObjC: fdbb269f25dd2032da343e06f10224d62f537bdb
 
-PODFILE CHECKSUM: 49b7415e45a934e76e553e316789cac111d910ac
+PODFILE CHECKSUM: de41bd44f1908434561975050a0845d3a1471d51
 
 COCOAPODS: 1.7.3

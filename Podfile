@@ -18,6 +18,7 @@ target 'ShinShin' do
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'FacebookShare'
+  pod 'CardIO'
 
   target 'ShinShinTests' do
     inherit! :search_paths

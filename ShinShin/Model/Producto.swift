@@ -31,6 +31,7 @@ class Producto: Codable, CustomStringConvertible{
     var catalogoMarca: Marca?
     var catalogoTipoProducto: TipoProducto?
     var catalogoTienda: CatalogoTiendas?
+    var idUsuario: Int?
     
     var description: String{
         return "ID: \(idProducto!), Nombre: \(nombreProducto!)"

@@ -31,6 +31,8 @@ class PrincipalViewController: UIViewController {
     let ID_RQT_FAVORITOS = "ID_RQT_FAVORITOS"
     let ID_RQT_DEPTOS = "ID_RQT_DEPTOS"
     let ID_RQT_TIENDAS = "ID_RQT_TIENDAS"
+    let ID_RQT_SUGERENCIA = "ID_RQT_SUGERENCIA"
+    
     enum Seccion{
         case Banners
         case Favoritos
@@ -82,6 +84,10 @@ class PrincipalViewController: UIViewController {
         catalogoTiendasRequest()
         catalogoDepartamentosRequest()
     }
+    
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        return .default
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -267,6 +273,23 @@ class PrincipalViewController: UIViewController {
         }
         catch{
             
+        }
+    }
+    
+    func sugerenciaRequest(){
+        do{
+            RESTHandler.delegate = self
+            let item = Producto()
+            item.idUsuario = Model.user?.idUsuario
+            item.nombreProducto = ""
+            
+            let encoder = JSONEncoder()
+            let json = try encoder.encode(item)
+            
+            RESTHandler.postOperationTo(RESTHandler.sugerenciaProducto, with: json, and: ID_RQT_SUGERENCIA)
+        }
+        catch{
+            print("Error al enviar sugerencia")
         }
     }
     
@@ -468,6 +491,9 @@ extension PrincipalViewController: RESTActionDelegate{
                 self.catalogoTiendas = try decoder.decode(CatalogoTiendasArray.self, from: data)
                 
                 self.tableView.reloadSections(IndexSet(integersIn: 4...4), with: .automatic)
+            }
+            else if identifier == ID_RQT_SUGERENCIA{
+                
             }
             
         }

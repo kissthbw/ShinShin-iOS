@@ -53,6 +53,7 @@ class EliminarPerfilTableViewController: UITableViewController {
     }
     
     @IBAction func backToHome(_ sender: Any) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.popToRootViewController(animated: true)
     }
     

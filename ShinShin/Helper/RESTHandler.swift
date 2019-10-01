@@ -47,6 +47,7 @@ class RESTHandler{
     static let reenviarCodigo = server + "/usuarios/usuario/reenviar"
     static let login = server + "/usuarios/usuario/login"
     static let login2 = server + "/usuarios/usuario/login2"
+    static let contacto = server + "/usuarios/contacto"
 
     //Pantalla principal
     static let obtieneProductos = server + "/productos/list"
@@ -54,6 +55,7 @@ class RESTHandler{
     static let obtieneProductosPorTipo = server + "/productos/producto/porTipo"
     static let obtieneCatalogoDepartamentos = server + "/catalogoTipoProductos/list"
     static let obtieneCatalogoTiendas = server + "/catalogoTiendas/list"
+    static let sugerenciaProducto = server + "/productos/sugerencias"
     
     //Pantalla de registrar ticket
 //    static let registrarTicket = server + "/tickets/ticket/registrar"

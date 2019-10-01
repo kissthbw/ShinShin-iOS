@@ -15,6 +15,7 @@ class Model{
     static var idRedSocial: Int?
     static var perfilActualizado: Bool = false
     static var mantenerCamara = false
+    static var logout = false
     
     init() {
         registerDefaults()
@@ -43,6 +44,33 @@ class Model{
         }
     }
     
+    class func getUsuario() -> Usuario?{
+        let item = Usuario()
+        let userDefaults = UserDefaults.standard
+        let usuario = userDefaults.string(forKey: "usuario")
+        let pass = userDefaults.string(forKey: "contrasenia")
+        let idRedSocial = userDefaults.integer(forKey: "idRedSocial")
+        let idUsuario = userDefaults.integer(forKey: "idUsuario")
+        userDefaults.synchronize()
+        
+        item.usuario = usuario
+        item.contrasenia = pass
+        item.idRedSocial = idRedSocial
+        item.idUsuario = idUsuario
+        
+        return item
+    }
+    
+    class func updateUsuario( item: Usuario ){
+        let userDefaults = UserDefaults.standard
+
+        userDefaults.set(item.usuario, forKey: "usuario")
+        userDefaults.set(item.contrasenia, forKey: "contrasenia")
+        userDefaults.set(item.idRedSocial, forKey: "idRedSocial")
+        userDefaults.set(item.idUsuario, forKey: "idUsuario")
+        
+        userDefaults.synchronize()
+    }
     
     
     func documentsDirectory() -> URL{
@@ -56,7 +84,12 @@ class Model{
     }
     
     func registerDefaults(){
-        let dictionary = ["FirstTime": true] as
+    
+        let dictionary = ["FirstTime": true,
+                          "idRedSocial": -1,
+                          "idUsuario":-1,
+                          "usuario":"-1",
+                          "contrasenia":"-1"] as
             [String: Any]
         UserDefaults.standard.register(defaults: dictionary)
     }

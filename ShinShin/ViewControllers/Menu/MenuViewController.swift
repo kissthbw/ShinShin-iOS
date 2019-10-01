@@ -69,16 +69,23 @@ class MenuViewController: UIViewController {
     @IBAction func cerrarSesionAction(_ sender: Any) {
         
         if let id = Model.idRedSocial{
-            if id == 1{
+            if id == 0{
+                Model.logout = true
+            }
+            else if id == 1{
                 GIDSignIn.sharedInstance().signOut()
+                Model.logout = true
             }
             else if id == 2{
                 let loginManager = LoginManager()
                 loginManager.logOut()
+                Model.logout = true
             }
         }
         
-        self.performSegue(withIdentifier: "LogOutSegue", sender: self)
+        self.dismiss(animated: true, completion: nil)
+        
+//        self.performSegue(withIdentifier: "LogOutSegue", sender: self)
 //        let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "LogInViewController")
 //
 //        self.present(destViewController, animated: true, completion: nil)

@@ -12,7 +12,7 @@ class UsuarioArray: Codable{
     var list = [Usuario]()
 }
 
-class Usuario: Codable, CustomStringConvertible{
+class Usuario: Codable{
     
     var idUsuario: Int?
     var nombre: String?
@@ -39,10 +39,5 @@ class Usuario: Codable, CustomStringConvertible{
     
     //Para el guardado del ticket
     var tickets: [Ticket]?
-    
-    var description: String{
-        return "(ID: \(idUsuario!), nombre: \(nombre!))"
-    }
-    
-    
+
 }

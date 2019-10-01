@@ -45,13 +45,19 @@ class LogInViewController: UIViewController {
 //        return true
 //    }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setNeedsStatusBarAppearanceUpdate()
+        
+        //Verificar inicio de sesion previa y tipo de sesion.
+        //0 Normal
+        //1 Google
+        //2 Facebook
+        if let usuario = Model.getUsuario(){
+            if usuario.idUsuario == -1{
+                print("No hay sesion previa")
+            }
+        }
         
 //        let statusBar = UIApplication.shared.value(forKey: "statusBar") as? UIView
 //        if statusBar?.responds(to: #selector(setter: UIView.backgroundColor)) ?? false {
@@ -89,6 +95,14 @@ class LogInViewController: UIViewController {
                                                selector: #selector(LogInViewController.receiveToggleAuthUINotification(_:)),
                                                name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
                                                object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setNeedsStatusBarAppearanceUpdate()
+    }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
     }
     
     //MARK: - Actions
@@ -348,6 +362,11 @@ extension LogInViewController: RESTActionDelegate{
                 Model.user = rsp.usuario
                 Model.totalBonificacion = rsp.bonificacion
                 Model.idRedSocial = self.idRedSocial //Google = 1, Facebook = 2
+                
+                if let user = Model.user{
+                    Model.updateUsuario(item: user)
+                }
+                
                 print("Entrando...")
                 performSegue(withIdentifier: "PrincipalSegue", sender: nil)
             }

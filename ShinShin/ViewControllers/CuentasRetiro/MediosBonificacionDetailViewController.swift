@@ -430,6 +430,11 @@ class MediosBonificacionDetailViewController: UITableViewController {
             let vc = segue.destination as! CompaniaTelefonicaTableViewController
             vc.delegate = self
         }
+        
+        if segue.identifier == "CardScanSegue"{
+            let vc = segue.destination as! CardScannerViewController
+            vc.delegate = self
+        }
     }
 
 }
@@ -503,4 +508,17 @@ extension MediosBonificacionDetailViewController: UITextFieldDelegate{
         textField.resignFirstResponder()
         return true
     }
+}
+
+
+extension MediosBonificacionDetailViewController: CardScannerViewControllerDelegate{
+    func cardScanViewController(_ controller: CardScannerViewController, didFinish cardNumber: String) {
+        print("Numero de tarjeta: \(cardNumber)")
+        if let cell = tmpCell as? BancoDetailTableViewCell{
+            cell.txtTarjeta.text = cardNumber
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
 }
