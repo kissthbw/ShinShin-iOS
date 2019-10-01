@@ -48,13 +48,13 @@ class Model{
         let item = Usuario()
         let userDefaults = UserDefaults.standard
         let usuario = userDefaults.string(forKey: "usuario")
-        let pass = userDefaults.string(forKey: "contrasenia")
+        let hash = userDefaults.string(forKey: "hash")
         let idRedSocial = userDefaults.integer(forKey: "idRedSocial")
         let idUsuario = userDefaults.integer(forKey: "idUsuario")
         userDefaults.synchronize()
         
         item.usuario = usuario
-        item.contrasenia = pass
+        item.hash = hash
         item.idRedSocial = idRedSocial
         item.idUsuario = idUsuario
         
@@ -65,9 +65,20 @@ class Model{
         let userDefaults = UserDefaults.standard
 
         userDefaults.set(item.usuario, forKey: "usuario")
-        userDefaults.set(item.contrasenia, forKey: "contrasenia")
+        userDefaults.set(item.hash, forKey: "hash")
         userDefaults.set(item.idRedSocial, forKey: "idRedSocial")
         userDefaults.set(item.idUsuario, forKey: "idUsuario")
+        
+        userDefaults.synchronize()
+    }
+    
+    class func resetUsuario(){
+        let userDefaults = UserDefaults.standard
+
+        userDefaults.set("-1", forKey: "usuario")
+        userDefaults.set("-1", forKey: "hash")
+        userDefaults.set(-1, forKey: "idRedSocial")
+        userDefaults.set(-1, forKey: "idUsuario")
         
         userDefaults.synchronize()
     }
@@ -89,7 +100,7 @@ class Model{
                           "idRedSocial": -1,
                           "idUsuario":-1,
                           "usuario":"-1",
-                          "contrasenia":"-1"] as
+                          "hash":"-1"] as
             [String: Any]
         UserDefaults.standard.register(defaults: dictionary)
     }

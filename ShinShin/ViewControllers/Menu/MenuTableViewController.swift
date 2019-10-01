@@ -175,12 +175,18 @@ extension MenuTableViewController{
 extension MenuTableViewController{
     @objc func cerrarSesionAction(_ sender: Any) {
         if let id = Model.idRedSocial{
-            if id == 1{
+            if id == -1{
+                Model.logout = true
+                Model.resetUsuario()
+            }
+            else if id == 1{
                 GIDSignIn.sharedInstance().signOut()
+                Model.logout = true
             }
             else if id == 2{
                 let loginManager = LoginManager()
                 loginManager.logOut()
+                Model.logout = true
             }
         }
         

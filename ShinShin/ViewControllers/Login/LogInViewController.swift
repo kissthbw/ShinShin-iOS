@@ -49,6 +49,9 @@ class LogInViewController: UIViewController {
         super.viewDidLoad()
         setNeedsStatusBarAppearanceUpdate()
         
+        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        
         //Verificar inicio de sesion previa y tipo de sesion.
         //0 Normal
         //1 Google
@@ -57,6 +60,25 @@ class LogInViewController: UIViewController {
             if usuario.idUsuario == -1{
                 print("No hay sesion previa")
             }
+            else{
+                //Habilitar el acceso
+                if usuario.idRedSocial == -1{
+                    let item = Usuario()
+                    item.usuario = usuario.usuario
+                    item.hash = usuario.hash
+                    signinRequest(with: item)
+                }
+                
+                if usuario.idRedSocial == 1{
+                    //Checar el estatus de la bandera de logout
+                    GIDSignIn.sharedInstance()?.restorePreviousSignIn()
+                }
+                if usuario.idRedSocial == 2{
+                    if let token = AccessToken.current{
+                        self.showFacebookDetails(token: token.tokenString)
+                    }
+                }
+            }
         }
         
 //        let statusBar = UIApplication.shared.value(forKey: "statusBar") as? UIView
@@ -64,8 +86,7 @@ class LogInViewController: UIViewController {
 //            statusBar?.backgroundColor =  UIColor(red: 255/255, green: 111/255, blue: 0/255, alpha: 1)
 //        }
         
-        GIDSignIn.sharedInstance().delegate = self
-        GIDSignIn.sharedInstance()?.presentingViewController = self
+        
 
 //        let loginButton = FBLoginButton(permissions: [.publicProfile, .email])
 //        loginButton.delegate = self
@@ -81,13 +102,12 @@ class LogInViewController: UIViewController {
 
         
         // Automatically sign in the user.
-//        GIDSignIn.sharedInstance()?.restorePreviousSignIn()
         
         txtUser.delegate = self
         txtPassword.delegate = self
         
-        txtUser.text = "kissthbw@gmail.com"
-        txtPassword.text = "kiss2101"
+//        txtUser.text = "kissthbw@gmail.com"
+//        txtPassword.text = "kiss2101"
 
         initUIElements()
         
@@ -364,6 +384,7 @@ extension LogInViewController: RESTActionDelegate{
                 Model.idRedSocial = self.idRedSocial //Google = 1, Facebook = 2
                 
                 if let user = Model.user{
+                    user.idRedSocial = self.idRedSocial
                     Model.updateUsuario(item: user)
                 }
                 
