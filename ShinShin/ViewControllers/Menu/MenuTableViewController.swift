@@ -69,7 +69,7 @@ class MenuTableViewController: UITableViewController {
             
             switch indexPath.row {
             case 0:
-                cell.imageOption.image = UIImage(named: "user-bold")
+                cell.imageOption.image = UIImage(named: "user-blue")
                 cell.lblOption.text = "Perfil"
             case 1:
                 cell.imageOption.image = UIImage(named: "money-bold-blue")
@@ -81,7 +81,7 @@ class MenuTableViewController: UITableViewController {
                 cell.imageOption.image = UIImage(named: "mail-bold-blue")
                 cell.lblOption.text = "Contacto"
             default:
-                cell.imageOption.image = UIImage(named: "user-bold")
+                cell.imageOption.image = UIImage(named: "user-blue")
             }
 
             return cell

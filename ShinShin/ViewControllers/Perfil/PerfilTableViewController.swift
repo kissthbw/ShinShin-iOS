@@ -16,6 +16,7 @@ class PerfilTableViewController: UITableViewController {
     @IBOutlet weak var txtNombre: UITextField!
     @IBOutlet weak var txtCorreo: UITextField!
     @IBOutlet weak var txtTelefono: UITextField!
+    @IBOutlet weak var btnAdd: UIButton!
     
     @IBOutlet weak var txtMes: UITextField!
     @IBOutlet weak var txtDia: UITextField!
@@ -77,8 +78,14 @@ class PerfilTableViewController: UITableViewController {
         let s2 = Sexo()
         s2.idSexo = 2
         s2.nombreSexo = "Mujer"
+        
+        let s3 = Sexo()
+        s3.idSexo = 3
+        s3.nombreSexo = "Otro"
+        
         sexos.append(s1)
         sexos.append(s2)
+        sexos.append(s3)
         
         initUIElements(textfields)
         configureBarButtons()
@@ -335,6 +342,10 @@ class PerfilTableViewController: UITableViewController {
         
         imageViewPerfil.layer.cornerRadius = imageViewPerfil.frame.size.width/2
         imageViewPerfil.clipsToBounds = true
+        
+        btnAdd.layer.cornerRadius = btnAdd.frame.size.width/2
+        btnAdd.clipsToBounds = true
+        
         if let imageURL = Model.user?.imgUrl{
             imageViewPerfil.loadImage(url: URL(string: imageURL)!)
         }
@@ -417,7 +428,7 @@ class PerfilTableViewController: UITableViewController {
         home.tintColor = .black
         
         let notif = UIBarButtonItem(
-            image: UIImage(named: "bar-notif-grey"),
+            image: UIImage(named: "notification-grey"),
             style: .plain,
             target: self,
             action: #selector(showNotif))

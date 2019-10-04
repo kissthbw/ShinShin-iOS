@@ -303,7 +303,7 @@ extension SolicitarBonificacionTableViewController{
         home.tintColor = .black
         
         let notif = UIBarButtonItem(
-            image: UIImage(named: "bar-notif-grey"),
+            image: UIImage(named: "notification-grey"),
             style: .plain,
             target: self,
             action: #selector(showNotif))

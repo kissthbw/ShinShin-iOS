@@ -26,6 +26,7 @@ class CustomCameraViewController: UIViewController {
     @IBOutlet weak var controlesCamaraView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var previewPhoto: UIImageView!
+    @IBOutlet weak var checkImage: UIImageView!
     @IBOutlet weak var previewButton: UIButton!
     @IBOutlet weak var lblCodigoBarras: UILabel!
     @IBOutlet weak var btnPhoto: UIButton!
@@ -136,6 +137,8 @@ class CustomCameraViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
+//        Model.mantenerCamara = false
+        
         if fase == .camara{
             self.captureSession.stopRunning()
         }
@@ -186,6 +189,8 @@ class CustomCameraViewController: UIViewController {
     }
     
     @IBAction func cerrar(_ sender: Any) {
+        Model.mantenerCamara = false
+        
         if fase == .camara{
             self.captureSession.stopRunning()
             self.navigationController?.popViewController(animated: true)
@@ -237,6 +242,7 @@ class CustomCameraViewController: UIViewController {
         
         UIView.animate(withDuration: 0.5, animations: {
             self.previewPhoto.alpha = 0.0
+            self.checkImage.alpha = 0.0
             self.previewButton.alpha = 0.0
             self.previewButton.isEnabled = false
             self.btnOk.alpha = 0.0
@@ -345,6 +351,7 @@ class CustomCameraViewController: UIViewController {
             btnBorrar.isEnabled = false
             previewButton.alpha = 0.0
             previewButton.isEnabled = false
+            checkImage.alpha = 0.0
             scanView?.isHidden = false
             scanView?.alpha = 0.0
             bottomConstraint.constant = 0.0
@@ -445,6 +452,7 @@ extension CustomCameraViewController: AVCapturePhotoCaptureDelegate{
                     self.btnBorrar.alpha = 1.0
                     self.btnBorrar.isEnabled = true
                     self.previewPhoto.alpha = 1.0
+                    self.checkImage.alpha = 1.0
                     self.previewButton.alpha = 1.0
                     self.previewButton.isEnabled = true
                 }, completion: nil)
@@ -452,7 +460,11 @@ extension CustomCameraViewController: AVCapturePhotoCaptureDelegate{
                 visiblePreview = !visiblePreview
             }
 
-            updateImageView(with: image, isPreview: true, andIndex: 0)
+            //El preview solo se realiza para la primer foto
+            if photos.count == 1{
+                updateImageView(with: image, isPreview: true, andIndex: 0)
+            }
+            
             updateImageView(with: image, isPreview: false, andIndex: 0)
         }
 

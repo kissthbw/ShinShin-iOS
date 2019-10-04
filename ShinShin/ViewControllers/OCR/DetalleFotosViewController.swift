@@ -20,12 +20,15 @@ class DetalleFotosViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var btnAgregar: UIButton!
     @IBOutlet weak var btnListo: UIButton!
+    @IBOutlet weak var btnEliminar: UIButton!
     
     weak var delegate: DetalleFotosViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        btnEliminar.layer.borderColor = UIColor(red: 255/255, green: 111/255, blue: 0/255, alpha: 1.0).cgColor
+        btnEliminar.layer.borderWidth = 1.0
+        btnEliminar.layer.cornerRadius = 5.0
         initUI()
     }
     

@@ -33,6 +33,8 @@ class PrincipalViewController: UIViewController {
     let ID_RQT_TIENDAS = "ID_RQT_TIENDAS"
     let ID_RQT_SUGERENCIA = "ID_RQT_SUGERENCIA"
     
+    var tmpCell: QueProductosTableViewCell?
+    
     enum Seccion{
         case Banners
         case Favoritos
@@ -203,7 +205,7 @@ class PrincipalViewController: UIViewController {
         home.tintColor = .black
         
         let notif = UIBarButtonItem(
-            image: UIImage(named: "bar-notif-grey"),
+            image: UIImage(named: "notification-grey"),
             style: .plain,
             target: self,
             action: #selector(showNotif))
@@ -276,12 +278,21 @@ class PrincipalViewController: UIViewController {
         }
     }
     
-    func sugerenciaRequest(){
+    @objc func enviaSugerencia(){
+        if let cell = tmpCell{
+            
+            //Validaciones
+            sugerenciaRequest(sugerencia: cell.txtProductos.text!)
+        }
+        
+    }
+    
+    func sugerenciaRequest(sugerencia: String){
         do{
             RESTHandler.delegate = self
             let item = Producto()
             item.idUsuario = Model.user?.idUsuario
-            item.nombreProducto = ""
+            item.nombreProducto = sugerencia
             
             let encoder = JSONEncoder()
             let json = try encoder.encode(item)
@@ -447,8 +458,9 @@ extension PrincipalViewController: UITableViewDataSource, UITableViewDelegate{
         }
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "QueProductosCell", for: indexPath) as! QueProductosTableViewCell
+            tmpCell = cell
             cell.txtProductos.delegate = self
-            
+            cell.btnEnviar.addTarget(self, action: #selector(enviaSugerencia), for: .touchUpInside)
             
             return cell
         }
@@ -493,7 +505,11 @@ extension PrincipalViewController: RESTActionDelegate{
                 self.tableView.reloadSections(IndexSet(integersIn: 4...4), with: .automatic)
             }
             else if identifier == ID_RQT_SUGERENCIA{
-                
+                //Enviar mensaje de exito, limpiar textfield y ocultar teclado
+                let alert = Validations.show(message: "Gracias por enviarnos tu sugerencia", with: "ShingShing")
+                tmpCell?.txtProductos.text = ""
+                self.tableView.endEditing(true)
+                present(alert, animated: true, completion: nil)
             }
             
         }
