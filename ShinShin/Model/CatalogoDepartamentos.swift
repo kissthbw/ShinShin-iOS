@@ -19,7 +19,7 @@ class CatalogoDepartamentos: Codable, CustomStringConvertible {
     
     var idCatalogoTipoProducto: Int?
     var nombreTipoProducto: String?
-    var imagen: String?
+    var imgUrl: String?
     
     var description: String{
         return "\(idCatalogoTipoProducto!), \(nombreTipoProducto!)"

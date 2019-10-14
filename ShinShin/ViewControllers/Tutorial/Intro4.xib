@@ -7,6 +7,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Light.ttf">
+            <string>Nunito-Light</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -21,11 +26,23 @@
                         <constraint firstAttribute="height" constant="180" id="zFR-5X-1da"/>
                     </constraints>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Puedes usar tu $ acumulado en una cuenta bancaria, PayPal o hacer una recarga telefónica" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugB-w5-YC8">
+                    <rect key="frame" x="48" y="378" width="279" height="115"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="279" id="8F1-Gm-TGJ"/>
+                        <constraint firstAttribute="height" constant="115" id="LnS-HP-7TZ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="21"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="FJ6-Ad-chg" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="152" id="Ajo-Re-P1P"/>
+                <constraint firstItem="ugB-w5-YC8" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="378" id="Dn4-wc-Cdt"/>
                 <constraint firstItem="FJ6-Ad-chg" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Lex-fo-wYM"/>
+                <constraint firstItem="ugB-w5-YC8" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="qex-ll-Jvz"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="139" y="121"/>

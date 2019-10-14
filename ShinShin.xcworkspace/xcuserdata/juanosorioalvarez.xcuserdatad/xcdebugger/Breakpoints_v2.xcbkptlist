@@ -126,23 +126,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F9A0DE56-73EB-4842-ACEB-7EB949183B24"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ShinShin/ViewControllers/OCR/CustomCameraViewController.swift"
-            timestampString = "590540918.179426"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "571"
-            endingLineNumber = "571"
-            landmarkName = "visionImageOrientation(from:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "36AC8A7B-9063-4326-9885-069D83E8C8B4"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"

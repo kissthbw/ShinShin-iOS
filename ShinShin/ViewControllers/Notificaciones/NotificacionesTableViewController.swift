@@ -27,9 +27,9 @@ class NotificacionesTableViewController: UITableViewController {
             print("Con notificaciones dummy")
             let item = Notificacion()
             item.title = "¡Bienvenido a Shing Shing!"
-            item.body = "dd/mm/aaaaa"
-            item.fecha = "dd/mm/aaaaa"
-            item.imagen = "agregar"
+            item.body = "01/09/2019"
+            item.fecha = "01/09/2019"
+            item.imagen = "check-bold-orange"
             items.append(item)
         }
         
@@ -155,7 +155,7 @@ class NotificacionesTableViewController: UITableViewController {
             cell.imageViewNotificacion.image = UIImage(named: imagen)
         }
         else{
-            cell.imageViewNotificacion.image = UIImage(named: "agregar")
+            cell.imageViewNotificacion.image = UIImage(named: "check-bold-orange")
         }
         
 

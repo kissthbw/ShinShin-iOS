@@ -12,6 +12,7 @@ import SideMenu
 class PerfilTableViewController: UITableViewController {
 
     //MARK: - Propiedades
+    @IBOutlet weak var viewImagePerfil: UIView!
     @IBOutlet weak var imageViewPerfil: UIImageView!
     @IBOutlet weak var txtNombre: UITextField!
     @IBOutlet weak var txtCorreo: UITextField!
@@ -339,6 +340,9 @@ class PerfilTableViewController: UITableViewController {
         viewDia.layer.cornerRadius = 10.0
         viewAnio.layer.cornerRadius = 10.0
         viewCumple.layer.cornerRadius = 10.0
+        
+        viewImagePerfil.layer.cornerRadius = imageViewPerfil.frame.size.width/2
+        
         
         imageViewPerfil.layer.cornerRadius = imageViewPerfil.frame.size.width/2
         imageViewPerfil.clipsToBounds = true

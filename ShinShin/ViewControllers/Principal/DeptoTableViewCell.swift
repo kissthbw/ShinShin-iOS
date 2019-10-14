@@ -17,6 +17,7 @@ class DeptoTableViewCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     var selectedIndex = -1
     var delegate: DeptoTableViewDelegate? //Definido en CategoriaTebleViewCell
+    var downloadTask: URLSessionDownloadTask?
     
     var list = [CatalogoDepartamentos](){
         willSet{
@@ -38,6 +39,10 @@ class DeptoTableViewCell: UITableViewCell {
 
 extension DeptoTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate{
     
+    override func prepareForReuse() {
+        downloadTask?.cancel()
+        downloadTask = nil
+    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.selectedItem(self, item: list[indexPath.row])
@@ -49,11 +54,20 @@ extension DeptoTableViewCell: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     
+    
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DeptoItemCell", for: indexPath) as! DeptoItemCollectionViewCell
         
         cell.lblDepto.text = list[indexPath.row].nombreTipoProducto
-        cell.image.image = UIImage(named: "belleza")
+        cell.image.image = nil
+        if let urlString = list[indexPath.row].imgUrl{
+            if let url = URL(string: urlString){
+                downloadTask = cell.image.loadImage(url: url)
+            }
+            
+        }
+        
         
         return cell
     }

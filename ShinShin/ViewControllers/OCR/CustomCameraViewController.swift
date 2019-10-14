@@ -21,18 +21,26 @@ class CustomCameraViewController: UIViewController {
     //MARK: - Propiedades Oulets
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
-    @IBOutlet weak var switchFase: UISwitch!
+//    @IBOutlet weak var switchFase: UISwitch!
     @IBOutlet weak var previewView: UIView!
-    @IBOutlet weak var controlesCamaraView: UIView!
+    
+    //Sirve como holder, una vez tomada la foto, se pone de forms temporal
+    //para su posterior analisis
     @IBOutlet weak var imageView: UIImageView!
+    
+    //Sirve como salida de la camara (se muestra lo que la camara visualice)
     @IBOutlet weak var previewPhoto: UIImageView!
     @IBOutlet weak var checkImage: UIImageView!
     @IBOutlet weak var previewButton: UIButton!
     @IBOutlet weak var lblCodigoBarras: UILabel!
     @IBOutlet weak var btnPhoto: UIButton!
     @IBOutlet weak var btnBorrar: UIButton!
-    @IBOutlet weak var btnOmitir: UIButton!
-    @IBOutlet weak var btnOk: UIButton!
+//    @IBOutlet weak var btnOmitir: UIButton!
+//    @IBOutlet weak var btnOk: UIButton!
+    
+    @IBOutlet weak var outterGuideView: UIView!
+    @IBOutlet weak var innerGuideView: UIView!
+    @IBOutlet weak var controlesCamaraView: UIView!
     
     //MARK: - Propiedades uso de MLVision
     lazy var vision = Vision.vision()
@@ -77,8 +85,11 @@ class CustomCameraViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        btnOk.alpha = 0.0
+//        btnOk.alpha = 0.0
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     //Este metodo es llamada cada vez que los limites del view del
@@ -113,6 +124,7 @@ class CustomCameraViewController: UIViewController {
         super.viewWillAppear(animated)
         
         fase = .camara
+        print( "ViewWillAppear: \(self.outterGuideView.frame)" )
         
         if fase == .camara{
             setupCaptureSession()
@@ -132,6 +144,20 @@ class CustomCameraViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        print( "ViewDidAppear: \(self.outterGuideView.frame)" )
+        
+        let path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: self.outterGuideView.bounds.size.width, height: self.outterGuideView.bounds.size.height), cornerRadius: 0)
+        
+        let circlePath = UIBezierPath(roundedRect: innerGuideView.frame, cornerRadius: 10)
+        path.append(circlePath)
+        path.usesEvenOddFillRule = true
+
+        let fillLayer = CAShapeLayer()
+        fillLayer.path = path.cgPath
+        fillLayer.fillRule = .evenOdd
+        fillLayer.fillColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.5).cgColor
+        fillLayer.opacity = 1.0
+        outterGuideView.layer.addSublayer(fillLayer)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -140,7 +166,9 @@ class CustomCameraViewController: UIViewController {
 //        Model.mantenerCamara = false
         
         if fase == .camara{
-            self.captureSession.stopRunning()
+            if self.captureSession != nil{
+                self.captureSession.stopRunning()
+            }
         }
         else if fase == .escaner{
             capture?.stop()
@@ -192,7 +220,9 @@ class CustomCameraViewController: UIViewController {
         Model.mantenerCamara = false
         
         if fase == .camara{
-            self.captureSession.stopRunning()
+            if self.captureSession != nil{
+                self.captureSession.stopRunning()
+            }
             self.navigationController?.popViewController(animated: true)
 //            self.dismiss(animated: true, completion: nil)
         }
@@ -206,21 +236,21 @@ class CustomCameraViewController: UIViewController {
         }
     }
     
-    @IBAction func changeFase(_ sender: Any) {
-        
-        if switchFase.isOn{
-            fase = .escaner
-        }
-        else{
-            fase = .camara
-        }
-        
-        DispatchQueue.main.async {
-            self.indicator.isHidden = false
-            self.indicator.startAnimating()
-            self.manejaFases()
-        }
-    }
+//    @IBAction func changeFase(_ sender: Any) {
+//
+//        if switchFase.isOn{
+//            fase = .escaner
+//        }
+//        else{
+//            fase = .camara
+//        }
+//
+//        DispatchQueue.main.async {
+//            self.indicator.isHidden = false
+//            self.indicator.startAnimating()
+//            self.manejaFases()
+//        }
+//    }
     
     @IBAction func OKAction(_ sender: Any) {
         analizarOCRRequest()
@@ -245,8 +275,8 @@ class CustomCameraViewController: UIViewController {
             self.checkImage.alpha = 0.0
             self.previewButton.alpha = 0.0
             self.previewButton.isEnabled = false
-            self.btnOk.alpha = 0.0
-            self.btnOk.isEnabled = false
+//            self.btnOk.alpha = 0.0
+//            self.btnOk.isEnabled = false
             self.btnBorrar.alpha = 0.0
             self.btnBorrar.isEnabled = false
         }) { (Bool) in
@@ -256,17 +286,20 @@ class CustomCameraViewController: UIViewController {
     
     func manejaFases(){
         var alpha: CGFloat  = 1.0
+        var alphaGuideView: CGFloat  = 1.0
         var bottomConstant: CGFloat = 0.0
         self.previewView.layer.sublayers?.forEach { $0.removeFromSuperlayer() }
         
         if fase == .escaner{
             alpha = 1.0
+            alphaGuideView = 0.0
             bottomConstant = 150.0
             captureSession.stopRunning()
             ZXSetup()
         }
         else{
             alpha = 0.0
+            alphaGuideView = 1.0
             bottomConstant = 0.0
             //[self.capture.layer removeFromSuperlayer];
             self.capture?.layer.removeFromSuperlayer()
@@ -280,8 +313,8 @@ class CustomCameraViewController: UIViewController {
                        options: [.curveEaseIn],
                        animations: {
                         self.scanView?.alpha = alpha
-                        self.btnOmitir.alpha = alpha
-                        self.btnOmitir.isEnabled = true
+//                        self.btnOmitir.alpha = alpha
+//                        self.btnOmitir.isEnabled = true
         },
                        completion: nil)
         
@@ -292,6 +325,7 @@ class CustomCameraViewController: UIViewController {
                        options: [.curveEaseIn],
                        animations: {
                         self.bottomConstraint.constant = bottomConstant
+                        self.outterGuideView.alpha = alphaGuideView
                         self.view.setNeedsLayout()
                         self.view.layoutIfNeeded()
         },
@@ -333,7 +367,7 @@ class CustomCameraViewController: UIViewController {
         indicator.isHidden = true
         lblCodigoBarras.text = ""
         lblCodigoBarras.text = ""
-        switchFase.isHidden = true
+//        switchFase.isHidden = true
         visiblePreview = false
         previewPhoto.image = nil
         
@@ -343,10 +377,10 @@ class CustomCameraViewController: UIViewController {
         previewPhoto.layer.cornerRadius = 10.0
         
         if fase == .camara{
-            btnOk.alpha = 0.0
-            btnOk.isEnabled = false
-            btnOmitir.alpha = 0.0
-            btnOmitir.isEnabled = false
+//            btnOk.alpha = 0.0
+//            btnOk.isEnabled = false
+//            btnOmitir.alpha = 0.0
+//            btnOmitir.isEnabled = false
             btnBorrar.alpha = 0.0
             btnBorrar.isEnabled = false
             previewButton.alpha = 0.0
@@ -375,6 +409,7 @@ class CustomCameraViewController: UIViewController {
             guard let backCamera = AVCaptureDevice.default(for: AVMediaType.video)
                 else {
                     print("Unable to access back camera!")
+                    captureSession = nil
                     return
             }
             
@@ -443,14 +478,14 @@ extension CustomCameraViewController: AVCapturePhotoCaptureDelegate{
         let image = UIImage(data: imageData)
         
         if let image = image{
-            photos.append(image)
+            
             //Si los lblCountPhotos y previewPhoto estan ocultos se deben mostrar
             if !visiblePreview{
                 UIView.animate(withDuration: 0.5, animations: {
-                    self.btnOk.alpha = 1.0
-                    self.btnOk.isEnabled = true
-                    self.btnBorrar.alpha = 1.0
-                    self.btnBorrar.isEnabled = true
+//                    self.btnOk.alpha = 1.0
+//                    self.btnOk.isEnabled = true
+//                    self.btnBorrar.alpha = 1.0
+//                    self.btnBorrar.isEnabled = true
                     self.previewPhoto.alpha = 1.0
                     self.checkImage.alpha = 1.0
                     self.previewButton.alpha = 1.0
@@ -460,14 +495,48 @@ extension CustomCameraViewController: AVCapturePhotoCaptureDelegate{
                 visiblePreview = !visiblePreview
             }
 
-            //El preview solo se realiza para la primer foto
-            if photos.count == 1{
-                updateImageView(with: image, isPreview: true, andIndex: 0)
+            //Cortar imagen en proporcion innerGuideView
+            var tmpImage = UIImage()
+            if let cropImage = cropImage(originalImage: image){
+                tmpImage = cropImage
+            }else{
+                tmpImage = image
             }
             
-            updateImageView(with: image, isPreview: false, andIndex: 0)
+            photos.append(tmpImage)
+            
+            //El preview solo se realiza para la primer foto
+            if photos.count == 1{
+                updateImageView(with: tmpImage, isPreview: true, andIndex: 0)
+            }
+            
+            updateImageView(with: tmpImage, isPreview: false, andIndex: 0)
         }
 
+    }
+    
+    private func cropImage(originalImage: UIImage) -> UIImage?{
+        let originalSize: CGSize
+        let visibleLayerFrame = self.innerGuideView.frame
+        
+        let metaRect = (videoPreviewLayer?.metadataOutputRectConverted(fromLayerRect: visibleLayerFrame )) ?? CGRect.zero
+        
+        if (originalImage.imageOrientation == UIImage.Orientation.left || originalImage.imageOrientation == UIImage.Orientation.right) {
+            originalSize = CGSize(width: originalImage.size.height, height: originalImage.size.width)
+        } else {
+            originalSize = originalImage.size
+        }
+        
+        let cropRect: CGRect = CGRect(x: metaRect.origin.x * originalSize.width, y: metaRect.origin.y * originalSize.height, width: metaRect.size.width * originalSize.width, height: metaRect.size.height * originalSize.height).integral
+        
+        if let finalCgImage = originalImage.cgImage?.cropping(to: cropRect) {
+            let image = UIImage(cgImage: finalCgImage, scale: 1.0, orientation: originalImage.imageOrientation)
+//            self.imageView.image = image
+            
+            return image
+        }
+        
+        return nil
     }
     
     private func updateImageView(with image: UIImage, isPreview: Bool, andIndex index: Int) {
@@ -506,8 +575,10 @@ extension CustomCameraViewController: AVCapturePhotoCaptureDelegate{
             DispatchQueue.main.async {
                 if isPreview{
                     self.previewPhoto.image = finalImage
+                    
                 }
                 else{
+//                    self.imageView.image = finalImage
                     self.detectTextFrom(finalImage, andIndex: index)
                     self.btnPhoto.isEnabled = true
                 }
@@ -939,5 +1010,8 @@ extension CustomCameraViewController: DetalleFotosViewControllerDelegate{
         analizarOCRRequest()
     }
     
-    
+    func deletePhotosViewController(_ controller: DetalleFotosViewController) {
+        self.dismiss(animated: true, completion: nil)
+        resetUICamara()
+    }
 }

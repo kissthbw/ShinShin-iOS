@@ -63,7 +63,6 @@
 		A267D78F222DD7AF00153CB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A267D78E222DD7AF00153CB8 /* AppDelegate.swift */; };
 		A267D794222DD7AF00153CB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A267D792222DD7AF00153CB8 /* Main.storyboard */; };
 		A267D797222DD7AF00153CB8 /* ShinShin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A267D795222DD7AF00153CB8 /* ShinShin.xcdatamodeld */; };
-		A267D79C222DD7B800153CB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A267D79A222DD7B800153CB8 /* LaunchScreen.storyboard */; };
 		A267D7A7222DD7B800153CB8 /* ShinShinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A267D7A6222DD7B800153CB8 /* ShinShinTests.swift */; };
 		A267D7B2222DD7B800153CB8 /* ShinShinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A267D7B1222DD7B800153CB8 /* ShinShinUITests.swift */; };
 		A267D7C1222DDC8C00153CB8 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A267D7C0222DDC8C00153CB8 /* LogInViewController.swift */; };
@@ -71,7 +70,6 @@
 		A267D7C5222DDCF200153CB8 /* ProductoDetalleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A267D7C4222DDCF200153CB8 /* ProductoDetalleViewController.swift */; };
 		A267D7C9222DDD4C00153CB8 /* OCRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A267D7C8222DDD4C00153CB8 /* OCRViewController.swift */; };
 		A26A0C7022BD58EF00AF5E2D /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26A0C6F22BD58EF00AF5E2D /* UIImageView+DownloadImage.swift */; };
-		A26B35842345051E0054FBDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A26B35832345051E0054FBDE /* Assets.xcassets */; };
 		A26C71F1226A448E00FD9794 /* Validations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C71F0226A448E00FD9794 /* Validations.swift */; };
 		A26CBD0522A857E8002A5CD5 /* PopularTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26CBD0422A857E8002A5CD5 /* PopularTableViewCell.swift */; };
 		A26CBD0722A870C7002A5CD5 /* DeptoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26CBD0622A870C7002A5CD5 /* DeptoTableViewCell.swift */; };
@@ -106,6 +104,7 @@
 		A29C1AC2231985BE006CE771 /* CAGradientLayer+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29C1AC1231985BE006CE771 /* CAGradientLayer+Gradient.swift */; };
 		A29C59CA22F38CC7006A1F2D /* ErrorTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29C59C922F38CC7006A1F2D /* ErrorTicketViewController.swift */; };
 		A2A331B922837FAD000CDA4A /* Producto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A331B822837FAC000CDA4A /* Producto.swift */; };
+		A2A45B53234E7BF500875D0C /* Resources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2A45B52234E7BF500875D0C /* Resources.xcassets */; };
 		A2A8DA38230DEC4000A0942C /* TicketNotFound.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2A8DA37230DEC4000A0942C /* TicketNotFound.xib */; };
 		A2A8DA3A230DED5800A0942C /* TicketNotFoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A8DA39230DED5800A0942C /* TicketNotFoundTableViewCell.swift */; };
 		A2A8DA3C230DFC6F00A0942C /* HistoricoNotFoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A8DA3B230DFC6F00A0942C /* HistoricoNotFoundTableViewCell.swift */; };
@@ -238,7 +237,6 @@
 		A267D78E222DD7AF00153CB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A267D793222DD7AF00153CB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A267D796222DD7AF00153CB8 /* ShinShin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShinShin.xcdatamodel; sourceTree = "<group>"; };
-		A267D79B222DD7B800153CB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A267D79D222DD7B800153CB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A267D7A2222DD7B800153CB8 /* ShinShinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShinShinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A267D7A6222DD7B800153CB8 /* ShinShinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShinShinTests.swift; sourceTree = "<group>"; };
@@ -251,7 +249,6 @@
 		A267D7C4222DDCF200153CB8 /* ProductoDetalleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductoDetalleViewController.swift; sourceTree = "<group>"; };
 		A267D7C8222DDD4C00153CB8 /* OCRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRViewController.swift; sourceTree = "<group>"; };
 		A26A0C6F22BD58EF00AF5E2D /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
-		A26B35832345051E0054FBDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A26C71F0226A448E00FD9794 /* Validations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validations.swift; sourceTree = "<group>"; };
 		A26CBD0422A857E8002A5CD5 /* PopularTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularTableViewCell.swift; sourceTree = "<group>"; };
 		A26CBD0622A870C7002A5CD5 /* DeptoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeptoTableViewCell.swift; sourceTree = "<group>"; };
@@ -287,6 +284,7 @@
 		A29C1AC1231985BE006CE771 /* CAGradientLayer+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+Gradient.swift"; sourceTree = "<group>"; };
 		A29C59C922F38CC7006A1F2D /* ErrorTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTicketViewController.swift; sourceTree = "<group>"; };
 		A2A331B822837FAC000CDA4A /* Producto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Producto.swift; sourceTree = "<group>"; };
+		A2A45B52234E7BF500875D0C /* Resources.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resources.xcassets; sourceTree = "<group>"; };
 		A2A8DA37230DEC4000A0942C /* TicketNotFound.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TicketNotFound.xib; sourceTree = "<group>"; };
 		A2A8DA39230DED5800A0942C /* TicketNotFoundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketNotFoundTableViewCell.swift; sourceTree = "<group>"; };
 		A2A8DA3B230DFC6F00A0942C /* HistoricoNotFoundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricoNotFoundTableViewCell.swift; sourceTree = "<group>"; };
@@ -393,7 +391,6 @@
 		A267D782222DD7AE00153CB8 = {
 			isa = PBXGroup;
 			children = (
-				A26B35832345051E0054FBDE /* Assets.xcassets */,
 				A267D78D222DD7AE00153CB8 /* ShinShin */,
 				A267D7A5222DD7B800153CB8 /* ShinShinTests */,
 				A267D7B0222DD7B800153CB8 /* ShinShinUITests */,
@@ -424,10 +421,10 @@
 				A267D7BF222DDC5B00153CB8 /* ViewControllers */,
 				A267D78E222DD7AF00153CB8 /* AppDelegate.swift */,
 				A267D792222DD7AF00153CB8 /* Main.storyboard */,
-				A267D79A222DD7B800153CB8 /* LaunchScreen.storyboard */,
 				A267D79D222DD7B800153CB8 /* Info.plist */,
 				A2C38F9D22DCFAAE00C9E958 /* GoogleService-Info.plist */,
 				A267D795222DD7AF00153CB8 /* ShinShin.xcdatamodeld */,
+				A2A45B52234E7BF500875D0C /* Resources.xcassets */,
 			);
 			path = ShinShin;
 			sourceTree = "<group>";
@@ -865,7 +862,6 @@
 				A2F0AA7F22AEB4200069A84A /* Nunito-Bold.ttf in Resources */,
 				A2F0AA7E22AEB4200069A84A /* Nunito-BlackItalic.ttf in Resources */,
 				A2FDF38622BC49960060577B /* HeaderPrincipal.xib in Resources */,
-				A26B35842345051E0054FBDE /* Assets.xcassets in Resources */,
 				A2F0AA7C22AEB4200069A84A /* Nunito-Regular.ttf in Resources */,
 				A2A8DA38230DEC4000A0942C /* TicketNotFound.xib in Resources */,
 				A2F0AA8222AEB4200069A84A /* Nunito-ExtraBoldItalic.ttf in Resources */,
@@ -875,7 +871,6 @@
 				A2AF575723455CEF00171B59 /* Launch.storyboard in Resources */,
 				A214F7D522CC002000314D78 /* HistoricoBonificacionHeaderCell.xib in Resources */,
 				A2962A4322DBA51200FF85CF /* NotificacionHeader.xib in Resources */,
-				A267D79C222DD7B800153CB8 /* LaunchScreen.storyboard in Resources */,
 				A2F0AA7B22AEB4200069A84A /* Nunito-Black.ttf in Resources */,
 				A24012282337226C0090D476 /* Intro2.xib in Resources */,
 				A2F0AA7D22AEB4200069A84A /* Nunito-ExtraBold.ttf in Resources */,
@@ -887,6 +882,7 @@
 				A2F0AA8322AEB4200069A84A /* Nunito-BoldItalic.ttf in Resources */,
 				A225C57122DA859300529591 /* PreguntasHeader.xib in Resources */,
 				A20B146022A0441600667D39 /* Page2.xib in Resources */,
+				A2A45B53234E7BF500875D0C /* Resources.xcassets in Resources */,
 				A2401226233722010090D476 /* Intro1.xib in Resources */,
 				A223095722B9E6BC00DEA6EA /* MediosPagoView.xib in Resources */,
 				A267D794222DD7AF00153CB8 /* Main.storyboard in Resources */,
@@ -1177,14 +1173,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		A267D79A222DD7B800153CB8 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A267D79B222DD7B800153CB8 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -1312,6 +1300,8 @@
 				CODE_SIGN_ENTITLEMENTS = ShinShin/ShinShin.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1;
+				DEVELOPMENT_ASSET_PATHS = ShinShin/Resources.xcassets;
 				DEVELOPMENT_TEAM = 754J7T6W73;
 				INFOPLIST_FILE = ShinShin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1335,6 +1325,8 @@
 				CODE_SIGN_ENTITLEMENTS = ShinShin/ShinShin.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1;
+				DEVELOPMENT_ASSET_PATHS = ShinShin/Resources.xcassets;
 				DEVELOPMENT_TEAM = 754J7T6W73;
 				INFOPLIST_FILE = ShinShin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

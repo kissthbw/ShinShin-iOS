@@ -10,12 +10,12 @@ import UIKit
 
 protocol DetalleFotosViewControllerDelegate: class{
     func processPhotosViewController(_ controller: DetalleFotosViewController)
+    func deletePhotosViewController(_ controller: DetalleFotosViewController)
 }
 
 class DetalleFotosViewController: UIViewController {
 
     var photos: [UIImage] = [UIImage]()
-    var imageViews: [UIImageView] = [UIImageView]()
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var btnAgregar: UIButton!
@@ -29,9 +29,12 @@ class DetalleFotosViewController: UIViewController {
         btnEliminar.layer.borderColor = UIColor(red: 255/255, green: 111/255, blue: 0/255, alpha: 1.0).cgColor
         btnEliminar.layer.borderWidth = 1.0
         btnEliminar.layer.cornerRadius = 5.0
-        initUI()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        initUI()
+    }
 
     /*
     // MARK: - Navigation
@@ -61,6 +64,10 @@ class DetalleFotosViewController: UIViewController {
         delegate?.processPhotosViewController(self)
     }
     
+    @IBAction func deletePhotosAction(_ sender: Any) {
+        Model.mantenerCamara = true
+        delegate?.deletePhotosViewController(self)
+    }
     
     //MARK: - Helper methods
     func initUI(){
@@ -78,10 +85,12 @@ class DetalleFotosViewController: UIViewController {
         for (index, photo) in photos.enumerated(){
             print("Foto: \(index)")
             let tmp = UIImageView()
-            tmp.contentMode = .scaleAspectFill
+            tmp.contentMode = .scaleAspectFit
             tmp.image = photo
-            let tmpFrame = CGRect(x: (frame.width * CGFloat(index) + padding), y: frame.minY, width: frame.width, height: frame.height)
+            let tmpFrame = CGRect(x: (frame.width * CGFloat(index) + padding), y: 0, width: frame.width - 10, height: frame.height)
             tmp.frame = tmpFrame
+            tmp.layer.borderWidth = 2
+            tmp.layer.borderColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0).cgColor
             tmp.layer.cornerRadius = 10.0
             tmp.clipsToBounds = true
             padding = 10
