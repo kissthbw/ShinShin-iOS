@@ -200,7 +200,17 @@ class PerfilTableViewController: UITableViewController {
     
     func showDatePicker(){
         //Formate Date
+        let currentDate = Date()
+        var dateComponents = DateComponents()
+        let calendar = Calendar.init(identifier: .gregorian)
+        dateComponents.year = -100
+        let minDate = calendar.date(byAdding: dateComponents, to: currentDate)
+        dateComponents.year = -18
+        let maxDate = calendar.date(byAdding: dateComponents, to: currentDate)
+        
         datePicker.datePickerMode = .date
+        datePicker.minimumDate = minDate
+        datePicker.maximumDate = maxDate
         
         //ToolBar
         let toolbar = UIToolbar();

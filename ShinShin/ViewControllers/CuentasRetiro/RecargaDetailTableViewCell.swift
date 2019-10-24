@@ -19,7 +19,7 @@ class RecargaDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var btnGuardar: UIButton!
     @IBOutlet weak var btnEliminar: UIButton!
     
-    var companias = ["TELCEL", "MOVISTAR", "ATT&T", "UNEFON", "VIRGIN MOBILE"]
+    var companias = ["Telcel", "Movistar", "ATT&T", "Unefon", "Virgin Mobile"]
     let viewPicker = UIPickerView()
     
     enum UITextTags: Int{

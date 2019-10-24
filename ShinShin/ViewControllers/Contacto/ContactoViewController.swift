@@ -15,11 +15,31 @@ class ContactoViewController: UIViewController {
     @IBOutlet weak var txt1: UITextView!
     @IBOutlet weak var txt2: UITextView!
     @IBOutlet weak var btnEnviar: UIButton!
+    
+    let preguntasPicker = UIPickerView()
     var isMenuVisible = false
+    var items: [PreguntasContacto] = [PreguntasContacto]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isTranslucent = false
+        
+        let item1 = PreguntasContacto()
+        item1.id = 0
+        item1.pregunta = "Escaneo de un Ticket"
+        
+        let item2 = PreguntasContacto()
+        item2.id = 0
+        item2.pregunta = "Transferencia / Recarga telefónica"
+        
+        let item3 = PreguntasContacto()
+        item3.id = 0
+        item3.pregunta = "Problema con la App"
+        
+        items.append(item1)
+        items.append(item2)
+        items.append(item3)
+        
         initUIElements()
         configureBarButtons()
     }
@@ -84,6 +104,7 @@ class ContactoViewController: UIViewController {
         txt1.layer.cornerRadius = 10.0
         txt2.layer.cornerRadius = 10.0
         btnEnviar.layer.cornerRadius = 10.0
+        showPicker()
     }
     
     @objc
@@ -108,6 +129,29 @@ class ContactoViewController: UIViewController {
         present(SideMenuManager.default.rightMenuNavigationController!, animated: true, completion: nil)
     }
 
+    func showPicker(){
+        preguntasPicker.dataSource = self
+        preguntasPicker.delegate = self
+        
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donePicker));
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelPicker));
+        
+        toolbar.setItems([cancelButton,spaceButton,doneButton], animated: false)
+        txt1.inputAccessoryView = toolbar
+        txt1.inputView = preguntasPicker
+    }
+    
+    @objc func donePicker(){
+        self.view.endEditing(true)
+    }
+    
+    @objc func cancelPicker(){
+        self.view.endEditing(true)
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -118,4 +162,24 @@ class ContactoViewController: UIViewController {
     }
     */
 
+}
+
+//MARK: - Extensions
+extension ContactoViewController: UIPickerViewDelegate, UIPickerViewDataSource{
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return items.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return items[row].pregunta
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        txt1.text = items[row].pregunta!
+//        sexo = sexos[row].idSexo!
+    }
 }

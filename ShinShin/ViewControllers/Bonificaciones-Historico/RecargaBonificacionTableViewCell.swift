@@ -16,7 +16,7 @@ class RecargaBonificacionTableViewCell: UITableViewCell {
     @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var btnAgregar: UIButton!
     
-    var recargas = ["10","20","30","50","100","200","500"]
+    var recargas = ["$10","$20","$30","$50","$100","$200","$500"]
     var cuentas: [MediosBonificacion]? = nil
     var cuenta: MediosBonificacion? = nil
     

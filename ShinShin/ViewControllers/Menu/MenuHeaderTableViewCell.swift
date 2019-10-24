@@ -12,6 +12,7 @@ class MenuHeaderTableViewCell: UITableViewCell {
 
     @IBOutlet weak var viewUser: UIView!
     @IBOutlet weak var viewIconUser: UIView!
+    @IBOutlet weak var imageIconUser: UIImageView!
     @IBOutlet weak var btnClose: UIButton!
     @IBOutlet weak var btnSaldo: UIButton!
     @IBOutlet weak var btnRetirar: UIButton!
@@ -25,6 +26,15 @@ class MenuHeaderTableViewCell: UITableViewCell {
         
         viewUser.layer.cornerRadius = 35.0
         viewIconUser.layer.cornerRadius = viewIconUser.frame.width / 2
+        if let imageURL = Model.user?.imgUrl{
+            imageIconUser.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
+            imageIconUser.layer.cornerRadius = imageIconUser.frame.width / 2
+            imageIconUser.loadImage(url: URL(string: imageURL)!)
+        }
+        else{
+            imageIconUser.frame = CGRect(x: 14, y: 14, width: 32, height: 32)
+            imageIconUser.image = UIImage(named:"user-orange")
+        }
         
         btnRetirar.layer.cornerRadius = 20.0
         btnRetirar.tag = 1

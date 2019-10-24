@@ -54,6 +54,7 @@ class MenuTableViewController: UITableViewController {
         //MenuFooterCell
         if indexPath.section == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "MenuHeaderCell", for: indexPath) as! MenuHeaderTableViewCell
+            cell.lblBonificacion.text = Validations.formatWith(Model.totalBonificacion)
             cell.btnClose.addTarget(self, action: #selector(close), for: .touchUpInside)
             cell.btnSaldo.addTarget(self, action: #selector(retirarAction), for: .touchUpInside)
             cell.btnRetirar.addTarget(self, action: #selector(retirarAction), for: .touchUpInside)

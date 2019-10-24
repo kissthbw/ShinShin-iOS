@@ -1199,7 +1199,7 @@ tu contraseña ;-)</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvo-DJ-ZBH">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="III-mr-oxV">
                                 <rect key="frame" x="57" y="707" width="300" height="93"/>
@@ -1213,7 +1213,7 @@ tu contraseña ;-)</string>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dB7-X2-qdQ">
                                         <rect key="frame" x="156" y="45" width="144" height="48"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.99607843139999996" green="0.85882352939999995" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="17"/>
                                         <state key="normal" title="Siguiente">
                                             <color key="titleColor" red="1" green="0.43529411759999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1225,7 +1225,7 @@ tu contraseña ;-)</string>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFG-WE-NUm">
                                         <rect key="frame" x="0.0" y="45" width="144" height="48"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="0.43529411759999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.99607843137254903" green="0.57647058823529407" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="17"/>
                                         <state key="normal" title="Salir">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1242,12 +1242,12 @@ tu contraseña ;-)</string>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.43529411759999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="lvo-DJ-ZBH" firstAttribute="trailing" secondItem="pVG-Dc-jce" secondAttribute="trailing" id="4vq-LN-fPA"/>
                             <constraint firstItem="III-mr-oxV" firstAttribute="centerX" secondItem="Fja-34-Nko" secondAttribute="centerX" id="5dG-Qe-GFF"/>
                             <constraint firstItem="pVG-Dc-jce" firstAttribute="bottom" secondItem="III-mr-oxV" secondAttribute="bottom" constant="8" id="EtZ-tl-uyt"/>
-                            <constraint firstItem="lvo-DJ-ZBH" firstAttribute="bottom" secondItem="pVG-Dc-jce" secondAttribute="bottom" id="T19-xT-cau"/>
+                            <constraint firstItem="lvo-DJ-ZBH" firstAttribute="bottom" secondItem="Fja-34-Nko" secondAttribute="bottom" id="T19-xT-cau"/>
                             <constraint firstItem="lvo-DJ-ZBH" firstAttribute="leading" secondItem="pVG-Dc-jce" secondAttribute="leading" id="aJW-3a-2DF"/>
                             <constraint firstItem="lvo-DJ-ZBH" firstAttribute="top" secondItem="Fja-34-Nko" secondAttribute="top" id="lq3-EZ-Jc1"/>
                         </constraints>
@@ -1263,7 +1263,7 @@ tu contraseña ;-)</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ni2-zG-gpo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4" y="3862"/>
+            <point key="canvasLocation" x="-4" y="3863"/>
         </scene>
         <!--Intro View Controller-->
         <scene sceneID="jRV-1z-3JO">
@@ -1274,7 +1274,7 @@ tu contraseña ;-)</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="An1-Ou-vcv">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7tg-rj-UbM">
                                 <rect key="frame" x="57" y="707" width="300" height="93"/>
@@ -1321,7 +1321,7 @@ tu contraseña ;-)</string>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="An1-Ou-vcv" firstAttribute="bottom" secondItem="h7d-9v-CAg" secondAttribute="bottom" id="2O2-hD-6hz"/>
+                            <constraint firstItem="An1-Ou-vcv" firstAttribute="bottom" secondItem="lSs-Nw-zPh" secondAttribute="bottom" id="2O2-hD-6hz"/>
                             <constraint firstItem="An1-Ou-vcv" firstAttribute="top" secondItem="h7d-9v-CAg" secondAttribute="top" id="7sH-UN-lyv"/>
                             <constraint firstItem="h7d-9v-CAg" firstAttribute="bottom" secondItem="7tg-rj-UbM" secondAttribute="bottom" constant="8" id="Hpy-Ol-RWL"/>
                             <constraint firstItem="7tg-rj-UbM" firstAttribute="centerX" secondItem="lSs-Nw-zPh" secondAttribute="centerX" id="OHJ-m0-8Y1"/>
@@ -1364,9 +1364,8 @@ tu contraseña ;-)</string>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xCm-xD-3qW">
-                                            <rect key="frame" x="16" y="77" width="339" height="80"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xCm-xD-3qW">
+                                            <rect key="frame" x="16" y="77" width="378" height="80"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndl-YB-iqa">
                                                     <rect key="frame" x="0.0" y="0.0" width="339" height="80"/>
@@ -1379,7 +1378,7 @@ tu contraseña ;-)</string>
                                                     <rect key="frame" x="21" y="8" width="64" height="64"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tour por la APP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDd-JQ-Qtr">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tour por la App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDd-JQ-Qtr">
                                                     <rect key="frame" x="112" y="0.0" width="194" height="80"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito Black" pointSize="17"/>
@@ -1389,9 +1388,8 @@ tu contraseña ;-)</string>
                                             </subviews>
                                             <color key="backgroundColor" red="1" green="0.43529411759999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </view>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TBB-4L-Uma">
-                                            <rect key="frame" x="16" y="173" width="339" height="80"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TBB-4L-Uma">
+                                            <rect key="frame" x="16" y="173" width="378" height="80"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOe-cY-x3e">
                                                     <rect key="frame" x="0.0" y="0.0" width="339" height="80"/>
@@ -1415,6 +1413,16 @@ tu contraseña ;-)</string>
                                             <color key="backgroundColor" red="0.99607843137254903" green="0.85882352941176465" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </view>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="TBB-4L-Uma" firstAttribute="leading" secondItem="7h2-bY-7si" secondAttribute="leading" constant="16" id="0ms-rV-vMx"/>
+                                        <constraint firstAttribute="bottom" secondItem="TBB-4L-Uma" secondAttribute="bottom" constant="27" id="1DR-8V-ika"/>
+                                        <constraint firstItem="TBB-4L-Uma" firstAttribute="top" secondItem="7h2-bY-7si" secondAttribute="top" constant="173" id="4qL-Fo-JtS"/>
+                                        <constraint firstAttribute="trailing" secondItem="xCm-xD-3qW" secondAttribute="trailing" constant="20" id="4tT-GK-Dj7"/>
+                                        <constraint firstItem="xCm-xD-3qW" firstAttribute="top" secondItem="7h2-bY-7si" secondAttribute="top" constant="77" id="Ugd-Eg-sFi"/>
+                                        <constraint firstItem="xCm-xD-3qW" firstAttribute="leading" secondItem="7h2-bY-7si" secondAttribute="leading" constant="16" id="WIo-8w-jlE"/>
+                                        <constraint firstAttribute="bottom" secondItem="xCm-xD-3qW" secondAttribute="bottom" constant="123" id="hBN-yp-Hps"/>
+                                        <constraint firstAttribute="trailing" secondItem="TBB-4L-Uma" secondAttribute="trailing" constant="20" id="oG4-3q-5O2"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -1432,36 +1440,50 @@ tu contraseña ;-)</string>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6f-aQ-CeI">
                                             <rect key="frame" x="16" y="12" width="307" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito SemiBold" pointSize="15"/>
+                                            <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="15"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zen-0w-UrA">
-                                            <rect key="frame" x="0.0" y="46" width="375" height="1"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zen-0w-UrA">
+                                            <rect key="frame" x="0.0" y="46" width="414" height="1"/>
                                             <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DL6-Vd-4WJ">
-                                            <rect key="frame" x="0.0" y="47" width="375" height="253"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DL6-Vd-4WJ">
+                                            <rect key="frame" x="0.0" y="48" width="414" height="253"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRE-Gb-xQb">
                                                     <rect key="frame" x="8" y="8" width="359" height="214"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                             </subviews>
                                             <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
-                                        <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3IK-qM-qed">
-                                            <rect key="frame" x="339" y="14" width="20" height="20"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3IK-qM-qed">
+                                            <rect key="frame" x="365" y="14" width="20" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="7cJ-mO-Pkf"/>
+                                                <constraint firstAttribute="width" constant="20" id="Mpz-uh-xLm"/>
+                                            </constraints>
                                             <state key="normal" backgroundImage="down-arrow-placeholder"/>
                                         </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="3IK-qM-qed" secondAttribute="bottom" constant="266" id="76V-Op-0oN"/>
+                                        <constraint firstAttribute="trailing" secondItem="DL6-Vd-4WJ" secondAttribute="trailing" id="84Z-Ol-T13"/>
+                                        <constraint firstAttribute="bottom" secondItem="zen-0w-UrA" secondAttribute="bottom" constant="253" id="EUX-ch-fDq"/>
+                                        <constraint firstItem="3IK-qM-qed" firstAttribute="top" secondItem="oRg-Qo-c2b" secondAttribute="top" constant="14" id="Gir-Db-B5O"/>
+                                        <constraint firstItem="DL6-Vd-4WJ" firstAttribute="top" secondItem="oRg-Qo-c2b" secondAttribute="top" constant="48" id="ICy-zp-r8z"/>
+                                        <constraint firstAttribute="trailing" secondItem="zen-0w-UrA" secondAttribute="trailing" id="QhP-lM-i6U"/>
+                                        <constraint firstAttribute="trailing" secondItem="3IK-qM-qed" secondAttribute="trailing" constant="29" id="Sna-3h-Nl6"/>
+                                        <constraint firstAttribute="bottom" secondItem="DL6-Vd-4WJ" secondAttribute="bottom" constant="-1" id="as4-4w-iE5"/>
+                                        <constraint firstItem="zen-0w-UrA" firstAttribute="leading" secondItem="oRg-Qo-c2b" secondAttribute="leading" id="gSA-Jz-Q5V"/>
+                                        <constraint firstItem="zen-0w-UrA" firstAttribute="top" secondItem="oRg-Qo-c2b" secondAttribute="top" constant="46" id="ptM-eD-OMw"/>
+                                        <constraint firstItem="DL6-Vd-4WJ" firstAttribute="leading" secondItem="oRg-Qo-c2b" secondAttribute="leading" id="raR-RX-06O"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -2646,6 +2668,7 @@ ganar dinero por tus compras.</string>
                                     <outlet property="btnEliminar" destination="e39-yC-Z78" id="Nra-Hl-xaY"/>
                                     <outlet property="btnGuardar" destination="BMz-EN-VUv" id="AQH-HB-Ocq"/>
                                     <outlet property="imgCheck" destination="9NB-ID-ouP" id="1bE-n6-hpV"/>
+                                    <outlet property="lblTarjeta" destination="OHY-qX-sBD" id="y4B-2s-ask"/>
                                     <outlet property="lblTitulo" destination="Q2H-0t-9GK" id="gHZ-2g-a8F"/>
                                     <outlet property="txtAlias" destination="01O-3z-8AI" id="6X4-B5-XTr"/>
                                     <outlet property="txtBanco" destination="du0-Rn-1gN" id="we7-h7-nrE"/>
@@ -3521,8 +3544,8 @@ ganar dinero por tus compras.</string>
                                                                     <rect key="frame" x="56" y="20" width="25" height="25"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 </imageView>
-                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXl-wD-oKn">
-                                                                    <rect key="frame" x="20" y="65" width="96" height="24"/>
+                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXl-wD-oKn">
+                                                                    <rect key="frame" x="20" y="19" width="96" height="70"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="17"/>
                                                                     <state key="normal" title="Retirar">
@@ -3537,8 +3560,8 @@ ganar dinero por tus compras.</string>
                                                                     <rect key="frame" x="162" y="20" width="25" height="25"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 </imageView>
-                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="we3-Eu-TvP">
-                                                                    <rect key="frame" x="126" y="65" width="96" height="24"/>
+                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="we3-Eu-TvP">
+                                                                    <rect key="frame" x="126" y="19" width="96" height="70"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="17"/>
                                                                     <state key="normal" title="Tickets">
@@ -3553,8 +3576,8 @@ ganar dinero por tus compras.</string>
                                                                     <rect key="frame" x="276" y="20" width="25" height="25"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 </imageView>
-                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m74-ut-iwH">
-                                                                    <rect key="frame" x="240" y="65" width="96" height="24"/>
+                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m74-ut-iwH">
+                                                                    <rect key="frame" x="240" y="19" width="96" height="70"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="17"/>
                                                                     <state key="normal" title="Historial">
@@ -3991,7 +4014,7 @@ ganar dinero por tus compras.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YOu-sM-vg7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-754" y="1708"/>
+            <point key="canvasLocation" x="-755.07246376811599" y="1707.5892857142856"/>
         </scene>
         <!--Ticket Detail Table View Controller-->
         <scene sceneID="fUZ-V4-5UM">
@@ -4636,7 +4659,7 @@ a tu saldo,
                                                             <rect key="frame" x="8" y="10" width="60" height="60"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user-orange" translatesAutoresizingMaskIntoConstraints="NO" id="PzL-9l-Zuy">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user-orange" translatesAutoresizingMaskIntoConstraints="NO" id="PzL-9l-Zuy">
                                                                     <rect key="frame" x="14" y="14" width="32" height="32"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 </imageView>
@@ -4707,11 +4730,22 @@ a tu saldo,
                                                         <color key="titleColor" red="1" green="0.43529411759999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m02-Pj-viM">
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U8H-c9-OiO">
                                                     <rect key="frame" x="256" y="53" width="28" height="28"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="close-white" backgroundImage="circulo-white-small"/>
-                                                </button>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="close-white" translatesAutoresizingMaskIntoConstraints="NO" id="36U-k0-yLc">
+                                                            <rect key="frame" x="5" y="5" width="18" height="18"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m02-Pj-viM">
+                                                            <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <state key="normal" backgroundImage="circulo-white-small"/>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="retiro-white" translatesAutoresizingMaskIntoConstraints="NO" id="F6S-xG-DEb">
                                                     <rect key="frame" x="36" y="194" width="24" height="24"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -4763,6 +4797,7 @@ a tu saldo,
                                     <outlet property="btnRetirar" destination="RQX-HX-HKl" id="Tq2-V5-ZnN"/>
                                     <outlet property="btnSaldo" destination="tYs-LY-mJ7" id="N2z-g6-2va"/>
                                     <outlet property="btnTickets" destination="N9c-JU-bdg" id="uAu-ar-bVW"/>
+                                    <outlet property="imageIconUser" destination="PzL-9l-Zuy" id="u8p-QB-qjk"/>
                                     <outlet property="lblBonificacion" destination="ajM-TR-UOO" id="wHJ-lc-fng"/>
                                     <outlet property="viewFooter" destination="as5-QJ-eeS" id="0oL-Eq-ddU"/>
                                     <outlet property="viewIconUser" destination="21L-a2-iQE" id="TXe-Rc-Spc"/>
@@ -5212,7 +5247,7 @@ Shing</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MMy-Gg-s8a" userLabel="viewSeparador">
-                                                    <rect key="frame" x="55.666666666666657" y="731" width="303" height="1"/>
+                                                    <rect key="frame" x="55.666666666666657" y="825" width="303" height="1"/>
                                                     <color key="backgroundColor" red="0.79215686269999996" green="0.79215686269999996" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="gEP-00-uuz"/>
@@ -5220,7 +5255,7 @@ Shing</string>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fe8-OV-DyD" userLabel="viewPasswordActual">
-                                                    <rect key="frame" x="55.666666666666657" y="817" width="303" height="48"/>
+                                                    <rect key="frame" x="55.666666666666657" y="947" width="303" height="48"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4X8-Pz-Ae8">
                                                             <rect key="frame" x="0.0" y="0.0" width="303" height="48"/>
@@ -5245,13 +5280,13 @@ Shing</string>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contraseña actual" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gav-1U-2ch">
-                                                    <rect key="frame" x="135" y="785" width="144" height="23.333333333333371"/>
+                                                    <rect key="frame" x="135" y="915" width="144" height="23.333333333333371"/>
                                                     <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="17"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZJ-Pb-fMD" userLabel="viewPasswordNuevo1">
-                                                    <rect key="frame" x="55.666666666666657" y="913" width="303" height="48"/>
+                                                    <rect key="frame" x="55.666666666666657" y="1043" width="303" height="48"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3XA-5K-gg0">
                                                             <rect key="frame" x="0.0" y="0.0" width="303" height="48"/>
@@ -5283,13 +5318,13 @@ Shing</string>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contraseña nueva" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlB-fI-zel">
-                                                    <rect key="frame" x="135.66666666666666" y="880" width="142.99999999999997" height="23.333333333333371"/>
+                                                    <rect key="frame" x="135.66666666666666" y="1011" width="142.99999999999997" height="23.333333333333258"/>
                                                     <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="17"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lTB-Gh-XIT" userLabel="viewPasswordNuevo2">
-                                                    <rect key="frame" x="55.666666666666657" y="1017" width="303" height="48"/>
+                                                    <rect key="frame" x="55.666666666666657" y="1147" width="303" height="48"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vcz-pO-Fix">
                                                             <rect key="frame" x="0.0" y="0.0" width="303" height="48"/>
@@ -5321,13 +5356,13 @@ Shing</string>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirma tu contraseña nueva" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEa-Yj-12G">
-                                                    <rect key="frame" x="87.333333333333329" y="985" width="239.66666666666669" height="23.333333333333371"/>
+                                                    <rect key="frame" x="87.333333333333329" y="1115" width="239.66666666666669" height="23.333333333333258"/>
                                                     <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="17"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f86-LK-eaI">
-                                                    <rect key="frame" x="55.666666666666657" y="1080" width="303" height="73"/>
+                                                    <rect key="frame" x="55.666666666666657" y="1211" width="303" height="73"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="303" id="T5B-TR-zER"/>
                                                         <constraint firstAttribute="height" constant="73" id="VYc-TB-ojW"/>
@@ -5340,7 +5375,7 @@ y minúsculas.</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oUn-2W-Mbb">
-                                                    <rect key="frame" x="57" y="1184" width="300" height="48"/>
+                                                    <rect key="frame" x="57" y="1315" width="300" height="48"/>
                                                     <color key="backgroundColor" red="1" green="0.42745098040000001" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="48" id="9Qr-cC-LRP"/>
@@ -5356,7 +5391,7 @@ y minúsculas.</string>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pPP-ox-ieg">
-                                                    <rect key="frame" x="155.66666666666666" y="1260" width="102.99999999999997" height="33"/>
+                                                    <rect key="frame" x="155.66666666666666" y="1391" width="102.99999999999997" height="33"/>
                                                     <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="15"/>
                                                     <state key="normal" title="Eliminar cuenta"/>
                                                     <connections>
@@ -5494,7 +5529,10 @@ y minúsculas.</string>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cambio de contraseña" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJf-J5-jDx">
-                                                    <rect key="frame" x="100.66666666666667" y="740" width="212.66666666666663" height="27.333333333333371"/>
+                                                    <rect key="frame" x="100.66666666666667" y="858" width="212.66666666666663" height="48"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="48" id="Vbg-zP-KpQ"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito Black" pointSize="20"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -5504,14 +5542,14 @@ y minúsculas.</string>
                                                 <constraint firstItem="sr9-Wy-qOc" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="414" id="0VG-DH-lbh"/>
                                                 <constraint firstItem="0Au-yV-2qI" firstAttribute="centerX" secondItem="49y-ds-34T" secondAttribute="centerX" id="0hp-4U-vjN"/>
                                                 <constraint firstItem="Fp7-bX-NIK" firstAttribute="centerX" secondItem="49y-ds-34T" secondAttribute="centerX" id="0pM-xB-zSH"/>
-                                                <constraint firstItem="f86-LK-eaI" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="1080" id="2L6-Lz-pJc"/>
+                                                <constraint firstItem="f86-LK-eaI" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="1211" id="2L6-Lz-pJc"/>
                                                 <constraint firstItem="Wha-wQ-hiG" firstAttribute="centerX" secondItem="49y-ds-34T" secondAttribute="centerX" id="4Kj-5n-XRF"/>
                                                 <constraint firstItem="MMy-Gg-s8a" firstAttribute="centerX" secondItem="49y-ds-34T" secondAttribute="centerX" id="680-uJ-8qo"/>
                                                 <constraint firstItem="lTB-Gh-XIT" firstAttribute="centerX" secondItem="49y-ds-34T" secondAttribute="centerX" id="6EZ-wO-muh"/>
                                                 <constraint firstItem="AZ8-Tt-xO0" firstAttribute="centerX" secondItem="49y-ds-34T" secondAttribute="centerX" id="8aH-up-oye"/>
-                                                <constraint firstItem="pPP-ox-ieg" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="1260" id="9LL-bl-5rD"/>
-                                                <constraint firstItem="gav-1U-2ch" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="785" id="9jW-Ta-PEi"/>
-                                                <constraint firstItem="oUn-2W-Mbb" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="1184" id="ANE-Tz-K5d"/>
+                                                <constraint firstItem="pPP-ox-ieg" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="1391" id="9LL-bl-5rD"/>
+                                                <constraint firstItem="gav-1U-2ch" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="915" id="9jW-Ta-PEi"/>
+                                                <constraint firstItem="oUn-2W-Mbb" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="1315" id="ANE-Tz-K5d"/>
                                                 <constraint firstItem="f86-LK-eaI" firstAttribute="centerX" secondItem="49y-ds-34T" secondAttribute="centerX" id="Asp-iQ-dnm"/>
                                                 <constraint firstItem="hom-P5-5PM" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="322" id="G0f-WU-eCV"/>
                                                 <constraint firstItem="Fp7-bX-NIK" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="514" id="Kni-Vv-WxE"/>
@@ -5519,22 +5557,22 @@ y minúsculas.</string>
                                                 <constraint firstItem="pPP-ox-ieg" firstAttribute="centerX" secondItem="49y-ds-34T" secondAttribute="centerX" id="PpD-6C-nyM"/>
                                                 <constraint firstItem="MIB-fF-eZk" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="11" id="QQM-AE-X6p"/>
                                                 <constraint firstItem="DIq-6d-Cv2" firstAttribute="centerX" secondItem="49y-ds-34T" secondAttribute="centerX" id="QZM-xa-zNB"/>
-                                                <constraint firstItem="hlB-fI-zel" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="880" id="ROi-8L-iot"/>
+                                                <constraint firstItem="hlB-fI-zel" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="1011" id="ROi-8L-iot"/>
                                                 <constraint firstItem="DIq-6d-Cv2" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="69" id="RbX-oQ-sK9"/>
                                                 <constraint firstItem="gav-1U-2ch" firstAttribute="centerX" secondItem="49y-ds-34T" secondAttribute="centerX" id="Trr-do-I3S"/>
                                                 <constraint firstItem="bZJ-Pb-fMD" firstAttribute="centerX" secondItem="49y-ds-34T" secondAttribute="centerX" id="Wd1-13-KBc"/>
-                                                <constraint firstItem="MJf-J5-jDx" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="740" id="XFk-P3-EEh"/>
+                                                <constraint firstItem="MJf-J5-jDx" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="858" id="XFk-P3-EEh"/>
                                                 <constraint firstItem="oUn-2W-Mbb" firstAttribute="centerX" secondItem="49y-ds-34T" secondAttribute="centerX" id="XtE-yR-pVz"/>
-                                                <constraint firstItem="MMy-Gg-s8a" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="731" id="ZZX-OU-Dcd"/>
+                                                <constraint firstItem="MMy-Gg-s8a" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="825" id="ZZX-OU-Dcd"/>
                                                 <constraint firstItem="sr9-Wy-qOc" firstAttribute="centerX" secondItem="49y-ds-34T" secondAttribute="centerX" id="Zbo-1P-M4o"/>
                                                 <constraint firstItem="Wha-wQ-hiG" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="618" id="bw8-wu-bgH"/>
-                                                <constraint firstItem="fe8-OV-DyD" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="817" id="d9X-Pv-oNR"/>
+                                                <constraint firstItem="fe8-OV-DyD" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="947" id="d9X-Pv-oNR"/>
                                                 <constraint firstItem="0Au-yV-2qI" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="202" id="kPz-8e-OOz"/>
-                                                <constraint firstItem="lTB-Gh-XIT" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="1017" id="kYk-T0-mMV"/>
-                                                <constraint firstItem="tEa-Yj-12G" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="985" id="kom-5B-GBS"/>
+                                                <constraint firstItem="lTB-Gh-XIT" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="1147" id="kYk-T0-mMV"/>
+                                                <constraint firstItem="tEa-Yj-12G" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="1115" id="kom-5B-GBS"/>
                                                 <constraint firstItem="hom-P5-5PM" firstAttribute="centerX" secondItem="49y-ds-34T" secondAttribute="centerX" id="nE5-tD-6LI"/>
                                                 <constraint firstItem="Rtb-uA-4Q7" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="230" id="pM9-lW-gbc"/>
-                                                <constraint firstItem="bZJ-Pb-fMD" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="913" id="rXJ-Xb-OyT"/>
+                                                <constraint firstItem="bZJ-Pb-fMD" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="1043" id="rXJ-Xb-OyT"/>
                                                 <constraint firstItem="tEa-Yj-12G" firstAttribute="centerX" secondItem="49y-ds-34T" secondAttribute="centerX" id="sQS-Ff-B98"/>
                                                 <constraint firstItem="Ahm-Y3-JPR" firstAttribute="top" secondItem="49y-ds-34T" secondAttribute="top" constant="478" id="tGC-Qc-Org"/>
                                                 <constraint firstItem="Rtb-uA-4Q7" firstAttribute="centerX" secondItem="49y-ds-34T" secondAttribute="centerX" id="ufb-cl-oNX"/>
@@ -6380,8 +6418,9 @@ Ticket.</string>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJX-M4-bE4" userLabel="btnMas">
-                                                                                <rect key="frame" x="119" y="0.0" width="216" height="136"/>
+                                                                                <rect key="frame" x="116" y="0.0" width="219" height="136"/>
                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             </button>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -6410,6 +6449,11 @@ Ticket.</string>
                                                                                 <rect key="frame" x="0.0" y="9" width="116" height="116"/>
                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                             </imageView>
+                                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="41c-tV-bfc" userLabel="btnMas">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="116" height="136"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            </button>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </view>
@@ -6430,6 +6474,7 @@ Ticket.</string>
                                                             <connections>
                                                                 <outlet property="btnMasInfo" destination="HdK-fq-cUt" id="xBW-JA-PI0"/>
                                                                 <outlet property="btnMasInfoBig" destination="XJX-M4-bE4" id="fje-KT-7gl"/>
+                                                                <outlet property="btnMasInfoBig2" destination="41c-tV-bfc" id="jik-6b-S31"/>
                                                                 <outlet property="imageViewBanner" destination="Jw0-ge-7ME" id="rsv-V5-VwJ"/>
                                                                 <outlet property="lblBaner" destination="h8Q-LY-5D7" id="oHX-sy-eJq"/>
                                                                 <outlet property="lblBonificacion" destination="iEn-nk-UXR" id="reu-QI-5cK"/>
@@ -6529,6 +6574,10 @@ Ticket.</string>
                                                                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
+                                                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sFK-5n-mnY">
+                                                                                        <rect key="frame" x="8" y="8" width="140" height="184"/>
+                                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                                    </button>
                                                                                 </subviews>
                                                                                 <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <constraints>
@@ -6565,7 +6614,7 @@ Ticket.</string>
                                                             </constraints>
                                                             <size key="customSize" width="148" height="200"/>
                                                             <connections>
-                                                                <outlet property="btnMasInfo" destination="Sc6-cS-0Uf" id="1Gk-g3-rsX"/>
+                                                                <outlet property="btnMasInfo" destination="sFK-5n-mnY" id="0NB-Ab-gUq"/>
                                                                 <outlet property="lblBonificacion" destination="TrS-G1-RcA" id="Nmy-nU-0tN"/>
                                                                 <outlet property="lblContenido" destination="1wq-6e-0Rs" id="hMr-jb-N7J"/>
                                                                 <outlet property="lblNombre" destination="sgw-5o-pfu" id="thM-He-b9E"/>
@@ -7080,7 +7129,7 @@ tener buena iluminación y
         <image name="x-orange" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vCv-Yz-YPE"/>
+        <segue reference="ACn-e3-QpV"/>
         <segue reference="ym2-Na-ioa"/>
         <segue reference="g3Q-Qd-pqc"/>
     </inferredMetricsTieBreakers>

@@ -515,10 +515,19 @@ extension MediosBonificacionDetailViewController: CardScannerViewControllerDeleg
     func cardScanViewController(_ controller: CardScannerViewController, didFinish cardNumber: String) {
         print("Numero de tarjeta: \(cardNumber)")
         if let cell = tmpCell as? BancoDetailTableViewCell{
-            cell.txtTarjeta.text = cardNumber
+            var tmp = cardNumber.separate(every: 4, with: " ")
+            
+            
+            cell.txtTarjeta.text = tmp
         }
         self.dismiss(animated: true, completion: nil)
     }
     
     
+}
+
+extension String {
+    func separate(every stride: Int = 4, with separator: Character = " ") -> String {
+        return String(enumerated().map { $0 > 0 && $0 % stride == 0 ? [separator, $1] : [$1]}.joined())
+    }
 }

@@ -350,7 +350,7 @@ extension PrincipalViewController: UITableViewDataSource, UITableViewDelegate{
             
         }
         if indexPath.section == 1{
-            return 150
+            return 160
         }
         else if indexPath.section == 2{
             return 210
@@ -419,7 +419,7 @@ extension PrincipalViewController: UITableViewDataSource, UITableViewDelegate{
             return 0
         }
         else{
-            return 44
+            return 88
         }
     }
     

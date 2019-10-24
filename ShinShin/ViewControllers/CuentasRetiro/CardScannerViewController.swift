@@ -26,12 +26,15 @@ class CardScannerViewController: UIViewController {
         super.viewWillAppear(animated)
         
         CardIOUtilities.preload()
+        
     }
     
     override func viewDidAppear(_ animated: Bool){
         super.viewDidAppear(animated)
         
         let cardIOView = CardIOView(frame: self.cardView.frame)
+        cardIOView.hideCardIOLogo = true
+        cardIOView.scanInstructions = ""
         cardIOView.delegate = self
         self.cardView.addSubview(cardIOView)
     }

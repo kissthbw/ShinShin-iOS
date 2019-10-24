@@ -17,6 +17,7 @@
 		A20BA6832264E5960030572F /* RESTHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20BA6822264E5960030572F /* RESTHandler.swift */; };
 		A2112C71232DEDA500C4CFBA /* CameraHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2112C70232DEDA500C4CFBA /* CameraHandler.swift */; };
 		A214F7D522CC002000314D78 /* HistoricoBonificacionHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A214F7D422CC002000314D78 /* HistoricoBonificacionHeaderCell.xib */; };
+		A215A196235E6A1A00B52341 /* PreguntasContacto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A215A195235E6A1900B52341 /* PreguntasContacto.swift */; };
 		A2214A632337E94F00DB7CE4 /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2214A622337E94F00DB7CE4 /* FAQ.swift */; };
 		A223095722B9E6BC00DEA6EA /* MediosPagoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A223095622B9E6BC00DEA6EA /* MediosPagoView.xib */; };
 		A223095922B9EBA200DEA6EA /* MediosPagoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A223095822B9EBA200DEA6EA /* MediosPagoView.swift */; };
@@ -190,6 +191,7 @@
 		A20BA6822264E5960030572F /* RESTHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTHandler.swift; sourceTree = "<group>"; };
 		A2112C70232DEDA500C4CFBA /* CameraHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHandler.swift; sourceTree = "<group>"; };
 		A214F7D422CC002000314D78 /* HistoricoBonificacionHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoricoBonificacionHeaderCell.xib; sourceTree = "<group>"; };
+		A215A195235E6A1900B52341 /* PreguntasContacto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreguntasContacto.swift; sourceTree = "<group>"; };
 		A2214A622337E94F00DB7CE4 /* FAQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQ.swift; sourceTree = "<group>"; };
 		A223095622B9E6BC00DEA6EA /* MediosPagoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediosPagoView.xib; sourceTree = "<group>"; };
 		A223095822B9EBA200DEA6EA /* MediosPagoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediosPagoView.swift; sourceTree = "<group>"; };
@@ -510,6 +512,7 @@
 				A2962A4622DBAB4E00FF85CF /* Notificacion.swift */,
 				A226797722E3B05D00E1B726 /* TipoBancaria.swift */,
 				A2214A622337E94F00DB7CE4 /* FAQ.swift */,
+				A215A195235E6A1900B52341 /* PreguntasContacto.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1103,6 +1106,7 @@
 				A2AF1EF1231436040051AA64 /* TicketDetailTableViewController.swift in Sources */,
 				A294A31E22D67FFE00C3B55C /* OCRRequest.swift in Sources */,
 				A25C63DB22B7E88D0040DEA6 /* Marca.swift in Sources */,
+				A215A196235E6A1A00B52341 /* PreguntasContacto.swift in Sources */,
 				A26D47D922B700D70040AC0D /* NotificacionesTableViewController.swift in Sources */,
 				A267D7C3222DDCA800153CB8 /* ProductosTableViewController.swift in Sources */,
 				A26CBD0922A8710E002A5CD5 /* DeptoItemCollectionViewCell.swift in Sources */,
@@ -1303,11 +1307,13 @@
 				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_ASSET_PATHS = ShinShin/Resources.xcassets;
 				DEVELOPMENT_TEAM = 754J7T6W73;
+				GCC_OPTIMIZATION_LEVEL = 2;
 				INFOPLIST_FILE = ShinShin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -Onone";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bit.ShinShin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

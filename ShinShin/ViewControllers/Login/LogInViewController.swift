@@ -122,7 +122,7 @@ class LogInViewController: UIViewController {
         self.setNeedsStatusBarAppearanceUpdate()
     }
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .default
+        return .lightContent
     }
     
     //MARK: - Actions
@@ -392,7 +392,7 @@ extension LogInViewController: RESTActionDelegate{
                 performSegue(withIdentifier: "PrincipalSegue", sender: nil)
             }
             else{
-                showMessage(message: "Credenciales inválidas")
+                showMessage(message: "Usuario/número o contraseña incorrectos.")
             }
             
         }

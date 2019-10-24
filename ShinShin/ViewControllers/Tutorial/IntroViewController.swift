@@ -19,7 +19,13 @@ class IntroViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.navigationController?.navigationBar.isTranslucent = false
+        
+        view.layoutIfNeeded()
         initUIElements()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     //MARK: - Actions
@@ -56,11 +62,12 @@ class IntroViewController: UIViewController {
         
         scrollView.delegate = self
         scrollView.isPagingEnabled = true
-        scrollView.contentSize.width = view1.frame.width * 4
+        scrollView.contentSize.width = scrollView.frame.width * 4
         
-        view2.frame = CGRect(x: view1.frame.width, y: 0, width: view2.frame.width, height: view2.frame.height)
-        view3.frame = CGRect(x: view1.frame.width * 2, y: 0, width: view2.frame.width, height: view2.frame.height)
-        view4.frame = CGRect(x: view1.frame.width * 3, y: 0, width: view2.frame.width, height: view2.frame.height)
+        view1.frame = CGRect(x: 0, y: 0, width: scrollView.frame.width, height: scrollView.frame.height)
+        view2.frame = CGRect(x: scrollView.frame.width, y: 0, width: scrollView.frame.width, height: scrollView.frame.height)
+        view3.frame = CGRect(x: scrollView.frame.width * 2, y: 0, width: scrollView.frame.width, height: scrollView.frame.height)
+        view4.frame = CGRect(x: scrollView.frame.width * 3, y: 0, width: scrollView.frame.width, height: scrollView.frame.height)
         
         scrollView.addSubview(view1)
         scrollView.addSubview(view2)

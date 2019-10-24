@@ -18,6 +18,7 @@ class BancoDetailTableViewCell: UITableViewCell {
     //CUENTA:   11 posiciones
     @IBOutlet weak var txtTipo: UITextField!
     @IBOutlet weak var txtTarjeta: UITextField!
+    @IBOutlet weak var lblTarjeta: UILabel!
     @IBOutlet weak var txtBanco: UITextField!
     @IBOutlet weak var txtAlias: UITextField!
     @IBOutlet weak var imgCheck: UIImageView!
@@ -341,7 +342,7 @@ extension BancoDetailTableViewCell: UIPickerViewDelegate, UIPickerViewDataSource
                 txtTarjeta.removeTarget(self, action: #selector(textFieldChanged(_:)), for: .editingChanged)
                 txtTarjeta.text = ""
                 imgCheck.alpha = 0.0
-                
+                lblTarjeta.text = "No. de CLABE"
                 tipoCuentaSelected = .clabe
                 
             }
@@ -351,11 +352,12 @@ extension BancoDetailTableViewCell: UIPickerViewDelegate, UIPickerViewDataSource
                 txtTarjeta.removeTarget(self, action: #selector(reformatAsCardNumber), for: .editingChanged)
                 txtTarjeta.removeTarget(self, action: #selector(textFieldChanged(_:)), for: .editingChanged)
                 txtTarjeta.text = ""
+                lblTarjeta.text = "No. de tarjeta / Cuenta"
             }
             else {
                 txtTarjeta.addTarget(self, action: #selector(reformatAsCardNumber), for: .editingChanged)
                 txtTarjeta.addTarget(self, action: #selector(textFieldChanged(_:)), for: .editingChanged)
-                
+                lblTarjeta.text = "No. de tarjeta / Cuenta"
                 tipoCuentaSelected = .tarjeta
             }
         }
