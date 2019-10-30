@@ -21,6 +21,7 @@ class VerificacionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        btnEmpezar.layer.cornerRadius = 10.0
     }
     
 

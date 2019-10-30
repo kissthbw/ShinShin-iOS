@@ -23,7 +23,7 @@ class ProductoDetalleViewController: UIViewController {
     @IBOutlet weak var bottomframe: UIView!
     @IBOutlet weak var lblNombre: UILabel!
     @IBOutlet weak var lblPresentacion: UILabel!
-    @IBOutlet weak var lblBonificacion2: UILabel!
+    @IBOutlet weak var lblBonificacion2: UILabelBonificacion!
     @IBOutlet weak var txtDescripcion: UITextView!
     @IBOutlet weak var imgProducto: UIImageView!
     @IBOutlet weak var fakeView: UIView!
@@ -86,8 +86,8 @@ class ProductoDetalleViewController: UIViewController {
 
         }
         
-        lblBonificacion2.layer.cornerRadius = 10.0
-        lblBonificacion2.layer.masksToBounds = true
+//        lblBonificacion2.layer.cornerRadius = 10.0
+//        lblBonificacion2.layer.masksToBounds = true
         
         icon1.layer.cornerRadius = 10.0
         icon2.layer.cornerRadius = 10.0

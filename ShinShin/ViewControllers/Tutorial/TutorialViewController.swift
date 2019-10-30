@@ -30,7 +30,9 @@ class TutorialViewController: UIViewController {
         view3 = Bundle.main.loadNibNamed("Page3", owner: nil, options: nil)!.first as! UIView
         view4 = Bundle.main.loadNibNamed("Page4", owner: nil, options: nil)!.first as! UIView
         
+        print("Before layoutIfNeeded: \(self.scrollView.frame)")
         view.layoutIfNeeded()
+        print("After layoutIfNeeded: \(self.scrollView.frame)")
         
         initUIElements()
     }

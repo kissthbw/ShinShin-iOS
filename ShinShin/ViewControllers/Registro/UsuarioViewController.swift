@@ -62,8 +62,20 @@ class UsuarioViewController: UITableViewController {
         case btnConfPassword = 2
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.setBackgroundImage(nil, for:.default)
+        self.navigationController?.navigationBar.shadowImage = nil
+        self.navigationController?.navigationBar.layoutIfNeeded()
+        
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.barTintColor = .white
+        
         textFields = [txtNombre, txtCorreo, txtPassword, txtConfPassword,
          txtTelefono, txtMes, txtDia, txtAnio,
          txtSexo, txtCP]
@@ -187,6 +199,7 @@ class UsuarioViewController: UITableViewController {
         //se mostrarara la vista personaliza para seleccionar fecha
         txtMes.isEnabled = true
         txtMes.becomeFirstResponder()
+//        txtMes.isEnabled = false
     }
     
     @IBAction func verifyPassword(_ sender: Any) {

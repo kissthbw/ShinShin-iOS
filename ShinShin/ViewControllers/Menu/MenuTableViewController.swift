@@ -12,8 +12,6 @@ import FacebookLogin
 
 class MenuTableViewController: UITableViewController {
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

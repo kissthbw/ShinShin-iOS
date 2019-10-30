@@ -13,12 +13,12 @@ class ProductoTableViewCell: UITableViewCell {
     @IBOutlet weak var lblNombre: UILabel!
     @IBOutlet weak var lblContenido: UILabel!
     @IBOutlet weak var btnMasInfo: UIButton!
-    @IBOutlet weak var lblBonificacion: UILabel!
+    @IBOutlet weak var lblBonificacion: UILabelBonificacion!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        lblBonificacion.layer.masksToBounds = true
-        lblBonificacion.layer.cornerRadius = 5.0
+//        lblBonificacion.layer.masksToBounds = true
+//        lblBonificacion.layer.cornerRadius = 5.0
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

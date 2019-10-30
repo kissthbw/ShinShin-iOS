@@ -47,6 +47,7 @@ class LogInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setNeedsStatusBarAppearanceUpdate()
         
         GIDSignIn.sharedInstance().delegate = self
@@ -121,6 +122,7 @@ class LogInViewController: UIViewController {
         super.viewWillAppear(animated)
         self.setNeedsStatusBarAppearanceUpdate()
     }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }

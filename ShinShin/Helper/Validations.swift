@@ -38,13 +38,13 @@ class Validations{
             formatter.numberStyle = .decimal
             let tmp = NSNumber(value: valor)
             if let formatValue = formatter.string(from: tmp){
-                let tmp = " $ " + formatValue + " "
+                let tmp = "$ " + formatValue + " "
                 return tmp
             }
-            return "$ 0.0"
+            return "$ 0.0 "
         }
         else{
-            return "$ 0.0"
+            return "$ 0.0 "
         }
     }
     

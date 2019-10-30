@@ -11,8 +11,9 @@ import UIKit
 class PopularItemCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lblNombre: UILabel!
     @IBOutlet weak var lblContenido: UILabel!
-    @IBOutlet weak var lblBonificacion: UILabel!
+    @IBOutlet weak var lblBonificacion: UILabelBonificacion!
     @IBOutlet weak var btnMasInfo: UIButton!
+    @IBOutlet weak var btnMasInfo2: UIButton!
     @IBOutlet weak var view: UIView!
     
 //    override init(frame: CGRect) {
@@ -22,8 +23,9 @@ class PopularItemCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         view.layer.cornerRadius = 10.0
-        lblBonificacion.layer.masksToBounds = true
-        lblBonificacion.layer.cornerRadius = 10.0
+//        lblBonificacion.layer.masksToBounds = true
+//        lblBonificacion.layer.cornerRadius = 10.0
+        btnMasInfo.layer.cornerRadius = 10.0
     }
     
     required init?(coder aDecoder: NSCoder) {

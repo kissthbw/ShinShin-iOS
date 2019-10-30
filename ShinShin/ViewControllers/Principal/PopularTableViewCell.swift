@@ -57,6 +57,9 @@ extension PopularTableViewCell: UICollectionViewDataSource, UICollectionViewDele
         cell.btnMasInfo.tag = indexPath.row
         cell.btnMasInfo.addTarget(self, action: #selector(selectedItem(sender:)), for: .touchUpInside)
         
+        cell.btnMasInfo2.tag = indexPath.row
+        cell.btnMasInfo2.addTarget(self, action: #selector(selectedItem(sender:)), for: .touchUpInside)
+        
         return cell
     }
     

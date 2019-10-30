@@ -13,7 +13,7 @@ class BannerItemCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var lblBaner: UILabel!
     @IBOutlet weak var lblContenido: UILabel!
-    @IBOutlet weak var lblBonificacion: UILabel!
+    @IBOutlet weak var lblBonificacion: UILabelBonificacion!
     @IBOutlet weak var btnMasInfo: UIButton!
     @IBOutlet weak var btnMasInfoBig: UIButton!
     @IBOutlet weak var btnMasInfoBig2: UIButton!
@@ -28,8 +28,8 @@ class BannerItemCollectionViewCell: UICollectionViewCell {
         btnMasInfo.layer.cornerRadius = 10.0
         btnMasInfo.alpha = 0.9
         btnMasInfo.setTitleColor(.white, for: .normal)
-        lblBonificacion.layer.masksToBounds = true
-        lblBonificacion.layer.cornerRadius = 10.0
+//        lblBonificacion.layer.masksToBounds = true
+//        lblBonificacion.layer.cornerRadius = 10.0
         
     }
     

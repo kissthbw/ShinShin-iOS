@@ -19,7 +19,7 @@ class PrincipalViewController: UIViewController {
     
     var tituloHeader: String = ""
     
-    var categories = ["", "", "POPULARES", "DEPARTAMENTOS", "TIENDAS"]
+    var categories = ["", "", "Populares", "Departamentos", "Tiendas"]
     var isMenuVisible = false
     var catalogoDeptos: CatalogoDepartamentosArray = CatalogoDepartamentosArray()
     var catalogoTiendas: CatalogoTiendasArray = CatalogoTiendasArray()
@@ -356,7 +356,7 @@ extension PrincipalViewController: UITableViewDataSource, UITableViewDelegate{
             return 210
         }
         else if indexPath.section == 3{
-            return 82
+            return 90
         }
         else if indexPath.section == 4{
             return 500

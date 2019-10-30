@@ -83,6 +83,10 @@ class BonificacionViewController: UIViewController {
         }
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -91,18 +95,22 @@ class BonificacionViewController: UIViewController {
         self.navigationController?.navigationBar.layoutIfNeeded()
         
         self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.barStyle = .black
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 255/255, green: 111/255, blue: 0/255, alpha: 1.0)
+        
+        setNeedsStatusBarAppearanceUpdate()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.barTintColor = .white
-        
+        self.navigationController?.navigationBar.barStyle = .default
         self.navigationController?.navigationBar.setBackgroundImage(nil, for:.default)
         self.navigationController?.navigationBar.shadowImage = nil
         self.navigationController?.navigationBar.layoutIfNeeded()
     }
+    
     
 //    override func willMove(toParent parent: UIViewController?) {
 //        self.navigationController?.navigationBar.barTintColor = .white
@@ -157,7 +165,7 @@ class BonificacionViewController: UIViewController {
     func showHome(){
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.barTintColor = .white
-        
+        self.navigationController?.navigationBar.barStyle = .default
         self.navigationController?.navigationBar.setBackgroundImage(nil, for:.default)
         self.navigationController?.navigationBar.shadowImage = nil
         self.navigationController?.navigationBar.layoutIfNeeded()

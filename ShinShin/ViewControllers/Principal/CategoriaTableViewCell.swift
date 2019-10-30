@@ -93,6 +93,7 @@ extension CategoriaTableViewCell: UICollectionViewDataSource, UICollectionViewDe
         
         cell.lblBaner.text = item.nombreProducto
         cell.lblContenido.text = item.contenido
+        
         cell.lblBonificacion.text = Validations.formatWith(item.cantidadBonificacion)
         cell.btnMasInfoBig.tag = indexPath.row
         cell.btnMasInfoBig2.tag = indexPath.row
