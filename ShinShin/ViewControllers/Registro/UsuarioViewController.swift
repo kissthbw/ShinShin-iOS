@@ -68,13 +68,16 @@ class UsuarioViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureBarButtons()
         
         self.navigationController?.navigationBar.setBackgroundImage(nil, for:.default)
-        self.navigationController?.navigationBar.shadowImage = nil
+//        self.navigationController?.navigationBar.shadowImage = nil
+        self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
-        
+
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.barTintColor = .white
+//        self.navigationController?.navigationBar.barStyle = .blackOpaque
         
         textFields = [txtNombre, txtCorreo, txtPassword, txtConfPassword,
          txtTelefono, txtMes, txtDia, txtAnio,
@@ -156,29 +159,29 @@ class UsuarioViewController: UITableViewController {
     
     @IBAction func registerAction(_ sender: Any){
         
-        var formCompleta = true
-        
-        //Validar datos capturados
-        for textField in textFields {
-            if textField.text == "" {
-//                textField.layer.borderColor = UIColor.red.cgColor
-//                textField.layer.borderWidth = 1.0
-                formCompleta = false
-                break
-            }
-        }
-        
-        if !formCompleta{
-            showMessage(message: "Debes completar el formulario.", title: "ShingShing")
-            
-            return
-        }
-        
-        //Verificar que el switch este habilitado
-        if !switchAceptar.isOn{
-            showMessage(message: "Debes aceptar los terminos y condiciones.", title: "ShingShing")
-            return
-        }
+//        var formCompleta = true
+//
+//        //Validar datos capturados
+//        for textField in textFields {
+//            if textField.text == "" {
+////                textField.layer.borderColor = UIColor.red.cgColor
+////                textField.layer.borderWidth = 1.0
+//                formCompleta = false
+//                break
+//            }
+//        }
+//
+//        if !formCompleta{
+//            showMessage(message: "Debes completar el formulario.", title: "ShingShing")
+//
+//            return
+//        }
+//
+//        //Verificar que el switch este habilitado
+//        if !switchAceptar.isOn{
+//            showMessage(message: "Debes aceptar los terminos y condiciones.", title: "ShingShing")
+//            return
+//        }
         
         //Enviar peticion a back
         //La respuesta de esta peticion debe ser manejada en el metodo delegado
@@ -189,8 +192,8 @@ class UsuarioViewController: UITableViewController {
         //que realiza la activación del usuario, nuevamente la respuesta debe
         //manejarse en el metodo delegado
 //        print("Registrando usuario")
-//        performSegue(withIdentifier: "ActivarSegue", sender: nil)
-        registerRequest()
+        performSegue(withIdentifier: "ActivarSegue", sender: nil)
+//        registerRequest()
     }
 
     @IBAction func shownDateView(_ sender: Any) {
@@ -222,6 +225,56 @@ class UsuarioViewController: UITableViewController {
     
     
     //MARK: - Helper methods
+    func configureBarButtons(){
+        let img = UIImage(named: "back")
+        let imageView = UIImageView(image: img)
+        imageView.frame = CGRect(x: 0, y: 6, width: 12, height: 21)
+        
+        let lblBonificacion = UILabel()
+        lblBonificacion.font = UIFont(name: "Nunito SemiBold", size: 15)
+//        lblBonificacion.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
+        lblBonificacion.textColor = .systemBlue
+        
+        lblBonificacion.text = "Inicio"
+        lblBonificacion.sizeToFit()
+        
+        let frame = lblBonificacion.frame
+        lblBonificacion.frame = CGRect(x: 21, y: 6, width: frame.width, height: frame.height)
+        
+        //El tamanio del view debe ser
+        //lblBonificacion.width + imageView.x + imageView.width + 4(que debe ser lo mismo que imageView.x
+        let width = lblBonificacion.frame.width + imageView.frame.minX +
+            imageView.frame.width + imageView.frame.minX
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 32))
+//        view.layer.cornerRadius = 10.0
+//        view.layer.borderWidth = 1.0
+//        view.layer.borderColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0).cgColor
+        view.addSubview(imageView)
+        view.addSubview(lblBonificacion)
+        let button = UIButton(frame: CGRect(x: view.frame.minX, y: view.frame.minY, width: view.frame.width, height: view.frame.height))
+        button.addTarget(self, action: #selector(back), for: .touchUpInside)
+        view.addSubview(button)
+        
+        self.navigationItem.titleView = view
+        
+        let back = UIBarButtonItem(customView: view)
+        
+//        let home = UIBarButtonItem(
+//            image: UIImage(named: "logo-menu"),
+//            style: .plain,
+//            target: self,
+//            action: #selector(back))
+//        home.tintColor = .black
+        
+        
+//        navigationItem.rightBarButtonItems = [user, notif]
+        navigationItem.leftBarButtonItems = [back]
+    }
+    
+    @objc func back(){
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     func showDatePicker(){
         //Formate Date
         let currentDate = Date()

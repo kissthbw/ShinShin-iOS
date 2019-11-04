@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Light.ttf">
+            <string>Nunito-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camara-4" translatesAutoresizingMaskIntoConstraints="NO" id="Jqq-xL-ne2">
+                    <rect key="frame" x="67" y="152" width="280" height="180"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="180" id="ErV-Ra-I96"/>
+                        <constraint firstAttribute="width" constant="280" id="oFh-5q-eLB"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Oi-vB-wnk">
+                    <rect key="frame" x="67.5" y="378" width="279" height="142"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="142" id="gRc-As-Pol"/>
+                        <constraint firstAttribute="width" constant="279" id="zob-7a-dRJ"/>
+                    </constraints>
+                    <string key="text">Procura tener limpio el lente de tu cámara y buena iluminación.
+</string>
+                    <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="21"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="4Oi-vB-wnk" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="64D-7b-YFK"/>
+                <constraint firstItem="Jqq-xL-ne2" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="108" id="SkO-xd-bGZ"/>
+                <constraint firstItem="4Oi-vB-wnk" firstAttribute="top" secondItem="Jqq-xL-ne2" secondAttribute="bottom" constant="46" id="by7-Ar-bzL"/>
+                <constraint firstItem="Jqq-xL-ne2" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="los-g0-IAt"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="137.68115942028987" y="120.53571428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="camara-4" width="280" height="180"/>
+    </resources>
+</document>

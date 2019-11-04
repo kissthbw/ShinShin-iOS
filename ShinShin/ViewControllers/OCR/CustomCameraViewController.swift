@@ -55,6 +55,7 @@ class CustomCameraViewController: UIViewController {
     var code = -1
     var datosTicket = OCRResponse()
     var visiblePreview = false
+    var toogleFlash = false
     
     let ID_RQT_ANALIZAR = "ID_RQT_ANALIZAR"
     
@@ -233,6 +234,34 @@ class CustomCameraViewController: UIViewController {
             isScanning = false
             self.navigationController?.popViewController(animated: true)
 //            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func toggleFlashAction(_ sender: Any) {
+        guard let device = AVCaptureDevice.default(for: AVMediaType.video) else {
+            return
+        }
+        
+        guard device.hasTorch else {
+            return
+        }
+        
+        do {
+            try device.lockForConfiguration()
+
+            if (device.torchMode == AVCaptureDevice.TorchMode.on) {
+                device.torchMode = AVCaptureDevice.TorchMode.off
+            } else {
+                do {
+                    try device.setTorchModeOn(level: 1.0)
+                } catch {
+                    print(error)
+                }
+            }
+
+            device.unlockForConfiguration()
+        } catch {
+            print(error)
         }
     }
     

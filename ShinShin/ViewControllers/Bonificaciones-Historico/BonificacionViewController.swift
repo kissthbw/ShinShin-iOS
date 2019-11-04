@@ -233,7 +233,7 @@ class BonificacionViewController: UIViewController {
             print("Selected row: \(row)")
             
             let vc = segue.destination as! SolicitarBonificacionTableViewController
-            vc.medios = medios
+//            vc.medios = medios
             if row == 0{
                 vc.tipoRetiro = .Bancario
             }

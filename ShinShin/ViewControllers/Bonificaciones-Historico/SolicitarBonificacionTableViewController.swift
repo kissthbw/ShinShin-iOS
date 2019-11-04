@@ -15,9 +15,16 @@ enum TipoRetiro: Int{
     case Telefonica = 3
 }
 
-class SolicitarBonificacionTableViewController: UITableViewController {
+class SolicitarBonificacionTableViewController: UIViewController,
+UITableViewDataSource, UITableViewDelegate {
 
     //MARK: - Propiedades
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var lblMensaje: UILabel!
+    
+    
     struct TableViewCellIdentifiers {
         static let bancoBonificacionCell = "BancoBonificacionCell"
         static let payPalBonificacionCell = "PayPalBonificacionCell"
@@ -25,14 +32,21 @@ class SolicitarBonificacionTableViewController: UITableViewController {
     }
     
     let ID_RQT_BONIFICACION = "ID_RQT_BONIFICACION"
+    let ID_RQT_CATALOGO = "ID_RQT_CATALOGO"
     var tipoRetiro: TipoRetiro = .Bancario
     var medios: MediosBonificacionRSP = MediosBonificacionRSP()
     var tmpCell: UITableViewCell?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        cardView.layer.cornerRadius = 10.0
         configureBarButtons()
         print("Tipo de retiro: \(tipoRetiro)")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        catalogoMediosRequest()
     }
 
 //    override func viewDidDisappear(_ animated: Bool) {
@@ -68,19 +82,19 @@ class SolicitarBonificacionTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 600
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if tipoRetiro == .Bancario{
             return configureCell(for: indexPath)
@@ -254,12 +268,51 @@ extension SolicitarBonificacionTableViewController{
             
         }
     }
+    
+    func catalogoMediosRequest(){
+        do{
+            let encoder = JSONEncoder()
+            let user = Usuario()
+            user.idUsuario = Model.user?.idUsuario
+            let json = try encoder.encode(user)
+            RESTHandler.delegate = self
+            RESTHandler.postOperationTo(RESTHandler.obtieneMediosBonificacionPorUsuario, with: json, and: ID_RQT_CATALOGO)
+        }
+        catch{
+            
+        }
+    }
 }
 
 //MARK: - Extension
 extension SolicitarBonificacionTableViewController: MediosBonificacionControllerDelegate{
     func addItemViewController(_ controller: MediosBonificacionDetailViewController, didFinishAddind item: String) {
-        print("Cuenta agregada: \(item)")
+        
+        lblMensaje.text = item
+        
+        UIView.animate(withDuration: 2.0,
+                       delay: 0.0,
+                       usingSpringWithDamping: 0.5,
+                       initialSpringVelocity: 5.0,
+                       options: [.curveEaseIn],
+                       animations: {
+                        self.topConstraint.constant = 50
+                        self.view.setNeedsLayout()
+                        self.view.layoutIfNeeded()
+        }, completion: { (true) in
+            UIView.animate(withDuration: 2.0,
+                           delay: 0.0,
+                           usingSpringWithDamping: 0.5,
+                           initialSpringVelocity: 5.0,
+                           options: [.curveEaseIn],
+                           animations: {
+                            self.topConstraint.constant = 0
+                            self.view.setNeedsLayout()
+                            self.view.layoutIfNeeded()
+            }, completion: nil)
+        })
+        
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
@@ -366,6 +419,18 @@ extension SolicitarBonificacionTableViewController: RESTActionDelegate{
                     performSegue(withIdentifier: "ErrorSegue", sender: self)
                 }
                 
+            }
+            catch{
+                print("JSON Error: \(error)")
+            }
+        }
+        else if identifier == ID_RQT_CATALOGO{
+            do{
+                let decoder = JSONDecoder()
+                
+                //El arreglo de medios se mostrara solo cuando se quiara seleccionar un medio
+                medios = try decoder.decode(MediosBonificacionRSP.self, from: data)
+                tableView.reloadSections(IndexSet(integersIn: 0...0), with: .automatic)
             }
             catch{
                 print("JSON Error: \(error)")

@@ -40,14 +40,19 @@ class LogInViewController: UIViewController {
     var isMenuVisible = false
     var showPassword = true
     var idRedSocial = -1
-    
+//
 //    override var prefersStatusBarHidden: Bool {
 //        return true
 //    }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.navigationBar.barStyle = .black
+
         setNeedsStatusBarAppearanceUpdate()
         
         GIDSignIn.sharedInstance().delegate = self
@@ -120,11 +125,7 @@ class LogInViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.setNeedsStatusBarAppearanceUpdate()
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+//        self.setNeedsStatusBarAppearanceUpdate()
     }
     
     //MARK: - Actions
