@@ -19,6 +19,7 @@ class ContactoViewController: UIViewController {
     let preguntasPicker = UIPickerView()
     var isMenuVisible = false
     var items: [PreguntasContacto] = [PreguntasContacto]()
+    let ID_RQT_CONTACTO = "ID_RQT_CONTACTO"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +45,55 @@ class ContactoViewController: UIViewController {
         configureBarButtons()
     }
     
+    //MARK: - UIActions
+    @IBAction func enviarAction(_ sender: Any) {
+        
+        if Validations.isEmpty(value: txt1.text!) ||
+            Validations.isEmpty(value: txt2.text!){
+         
+            //Validar
+            if Validations.isEmpty(value: txt1.text!){
+                txt1.backgroundColor = UIColor(red: 254/255, green: 219/255, blue: 191/255, alpha: 1.0)
+            }
+            
+            if Validations.isEmpty(value: txt2.text!){
+                txt2.backgroundColor = UIColor(red: 254/255, green: 219/255, blue: 191/255, alpha: 1.0)
+            }
+            
+            showMessage(message: "Debes aceptar los terminos y condiciones.", title: "ShingShing")
+            
+            return
+        }
+        
+        if txt2.text!.count < 2{
+            txt2.backgroundColor = UIColor(red: 254/255, green: 219/255, blue: 191/255, alpha: 1.0)
+            
+            showMessage(message: "Cuentanos un poco más.", title: "ShingShing")
+            
+            return
+        }
+    }
+    
+    
     //MARK: - Helper methods
+    func enviarRequest(){
+        do{
+            RESTHandler.delegate = self
+            let item = PreguntasContacto()
+            item.idUsuario = Model.user?.idUsuario
+            item.topico = txt1.text!
+            item.detalle = txt2.text!
+            
+            let encoder = JSONEncoder()
+            let json = try encoder.encode(item)
+            
+            RESTHandler.postOperationTo(RESTHandler.contacto, with: json, and: ID_RQT_CONTACTO)
+        }
+        catch{
+            print("Error al enviar sugerencia")
+        }
+    }
+    
     func configureBarButtons(){
         let img = UIImage(named: "money-grey")
         let imageView = UIImageView(image: img)
@@ -182,4 +231,43 @@ extension ContactoViewController: UIPickerViewDelegate, UIPickerViewDataSource{
         txt1.text = items[row].pregunta!
 //        sexo = sexos[row].idSexo!
     }
+}
+
+//MARK: - RESTActionDelegate
+extension ContactoViewController: RESTActionDelegate{
+    func restActionDidSuccessful(data: Data, identifier: String) {
+        
+        
+        do{
+            let decoder = JSONDecoder()
+            
+            let rsp = try decoder.decode(SimpleResponse.self, from: data)
+            if rsp.code == 200{
+                print( "Aviso de que pronto recibira una respuesta por parte de ShingShing" )
+            }
+        }
+        catch{
+            print("JSON Error: \(error)")
+        }
+    }
+    
+    func restActionDidError() {
+        
+    }
+    
+    func showMessage(message: String, title: String){
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert)
+        
+        let action =
+            UIAlertAction(title: "OK",
+                          style: .default,
+                          handler: nil)
+        
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
 }

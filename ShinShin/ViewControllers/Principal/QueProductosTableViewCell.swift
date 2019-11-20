@@ -16,7 +16,6 @@ class QueProductosTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         viewText.layer.cornerRadius = 10.0
         btnEnviar.layer.cornerRadius = 10.0
     }
@@ -27,4 +26,21 @@ class QueProductosTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func isValid() -> (valid: Bool, alert: UIAlertController?){
+        if Validations.isEmpty(value: txtProductos.text!){
+            txtProductos.showError(true, superView: true)
+            let alert = Validations.show(message: "Debes llenar el campo de sugerencia", with: "ShingShing")
+            
+            return (false, alert)
+        }
+        
+        if txtProductos.text!.count < 2{
+            txtProductos.showError(true, superView: true)
+            let alert = Validations.show(message: "La longitud minima es de 2 posiciones", with: "ShingShing")
+            
+            return (false, alert)
+        }
+        
+        return (true, nil)
+    }
 }

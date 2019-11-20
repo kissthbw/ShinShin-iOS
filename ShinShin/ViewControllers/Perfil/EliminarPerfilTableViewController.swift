@@ -28,22 +28,33 @@ class EliminarPerfilTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureBarButtons()
         initUI()
         showViewPicker()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+//        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+//        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
     //MARK: - UI Actions
     @IBAction func eliminarPerfil(_ sender: Any) {
+        
+        //Validar que se haya seleccionado el motivo
+        if Validations.isEmpty(value: txtMotivo.text!){
+            txtMotivo.showError(true, superView: false)
+            self.tableView.endEditing(true)
+            showMessage(message: "Debes seleccionar un motivo")
+
+            return
+        }
+
         eliminarPerfilRequest()
 //        performSegue(withIdentifier: "ConfirmarEliminarSegue", sender: self)
     }
@@ -58,6 +69,57 @@ class EliminarPerfilTableViewController: UITableViewController {
     }
     
     //MARK: - HelperMethods
+    func configureBarButtons(){
+        let img = UIImage(named: "back")
+                let imageView = UIImageView(image: img)
+                imageView.frame = CGRect(x: 0, y: 6, width: 12, height: 21)
+                
+                let lblBonificacion = UILabel()
+                lblBonificacion.font = UIFont(name: "Nunito SemiBold", size: 15)
+        //        lblBonificacion.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
+                lblBonificacion.textColor = .systemBlue
+                
+                lblBonificacion.text = "Inicio"
+                lblBonificacion.sizeToFit()
+                
+                let frame = lblBonificacion.frame
+                lblBonificacion.frame = CGRect(x: 21, y: 6, width: frame.width, height: frame.height)
+                
+                //El tamanio del view debe ser
+                //lblBonificacion.width + imageView.x + imageView.width + 4(que debe ser lo mismo que imageView.x
+                let width = lblBonificacion.frame.width + imageView.frame.minX +
+                    imageView.frame.width + imageView.frame.minX
+                let view = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 32))
+        //        view.layer.cornerRadius = 10.0
+        //        view.layer.borderWidth = 1.0
+        //        view.layer.borderColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0).cgColor
+                view.addSubview(imageView)
+                view.addSubview(lblBonificacion)
+                let button = UIButton(frame: CGRect(x: view.frame.minX, y: view.frame.minY, width: view.frame.width, height: view.frame.height))
+                button.addTarget(self, action: #selector(back), for: .touchUpInside)
+                view.addSubview(button)
+                
+                self.navigationItem.titleView = view
+                
+                let back = UIBarButtonItem(customView: view)
+                
+        //        let home = UIBarButtonItem(
+        //            image: UIImage(named: "logo-menu"),
+        //            style: .plain,
+        //            target: self,
+        //            action: #selector(back))
+        //        home.tintColor = .black
+                
+                
+        //        navigationItem.rightBarButtonItems = [user, notif]
+                navigationItem.leftBarButtonItems = [back]
+    }
+    
+    @objc
+    func showHome(){
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     func eliminarPerfilRequest(){
         let user = Usuario()
         user.idUsuario = Model.user?.idUsuario
@@ -122,7 +184,10 @@ class EliminarPerfilTableViewController: UITableViewController {
 
 //MARK: - Extensions
 extension EliminarPerfilTableViewController: UITextFieldDelegate{
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.showError(false, superView: false)
+        
         if textField == txtMotivo{
             textFocused = .txtMotivo
         }
@@ -197,7 +262,7 @@ extension EliminarPerfilTableViewController: RESTActionDelegate{
     
     func showMessage(message: String){
         let alert = UIAlertController(
-            title: "Whoops...",
+            title: "Shing Shing",
             message: message,
             preferredStyle: .alert)
         
@@ -211,3 +276,4 @@ extension EliminarPerfilTableViewController: RESTActionDelegate{
     }
     
 }
+

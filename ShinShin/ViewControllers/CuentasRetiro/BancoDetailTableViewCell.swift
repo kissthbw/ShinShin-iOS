@@ -29,6 +29,7 @@ class BancoDetailTableViewCell: UITableViewCell {
     
     private var previousTextFieldContent: String?
     private var previousSelection: UITextRange?
+    var item: MediosBonificacion?
     
     enum UITextTags: Int{
         case TxtTipo = 1
@@ -43,6 +44,12 @@ class BancoDetailTableViewCell: UITableViewCell {
         case tarjeta = 16
     }
     
+    struct LENGHT{
+        static let CLABE = 18 //19, 11
+        static let TARJETA_MASKED = 19
+        static let TARJETA = 16
+        static let CUENTA = 11
+    }
     
     let ID_RQT_TIPOS = "ID_RQT_TIPOS"
     var tipoCuentaSelected: TipoCuenta = .clabe
@@ -66,6 +73,10 @@ class BancoDetailTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    func setItem(item: MediosBonificacion){
+        self.item = item
     }
     
     //MARK: - Actions
@@ -248,35 +259,34 @@ extension BancoDetailTableViewCell: UITextFieldDelegate{
             let count = textFieldText.count - substringToReplace.count + string.count
             
             if tipoCuentaSelected == .clabe{
-                
-                if count >= 18{
+                if count >= LENGHT.CLABE{
                     imgCheck.alpha = 1.0
                 }
                 else{
                     imgCheck.alpha = 0.0
                 }
                 
-                return count <= 18
+                return count <= LENGHT.CLABE
             }
             else if tipoCuentaSelected == .tarjeta{
-                if count >= 19{
+                if count >= LENGHT.TARJETA_MASKED{
                     imgCheck.alpha = 1.0
                 }
                 else{
                     imgCheck.alpha = 0.0
                 }
                 
-                return count <= 19
+                return count <= LENGHT.TARJETA_MASKED
             }
             else if tipoCuentaSelected == .cuenta{
-                if count >= 11{
+                if count >= LENGHT.CUENTA{
                     imgCheck.alpha = 1.0
                 }
                 else{
                     imgCheck.alpha = 0.0
                 }
                 
-                return count <= 11
+                return count <= LENGHT.CUENTA
             }
             return true
             
@@ -287,6 +297,8 @@ extension BancoDetailTableViewCell: UITextFieldDelegate{
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.showError(false, superView: false)
+        
         if textField.tag == UITextTags.TxtBanco.rawValue || textField.tag == UITextTags.TxtTipo.rawValue {
             focusedTextField = textField.tag
             showViewPicker()
@@ -334,7 +346,7 @@ extension BancoDetailTableViewCell: UIPickerViewDelegate, UIPickerViewDataSource
             let tipo = listTiposBancaria[row]
             txtTipo.text = tipo.descripcionBancaria
             idTipoBancaria = tipo.idTipo!
-            txtTarjeta.becomeFirstResponder()
+//            txtTarjeta.becomeFirstResponder()
             
             //"CLABE","CUENTA","TARJETA"
             if ( tipo.descripcionBancaria == "CLABE" ){
@@ -344,23 +356,41 @@ extension BancoDetailTableViewCell: UIPickerViewDelegate, UIPickerViewDataSource
                 imgCheck.alpha = 0.0
                 lblTarjeta.text = "No. de CLABE"
                 tipoCuentaSelected = .clabe
-                
+                animateScanView(true)
             }
-            else if ( tipo.descripcionBancaria == "CUENTA" ){
+            else if ( tipo.descripcionBancaria == "Cuenta" ){
                 tipoCuentaSelected = .cuenta
                 
                 txtTarjeta.removeTarget(self, action: #selector(reformatAsCardNumber), for: .editingChanged)
                 txtTarjeta.removeTarget(self, action: #selector(textFieldChanged(_:)), for: .editingChanged)
                 txtTarjeta.text = ""
                 lblTarjeta.text = "No. de tarjeta / Cuenta"
+                animateScanView(true)
             }
             else {
                 txtTarjeta.addTarget(self, action: #selector(reformatAsCardNumber), for: .editingChanged)
                 txtTarjeta.addTarget(self, action: #selector(textFieldChanged(_:)), for: .editingChanged)
                 lblTarjeta.text = "No. de tarjeta / Cuenta"
                 tipoCuentaSelected = .tarjeta
+                animateScanView(false)
             }
         }
+    }
+    
+    func animateScanView(_ hide: Bool){
+        var percent: CGFloat = 1.0
+        if hide{
+            percent = 0.0
+        }
+        else{
+            
+        }
+        
+        UIView.animate(withDuration: 0.5,
+                       delay: 0.0, options: [.curveEaseIn],
+                       animations: {
+                        self.viewScanner.alpha = percent
+        }, completion: nil)
     }
 }
 
@@ -416,14 +446,82 @@ extension BancoDetailTableViewCell: RESTActionDelegate{
 }
 
 extension BancoDetailTableViewCell{
+    func formHasBeenUpdated() -> Bool{
+        if txtAlias.text! != item?.aliasMedioBonificacion{
+            return true
+        }
+        return false
+    }
+    
+    func formIsEmpty() -> Bool{
+        if  Validations.isEmpty(value: txtTipo.text!) &&
+            Validations.isEmpty(value: txtAlias.text!) &&
+            Validations.isEmpty(value: txtTarjeta.text!) &&
+            Validations.isEmpty(value: txtBanco.text!){
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    
     func isValid() -> (valid: Bool, alert: UIAlertController?){
         if Validations.isEmpty(value: txtAlias.text!) ||
             Validations.isEmpty(value: txtTarjeta.text!) ||
             Validations.isEmpty(value: txtBanco.text!){
+            
+            if Validations.isEmpty(value: txtTipo.text!){
+                txtTipo.showError(true, superView: false)
+            }
+            
+            if Validations.isEmpty(value: txtAlias.text!){
+                txtAlias.showError(true, superView: false)
+            }
+            
+            if Validations.isEmpty(value: txtTarjeta.text!){
+                txtTarjeta.showError(true, superView: false)
+            }
+            
+            if Validations.isEmpty(value: txtBanco.text!){
+                txtBanco.showError(true, superView: false)
+            }
+            
             let alert = Validations.show(message: "Ingresa todos los datos", with: "ShingShing")
 
             return (false, alert)
         }
+        
+        //Verificar longitud del tipo de cuenta
+        if tipoCuentaSelected == .clabe && txtTarjeta.text!.count < LENGHT.CLABE{
+            txtTarjeta.showError(true, superView: false)
+            let alert = Validations.show(message: "La longitud debe ser de \(LENGHT.CLABE) posiciones.", with: "ShingShing")
+
+            return (false, alert)
+        }
+        
+        if tipoCuentaSelected == .cuenta && txtTarjeta.text!.count < LENGHT.CUENTA{
+            txtTarjeta.showError(true, superView: false)
+            let alert = Validations.show(message: "La longitud debe ser de \(LENGHT.CUENTA) posiciones.", with: "ShingShing")
+
+            return (false, alert)
+        }
+        
+        if tipoCuentaSelected == .cuenta && txtTarjeta.text!.count < LENGHT.TARJETA{
+            txtTarjeta.showError(true, superView: false)
+            let alert = Validations.show(message: "La longitud debe ser de \(LENGHT.TARJETA) posiciones.", with: "ShingShing")
+
+            return (false, alert)
+        }
+        
+        if tipoCuentaSelected == .clabe && txtTarjeta.text!.count < LENGHT.CLABE{
+            txtTarjeta.showError(true, superView: false)
+            let alert = Validations.show(message: "La longitud debe ser de \(LENGHT.CLABE) posiciones.", with: "ShingShing")
+
+            return (false, alert)
+        }
+        
+        //Validar nombre corto, de al menos 1 posicion
+        //
         
         return (true, nil)
     }

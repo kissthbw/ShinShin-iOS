@@ -27,8 +27,24 @@ class RecargaBonificacionTableViewCell: UITableViewCell {
     let viewPicker = UIPickerView()
     let recargasPicker = UIPickerView()
     
+    private var previousTextFieldContent: String?
+    private var previousSelection: UITextRange?
+    
+    enum UITextTags: Int{
+        case TxtCantidad = 10
+    }
+    
+    struct LENGHT{
+        static let MONTO_MIN = 2
+        static let MONTO_MAX = 3
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        txtCantidad.delegate = self
+        txtNumero.delegate = self
+        txtCantidad.tag = UITextTags.TxtCantidad.rawValue
         
         txtCantidad.layer.cornerRadius = 10
         txtNumero.layer.cornerRadius = 10
@@ -141,3 +157,71 @@ extension RecargaBonificacionTableViewCell: UIPickerViewDelegate, UIPickerViewDa
     }
 }
 
+extension RecargaBonificacionTableViewCell{
+    func formIsEmpty() -> Bool{
+        if  Validations.isEmpty(value: txtCantidad.text!) &&
+            Validations.isEmpty(value: txtNumero.text!){
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    
+    func clean(){
+        txtCantidad.text = ""
+        txtNumero.text = ""
+    }
+    
+    func isValid() -> (valid: Bool, alert: UIAlertController?){
+        if Validations.isEmpty(value: txtCantidad.text!) ||
+            Validations.isEmpty(value: txtNumero.text!){
+            
+            if Validations.isEmpty(value: txtCantidad.text!){
+                txtCantidad.showError(true, superView: false)
+            }
+            
+            if Validations.isEmpty(value: txtNumero.text!){
+                txtNumero.showError(true, superView: false)
+            }
+            
+            let alert = Validations.show(message: "Ingresa todos los datos", with: "ShingShing")
+
+            return (false, alert)
+        }
+        
+        //Validar nombre corto, de al menos 1 posicion
+        //
+        
+        return (true, nil)
+    }
+}
+
+extension RecargaBonificacionTableViewCell: UITextFieldDelegate{
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("editing")
+        textField.showError(false, superView: false)
+    }
+    
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//
+//        previousTextFieldContent = textField.text;
+//        previousSelection = textField.selectedTextRange;
+//
+//        if textField.tag == UITextTags.TxtCantidad.rawValue{
+//            guard let textFieldText = textField.text,
+//                let rangeOfTextToReplace = Range(range, in: textFieldText) else {
+//                    return false
+//            }
+//            let substringToReplace = textFieldText[rangeOfTextToReplace]
+//            let count = textFieldText.count - substringToReplace.count + string.count
+//
+//
+//            return count <= LENGHT.MONTO_MAX
+//
+//        }
+//        else{
+//            return true
+//        }
+//    }
+}

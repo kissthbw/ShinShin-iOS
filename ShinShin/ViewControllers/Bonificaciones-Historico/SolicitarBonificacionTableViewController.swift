@@ -164,94 +164,116 @@ extension SolicitarBonificacionTableViewController{
         if tipoRetiro == .Bancario{
             
             if let cell = tmpCell as? BancoBonificacionTableViewCell{
-                print("Guardando solicitud de bonificacion")
-                let item = Bonificacion()
-                
-                item.cantidadBonificacion = Double( cell.txtCantidad.text! )
-                
-                let date = Date()
-                let formatter = DateFormatter()
-                formatter.dateFormat = "yyyy-MM-dd"
-                let fecha = formatter.string(from: date)
-                item.fechaBonificacion = fecha
-                
-                formatter.dateFormat = "yyyy-MM-dd'T'hh:mm:ss"
-                let hora = formatter.string(from: date)
-                //                item.horaBonificacion = hora
-                
-                let medio = MediosBonificacion()
-                medio.idMediosBonificacion = cell.cuenta?.idMediosBonificacion
-                
-                let user = Usuario()
-                user.idUsuario = Model.user?.idUsuario
-                
-                item.mediosBonificacion = medio
-                item.usuario = user
-                
-                guardarBonificacionRequest(with: item)
+                let resp = cell.isValid()
+                if resp.valid{
+                    print("Guardando solicitud de bonificacion")
+                    let item = Bonificacion()
+                    
+                    item.cantidadBonificacion = Double( cell.txtCantidad.text! )
+                    
+                    let date = Date()
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "yyyy-MM-dd"
+                    let fecha = formatter.string(from: date)
+                    item.fechaBonificacion = fecha
+                    
+                    formatter.dateFormat = "yyyy-MM-dd'T'hh:mm:ss"
+                    let hora = formatter.string(from: date)
+                    //                item.horaBonificacion = hora
+                    
+                    let medio = MediosBonificacion()
+                    medio.idMediosBonificacion = cell.cuenta?.idMediosBonificacion
+                    
+                    let user = Usuario()
+                    user.idUsuario = Model.user?.idUsuario
+                    
+                    item.mediosBonificacion = medio
+                    item.usuario = user
+                    
+                    guardarBonificacionRequest(with: item)
+                }
+                else{
+                    self.tableView.endEditing(true)
+                    present(resp.alert!, animated: true, completion: nil)
+                }
             }
             
             
         }
         else if tipoRetiro == .PayPal{
             if let cell = tmpCell as? PayPalBonificacionTableViewCell{
-                print("Guardando solicitud de PayPal")
-                
-                let item = Bonificacion()
-                
-                item.cantidadBonificacion = Double( cell.txtCantidad.text! )
-                
-                let date = Date()
-                let formatter = DateFormatter()
-                formatter.dateFormat = "yyyy-MM-dd"
-                let fecha = formatter.string(from: date)
-                item.fechaBonificacion = fecha
-                
-                formatter.dateFormat = "yyyy-MM-dd'T'hh:mm:ss"
-                let hora = formatter.string(from: date)
-                //                item.horaBonificacion = hora
-                
-                let medio = MediosBonificacion()
-                medio.idMediosBonificacion = cell.cuenta?.idMediosBonificacion
-                
-                let user = Usuario()
-                user.idUsuario = Model.user?.idUsuario
-                
-                item.mediosBonificacion = medio
-                item.usuario = user
-                
-                guardarBonificacionRequest(with: item)
+                let resp = cell.isValid()
+                if resp.valid{
+                    print("Guardando solicitud de PayPal")
+                    
+                    let item = Bonificacion()
+                    
+                    item.cantidadBonificacion = Double( cell.txtCantidad.text! )
+                    
+                    let date = Date()
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "yyyy-MM-dd"
+                    let fecha = formatter.string(from: date)
+                    item.fechaBonificacion = fecha
+                    
+                    formatter.dateFormat = "yyyy-MM-dd'T'hh:mm:ss"
+                    let hora = formatter.string(from: date)
+                    //                item.horaBonificacion = hora
+                    
+                    let medio = MediosBonificacion()
+                    medio.idMediosBonificacion = cell.cuenta?.idMediosBonificacion
+                    
+                    let user = Usuario()
+                    user.idUsuario = Model.user?.idUsuario
+                    
+                    item.mediosBonificacion = medio
+                    item.usuario = user
+                    
+                    guardarBonificacionRequest(with: item)
+                }
+                else{
+                    self.tableView.endEditing(true)
+                    present(resp.alert!, animated: true, completion: nil)
+                }
             }
             
         }
         else if tipoRetiro == .Telefonica{
             if let cell = tmpCell as? RecargaBonificacionTableViewCell{
-                print("Guardando solicitud de Recarga")
+                let resp = cell.isValid()
+                if resp.valid{
+                    print("Guardando solicitud de Recarga")
+                    
+                    let item = Bonificacion()
+                    
+                    item.cantidadBonificacion = Double( cell.txtCantidad.text! )
+                    
+                    let date = Date()
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "yyyy-MM-dd"
+                    let fecha = formatter.string(from: date)
+                    item.fechaBonificacion = fecha
+                    
+                    formatter.dateFormat = "yyyy-MM-dd'T'hh:mm:ss"
+                    let hora = formatter.string(from: date)
+                    //                item.horaBonificacion = hora
+                    
+                    let medio = MediosBonificacion()
+                    medio.idMediosBonificacion = cell.cuenta?.idMediosBonificacion
+                    
+                    let user = Usuario()
+                    user.idUsuario = Model.user?.idUsuario
+                    
+                    item.mediosBonificacion = medio
+                    item.usuario = user
+                    
+                    guardarBonificacionRequest(with: item)
+                }
+                else{
+                    self.tableView.endEditing(true)
+                    present(resp.alert!, animated: true, completion: nil)
+                }
                 
-                let item = Bonificacion()
-                
-                item.cantidadBonificacion = Double( cell.txtCantidad.text! )
-                
-                let date = Date()
-                let formatter = DateFormatter()
-                formatter.dateFormat = "yyyy-MM-dd"
-                let fecha = formatter.string(from: date)
-                item.fechaBonificacion = fecha
-                
-                formatter.dateFormat = "yyyy-MM-dd'T'hh:mm:ss"
-                let hora = formatter.string(from: date)
-                //                item.horaBonificacion = hora
-                
-                let medio = MediosBonificacion()
-                medio.idMediosBonificacion = cell.cuenta?.idMediosBonificacion
-                
-                let user = Usuario()
-                user.idUsuario = Model.user?.idUsuario
-                
-                item.mediosBonificacion = medio
-                item.usuario = user
-                
-                guardarBonificacionRequest(with: item)
             }
         }
     }
@@ -379,25 +401,150 @@ extension SolicitarBonificacionTableViewController{
     
     @objc
     func showHome(){
-        self.navigationController?.popToRootViewController(animated: true)
-//        self.navigationController?.popViewController(animated: true)
+//        self.navigationController?.popToRootViewController(animated: true)
+        
+        let cancel =
+        UIAlertAction(title: "Salir",
+                      style: .default){action in
+                        self.navigationController?.popToRootViewController(animated: true)
+                      }
+        
+        let acept = prepareAceptAction()
+        if handleOnExitViewControllerWith(cancelAction: cancel, and: acept){
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
     
     @objc
     func showView(){
-        let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "BonificacionViewController")
-        self.navigationController!.pushViewController(destViewController, animated: true)
+//        let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "BonificacionViewController")
+//        self.navigationController!.pushViewController(destViewController, animated: true)
+        
+        let cancel =
+        UIAlertAction(title: "Salir",
+                      style: .default){action in
+                        let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "BonificacionViewController")
+                        self.navigationController!.pushViewController(destViewController, animated: true)
+                      }
+        
+        let acept = prepareAceptAction()
+        if handleOnExitViewControllerWith(cancelAction: cancel, and: acept){
+            let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "BonificacionViewController")
+            self.navigationController!.pushViewController(destViewController, animated: true)
+        }
     }
     
     @objc
     func showNotif(){
-        let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "NotificacionesTableViewController")
-        self.navigationController!.pushViewController(destViewController, animated: true)
+//        let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "NotificacionesTableViewController")
+//        self.navigationController!.pushViewController(destViewController, animated: true)
+        
+        let cancel =
+        UIAlertAction(title: "Salir",
+                      style: .default){action in
+                        let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "NotificacionesTableViewController")
+                        self.navigationController!.pushViewController(destViewController, animated: true)
+                      }
+        
+        let acept = prepareAceptAction()
+        if handleOnExitViewControllerWith(cancelAction: cancel, and: acept){
+            let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "NotificacionesTableViewController")
+            self.navigationController!.pushViewController(destViewController, animated: true)
+        }
     }
     
     @objc
     func showMenu(){
-        present(SideMenuManager.default.rightMenuNavigationController!, animated: true, completion: nil)
+//        present(SideMenuManager.default.rightMenuNavigationController!, animated: true, completion: nil)
+        
+        let cancel =
+        UIAlertAction(title: "Salir",
+                      style: .default){action in
+                        self.present(SideMenuManager.default.rightMenuNavigationController!, animated: true, completion: nil)
+                      }
+        
+        let acept = prepareAceptAction()
+        if handleOnExitViewControllerWith(cancelAction: cancel, and: acept){
+            self.present(SideMenuManager.default.rightMenuNavigationController!, animated: true, completion: nil)
+        }
+    }
+    
+    func cleanTextFields(){
+        if let cell = tmpCell as? BancoBonificacionTableViewCell{
+            cell.clean()
+        }
+        if let cell = tmpCell as? RecargaBonificacionTableViewCell{
+            cell.clean()
+        }
+        if let cell = tmpCell as? PayPalBonificacionTableViewCell{
+            cell.clean()
+        }
+    }
+    
+    func handleOnExitViewControllerWith(cancelAction: UIAlertAction, and aceptAction: UIAlertAction) -> Bool{
+            
+        var noProcess = true
+        var formIsEmpty = true
+            
+        if let cell = tmpCell as? BancoBonificacionTableViewCell{
+            formIsEmpty = cell.formIsEmpty()
+        }
+        if let cell = tmpCell as? RecargaBonificacionTableViewCell{
+            formIsEmpty = cell.formIsEmpty()
+        }
+        if let cell = tmpCell as? PayPalBonificacionTableViewCell{
+            formIsEmpty = cell.formIsEmpty()
+        }
+            
+        if !formIsEmpty{
+            noProcess = false
+            handleMessageOnExitViewController(message: "Aun no has solicitado tu retiro, ¿Aun asi quieres salir?", title: "Shing Shing", cancelAction: cancelAction, aceptAction: aceptAction)
+        }
+            
+        return noProcess
+    }
+    
+    func handleMessageOnExitViewController(message: String, title: String, cancelAction: UIAlertAction, aceptAction: UIAlertAction){
+        
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert)
+        
+        alert.addAction(cancelAction)
+        alert.addAction(aceptAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func prepareAceptAction() -> UIAlertAction{
+        let acept =
+        UIAlertAction(title: "Seguir aquí",
+                      style: .default){action in
+                        
+                        var result: (valid: Bool, alert: UIAlertController?) = (false, nil)
+                        
+                        if let cell = self.tmpCell as? BancoBonificacionTableViewCell{
+                            result = cell.isValid()
+                        }
+                        else if let cell = self.tmpCell as? PayPalBonificacionTableViewCell{
+                            result = cell.isValid()
+                            
+                        }
+                        else if let cell = self.tmpCell as? RecargaDetailTableViewCell{
+                            result = cell.isValid()
+                        }
+                        
+                        if !result.valid{
+                            self.present(result.alert!, animated: true, completion: nil)
+                        }
+                        else{
+                            self.guardarItem()
+                            
+                            print("Guardar o actualiza segun sea el caso")
+                        }
+        }
+        
+        return acept
     }
 }
 
@@ -412,8 +559,14 @@ extension SolicitarBonificacionTableViewController: RESTActionDelegate{
                 if rsp.code == 200{
                     print("Solicitud guardada con exito")
                     Model.totalBonificacion = rsp.bonificacion
-
+                    cleanTextFields()
                     performSegue(withIdentifier: "ConformacionSegue", sender: self)
+                }
+                else if rsp.code == 202{
+                    Model.totalBonificacion = rsp.bonificacion
+                    let alert = Validations.show(message: "Fondos insuficientes", with: "Shing Shing")
+                    cleanTextFields()
+                    self.present(alert, animated: true, completion: nil)
                 }
                 else{
                     performSegue(withIdentifier: "ErrorSegue", sender: self)
@@ -444,7 +597,7 @@ extension SolicitarBonificacionTableViewController: RESTActionDelegate{
     
     func showNetworkError(){
         let alert = UIAlertController(
-            title: "Whoops...",
+            title: "Shing Shing",
             message: "Ocurrió un problema." +
             " Favor de interntar nuevamente",
             preferredStyle: .alert)

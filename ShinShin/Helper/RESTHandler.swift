@@ -48,6 +48,7 @@ class RESTHandler{
     static let login = server + "/usuarios/usuario/login"
     static let login2 = server + "/usuarios/usuario/login2"
     static let contacto = server + "/usuarios/contacto"
+    static let restaurarPassword = server + "/usuarios/solicitarRestaurarPassword"
 
     //Pantalla principal
     static let obtieneProductos = server + "/productos/list"

@@ -15,6 +15,22 @@ extension UITextField {
         case Right
     }
     
+    func showError(_ showError: Bool, superView: Bool){
+        if showError{
+            self.backgroundColor = UIColor(red: 254/255, green: 219/255, blue: 191/255, alpha: 1.0)
+            if superView{
+                self.superview?.backgroundColor = UIColor(red: 254/255, green: 219/255, blue: 191/255, alpha: 1.0)
+            }
+            
+        }
+        else{
+            self.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
+            if superView{
+                self.superview?.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
+            }
+        }
+    }
+    
     // add image to textfield
     func withImage(direction: Direction, image: UIImage, colorSeparator: UIColor, colorBorder: UIColor){
         let mainView = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 30))
@@ -75,4 +91,5 @@ extension UITextField {
     // Default actions:
     @objc func doneButtonTapped() { self.resignFirstResponder() }
     @objc func cancelButtonTapped() { self.resignFirstResponder() }
+    
 }

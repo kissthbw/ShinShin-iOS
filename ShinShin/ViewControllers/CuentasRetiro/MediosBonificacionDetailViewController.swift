@@ -46,7 +46,19 @@ class MediosBonificacionDetailViewController: UITableViewController {
     }
     
     @IBAction func back(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        
+        let cancel =
+        UIAlertAction(title: "No",
+                      style: .default){action in
+                        self.navigationController?.popViewController(animated: true)
+                      }
+        
+        let acept = prepareAceptAction()
+        
+        if handleOnExitViewControllerWith(cancelAction: cancel, and: acept){
+            self.navigationController?.popViewController(animated: true)
+        }
+        
     }
     
     //MARK: - Helper Methods
@@ -107,20 +119,155 @@ class MediosBonificacionDetailViewController: UITableViewController {
     
     @objc
     func showNotif(){
-        let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "NotificacionesTableViewController")
-        self.navigationController!.pushViewController(destViewController, animated: true)
+        
+        let cancel =
+        UIAlertAction(title: "No",
+                      style: .default){action in
+                       let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "NotificacionesTableViewController")
+                       self.navigationController!.pushViewController(destViewController, animated: true)
+                      }
+        
+        let acept = prepareAceptAction()
+        
+        if handleOnExitViewControllerWith(cancelAction: cancel, and: acept){
+            let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "NotificacionesTableViewController")
+            self.navigationController!.pushViewController(destViewController, animated: true)
+        }
     }
+    
     
     
     @objc
     func showView(){
-        let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "BonificacionViewController")
-        self.navigationController!.pushViewController(destViewController, animated: true)
+        
+        let cancel =
+        UIAlertAction(title: "No",
+                      style: .default){action in
+                       let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "BonificacionViewController")
+                       self.navigationController!.pushViewController(destViewController, animated: true)
+                      }
+        
+        let acept = prepareAceptAction()
+        
+        if handleOnExitViewControllerWith(cancelAction: cancel, and: acept){
+            let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "BonificacionViewController")
+            self.navigationController!.pushViewController(destViewController, animated: true)
+        }
     }
     
     @objc
     func showMenu(){
-        present(SideMenuManager.default.rightMenuNavigationController!, animated: true, completion: nil)
+        let cancel =
+        UIAlertAction(title: "No",
+                      style: .default){action in
+                        self.present(SideMenuManager.default.rightMenuNavigationController!, animated: true, completion: nil)
+                      }
+        
+        let acept = prepareAceptAction()
+        
+        if handleOnExitViewControllerWith(cancelAction: cancel, and: acept){
+            present(SideMenuManager.default.rightMenuNavigationController!, animated: true, completion: nil)
+        }
+    }
+    
+    //Maneja la salida de la pantalla, veirifcando si existen cambios que guardar
+    func prepareAceptAction() -> UIAlertAction{
+        let acept =
+        UIAlertAction(title: "Si",
+                      style: .default){action in
+                        
+                        var result: (valid: Bool, alert: UIAlertController?) = (false, nil)
+                        
+                        if let cell = self.tmpCell as? BancoDetailTableViewCell{
+                            result = cell.isValid()
+                        }
+                        else if let cell = self.tmpCell as? PayPalDetailTableViewCell{
+                            result = cell.isValid()
+                            
+                        }
+                        else if let cell = self.tmpCell as? RecargaDetailTableViewCell{
+                            result = cell.isValid()
+                        }
+                        
+                        if !result.valid{
+                            self.present(result.alert!, animated: true, completion: nil)
+                        }
+                        else{
+                            if self.item != nil{
+                                self.actualizarItem()
+                            }
+                            else{
+                                self.guardarItem()
+                            }
+                            
+                            print("Guardar o actualiza segun sea el caso")
+                        }
+        }
+        
+        return acept
+    }
+    
+    func handleOnExitViewControllerWith(cancelAction: UIAlertAction, and aceptAction: UIAlertAction) -> Bool{
+        
+        var noProcess = true
+        var formUpdated = false
+        var formIsEmpty = true
+        
+        if item != nil{
+            //Validar si han actualizado campo
+            if let cell = tmpCell as? BancoDetailTableViewCell{
+               formUpdated = cell.formHasBeenUpdated()
+            }
+            if let cell = tmpCell as? RecargaDetailTableViewCell{
+                formUpdated = cell.formHasBeenUpdated()
+            }
+            if let cell = tmpCell as? PayPalDetailTableViewCell{
+                formUpdated = cell.formHasBeenUpdated()
+            }
+            
+            if formUpdated{
+                noProcess = false
+                handleMessageOnExitViewController(message: "¿Quieres guardar tus cambios antes de salir?", title: "Shing Shing", cancelAction: cancelAction, aceptAction: aceptAction)
+
+            }
+        }
+        else{
+            if let cell = tmpCell as? BancoDetailTableViewCell{
+               formIsEmpty = cell.formIsEmpty()
+            }
+            if let cell = tmpCell as? RecargaDetailTableViewCell{
+                formIsEmpty = cell.formIsEmpty()
+            }
+            if let cell = tmpCell as? PayPalDetailTableViewCell{
+                formIsEmpty = cell.formIsEmpty()
+            }
+            
+            if !formIsEmpty{
+                noProcess = false
+                handleMessageOnExitViewController(message: "¿Quieres guardar tus cambios antes de salir?", title: "Shing Shing", cancelAction: cancelAction, aceptAction: aceptAction)
+            }
+        }
+        
+//        if let cell = tmpCell as? BancoDetailTableViewCell{
+//
+//            if item != nil{
+//                //Validar si han actualizado campo
+//                if cell.formHasBeenUpdated(){
+//                    noProcess = false
+//                    handleMessageOnExitViewController(message: "¿Quieres guardar tus cambios antes de salir?", title: "Shing Shing", cancelAction: cancelAction, aceptAction: aceptAction)
+//
+//                }
+//            }
+//            else{
+//                if !cell.formIsEmpty(){
+//                    noProcess = false
+//                    handleMessageOnExitViewController(message: "¿Quieres guardar tus cambios antes de salir?", title: "Shing Shing", cancelAction: cancelAction, aceptAction: aceptAction)
+//                }
+//            }
+//        }
+//        
+        
+        return noProcess
     }
     
     @objc func actualizarItem(){
@@ -145,6 +292,7 @@ class MediosBonificacionDetailViewController: UITableViewController {
                     actualizarMedioBonificacionRequest(with: item)
                 }
                 else{
+                    self.tableView.endEditing(true)
                     present(resp.alert!, animated: true, completion: nil)
                 }
             }
@@ -226,6 +374,7 @@ class MediosBonificacionDetailViewController: UITableViewController {
                     guardarMedioBonificacionRequest(with: item)
                 }
                 else{
+                    self.tableView.endEditing(true)
                     present(resp.alert!, animated: true, completion: nil)
                 }
             }
@@ -248,6 +397,7 @@ class MediosBonificacionDetailViewController: UITableViewController {
                     guardarMedioBonificacionRequest(with: item)
                 }
                 else{
+                    self.tableView.endEditing(true)
                     present(resp.alert!, animated: true, completion: nil)
                 }
             }
@@ -271,6 +421,7 @@ class MediosBonificacionDetailViewController: UITableViewController {
                     guardarMedioBonificacionRequest(with: item)
                 }
                 else{
+                    self.tableView.endEditing(true)
                     present(resp.alert!, animated: true, completion: nil)
                 }
             }
@@ -284,11 +435,12 @@ class MediosBonificacionDetailViewController: UITableViewController {
         if let itemToEdit = item{
             idMedio = itemToEdit.idMediosBonificacion!
             mensaje = "Aqui no pasó nada, cuenta eliminada"
-
+            cell.setItem(item: itemToEdit)
             if let tipo = itemToEdit.idTipo{
                 cell.idTipo = tipo
                 cell.idTipoBancaria = tipo
             }
+            
             
             cell.lblTitulo.text = itemToEdit.aliasMedioBonificacion
             cell.txtTarjeta.text = itemToEdit.cuentaMedioBonificacion
@@ -315,6 +467,7 @@ class MediosBonificacionDetailViewController: UITableViewController {
         if let itemToEdit = item{
             idMedio = itemToEdit.idMediosBonificacion!
             mensaje = "Aqui no pasó nada, cuenta eliminada"
+            cell.setItem(item: itemToEdit)
             cell.lblTitulo.text = itemToEdit.aliasMedioBonificacion
             cell.txtId.text = itemToEdit.idCuentaMedioBonificacion
             cell.txtEmail.text = itemToEdit.cuentaMedioBonificacion
@@ -341,6 +494,7 @@ class MediosBonificacionDetailViewController: UITableViewController {
         if let itemToEdit = item{
             idMedio = itemToEdit.idMediosBonificacion!
             mensaje = "Aqui no pasó nada, número eliminado"
+            cell.setItem(item: itemToEdit)
             cell.lblTitulo.text = itemToEdit.aliasMedioBonificacion
             cell.txtNumero.text = itemToEdit.cuentaMedioBonificacion
             cell.txtCompania.text = itemToEdit.companiaMedioBonificacion
@@ -437,6 +591,17 @@ class MediosBonificacionDetailViewController: UITableViewController {
         }
     }
 
+    func handleMessageOnExitViewController(message: String, title: String, cancelAction: UIAlertAction, aceptAction: UIAlertAction){
+            
+            let alert = UIAlertController(
+                title: title,
+                message: message,
+                preferredStyle: .alert)
+            
+            alert.addAction(cancelAction)
+            alert.addAction(aceptAction)
+            present(alert, animated: true, completion: nil)
+        }
 }
 
 //MARK: - Extensions
@@ -503,6 +668,10 @@ extension MediosBonificacionDetailViewController: RESTActionDelegate{
 }
 
 extension MediosBonificacionDetailViewController: UITextFieldDelegate{
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.showError(false, superView: false)
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

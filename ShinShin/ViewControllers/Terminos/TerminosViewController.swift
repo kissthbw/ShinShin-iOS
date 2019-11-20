@@ -12,14 +12,65 @@ class TerminosViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        configureBarButtons()
         // Do any additional setup after loading the view.
     }
     
     //MARK: - Actions
-    @IBAction func back(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
-    }
+//    @IBAction func back(_ sender: Any) {
+//        navigationController?.popViewController(animated: true)
+//    }
+    
+    //MARK: - Helper methods
+    func configureBarButtons(){
+                let img = UIImage(named: "back")
+                let imageView = UIImageView(image: img)
+                imageView.frame = CGRect(x: 0, y: 6, width: 12, height: 21)
+                
+                let lblBonificacion = UILabel()
+                lblBonificacion.font = UIFont(name: "Nunito SemiBold", size: 15)
+        //        lblBonificacion.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
+                lblBonificacion.textColor = .systemBlue
+                
+                lblBonificacion.text = "Inicio"
+                lblBonificacion.sizeToFit()
+                
+                let frame = lblBonificacion.frame
+                lblBonificacion.frame = CGRect(x: 21, y: 6, width: frame.width, height: frame.height)
+                
+                //El tamanio del view debe ser
+                //lblBonificacion.width + imageView.x + imageView.width + 4(que debe ser lo mismo que imageView.x
+                let width = lblBonificacion.frame.width + imageView.frame.minX +
+                    imageView.frame.width + imageView.frame.minX
+                let view = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 32))
+        //        view.layer.cornerRadius = 10.0
+        //        view.layer.borderWidth = 1.0
+        //        view.layer.borderColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0).cgColor
+                view.addSubview(imageView)
+    //            view.addSubview(lblBonificacion)
+                let button = UIButton(frame: CGRect(x: view.frame.minX, y: view.frame.minY, width: view.frame.width, height: view.frame.height))
+                button.addTarget(self, action: #selector(back), for: .touchUpInside)
+                view.addSubview(button)
+                
+                self.navigationItem.titleView = view
+                
+                let back = UIBarButtonItem(customView: view)
+                
+        //        let home = UIBarButtonItem(
+        //            image: UIImage(named: "logo-menu"),
+        //            style: .plain,
+        //            target: self,
+        //            action: #selector(back))
+        //        home.tintColor = .black
+                
+                
+        //        navigationItem.rightBarButtonItems = [user, notif]
+                navigationItem.leftBarButtonItems = [back]
+            }
+            
+            @objc func back(){
+                self.navigationController?.popViewController(animated: true)
+            }
     
     /*
     // MARK: - Navigation

@@ -159,29 +159,64 @@ class UsuarioViewController: UITableViewController {
     
     @IBAction func registerAction(_ sender: Any){
         
-//        var formCompleta = true
-//
-//        //Validar datos capturados
-//        for textField in textFields {
-//            if textField.text == "" {
-////                textField.layer.borderColor = UIColor.red.cgColor
-////                textField.layer.borderWidth = 1.0
-//                formCompleta = false
-//                break
-//            }
-//        }
-//
-//        if !formCompleta{
-//            showMessage(message: "Debes completar el formulario.", title: "ShingShing")
-//
-//            return
-//        }
-//
-//        //Verificar que el switch este habilitado
-//        if !switchAceptar.isOn{
-//            showMessage(message: "Debes aceptar los terminos y condiciones.", title: "ShingShing")
-//            return
-//        }
+        var formCompleta = true
+
+        //Validar datos capturados
+        for textField in textFields {
+            if textField.text == "" {
+//                textField.layer.borderColor = UIColor.red.cgColor
+//                textField.layer.borderWidth = 1.0
+                formCompleta = false
+                break
+            }
+        }
+
+        if !formCompleta{
+            showMessage(message: "Debes completar el formulario.", title: "ShingShing")
+
+            return
+        }
+        
+        //Nombre de al menos 2 caracteres
+        if txtNombre.text!.count < 2{
+            txtNombre.showError(true, superView: true)
+            self.view.endEditing(true);
+            showMessage(message: "El nombre debe ser de al menos 2 posiciones.", title: "ShingShing")
+
+            return
+        }
+        
+        //Validar correo electronico
+        if !Validations.isValidEmail(emailStr: txtCorreo.text!){
+            txtCorreo.showError(true, superView: true)
+            self.view.endEditing(true);
+            showMessage(message: "Debes ingresar un correo válido.", title: "ShingShing")
+
+            return
+        }
+        
+        //8 posiciones para passwords
+        if txtPassword.text!.count < 8{
+            txtPassword.showError(true, superView: true)
+            self.view.endEditing(true);
+            showMessage(message: "Longitud mínima del password es de 8.", title: "ShingShing")
+            return
+        }
+        
+        //CP de 5 posiciones
+        if txtCP.text!.count < 5{
+            txtCP.showError(true, superView: true)
+            self.view.endEditing(true);
+            showMessage(message: "Longitud mínima del Código Postal es de 5.", title: "ShingShing")
+            return
+        }
+        //
+
+        //Verificar que el switch este habilitado
+        if !switchAceptar.isOn{
+            showMessage(message: "Debes aceptar los terminos y condiciones.", title: "ShingShing")
+            return
+        }
         
         //Enviar peticion a back
         //La respuesta de esta peticion debe ser manejada en el metodo delegado
@@ -192,8 +227,8 @@ class UsuarioViewController: UITableViewController {
         //que realiza la activación del usuario, nuevamente la respuesta debe
         //manejarse en el metodo delegado
 //        print("Registrando usuario")
-        performSegue(withIdentifier: "ActivarSegue", sender: nil)
-//        registerRequest()
+//        performSegue(withIdentifier: "ActivarSegue", sender: nil)
+        registerRequest()
     }
 
     @IBAction func shownDateView(_ sender: Any) {
@@ -462,6 +497,10 @@ extension UsuarioViewController: UIPickerViewDelegate, UIPickerViewDataSource{
 }
 extension UsuarioViewController: UITextFieldDelegate{
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.showError(false, superView: true)
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -505,7 +544,7 @@ extension UsuarioViewController: RESTActionDelegate{
                 performSegue(withIdentifier: "ActivarSegue", sender: nil)
             }
             else if rsp.code == 500{
-                showMessage(message: "El usuario ya existe", title: "Whoops...")
+                showMessage(message: "El usuario ya existe", title: "Shing Shing")
             }
         }
         catch{

@@ -52,7 +52,18 @@ class Validations{
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailPred.evaluate(with: emailStr)
+        let valid = emailPred.evaluate(with: emailStr)
+        return valid
+    }
+    
+    class func isNumeric(_ s: String) -> Bool{
+        let pattern = "\\b[0-9]+\\b"
+        let range = NSRange(location: 0, length: s.utf16.count)
+        let regex = try! NSRegularExpression(pattern: pattern)
+        let result = regex.firstMatch(in: s, options: [], range: range) != nil
+        
+        return result
+//        let result = s.range(pattern, options:.regularExpression)
     }
     
     class func show(message: String, with title: String) -> UIAlertController{

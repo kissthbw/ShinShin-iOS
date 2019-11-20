@@ -47,12 +47,15 @@ class PerfilTableViewController: UITableViewController {
     var showConfNuevoPassword = false
     let password_lenght = 8
     var enviaPassword = false
+    var formUpdated = false
     
     enum ButtonTag: Int{
         case btnPasswordActual = 1
         case btnPassword = 2
         case btnConfPassword = 3
     }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,7 +89,7 @@ class PerfilTableViewController: UITableViewController {
         
         sexos.append(s1)
         sexos.append(s2)
-        sexos.append(s3)
+//        sexos.append(s3)
         
         initUIElements(textfields)
         configureBarButtons()
@@ -94,20 +97,16 @@ class PerfilTableViewController: UITableViewController {
 
     //MARK: - UI Actions
     @IBAction func actualizarAction(_ sender: Any) {
-        //Agregar validaciones
-        if Validations.isEmpty(value: txtNombre.text!) || Validations.isEmpty(value: txtCorreo.text!) ||
-            Validations.isEmpty(value: txtTelefono.text!) ||
-            Validations.isEmpty(value: txtMes.text!) ||
-            Validations.isEmpty(value: txtCP.text!){
-            let alert = Validations.show(message: "Ingresa todos los campos", with: "ShingShing")
-            self.present(alert, animated: true, completion: nil)
-            
-            return
-        }
         
-        //Verificar el password nuevo en caso de existir
-        if verifyPassword(){
-            actualizarRequest()
+        let result = isValidForm()
+        if !result.valid{
+            showMessage(message: result.alert, title: "ShingShing")
+        }
+        else{
+            //Verificar el password nuevo en caso de existir
+            if verifyPassword(){
+                actualizarRequest()
+            }
         }
     }
     
@@ -175,6 +174,73 @@ class PerfilTableViewController: UITableViewController {
     
     
     //MARK: - Helper methods
+    func isValidForm() -> (valid: Bool, alert: String){
+        if Validations.isEmpty(value: txtNombre.text!) || Validations.isEmpty(value: txtCorreo.text!) ||
+            Validations.isEmpty(value: txtTelefono.text!) ||
+            Validations.isEmpty(value: txtMes.text!) ||
+            Validations.isEmpty(value: txtCP.text!){
+//            let alert = Validations.show(message: "Ingresa todos los campos", with: "ShingShing")
+//            self.present(alert, animated: true, completion: nil)
+            
+            return (false, "Ingresa todos los campos")
+        }
+        
+        //Nombre de al menos 2 caracteres
+        if txtNombre.text!.count < 2{
+            txtNombre.showError(true, superView: false)
+            self.view.endEditing(true);
+//            showMessage(message: "El nombre debe ser de al menos 2 posiciones.", title: "ShingShing")
+
+            return (false, "El nombre debe ser de al menos 2 posiciones.")
+        }
+        
+        //Validar correo electronico
+        if !Validations.isValidEmail(emailStr: txtCorreo.text!){
+            txtCorreo.showError(true, superView: false)
+            self.view.endEditing(true);
+//            showMessage(message: "Debes ingresar un correo válido.", title: "ShingShing")
+
+            return (false, "Debes ingresar un correo válido.")
+        }
+        
+        //CP de 5 posiciones
+        if txtCP.text!.count < 5{
+            txtCP.showError(true, superView: false)
+            self.view.endEditing(true);
+//            showMessage(message: "Longitud mínima del Código Postal es de 5.", title: "ShingShing")
+            return (false, "Longitud mínima del Código Postal es de 5.")
+        }
+        
+        return (true, "")
+    }
+    
+    func formHasBeenUpdated() -> Bool{
+        
+        //Iterar sobre el formulario y verificar si hubo cambios
+        if txtNombre.text! != Model.user?.nombre{
+            return true
+        }
+        
+        if txtCorreo.text! != Model.user?.correoElectronico{
+            return true
+        }
+        
+        let tmp = "+521" + txtTelefono.text!
+        if tmp != Model.user?.telMovil{
+            return true
+        }
+        
+        if sexo != Model.user?.idCatalogoSexo{
+            return true
+        }
+        
+        if txtCP.text! != Model.user?.codigoPostal{
+            return true
+        }
+        
+        return false
+    }
+    
     func showSexoPicker(){
         sexoPicker.dataSource = self
         sexoPicker.delegate = self
@@ -254,7 +320,7 @@ class PerfilTableViewController: UITableViewController {
     }
     
     func verifyPassword() -> Bool {
-
+        
         //Si alguno de los password esta ingresado
         //Se debe validar que todos sean ingresados
         //y
@@ -262,7 +328,7 @@ class PerfilTableViewController: UITableViewController {
             Validations.isEmpty(value: txtPasswordNuevo.text! ) &&
             Validations.isEmpty(value: txtConfirmarPasswordNuevo.text! ){
             print("No se cambio password")
-            
+            enviaPassword = false
             return true
         }
         else{
@@ -273,7 +339,13 @@ class PerfilTableViewController: UITableViewController {
                 
                 if txtPasswordNuevo.text!.count < password_lenght ||
                     txtConfirmarPasswordNuevo.text!.count < password_lenght{
+                    
+                    txtPasswordNuevo.showError(true, superView: false)
+                    txtConfirmarPasswordNuevo.showError(true, superView: false)
+                    self.view.endEditing(true);
+                    
                     let alert = Validations.show(message: "La longitud del password debe ser de \(password_lenght)", with: "ShingShing")
+                    
                     self.present(alert, animated: true, completion: nil)
                     enviaPassword = false
                     return false
@@ -283,6 +355,18 @@ class PerfilTableViewController: UITableViewController {
                 return true
             }
             else{
+                if Validations.isEmpty(value: txtPasswordActual.text! ){
+                    txtPasswordActual.showError(true, superView: false)
+                }
+                
+                if Validations.isEmpty(value: txtPasswordNuevo.text! ){
+                    txtPasswordNuevo.showError(true, superView: false)
+                }
+                
+                if Validations.isEmpty(value: txtConfirmarPasswordNuevo.text! ){
+                    txtConfirmarPasswordNuevo.showError(true, superView: false)
+                }
+                
                 let alert = Validations.show(message: "Ingresa la informacion de los passwords", with: "ShingShing")
                 self.present(alert, animated: true, completion: nil)
                 enviaPassword = true
@@ -460,24 +544,74 @@ class PerfilTableViewController: UITableViewController {
     
     @objc
     func showHome(){
-        self.navigationController?.popToRootViewController(animated: true)
+        //Verificar si se actualizo el perfil
+        if formHasBeenUpdated(){
+            let cancel =
+            UIAlertAction(title: "No",
+                          style: .default){action in
+                            self.navigationController?.popViewController(animated: true)
+                          }
+            
+            handleExitViewController(message: "¿Quieres guardar tus cambios antes de salir?", title: "Shing Shing", cancelAction: cancel)
+        }
+        else{
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     @objc
     func showView(){
-        let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "BonificacionViewController")
-        self.navigationController!.pushViewController(destViewController, animated: true)
+        if formHasBeenUpdated(){
+            let cancel =
+            UIAlertAction(title: "No",
+                          style: .default){action in
+                            let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "BonificacionViewController")
+                            self.navigationController!.pushViewController(destViewController, animated: true)
+                          }
+            
+            
+            handleExitViewController(message: "¿Quieres guardar tus cambios antes de salir?", title: "Shing Shing", cancelAction: cancel)
+        }
+        else{
+            let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "BonificacionViewController")
+            self.navigationController!.pushViewController(destViewController, animated: true)
+        }
     }
     
     @objc
     func showNotif(){
-        let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "NotificacionesTableViewController")
-        self.navigationController!.pushViewController(destViewController, animated: true)
+        if formHasBeenUpdated(){
+            let cancel =
+            UIAlertAction(title: "No",
+                          style: .default){action in
+                            let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "NotificacionesTableViewController")
+                            self.navigationController!.pushViewController(destViewController, animated: true)
+                          }
+            
+            handleExitViewController(message: "¿Quieres guardar tus cambios antes de salir?", title: "Shing Shing", cancelAction: cancel)
+        }
+        else{
+            let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "NotificacionesTableViewController")
+            self.navigationController!.pushViewController(destViewController, animated: true)
+        }
     }
     
     @objc
     func showMenu(){
-        present(SideMenuManager.default.rightMenuNavigationController!, animated: true, completion: nil)
+        //Si algo cambio en el formulario
+        //mostrar mensaje
+        if formHasBeenUpdated(){
+            let cancel =
+            UIAlertAction(title: "No",
+                          style: .default){action in
+                            self.present(SideMenuManager.default.rightMenuNavigationController!, animated: true, completion: nil)
+                          }
+            
+            handleExitViewController(message: "¿Quieres guardar tus cambios antes de salir?", title: "Shing Shing", cancelAction: cancel)
+        }
+        else{
+            present(SideMenuManager.default.rightMenuNavigationController!, animated: true, completion: nil)
+        }
     }
     
     // MARK: - Table view data source
@@ -561,6 +695,10 @@ extension PerfilTableViewController: UIPickerViewDelegate, UIPickerViewDataSourc
 
 extension PerfilTableViewController: UITextFieldDelegate{
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.showError(false, superView: false)
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -579,6 +717,8 @@ extension PerfilTableViewController: RESTActionDelegate{
                 self.navigationController?.popToRootViewController(animated: true)
             }
             else if rsp.code == 202{
+                txtPasswordActual.showError(true, superView: false)
+                self.tableView.endEditing(true)
                 showMessage(message: "El password actual es incorrecto", title: "ShingShing")
             }
             else{
@@ -606,6 +746,36 @@ extension PerfilTableViewController: RESTActionDelegate{
                           handler: nil)
         
         alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func handleExitViewController(message: String, title: String, cancelAction: UIAlertAction){
+        
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert)
+        
+//        let cancel =
+//            UIAlertAction(title: "No",
+//                          style: .default){action in
+//                            self.navigationController?.popViewController(animated: true)
+//                          }
+        
+        let acept =
+        UIAlertAction(title: "Si",
+                      style: .default){action in
+                        let result = self.isValidForm()
+                        if !result.valid{
+                            self.showMessage(message: result.alert, title: "ShingShing")
+                        }
+                        else{
+                            self.actualizarRequest()
+                        }
+        }
+        
+        alert.addAction(cancelAction)
+        alert.addAction(acept)
         present(alert, animated: true, completion: nil)
     }
     

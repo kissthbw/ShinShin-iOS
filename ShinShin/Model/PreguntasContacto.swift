@@ -11,5 +11,7 @@ import Foundation
 class PreguntasContacto: Codable{
     var id: Int?
     var pregunta: String?
-    
+    var idUsuario: Int?
+    var topico: String?
+    var detalle: String?
 }

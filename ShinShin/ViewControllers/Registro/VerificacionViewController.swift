@@ -24,6 +24,15 @@ class VerificacionViewController: UIViewController {
         btnEmpezar.layer.cornerRadius = 10.0
     }
     
+    override func viewWillAppear(_ animated: Bool){
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
 
     /*
     // MARK: - Navigation
@@ -37,6 +46,9 @@ class VerificacionViewController: UIViewController {
     
     //MARK: - UI Actions
     @IBAction func startAction(_ sender: Any) {
+        
+        Model.resetFirstTime()
+        
         self.delegate?.didBackViewController()
     }
     

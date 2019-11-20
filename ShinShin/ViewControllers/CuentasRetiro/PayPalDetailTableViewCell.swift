@@ -16,6 +16,7 @@ class PayPalDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var txtAlias: UITextField!
     @IBOutlet weak var btnGuardar: UIButton!
     @IBOutlet weak var btnEliminar: UIButton!
+    var item: MediosBonificacion?
     
     let ID_LENGHT = 13
     
@@ -38,14 +39,59 @@ class PayPalDetailTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
+    func setItem(item: MediosBonificacion){
+        self.item = item
+    }
 }
 
 
 extension PayPalDetailTableViewCell{
+    
+    func formHasBeenUpdated() -> Bool{
+        if txtId.text! != item?.idCuentaMedioBonificacion{
+            return true
+        }
+        
+        if txtEmail.text! != item?.cuentaMedioBonificacion{
+            return true
+        }
+        
+        if txtAlias.text! != item?.aliasMedioBonificacion{
+            return true
+        }
+        
+        return false
+    }
+    
+    func formIsEmpty() -> Bool{
+        if  Validations.isEmpty(value: txtId.text!) &&
+            Validations.isEmpty(value: txtEmail.text!) &&
+            Validations.isEmpty(value: txtAlias.text!){
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    
     func isValid() -> (valid: Bool, alert: UIAlertController?){
         if Validations.isEmpty(value: txtAlias.text!) ||
             Validations.isEmpty(value: txtId.text!) ||
             Validations.isEmpty(value: txtEmail.text!){
+            
+            if Validations.isEmpty(value: txtId.text!){
+                txtId.showError(true, superView: false)
+            }
+            
+            if Validations.isEmpty(value: txtEmail.text!){
+                txtEmail.showError(true, superView: false)
+            }
+            
+            if Validations.isEmpty(value: txtAlias.text!){
+                txtAlias.showError(true, superView: false)
+            }
+            
             let alert = Validations.show(message: "Ingresa todos los datos", with: "ShingShing")
             
             return (false, alert)
@@ -55,12 +101,16 @@ extension PayPalDetailTableViewCell{
         if txtId.text!.count < ID_LENGHT || txtId.text!.count > ID_LENGHT {
             let alert = Validations.show(message: "La longitud del Id debe ser de \(ID_LENGHT) posiciones", with: "ShingShing")
             
+            txtId.showError(true, superView: false)
+            
             return (false, alert)
         }
         
         //verificar que es correo electronico
         if !Validations.isValidEmail(emailStr: txtEmail.text!){
             let alert = Validations.show(message: "Ingrese un email válido", with: "ShingShing")
+            
+            txtEmail.showError(true, superView: false)
             
             return (false, alert)
         }
@@ -70,6 +120,10 @@ extension PayPalDetailTableViewCell{
 }
 
 extension PayPalDetailTableViewCell: UITextFieldDelegate{
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.showError(false, superView: false)
+    }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         if textField.tag == UITextTags.TxtId.rawValue{

@@ -19,6 +19,7 @@ class RecargaDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var btnGuardar: UIButton!
     @IBOutlet weak var btnEliminar: UIButton!
     
+    var item: MediosBonificacion?
     var companias = ["Telcel", "Movistar", "ATT&T", "Unefon", "Virgin Mobile"]
     let viewPicker = UIPickerView()
     
@@ -68,6 +69,10 @@ class RecargaDetailTableViewCell: UITableViewCell {
     @objc func cancelViewPicker(){
         self.endEditing(true)
     }
+    
+    func setItem(item: MediosBonificacion){
+        self.item = item
+    }
 }
 
 extension RecargaDetailTableViewCell: UIPickerViewDelegate, UIPickerViewDataSource{
@@ -92,6 +97,10 @@ extension RecargaDetailTableViewCell: UIPickerViewDelegate, UIPickerViewDataSour
 
 extension RecargaDetailTableViewCell: UITextFieldDelegate{
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.showError(false, superView: false)
+    }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         if textField.tag == UITextTags.TxtNumero.rawValue{
@@ -112,9 +121,56 @@ extension RecargaDetailTableViewCell: UITextFieldDelegate{
 }
 
 extension RecargaDetailTableViewCell{
+    
+    func formHasBeenUpdated() -> Bool{
+        if txtNumero.text! != item?.cuentaMedioBonificacion{
+            return true
+        }
+        
+        if txtCompania.text! != item?.companiaMedioBonificacion{
+            return true
+        }
+        
+        if txtAlias.text! != item?.aliasMedioBonificacion{
+            return true
+        }
+        return false
+    }
+    
+    func formIsEmpty() -> Bool{
+        if  Validations.isEmpty(value: txtNumero.text!) &&
+            Validations.isEmpty(value: txtAlias.text!) &&
+            Validations.isEmpty(value: txtCompania.text!){
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    
     func isValid() -> (valid: Bool, alert: UIAlertController?){
         if Validations.isEmpty(value: txtAlias.text!) || Validations.isEmpty(value: txtNumero.text!) || Validations.isEmpty(value: txtCompania.text!){
+            
+            if Validations.isEmpty(value: txtNumero.text!){
+                txtNumero.showError(true, superView: false)
+            }
+            
+            if Validations.isEmpty(value: txtCompania.text!){
+                txtCompania.showError(true, superView: false)
+            }
+            
+            if Validations.isEmpty(value: txtAlias.text!){
+                txtAlias.showError(true, superView: false)
+            }
+            
             let alert = Validations.show(message: "Ingresa todos los datos", with: "ShingShing")
+            
+            return (false, alert)
+        }
+        
+        //Telefono de 10 digitos
+        if txtNumero.text!.count < 10{
+            let alert = Validations.show(message: "El número debe ser de 10 posiciones", with: "ShingShing")
             
             return (false, alert)
         }

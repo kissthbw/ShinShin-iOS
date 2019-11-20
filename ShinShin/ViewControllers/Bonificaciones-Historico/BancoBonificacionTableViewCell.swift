@@ -20,9 +20,24 @@ class BancoBonificacionTableViewCell: UITableViewCell {
     var cuenta: MediosBonificacion? = nil
     let viewPicker = UIPickerView()
     
+    private var previousTextFieldContent: String?
+    private var previousSelection: UITextRange?
+    
+    enum UITextTags: Int{
+        case TxtCantidad = 10
+    }
+    
+    struct LENGHT{
+        static let MONTO_MIN = 2
+        static let MONTO_MAX = 3
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        txtCantidad.delegate = self
+        txtCuenta.delegate = self
+        txtCantidad.tag = UITextTags.TxtCantidad.rawValue
         txtCantidad.layer.cornerRadius = 10.0
         txtCuenta.layer.cornerRadius = 10.0
         btnSolicitar.layer.cornerRadius = 10
@@ -93,3 +108,81 @@ extension BancoBonificacionTableViewCell: UIPickerViewDelegate, UIPickerViewData
     }
 }
 
+extension BancoBonificacionTableViewCell{
+    func clean(){
+        txtCantidad.text = ""
+        txtCuenta.text = ""
+    }
+    
+    func formIsEmpty() -> Bool{
+        if  Validations.isEmpty(value: txtCantidad.text!) &&
+            Validations.isEmpty(value: txtCuenta.text!){
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    
+    func isValid() -> (valid: Bool, alert: UIAlertController?){
+        if Validations.isEmpty(value: txtCantidad.text!) ||
+            Validations.isEmpty(value: txtCuenta.text!){
+            
+            if Validations.isEmpty(value: txtCantidad.text!){
+                txtCantidad.showError(true, superView: false)
+            }
+            
+            if Validations.isEmpty(value: txtCuenta.text!){
+                txtCuenta.showError(true, superView: false)
+            }
+            
+            let alert = Validations.show(message: "Ingresa todos los datos", with: "ShingShing")
+
+            return (false, alert)
+        }
+        
+        //Validar nombre corto, de al menos 1 posicion
+        //La cantidad debe ser de 10 a 500 pesos
+//        let cantidad = txtCantidad.text!
+        let cantidad = Int(txtCantidad.text!)
+        if let cantidad = cantidad{
+            if cantidad < 10 || cantidad > 500{
+                let alert = Validations.show(message: "La cantidad permita debe ser entre $10 y $500", with: "ShingShing")
+
+                return (false, alert)
+            }
+        }
+        
+        
+        return (true, nil)
+    }
+}
+
+extension BancoBonificacionTableViewCell: UITextFieldDelegate{
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("editing")
+        textField.showError(false, superView: false)
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        previousTextFieldContent = textField.text;
+        previousSelection = textField.selectedTextRange;
+        
+        if textField.tag == UITextTags.TxtCantidad.rawValue{
+            guard let textFieldText = textField.text,
+                let rangeOfTextToReplace = Range(range, in: textFieldText) else {
+                    return false
+            }
+            let substringToReplace = textFieldText[rangeOfTextToReplace]
+            let count = textFieldText.count - substringToReplace.count + string.count
+            
+            
+            return count <= LENGHT.MONTO_MAX
+            
+        }
+        else{
+            return true
+        }
+    }
+}

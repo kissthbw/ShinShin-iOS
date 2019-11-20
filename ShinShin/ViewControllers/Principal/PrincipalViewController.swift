@@ -95,28 +95,8 @@ class PrincipalViewController: UIViewController {
         super.viewWillAppear(animated)
         if Model.perfilActualizado{
             Model.perfilActualizado = false
-            UIView.animate(withDuration: 2.0,
-                           delay: 0.0,
-                           usingSpringWithDamping: 0.5,
-                           initialSpringVelocity: 5.0,
-                           options: [.curveEaseIn],
-                           animations: {
-                            self.topConstraint.constant = 50
-                            self.view.setNeedsLayout()
-                            self.view.layoutIfNeeded()
-            }, completion: { (true) in
-                UIView.animate(withDuration: 2.0,
-                               delay: 0.0,
-                               usingSpringWithDamping: 0.5,
-                               initialSpringVelocity: 5.0,
-                               options: [.curveEaseIn],
-                               animations: {
-                                self.topConstraint.constant = 0
-                                self.view.setNeedsLayout()
-                                self.view.layoutIfNeeded()
-                }, completion: nil)
-            })
-
+            lblMensaje.text = "De lujo, perfil guardado"
+            mostrarMensaje()
         }
         
         self.navigationController?.navigationBar.isTranslucent = false
@@ -166,6 +146,30 @@ class PrincipalViewController: UIViewController {
     
     
     //MARK: - Helper Methods
+    func mostrarMensaje(){
+        UIView.animate(withDuration: 2.0,
+                       delay: 0.0,
+                       usingSpringWithDamping: 0.5,
+                       initialSpringVelocity: 5.0,
+                       options: [.curveEaseIn],
+                       animations: {
+                        self.topConstraint.constant = 50
+                        self.view.setNeedsLayout()
+                        self.view.layoutIfNeeded()
+        }, completion: { (true) in
+            UIView.animate(withDuration: 2.0,
+                           delay: 0.0,
+                           usingSpringWithDamping: 0.5,
+                           initialSpringVelocity: 5.0,
+                           options: [.curveEaseIn],
+                           animations: {
+                            self.topConstraint.constant = 0
+                            self.view.setNeedsLayout()
+                            self.view.layoutIfNeeded()
+            }, completion: nil)
+        })
+
+    }
     func configureBarButtons(){
         let img = UIImage(named: "money-grey")
         let imageView = UIImageView(image: img)
@@ -279,10 +283,17 @@ class PrincipalViewController: UIViewController {
     }
     
     @objc func enviaSugerencia(){
-        if let cell = tmpCell{
+        if let cell = tmpCell {
+            let resp = cell.isValid()
+            if resp.valid{
+                //Validaciones
+                self.tableView.endEditing(true);
+                sugerenciaRequest(sugerencia: cell.txtProductos.text!)
+            }
+            else{
+                present(resp.alert!, animated: true, completion: nil)
+            }
             
-            //Validaciones
-            sugerenciaRequest(sugerencia: cell.txtProductos.text!)
         }
         
     }
@@ -471,6 +482,11 @@ extension PrincipalViewController: UITableViewDataSource, UITableViewDelegate{
 }
 
 extension PrincipalViewController: UITextFieldDelegate{
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.showError(false, superView: true)
+    }
+
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -506,10 +522,12 @@ extension PrincipalViewController: RESTActionDelegate{
             }
             else if identifier == ID_RQT_SUGERENCIA{
                 //Enviar mensaje de exito, limpiar textfield y ocultar teclado
-                let alert = Validations.show(message: "Gracias por enviarnos tu sugerencia", with: "ShingShing")
+//                let alert = Validations.show(message: "Gracias por enviarnos tu sugerencia", with: "ShingShing")
+                lblMensaje.text = "Gracias por tu sugerencia"
                 tmpCell?.txtProductos.text = ""
                 self.tableView.endEditing(true)
-                present(alert, animated: true, completion: nil)
+                mostrarMensaje()
+//                present(alert, animated: true, completion: nil)
             }
             
         }

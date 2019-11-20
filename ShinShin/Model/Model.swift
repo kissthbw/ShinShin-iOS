@@ -44,6 +44,14 @@ class Model{
         }
     }
     
+    class func resetFirstTime(){
+        let userDefaults = UserDefaults.standard
+//        let firstTime = userDefaults.bool(forKey: "FirstTime")
+        
+        userDefaults.set(true, forKey: "FirstTime")
+        userDefaults.synchronize()
+    }
+    
     class func getUsuario() -> Usuario?{
         let item = Usuario()
         let userDefaults = UserDefaults.standard

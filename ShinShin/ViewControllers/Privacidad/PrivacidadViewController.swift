@@ -38,7 +38,13 @@ class PrivacidadViewController: UIViewController {
             btnArrow.isHidden = true
             btnInicio.isHidden = true
             topConstraint.constant = 17
-            configureBarButtons()
+            configureBarButtons(origen: origen)
+        }
+        else if origen == .Registro{
+            btnArrow.isHidden = true
+            btnInicio.isHidden = true
+            topConstraint.constant = 17
+            configureBarButtons(origen: origen)
         }
         else{
             btnArrow.isHidden = false
@@ -74,59 +80,106 @@ class PrivacidadViewController: UIViewController {
     */
 
     //MARK: - Helper methods
-    func configureBarButtons(){
-        let img = UIImage(named: "money-grey")
-        let imageView = UIImageView(image: img)
-        imageView.frame = CGRect(x: 8, y: 6, width: 22, height: 22)
+    func configureBarButtons(origen: Origen){
+        if origen == .Menu{
+            let img = UIImage(named: "money-grey")
+            let imageView = UIImageView(image: img)
+            imageView.frame = CGRect(x: 8, y: 6, width: 22, height: 22)
         
-        let lblBonificacion = UILabel()
-        lblBonificacion.font = UIFont(name: "Nunito SemiBold", size: 17)
-        lblBonificacion.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
-        
-        lblBonificacion.text = Validations.formatWith(Model.totalBonificacion)
-        
-        lblBonificacion.sizeToFit()
-        let frame = lblBonificacion.frame
-        lblBonificacion.frame = CGRect(x: 31, y: 6, width: frame.width, height: frame.height)
-        
-        //El tamanio del view debe ser
-        //lblBonificacion.width + imageView.x + imageView.width + 4(que debe ser lo mismo que imageView.x
-        let width = lblBonificacion.frame.width + imageView.frame.minX +
-            imageView.frame.width + imageView.frame.minX
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 32))
-        view.layer.cornerRadius = 10.0
-        view.layer.borderWidth = 1.0
-        view.layer.borderColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0).cgColor
-        view.addSubview(imageView)
-        view.addSubview(lblBonificacion)
-        let button = UIButton(frame: CGRect(x: view.frame.minX, y: view.frame.minY, width: view.frame.width, height: view.frame.height))
-        button.addTarget(self, action: #selector(showView), for: .touchUpInside)
-        view.addSubview(button)
-        
-        self.navigationItem.titleView = view
-        
-        let home = UIBarButtonItem(
-            image: UIImage(named: "logo-menu"),
-            style: .plain,
-            target: self,
-            action: #selector(showHome))
-        home.tintColor = .black
-        
-        let notif = UIBarButtonItem(
-            image: UIImage(named: "notification-grey"),
-            style: .plain,
-            target: self,
-            action: #selector(showNotif))
-        notif.tintColor = .black
-        
-        let user = UIBarButtonItem(
-            image: UIImage(named: "menu-grey"),
-            style: .plain,
-            target: self,
-            action: #selector(showMenu))
-        user.tintColor = .black
-        navigationItem.rightBarButtonItems = [user, notif]
-        navigationItem.leftBarButtonItems = [home]
+            let lblBonificacion = UILabel()
+            lblBonificacion.font = UIFont(name: "Nunito SemiBold", size: 17)
+            lblBonificacion.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
+            
+            lblBonificacion.text = Validations.formatWith(Model.totalBonificacion)
+            
+            lblBonificacion.sizeToFit()
+            let frame = lblBonificacion.frame
+            lblBonificacion.frame = CGRect(x: 31, y: 6, width: frame.width, height: frame.height)
+            
+            //El tamanio del view debe ser
+            //lblBonificacion.width + imageView.x + imageView.width + 4(que debe ser lo mismo que imageView.x
+            let width = lblBonificacion.frame.width + imageView.frame.minX +
+                imageView.frame.width + imageView.frame.minX
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 32))
+            view.layer.cornerRadius = 10.0
+            view.layer.borderWidth = 1.0
+            view.layer.borderColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0).cgColor
+            view.addSubview(imageView)
+            view.addSubview(lblBonificacion)
+            let button = UIButton(frame: CGRect(x: view.frame.minX, y: view.frame.minY, width: view.frame.width, height: view.frame.height))
+            button.addTarget(self, action: #selector(showView), for: .touchUpInside)
+            view.addSubview(button)
+            
+            self.navigationItem.titleView = view
+            
+            let home = UIBarButtonItem(
+                image: UIImage(named: "logo-menu"),
+                style: .plain,
+                target: self,
+                action: #selector(showHome))
+            home.tintColor = .black
+            
+            let notif = UIBarButtonItem(
+                image: UIImage(named: "notification-grey"),
+                style: .plain,
+                target: self,
+                action: #selector(showNotif))
+            notif.tintColor = .black
+            
+            let user = UIBarButtonItem(
+                image: UIImage(named: "menu-grey"),
+                style: .plain,
+                target: self,
+                action: #selector(showMenu))
+            user.tintColor = .black
+            navigationItem.rightBarButtonItems = [user, notif]
+            navigationItem.leftBarButtonItems = [home]
+        }
+        else if origen == .Registro{
+            let img = UIImage(named: "back")
+                    let imageView = UIImageView(image: img)
+                    imageView.frame = CGRect(x: 0, y: 6, width: 12, height: 21)
+                    
+                    let lblBonificacion = UILabel()
+                    lblBonificacion.font = UIFont(name: "Nunito SemiBold", size: 15)
+            //        lblBonificacion.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
+                    lblBonificacion.textColor = .systemBlue
+                    
+                    lblBonificacion.text = "Inicio"
+                    lblBonificacion.sizeToFit()
+                    
+                    let frame = lblBonificacion.frame
+                    lblBonificacion.frame = CGRect(x: 21, y: 6, width: frame.width, height: frame.height)
+                    
+                    //El tamanio del view debe ser
+                    //lblBonificacion.width + imageView.x + imageView.width + 4(que debe ser lo mismo que imageView.x
+                    let width = lblBonificacion.frame.width + imageView.frame.minX +
+                        imageView.frame.width + imageView.frame.minX
+                    let view = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 32))
+            //        view.layer.cornerRadius = 10.0
+            //        view.layer.borderWidth = 1.0
+            //        view.layer.borderColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0).cgColor
+                    view.addSubview(imageView)
+                    view.addSubview(lblBonificacion)
+                    let button = UIButton(frame: CGRect(x: view.frame.minX, y: view.frame.minY, width: view.frame.width, height: view.frame.height))
+                    button.addTarget(self, action: #selector(back), for: .touchUpInside)
+                    view.addSubview(button)
+                    
+                    self.navigationItem.titleView = view
+                    
+                    let back = UIBarButtonItem(customView: view)
+                    
+            //        let home = UIBarButtonItem(
+            //            image: UIImage(named: "logo-menu"),
+            //            style: .plain,
+            //            target: self,
+            //            action: #selector(back))
+            //        home.tintColor = .black
+                    
+                    
+            //        navigationItem.rightBarButtonItems = [user, notif]
+                    navigationItem.leftBarButtonItems = [back]
+        }
     }
     
     @objc

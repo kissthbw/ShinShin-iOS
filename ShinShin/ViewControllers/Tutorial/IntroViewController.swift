@@ -15,6 +15,7 @@ class IntroViewController: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var btnSiguiente: UIButton!
     @IBOutlet weak var btnOmitir: UIButton!
+    var restore = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +42,14 @@ class IntroViewController: UIViewController {
             pageControl.currentPage = nextPage
             
             if nextPage == (pageControl.numberOfPages - 1){
-                btnSiguiente.setTitle("Finalizar", for: .normal)
+                animate(isEnd: true)
+                restore = !restore
+            }
+            else{
+                if restore{
+                    animate(isEnd: false)
+                    restore = !restore
+                }
             }
         }
         
@@ -81,6 +89,24 @@ class IntroViewController: UIViewController {
         btnOmitir.layer.cornerRadius = 10.0
     }
 
+    func animate(isEnd: Bool){
+        if isEnd{
+            UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseIn], animations: {
+                let y = CGRect(x: 78, y: 45, width: self.btnSiguiente.frame.width, height: self.btnSiguiente.frame.height)
+                self.btnSiguiente.frame = y
+                self.btnSiguiente.setTitle("¡Listo!", for: .normal)
+                self.btnOmitir.alpha = 0.0
+            }, completion: nil)
+        }
+        else{
+            UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseIn], animations: {
+                let y = CGRect(x: 156, y: 45, width: self.btnSiguiente.frame.width, height: self.btnSiguiente.frame.height)
+                self.btnSiguiente.frame = y
+                self.btnSiguiente.setTitle("Siguiente", for: .normal)
+                self.btnOmitir.alpha = 1.0
+            }, completion: nil)
+        }
+    }
 }
 
 //MARK: - Extensions
@@ -88,5 +114,16 @@ extension IntroViewController: UIScrollViewDelegate{
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
         pageControl.currentPage = Int(pageNumber)
+        
+        if pageControl.currentPage == (pageControl.numberOfPages - 1){
+            animate(isEnd: true)
+            restore = !restore
+        }
+        else{
+            if restore{
+                animate(isEnd: false)
+                restore = !restore
+            }
+        }
     }
 }

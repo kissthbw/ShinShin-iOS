@@ -150,11 +150,46 @@ class LogInViewController: UIViewController {
     @IBAction func signin(_ sender: Any) {
         //1. Validar campos (Habilitar boton solo cuando los campos esten llenos)
         if Validations.isEmpty(value: txtUser.text!) || Validations.isEmpty(value: txtPassword.text!){
-            
+            txtUser.showError(true, superView: true)
+            txtPassword.showError(true, superView: true)
+            self.view.endEditing(true);
             showMessage(message: "Ingresa todos los datos")
+            
             
             return
         }
+        
+        //Determinar tipo de usuario, si es numerico se asume es un numero telefonico
+        //y debe ser de 10 posiciones
+        //Validar si es numerico
+        if Validations.isNumeric(txtUser.text!){
+            if txtUser.text!.count < 10{
+                txtUser.showError(true, superView: true)
+                self.view.endEditing(true);
+                showMessage(message: "El numero debe ser de 10 posiciones")
+                return
+            }
+        }
+        else{
+            //Validar si es email
+            if !Validations.isValidEmail(emailStr: txtUser.text!){
+                txtUser.showError(true, superView: true)
+                self.view.endEditing(true);
+                showMessage(message: "Ingresa un email valido")
+                
+                return
+            }
+        }
+        
+        //Validar longitud de password
+        if  txtPassword.text!.count < 8{
+            txtPassword.showError(true, superView: true)
+            self.view.endEditing(true);
+            showMessage(message: "Longitud mínima del password es de 8")
+            
+            return
+        }
+        
         
         //2. Realizar peticion a back
         let user = Usuario()
@@ -198,6 +233,10 @@ class LogInViewController: UIViewController {
     }
     
     //MARK: - Helper methods
+    func showError(){
+        
+    }
+    
     func showFacebookDetails(token: String){
         let req = GraphRequest(graphPath: "me",
                                parameters: ["fields": "email,first_name,last_name,gender,picture"],
@@ -396,6 +435,9 @@ extension LogInViewController: RESTActionDelegate{
             }
             else{
                 showMessage(message: "Usuario/número o contraseña incorrectos.")
+                 if let usuario = Model.getUsuario(){
+                    usuario.idUsuario = -1
+                }
             }
             
         }
@@ -407,7 +449,7 @@ extension LogInViewController: RESTActionDelegate{
     
     func showMessage(message: String){
         let alert = UIAlertController(
-            title: "Whoops...",
+            title: "ShingShing",
             message: message,
             preferredStyle: .alert)
         
@@ -429,7 +471,13 @@ extension LogInViewController: RESTActionDelegate{
     }
 }
 
+//MARK: UITextFieldDelegate
 extension LogInViewController: UITextFieldDelegate{
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("editing")
+        textField.showError(false, superView: true)
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
