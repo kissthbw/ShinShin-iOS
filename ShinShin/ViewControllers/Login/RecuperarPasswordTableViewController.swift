@@ -110,16 +110,12 @@ class RecuperarPasswordTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "ConfirmacionRecuperarSegue"{
+//            let vc = segue.destination as! 
+        }
     }
-    */
-
 }
 
 extension RecuperarPasswordTableViewController: UITextFieldDelegate{
@@ -141,10 +137,12 @@ extension RecuperarPasswordTableViewController: RESTActionDelegate{
                     let rsp = try decoder.decode(InformacionUsuario.self, from: data)
                     if rsp.code == 200{
                         //Enviar mensaje de exito, limpiar textfield y ocultar teclado
-                        let alert = Validations.show(message: "Recibiras un correo en la cuenta que proporcionaste", with: "ShingShing")
+//                        let alert = Validations.show(message: "Recibiras un correo en la cuenta que proporcionaste", with: "ShingShing")
                         self.txtCorreo.text = ""
                         self.tableView.endEditing(true)
-                        present(alert, animated: true, completion: nil)
+                        performSegue(withIdentifier: "ConfirmacionRecuperarSegue", sender: self)
+                        
+//                        present(alert, animated: true, completion: nil)
                     }
                     else{
                         let alert = Validations.show(message: "Ocurrió un error, intenta mas tarde", with: "ShingShing")

@@ -544,6 +544,7 @@ extension UsuarioViewController: RESTActionDelegate{
                 performSegue(withIdentifier: "ActivarSegue", sender: nil)
             }
             else if rsp.code == 500{
+                print("Mensaje original: \(rsp.message)")
                 showMessage(message: "El usuario ya existe", title: "Shing Shing")
             }
         }

@@ -89,7 +89,7 @@ class PerfilTableViewController: UITableViewController {
         
         sexos.append(s1)
         sexos.append(s2)
-//        sexos.append(s3)
+        sexos.append(s3)
         
         initUIElements(textfields)
         configureBarButtons()
