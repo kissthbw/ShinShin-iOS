@@ -92,6 +92,7 @@
 		A27F3FFF22A426DE0026A4F3 /* AyudaViewControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27F3FFE22A426DE0026A4F3 /* AyudaViewControlller.swift */; };
 		A282596522C843B1009122DB /* FotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282596422C843B1009122DB /* FotoTableViewCell.swift */; };
 		A282596722C867C7009122DB /* Sexo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A282596622C867C7009122DB /* Sexo.swift */; };
+		A2840E7D23A1635500BBFBD7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A2840E7C23A1635400BBFBD7 /* GoogleService-Info.plist */; };
 		A286B98022C6A018008F6B32 /* PrivacidadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A286B97F22C6A018008F6B32 /* PrivacidadViewController.swift */; };
 		A286B98322C6A1DC008F6B32 /* TerminosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A286B98222C6A1DC008F6B32 /* TerminosViewController.swift */; };
 		A286B98722C6B2FE008F6B32 /* ActivacionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A286B98622C6B2FE008F6B32 /* ActivacionTableViewController.swift */; };
@@ -123,7 +124,6 @@
 		A2BA0666229DCF14009A2213 /* UITextField+image.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BA0665229DCF14009A2213 /* UITextField+image.swift */; };
 		A2BCBCA522C16C310000BBD0 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BCBCA422C16C310000BBD0 /* MenuViewController.swift */; };
 		A2C1644F22A5CDA900D65B54 /* DatosTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C1644E22A5CDA900D65B54 /* DatosTicketViewController.swift */; };
-		A2C38F9E22DCFAAE00C9E958 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A2C38F9D22DCFAAE00C9E958 /* GoogleService-Info.plist */; };
 		A2C52A8322E8B93300A01AB6 /* BarCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C52A8222E8B93300A01AB6 /* BarCodeViewController.swift */; };
 		A2CB392F22C427380031EBAF /* HeaderProductos.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2CB392E22C427380031EBAF /* HeaderProductos.xib */; };
 		A2CB393122C42AB20031EBAF /* HeaderProductosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB393022C42AB20031EBAF /* HeaderProductosView.swift */; };
@@ -280,6 +280,7 @@
 		A27F3FFE22A426DE0026A4F3 /* AyudaViewControlller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AyudaViewControlller.swift; sourceTree = "<group>"; };
 		A282596422C843B1009122DB /* FotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotoTableViewCell.swift; sourceTree = "<group>"; };
 		A282596622C867C7009122DB /* Sexo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sexo.swift; sourceTree = "<group>"; };
+		A2840E7C23A1635400BBFBD7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A286B97F22C6A018008F6B32 /* PrivacidadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacidadViewController.swift; sourceTree = "<group>"; };
 		A286B98222C6A1DC008F6B32 /* TerminosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminosViewController.swift; sourceTree = "<group>"; };
 		A286B98622C6B2FE008F6B32 /* ActivacionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivacionTableViewController.swift; sourceTree = "<group>"; };
@@ -312,7 +313,6 @@
 		A2BCBCA422C16C310000BBD0 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		A2C1644E22A5CDA900D65B54 /* DatosTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatosTicketViewController.swift; sourceTree = "<group>"; };
 		A2C38F9C22DCE55E00C9E958 /* ShinShin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShinShin.entitlements; sourceTree = "<group>"; };
-		A2C38F9D22DCFAAE00C9E958 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A2C52A8222E8B93300A01AB6 /* BarCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeViewController.swift; sourceTree = "<group>"; };
 		A2CB392E22C427380031EBAF /* HeaderProductos.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderProductos.xib; sourceTree = "<group>"; };
 		A2CB393022C42AB20031EBAF /* HeaderProductosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderProductosView.swift; sourceTree = "<group>"; };
@@ -430,6 +430,7 @@
 		A267D78D222DD7AE00153CB8 /* ShinShin */ = {
 			isa = PBXGroup;
 			children = (
+				A2840E7C23A1635400BBFBD7 /* GoogleService-Info.plist */,
 				A2AF575623455CEF00171B59 /* Launch.storyboard */,
 				A2C38F9C22DCE55E00C9E958 /* ShinShin.entitlements */,
 				A2F0AA6922AEB3FA0069A84A /* Fonts */,
@@ -439,7 +440,6 @@
 				A267D78E222DD7AF00153CB8 /* AppDelegate.swift */,
 				A267D792222DD7AF00153CB8 /* Main.storyboard */,
 				A267D79D222DD7B800153CB8 /* Info.plist */,
-				A2C38F9D22DCFAAE00C9E958 /* GoogleService-Info.plist */,
 				A267D795222DD7AF00153CB8 /* ShinShin.xcdatamodeld */,
 				A2A45B52234E7BF500875D0C /* Resources.xcassets */,
 			);
@@ -902,13 +902,13 @@
 				A24012282337226C0090D476 /* Intro2.xib in Resources */,
 				A2F0AA7D22AEB4200069A84A /* Nunito-ExtraBold.ttf in Resources */,
 				A2F0AA7A22AEB4200069A84A /* Nunito-ExtraLightItalic.ttf in Resources */,
-				A2C38F9E22DCFAAE00C9E958 /* GoogleService-Info.plist in Resources */,
 				A2CB392F22C427380031EBAF /* HeaderProductos.xib in Resources */,
 				A2F0AA7822AEB4200069A84A /* Nunito-Light.ttf in Resources */,
 				A2F0AA8122AEB4200069A84A /* Nunito-LightItalic.ttf in Resources */,
 				A2F0AA8322AEB4200069A84A /* Nunito-BoldItalic.ttf in Resources */,
 				A225C57122DA859300529591 /* PreguntasHeader.xib in Resources */,
 				A20B146022A0441600667D39 /* Page2.xib in Resources */,
+				A2840E7D23A1635500BBFBD7 /* GoogleService-Info.plist in Resources */,
 				A2A45B53234E7BF500875D0C /* Resources.xcassets in Resources */,
 				A2401226233722010090D476 /* Intro1.xib in Resources */,
 				A29BF26E236A1361004E7FC6 /* Camera3.xib in Resources */,

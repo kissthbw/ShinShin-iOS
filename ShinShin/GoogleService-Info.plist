@@ -3,34 +3,34 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>389761344041-ej7um8dtr2c4op9fvi5k9th326eqlshq.apps.googleusercontent.com</string>
+	<string>363991809414-6osgmq12a6aa4cte1crgjia535bqntkv.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.389761344041-ej7um8dtr2c4op9fvi5k9th326eqlshq</string>
+	<string>com.googleusercontent.apps.363991809414-6osgmq12a6aa4cte1crgjia535bqntkv</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDwqHp7GHWrw2nfzlTV9_OzzTFGcWZfSJI</string>
+	<string>AIzaSyA2XDULhkgZi84uCNU0uv-p9Wu5NWRu36U</string>
 	<key>GCM_SENDER_ID</key>
-	<string>389761344041</string>
+	<string>363991809414</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.bit.ShinShin</string>
 	<key>PROJECT_ID</key>
-	<string>shinshin-a3079</string>
+	<string>shingshing-69c1f</string>
 	<key>STORAGE_BUCKET</key>
-	<string>shinshin-a3079.appspot.com</string>
+	<string>shingshing-69c1f.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:389761344041:ios:7a59d4bfa23ad4fb</string>
+	<string>1:363991809414:ios:e96d6c8202bcc024b24007</string>
 	<key>DATABASE_URL</key>
-	<string>https://shinshin-a3079.firebaseio.com</string>
+	<string>https://shingshing-69c1f.firebaseio.com</string>
 </dict>
 </plist>

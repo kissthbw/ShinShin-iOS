@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Google SignIn
         Messaging.messaging().delegate = self
-        GIDSignIn.sharedInstance().clientID = "362699089953-jm4oft9d3d391qku9r6bgu55o0gu8u09.apps.googleusercontent.com"
+        GIDSignIn.sharedInstance().clientID = "363991809414-6osgmq12a6aa4cte1crgjia535bqntkv.apps.googleusercontent.com"
         
 //        GIDSignIn.sharedInstance().delegate = self
         
