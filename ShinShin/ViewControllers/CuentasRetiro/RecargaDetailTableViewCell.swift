@@ -34,8 +34,13 @@ class RecargaDetailTableViewCell: UITableViewCell {
         txtNumero.delegate = self
         txtNumero.tag = UITextTags.TxtNumero.rawValue
         
+        txtAlias.delegate = self
         txtAlias.layer.cornerRadius = 10.0
+        
+        txtNumero.delegate = self
         txtNumero.layer.cornerRadius = 10.0
+        
+        txtCompania.delegate = self
         txtCompania.layer.cornerRadius = 10.0
         btnGuardar.layer.cornerRadius = 10.0
     }
@@ -56,7 +61,7 @@ class RecargaDetailTableViewCell: UITableViewCell {
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelViewPicker));
         
-        toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
+        toolbar.setItems([cancelButton,spaceButton,doneButton], animated: false)
         txtCompania.inputAccessoryView = toolbar
         txtCompania.inputView = viewPicker
         
@@ -86,6 +91,7 @@ extension RecargaDetailTableViewCell: UIPickerViewDelegate, UIPickerViewDataSour
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        txtCompania.text = companias[0]
         return companias[row]
     }
     
@@ -117,6 +123,11 @@ extension RecargaDetailTableViewCell: UITextFieldDelegate{
         else{
             return true
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 

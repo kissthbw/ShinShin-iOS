@@ -92,6 +92,10 @@ extension BancoBonificacionTableViewCell: UIPickerViewDelegate, UIPickerViewData
         
         if let cuentas = cuentas{
             let item = cuentas[row]
+            
+            txtCuenta.text = cuentas[0].aliasMedioBonificacion!
+            cuenta = cuentas[0]
+            
             let title = item.aliasMedioBonificacion! + " - " + item.cuentaMedioBonificacion!
             return title
         }
@@ -101,7 +105,7 @@ extension BancoBonificacionTableViewCell: UIPickerViewDelegate, UIPickerViewData
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        if let cuentas = cuentas{
+        if let cuentas = cuentas, cuentas.count > 0{
             txtCuenta.text = cuentas[row].aliasMedioBonificacion!
             cuenta = cuentas[row]
         }

@@ -245,8 +245,9 @@ extension SolicitarBonificacionTableViewController{
                     print("Guardando solicitud de Recarga")
                     
                     let item = Bonificacion()
-                    
-                    item.cantidadBonificacion = Double( cell.txtCantidad.text! )
+                    //Quitar el signo de pesos
+                    let cantidad = cell.txtCantidad.text!.replacingOccurrences(of: "$", with: "")
+                    item.cantidadBonificacion = Double( cantidad )
                     
                     let date = Date()
                     let formatter = DateFormatter()

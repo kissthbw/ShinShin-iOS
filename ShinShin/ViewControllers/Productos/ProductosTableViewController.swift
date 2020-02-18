@@ -173,24 +173,31 @@ class ProductosTableViewController: UITableViewController {
         return productos.productos.count
     }
 
+    
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductoCell", for: indexPath) as! ProductoTableViewCell
         
         let item = productos.productos[indexPath.row]
-
-        cell.lblNombre.text = item.nombreProducto
-        cell.lblContenido.text = item.contenido
-        cell.btnMasInfo.tag = indexPath.row
+        cell.configure(item: item, index: indexPath.row)
+//        cell.lblNombre.text = item.nombreProducto
+//        cell.lblContenido.text = item.contenido
         
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        let tmp = NSNumber(value: item.cantidadBonificacion!)
-        if let bon = formatter.string(from: tmp){
-            cell.lblBonificacion.text = "$ \(bon)"
-        }
-        
-        
+//        if let url = item.imgUrl{
+//            if let imageURL = URL(string: url){
+//                downloadTask = cell.imageProducto.loadImage(url: imageURL)
+//            }
+//        }
+//
+//        let formatter = NumberFormatter()
+//        formatter.numberStyle = .decimal
+//        let tmp = NSNumber(value: item.cantidadBonificacion!)
+//        if let bon = formatter.string(from: tmp){
+//            cell.lblBonificacion.text = "$ \(bon)"
+//        }
+//
+//
         
         return cell
     }

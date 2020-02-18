@@ -21,7 +21,10 @@ class EliminarPerfilTableViewController: UITableViewController {
     }
     
     let ID_RQT_ELIMINAR = "ID_RQT_ELIMINAR"
-    let motivos: [String] = [String]()
+    var motivos: [String] = [ "Tengo otra cuenta Shing Shing",
+        "Casi no utilizo la App",
+        "Faltan productos en la App",
+        "Otro" ]
     let comentarios: [String] = [String]()
     let viewPicker = UIPickerView()
     var textFocused: TextFields = .txtMotivo
@@ -159,8 +162,8 @@ class EliminarPerfilTableViewController: UITableViewController {
         txtMotivo.inputAccessoryView = toolbar
         txtMotivo.inputView = viewPicker
         
-        txtComentarios.inputAccessoryView = toolbar
-        txtComentarios.inputView = viewPicker
+//        txtComentarios.inputAccessoryView = toolbar
+//        txtComentarios.inputView = viewPicker
     }
     
     @objc func doneViewPicker(){

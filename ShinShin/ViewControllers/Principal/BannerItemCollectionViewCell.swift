@@ -42,25 +42,14 @@ class BannerItemCollectionViewCell: UICollectionViewCell {
         downloadTask = nil
     }
     
-    func configure(){
-//        imageViewBanner.image = UIImage(named: "producto_detail_placeholder")
-//        if let imageURL = URL(string: "https://res.cloudinary.com/shingshing/image/upload/v1561175238/shingshing/heart_zlmhw6.png"){
-//            downloadTask = imageViewBanner.loadImage(url: imageURL)
-//        }
-//        nameLabel.text! = result.name
-//
-//        if result.name.isEmpty{
-//            artistNameLabel.text! = "Unknown"
-//        }
-//        else{
-//            artistNameLabel.text! = String(format: "%@ (%@)", result.artist, result.type)
-//        }
-//
-//        artworkImageView.image = UIImage(named: "Placeholder")
-//        if let smallUrl = URL(string: result.imageSmall){
-//            downloadTask = artworkImageView.loadImage(url: smallUrl)
-//        }
+    func configure(url: String?){
+        imageViewBanner.image = UIImage(named: "bonafont")
         
+        if let url = url{
+            if let imageURL = URL(string: url){
+                downloadTask = imageViewBanner.loadImage(url: imageURL)
+            }
+        }
     }
     
 }

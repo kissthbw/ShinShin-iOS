@@ -30,6 +30,7 @@ class ProductoDetalleViewController: UIViewController {
     
     //MARK: - Revisar
     //Esto debe ser dinamico
+    var downloadTask: URLSessionDownloadTask?
     @IBOutlet weak var icon1: UIView!
     @IBOutlet weak var icon2: UIView!
     @IBOutlet weak var icon3: UIView!
@@ -77,6 +78,13 @@ class ProductoDetalleViewController: UIViewController {
             bottomframe.layer.borderWidth = 0.0
             bottomframe.layer.cornerRadius = 20.0
             bottomframe.backgroundColor = color
+            imgProducto.image = nil
+            if let url = edititem.imgUrl{
+                if let imageURL = URL(string: url){
+                    downloadTask = imgProducto.loadImage(url: imageURL)
+                }
+            }
+            
             lblNombre.text = edititem.nombreProducto
             lblPresentacion.text = edititem.contenido
             txtDescripcion.textAlignment = .left
@@ -110,6 +118,9 @@ class ProductoDetalleViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        downloadTask?.cancel()
+        downloadTask = nil
+        
         self.navigationController?.navigationBar.setBackgroundImage(nil, for:.default)
         self.navigationController?.navigationBar.shadowImage = nil
         self.navigationController?.navigationBar.layoutIfNeeded()

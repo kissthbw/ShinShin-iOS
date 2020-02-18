@@ -93,6 +93,10 @@ extension PayPalBonificacionTableViewCell: UIPickerViewDelegate, UIPickerViewDat
         
         if let cuentas = cuentas{
             let item = cuentas[row]
+            
+            txtCuenta.text = cuentas[row].aliasMedioBonificacion!
+            cuenta = cuentas[row]
+            
             let title = item.aliasMedioBonificacion! + " - " + item.cuentaMedioBonificacion!
             return title
         }
@@ -102,7 +106,7 @@ extension PayPalBonificacionTableViewCell: UIPickerViewDelegate, UIPickerViewDat
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        if let cuentas = cuentas{
+        if let cuentas = cuentas, cuentas.count > 0{
             txtCuenta.text = cuentas[row].aliasMedioBonificacion!
             cuenta = cuentas[row]
         }

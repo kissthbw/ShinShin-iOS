@@ -17,7 +17,12 @@ class BancoDetailTableViewCell: UITableViewCell {
     //TARJETA:  16 posiciones
     //CUENTA:   11 posiciones
     @IBOutlet weak var txtTipo: UITextField!
-    @IBOutlet weak var txtTarjeta: UITextField!
+    @IBOutlet weak var txtTarjeta: UITextField!{
+        didSet { txtTarjeta?.addDoneCancelToolbar() }
+    }
+    @IBOutlet weak var txtTarjetaTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var checkTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var lblTarjetaTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var lblTarjeta: UILabel!
     @IBOutlet weak var txtBanco: UITextField!
     @IBOutlet weak var txtAlias: UITextField!
@@ -174,23 +179,26 @@ class BancoDetailTableViewCell: UITableViewCell {
         // https://baymard.com/checkout-usability/credit-card-patterns
         
         // UATP cards have 4-5-6 (XXXX-XXXXX-XXXXXX) format
-        let is456 = string.hasPrefix("1")
-        
-        // These prefixes reliably indicate either a 4-6-5 or 4-6-4 card. We treat all these
-        // as 4-6-5-4 to err on the side of always letting the user type more digits.
-        let is465 = [
-            // Amex
-            "34", "37",
-            
-            // Diners Club
-            "300", "301", "302", "303", "304", "305", "309", "36", "38", "39"
-            ].contains { string.hasPrefix($0) }
+//        let is456 = string.hasPrefix("1")
+//
+//        // These prefixes reliably indicate either a 4-6-5 or 4-6-4 card. We treat all these
+//        // as 4-6-5-4 to err on the side of always letting the user type more digits.
+//        let is465 = [
+//            // Amex
+//            "34", "37",
+//
+//            // Diners Club
+//            "300", "301", "302", "303", "304", "305", "309", "36", "38", "39"
+//            ].contains { string.hasPrefix($0) }
         
         // In all other cases, assume 4-4-4-4-3.
         // This won't always be correct; for instance, Maestro has 4-4-5 cards according
         // to https://baymard.com/checkout-usability/credit-card-patterns, but I don't
         // know what prefixes identify particular formats.
-        let is4444 = !(is456 || is465)
+//        let is4444 = !(is456 || is465)
+        let is4444 = true
+        let is456 = false
+        let is465 = false
         
         var stringWithAddedSpaces = ""
         let cursorPositionInSpacelessString = cursorPosition
@@ -305,6 +313,11 @@ extension BancoDetailTableViewCell: UITextFieldDelegate{
         }
         
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
 
 extension BancoDetailTableViewCell: UIPickerViewDelegate, UIPickerViewDataSource{
@@ -327,9 +340,15 @@ extension BancoDetailTableViewCell: UIPickerViewDelegate, UIPickerViewDataSource
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if focusedTextField == UITextTags.TxtBanco.rawValue{
+            txtBanco.text = bancos[0]
             return bancos[row]
         }
         else if focusedTextField == UITextTags.TxtTipo.rawValue{
+            txtTarjeta.addTarget(self, action: #selector(reformatAsCardNumber), for: .editingChanged)
+            txtTarjeta.addTarget(self, action: #selector(textFieldChanged(_:)), for: .editingChanged)
+            tipoCuentaSelected = .tarjeta
+            let tipo = listTiposBancaria[0]
+            txtTipo.text = tipo.descripcionBancaria
             return listTiposBancaria[row].descripcionBancaria
         }
         else{
@@ -364,13 +383,13 @@ extension BancoDetailTableViewCell: UIPickerViewDelegate, UIPickerViewDataSource
                 txtTarjeta.removeTarget(self, action: #selector(reformatAsCardNumber), for: .editingChanged)
                 txtTarjeta.removeTarget(self, action: #selector(textFieldChanged(_:)), for: .editingChanged)
                 txtTarjeta.text = ""
-                lblTarjeta.text = "No. de tarjeta / Cuenta"
+                lblTarjeta.text = "No. de Cuenta"
                 animateScanView(true)
             }
             else {
                 txtTarjeta.addTarget(self, action: #selector(reformatAsCardNumber), for: .editingChanged)
                 txtTarjeta.addTarget(self, action: #selector(textFieldChanged(_:)), for: .editingChanged)
-                lblTarjeta.text = "No. de tarjeta / Cuenta"
+                lblTarjeta.text = "No. de Tarjeta"
                 tipoCuentaSelected = .tarjeta
                 animateScanView(false)
             }
@@ -379,18 +398,43 @@ extension BancoDetailTableViewCell: UIPickerViewDelegate, UIPickerViewDataSource
     
     func animateScanView(_ hide: Bool){
         var percent: CGFloat = 1.0
+        var constraint: CGFloat = 62.67
+        var imgConstraint: CGFloat = 67.7
         if hide{
             percent = 0.0
-        }
-        else{
-            
+            constraint = 0.0
+            imgConstraint = 5.0
         }
         
         UIView.animate(withDuration: 0.5,
                        delay: 0.0, options: [.curveEaseIn],
                        animations: {
-                        self.viewScanner.alpha = percent
-        }, completion: nil)
+                        
+                        if hide{
+                            self.viewScanner.alpha = percent
+                        }
+                        else{
+                            self.txtTarjetaTrailingConstraint.constant = constraint
+                            self.checkTrailingConstraint.constant = imgConstraint
+                            self.lblTarjetaTrailingConstraint.constant = constraint
+                            self.contentView.setNeedsLayout()
+                            self.contentView.layoutIfNeeded()
+                        }
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseIn], animations: {
+                if hide{
+                    self.txtTarjetaTrailingConstraint.constant = constraint
+                    self.checkTrailingConstraint.constant = imgConstraint
+                    self.lblTarjetaTrailingConstraint.constant = constraint
+                    self.contentView.setNeedsLayout()
+                    self.contentView.layoutIfNeeded()
+                }
+                else{
+                    self.viewScanner.alpha = percent
+                }
+                
+            }, completion: nil)
+        })
     }
 }
 

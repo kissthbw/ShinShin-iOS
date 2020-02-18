@@ -27,7 +27,10 @@ class PerfilTableViewController: UITableViewController {
     @IBOutlet weak var viewDia: UIView!
     @IBOutlet weak var viewMes: UIView!
     @IBOutlet weak var txtSexo: UITextField!
-    @IBOutlet weak var txtCP: UITextField!
+    @IBOutlet weak var txtCP: UITextField!{
+        didSet { txtCP?.addDoneCancelToolbar() }
+    }
+    
     @IBOutlet weak var txtPasswordActual: UITextField!
     @IBOutlet weak var txtPasswordNuevo: UITextField!
     @IBOutlet weak var txtConfirmarPasswordNuevo: UITextField!
@@ -59,6 +62,9 @@ class PerfilTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.contentInsetAdjustmentBehavior = .never
+        
         self.navigationController?.navigationBar.isTranslucent = false
         let textfields = [txtNombre, txtCorreo,
                           txtTelefono, txtSexo, txtPasswordActual, txtPasswordNuevo, txtConfirmarPasswordNuevo, txtCP]
@@ -93,6 +99,10 @@ class PerfilTableViewController: UITableViewController {
         
         initUIElements(textfields)
         configureBarButtons()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
     }
 
     //MARK: - UI Actions
@@ -179,8 +189,7 @@ class PerfilTableViewController: UITableViewController {
             Validations.isEmpty(value: txtTelefono.text!) ||
             Validations.isEmpty(value: txtMes.text!) ||
             Validations.isEmpty(value: txtCP.text!){
-//            let alert = Validations.show(message: "Ingresa todos los campos", with: "ShingShing")
-//            self.present(alert, animated: true, completion: nil)
+
             
             return (false, "Ingresa todos los campos")
         }
@@ -189,7 +198,6 @@ class PerfilTableViewController: UITableViewController {
         if txtNombre.text!.count < 2{
             txtNombre.showError(true, superView: false)
             self.view.endEditing(true);
-//            showMessage(message: "El nombre debe ser de al menos 2 posiciones.", title: "ShingShing")
 
             return (false, "El nombre debe ser de al menos 2 posiciones.")
         }

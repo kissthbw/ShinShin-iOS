@@ -12,6 +12,7 @@ class PopularTableViewCell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
     var selectedIndex = -1
+    var downloadTask: URLSessionDownloadTask?
     var delegate: CollectionViewDelegate? //Definido en CategoriaTebleViewCell
     
     var list = [Producto](){
@@ -50,6 +51,13 @@ extension PopularTableViewCell: UICollectionViewDataSource, UICollectionViewDele
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularItemCell", for: indexPath) as! PopularItemCollectionViewCell
         
         let item = list[indexPath.row]
+        cell.configure(url: item.imgUrl)
+//        cell.img.image = nil
+//        if let urlString = list[indexPath.row].imgUrl{
+//            if let url = URL(string: urlString){
+//                downloadTask = cell.img.loadImage(url: url)
+//            }
+//        }
         
         cell.lblNombre.text = item.nombreProducto
         cell.lblContenido.text = item.contenido

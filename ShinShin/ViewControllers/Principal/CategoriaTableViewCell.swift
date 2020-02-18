@@ -70,7 +70,7 @@ extension CategoriaTableViewCell: UICollectionViewDataSource, UICollectionViewDe
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as! BannerItemCollectionViewCell
         
         let item = list[indexPath.row]
-        cell.configure()
+        cell.configure( url: item.imgUrl )
         if let color = item.colorBanner{
             let color = color.components(separatedBy: ",")
             

@@ -383,7 +383,7 @@ extension BonificacionViewController: UITableViewDataSource, UITableViewDelegate
                 
                 if tickets.count == 0{
                     let cell = tableView.dequeueReusableCell(withIdentifier: "TicketNotFoundCell", for: indexPath) as! TicketNotFoundTableViewCell
-                    
+                    cell.btnTicket.addTarget(self, action: #selector(showCamera(_:)), for: .touchUpInside)
                     return cell
                 }
                 else{
@@ -446,6 +446,13 @@ extension BonificacionViewController: UITableViewDataSource, UITableViewDelegate
         let row = button.tag
         performSegue(withIdentifier: "SolicitarBonificacionSegue", sender: row)
 //        updateCellRetirar(row)
+    }
+    
+    @objc
+    func showCamera(_ sender: Any){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "CustomCameraViewController")
+        self.navigationController!.pushViewController(vc, animated: true)
     }
     
     func updateCellRetirar(_ row: Int){

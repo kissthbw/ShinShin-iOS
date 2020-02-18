@@ -45,6 +45,10 @@ class MediosBonificacionDetailViewController: UITableViewController {
         configureBarButtons()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+    //        super.viewWillAppear(animated)
+    }
+    
     @IBAction func back(_ sender: Any) {
         
         let cancel =
@@ -552,9 +556,15 @@ class MediosBonificacionDetailViewController: UITableViewController {
         }
     }
     
+    //MARK: - Table view delegate
+//    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        self.tableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+//        print("scroll")
+//    }
+    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 750
+        return 850
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -74,6 +74,18 @@ class OCRViewController: UIViewController {
                 updateImageView(with: photo, andIndex: index)
             }
         }
+        
+        //Si es primera vez, mostrar intro
+        if Model.isCameraFirtsTime(){
+            let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "CameraTutorialViewController")
+            destViewController.modalPresentationStyle = .fullScreen
+            destViewController.modalTransitionStyle = .coverVertical
+            
+            Model.handleCameraFirstTime()
+            
+            self.present(destViewController, animated: true, completion: nil)
+        }
+        
     }
     
 

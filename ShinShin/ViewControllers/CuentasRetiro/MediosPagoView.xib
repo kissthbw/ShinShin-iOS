@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -41,11 +41,21 @@
                     <rect key="frame" x="16" y="14" width="23" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OO1-bT-eta">
+                    <rect key="frame" x="0.0" y="48" width="375" height="1"/>
+                    <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="lYo-wl-7W1"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="OO1-bT-eta" firstAttribute="leading" secondItem="bv1-Lh-S1g" secondAttribute="leading" id="7Th-SM-SBg"/>
+                <constraint firstItem="DSu-df-tnU" firstAttribute="bottom" secondItem="OO1-bT-eta" secondAttribute="bottom" constant="1" id="Ceo-fR-9OB"/>
                 <constraint firstItem="DSu-df-tnU" firstAttribute="trailing" secondItem="eAd-mK-QoY" secondAttribute="trailing" constant="19" id="bco-uH-SMB"/>
                 <constraint firstItem="DSu-df-tnU" firstAttribute="bottom" secondItem="eAd-mK-QoY" secondAttribute="bottom" constant="10" id="f75-BG-DHV"/>
+                <constraint firstAttribute="trailing" secondItem="OO1-bT-eta" secondAttribute="trailing" id="i38-vg-4KJ"/>
                 <constraint firstItem="eAd-mK-QoY" firstAttribute="top" secondItem="DSu-df-tnU" secondAttribute="top" constant="10" id="trG-pJ-PwB"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

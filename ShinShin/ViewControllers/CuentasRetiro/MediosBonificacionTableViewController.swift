@@ -230,6 +230,11 @@ extension MediosBonificacionTableViewController: UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        
+        if indexPath.row == 0{
+            return nil
+        }
+        
         tableView.deselectRow(at: indexPath, animated: true)
         return indexPath
     }

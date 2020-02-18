@@ -87,6 +87,19 @@ class CustomCameraViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        btnOk.alpha = 0.0
+        Model.primeraVezCamara = true
+        
+        //Si es primera vez, mostrar intro
+        if Model.isCameraFirtsTime(){
+            let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "CameraTutorialViewController")
+            destViewController.modalPresentationStyle = .fullScreen
+            destViewController.modalTransitionStyle = .coverVertical
+            
+            Model.handleCameraFirstTime()
+            
+            self.present(destViewController, animated: true, completion: nil)
+        }
+        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -147,22 +160,27 @@ class CustomCameraViewController: UIViewController {
         super.viewDidAppear(animated)
         print( "ViewDidAppear: \(self.outterGuideView.frame)" )
         
-        let path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: self.outterGuideView.bounds.size.width, height: self.outterGuideView.bounds.size.height), cornerRadius: 0)
-        
-        let circlePath = UIBezierPath(roundedRect: innerGuideView.frame, cornerRadius: 10)
-        path.append(circlePath)
-        path.usesEvenOddFillRule = true
+        if( Model.primeraVezCamara ){
+            let path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: self.outterGuideView.bounds.size.width, height: self.outterGuideView.bounds.size.height), cornerRadius: 0)
+            
+            let circlePath = UIBezierPath(roundedRect: innerGuideView.frame, cornerRadius: 10)
+            path.append(circlePath)
+            path.usesEvenOddFillRule = true
 
-        let fillLayer = CAShapeLayer()
-        fillLayer.path = path.cgPath
-        fillLayer.fillRule = .evenOdd
-        fillLayer.fillColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.5).cgColor
-        fillLayer.opacity = 1.0
-        outterGuideView.layer.addSublayer(fillLayer)
+            let fillLayer = CAShapeLayer()
+            fillLayer.path = path.cgPath
+            fillLayer.fillRule = .evenOdd
+            fillLayer.fillColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.5).cgColor
+            fillLayer.opacity = 1.0
+            outterGuideView.layer.addSublayer(fillLayer)
+            
+            Model.primeraVezCamara = false
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+
         navigationController?.setNavigationBarHidden(false, animated: animated)
 //        Model.mantenerCamara = false
         
@@ -510,18 +528,33 @@ extension CustomCameraViewController: AVCapturePhotoCaptureDelegate{
             
             //Si los lblCountPhotos y previewPhoto estan ocultos se deben mostrar
             if !visiblePreview{
+                
                 UIView.animate(withDuration: 0.5, animations: {
-//                    self.btnOk.alpha = 1.0
-//                    self.btnOk.isEnabled = true
-//                    self.btnBorrar.alpha = 1.0
-//                    self.btnBorrar.isEnabled = true
                     self.previewPhoto.alpha = 1.0
                     self.checkImage.alpha = 1.0
                     self.previewButton.alpha = 1.0
                     self.previewButton.isEnabled = true
-                }, completion: nil)
+//                    self.previewButton.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+                }, completion: {_ in
+//                    self.previewButton.transform = CGAffineTransform.identity
+                })
+                
                 
                 visiblePreview = !visiblePreview
+            }
+            else{
+                self.previewButton.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+
+                UIView.animate(withDuration: 2.0,
+                                           delay: 0,
+                                           usingSpringWithDamping: CGFloat(0.20),
+                                           initialSpringVelocity: CGFloat(6.0),
+                                           options: UIView.AnimationOptions.allowUserInteraction,
+                                           animations: {
+                                            self.previewButton.transform = CGAffineTransform.identity
+                    },
+                                           completion: { Void in()  }
+                )
             }
 
             //Cortar imagen en proporcion innerGuideView
@@ -535,9 +568,9 @@ extension CustomCameraViewController: AVCapturePhotoCaptureDelegate{
             photos.append(tmpImage)
             
             //El preview solo se realiza para la primer foto
-            if photos.count == 1{
-                updateImageView(with: tmpImage, isPreview: true, andIndex: 0)
-            }
+//            if photos.count == 1{
+            updateImageView(with: tmpImage, isPreview: true, andIndex: 0)
+//            }
             
             updateImageView(with: tmpImage, isPreview: false, andIndex: 0)
         }

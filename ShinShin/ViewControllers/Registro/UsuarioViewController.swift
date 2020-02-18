@@ -42,7 +42,9 @@ class UsuarioViewController: UITableViewController {
     @IBOutlet weak var txtSexo: UITextField!
     
     @IBOutlet weak var viewCP: UIView!
-    @IBOutlet weak var txtCP: UITextField!
+    @IBOutlet weak var txtCP: UITextField!{
+        didSet { txtCP?.addDoneCancelToolbar() }
+    }
     @IBOutlet weak var switchAceptar: UISwitch!
     
     @IBOutlet weak var btnRegistrar: UIButton!

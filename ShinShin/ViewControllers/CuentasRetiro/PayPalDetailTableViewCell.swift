@@ -28,10 +28,12 @@ class PayPalDetailTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         txtAlias.layer.cornerRadius = 10.0
+        txtAlias.delegate = self
         txtId.layer.cornerRadius = 10.0
         txtId.delegate = self
         txtId.tag = UITextTags.TxtId.rawValue
         
+        txtEmail.delegate = self
         txtEmail.layer.cornerRadius = 10.0
         btnGuardar.layer.cornerRadius = 10.0
     }
@@ -139,5 +141,10 @@ extension PayPalDetailTableViewCell: UITextFieldDelegate{
         else{
             return true
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

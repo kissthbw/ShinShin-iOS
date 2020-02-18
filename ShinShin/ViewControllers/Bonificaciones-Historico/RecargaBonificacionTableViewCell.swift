@@ -129,6 +129,10 @@ extension RecargaBonificacionTableViewCell: UIPickerViewDelegate, UIPickerViewDa
             if let cuentas = cuentas{
                 let item = cuentas[row]
                 let title = item.aliasMedioBonificacion! + " - " + item.cuentaMedioBonificacion!
+                
+                txtNumero.text = cuentas[0].aliasMedioBonificacion!
+                cuenta = cuentas[0]
+                
                 return title
             }
             
@@ -136,6 +140,7 @@ extension RecargaBonificacionTableViewCell: UIPickerViewDelegate, UIPickerViewDa
         }
         
         else if pickerView.tag == PickerTags.Recarga.rawValue{
+            txtCantidad.text = recargas[0]
             return recargas[row]
         }
         
@@ -145,7 +150,7 @@ extension RecargaBonificacionTableViewCell: UIPickerViewDelegate, UIPickerViewDa
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         if pickerView.tag == PickerTags.Telefono.rawValue{
-            if let cuentas = cuentas{
+            if let cuentas = cuentas, cuentas.count > 0{
                 txtNumero.text = cuentas[row].aliasMedioBonificacion!
                 cuenta = cuentas[row]
             }

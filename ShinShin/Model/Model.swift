@@ -15,6 +15,7 @@ class Model{
     static var idRedSocial: Int?
     static var perfilActualizado: Bool = false
     static var mantenerCamara = false
+    static var primeraVezCamara = false
     static var logout = false
     
     init() {
@@ -36,6 +37,28 @@ class Model{
         if firstTime{
             print("Primera vez")
             userDefaults.set(false, forKey: "FirstTime")
+            userDefaults.synchronize()
+            
+        }
+        else{
+            print("Ya no es primera vez")
+        }
+    }
+    
+    class func isCameraFirtsTime() -> Bool{
+        let userDefaults = UserDefaults.standard
+        let firstTime = userDefaults.bool(forKey: "CameraFirstTime")
+        
+        return firstTime
+    }
+    
+    class func handleCameraFirstTime(){
+        let userDefaults = UserDefaults.standard
+        let firstTime = userDefaults.bool(forKey: "CameraFirstTime")
+        
+        if firstTime{
+            print("Primera vez")
+            userDefaults.set(false, forKey: "CameraFirstTime")
             userDefaults.synchronize()
             
         }
@@ -105,6 +128,7 @@ class Model{
     func registerDefaults(){
     
         let dictionary = ["FirstTime": true,
+                          "CameraFirstTime": true,
                           "idRedSocial": -1,
                           "idUsuario":-1,
                           "usuario":"-1",
