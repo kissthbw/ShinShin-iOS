@@ -75,6 +75,10 @@ class ActivacionTableViewController: UITableViewController {
         txtField2.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: .editingChanged)
         txtField3.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: .editingChanged)
         txtField4.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: .editingChanged)
+        
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
 
     //MARK: - Navigation

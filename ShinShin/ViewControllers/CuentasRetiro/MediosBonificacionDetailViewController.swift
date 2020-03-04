@@ -42,6 +42,11 @@ class MediosBonificacionDetailViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isTranslucent = false
+        
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        
         configureBarButtons()
     }
     
@@ -680,7 +685,7 @@ extension MediosBonificacionDetailViewController: RESTActionDelegate{
 extension MediosBonificacionDetailViewController: UITextFieldDelegate{
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.showError(false, superView: false)
+//        textField.showError(false, superView: false)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

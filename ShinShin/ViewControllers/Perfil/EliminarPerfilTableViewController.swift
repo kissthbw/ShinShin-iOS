@@ -11,6 +11,8 @@ import UIKit
 class EliminarPerfilTableViewController: UITableViewController {
 
     //MARK: - Propiedades
+    var activeTextField: UITextField!
+    
     @IBOutlet weak var txtMotivo: UITextField!
     @IBOutlet weak var txtComentarios: UITextField!
     @IBOutlet weak var btnEliminar: UIButton!
@@ -28,16 +30,29 @@ class EliminarPerfilTableViewController: UITableViewController {
     let comentarios: [String] = [String]()
     let viewPicker = UIPickerView()
     var textFocused: TextFields = .txtMotivo
+    var isKeyboardShowing = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBarButtons()
         initUI()
         showViewPicker()
+        
+        //Keyboard dismiss on touch
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        
+        //Manejo de keyboard
+//        registerKeyboardNotifications()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        //Si se comenta la llamada a la clase padre
+        //se elimina la funcionalidad de autoscrolling con celdas de Texto
+        //El manejo de teclado debe ser manual
+//        super.viewWillAppear(animated)
 //        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
@@ -46,6 +61,52 @@ class EliminarPerfilTableViewController: UITableViewController {
 //        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
+    //MARK: - Keyboard Hendler
+    func registerKeyboardNotifications(){
+        let notification = NotificationCenter.default
+        notification.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        notification.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification){
+        let info: NSDictionary = notification.userInfo! as NSDictionary
+        let value: NSValue = info.value(forKey: UIResponder.keyboardFrameBeginUserInfoKey) as! NSValue
+        let keyboardRect = value.cgRectValue
+        
+        var contentInsets = self.tableView.contentInset
+        contentInsets.bottom = keyboardRect.size.height
+        self.tableView.contentInset = contentInsets
+        
+        var frameToScroll = activeTextField?.bounds
+        frameToScroll = activeTextField.convert(frameToScroll!, to: self.tableView)
+        frameToScroll!.size.height = frameToScroll!.size.height + self.tableView.frame.origin.y + 2
+        self.tableView.scrollRectToVisible(frameToScroll!, animated: true)
+        
+//        let contentInsets: UIEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height, right: 0.0)
+//
+//
+//        //Determinar si el textview es cubierto por el keyboard
+//        var aRect: CGRect = self.tableView.frame
+//        aRect.size.height -= keyboardSize.height + 64
+//        let activeTextFieldRect: CGRect? = activeTextField?.frame
+//        let activeTextFieldOrigin: CGPoint? = activeTextFieldRect?.origin
+//
+//        if (aRect.contains(activeTextFieldOrigin!)) {
+////            self.tableView.scrollRectToVisible(activeTextFieldRect!, animated: true)
+//            self.tableView.setContentOffset(CGPoint(x: 0, y: activeTextFieldRect!.height), animated: true)
+//        }
+//
+//        print("Show keyboard size: \(keyboardSize)")
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification){
+        print("Hide keyboard")
+        let contentInsets = UIEdgeInsets.zero
+        self.tableView.contentInset = contentInsets
+        self.tableView.scrollIndicatorInsets = contentInsets
+    }
+    
     //MARK: - UI Actions
     @IBAction func eliminarPerfil(_ sender: Any) {
         
@@ -189,6 +250,8 @@ class EliminarPerfilTableViewController: UITableViewController {
 extension EliminarPerfilTableViewController: UITextFieldDelegate{
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        activeTextField = textField
+        
         textField.showError(false, superView: false)
         
         if textField == txtMotivo{
@@ -198,6 +261,10 @@ extension EliminarPerfilTableViewController: UITextFieldDelegate{
         if textField == txtComentarios{
             textFocused = .txtComentarios
         }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        activeTextField = nil
     }
 }
 

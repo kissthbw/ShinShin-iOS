@@ -11,6 +11,8 @@ import UIKit
 class UsuarioViewController: UITableViewController {
 
     //MARK: - Propiedades
+    var activeTextField: UITextField!
+    
     @IBOutlet weak var viewNombre: UIView!
     @IBOutlet weak var txtNombre: UITextField!
     
@@ -28,7 +30,9 @@ class UsuarioViewController: UITableViewController {
     @IBOutlet weak var txtConfPassword: UITextField!
     
     @IBOutlet weak var viewTelefono: UIView!
-    @IBOutlet weak var txtTelefono: UITextField!
+    @IBOutlet weak var txtTelefono: UITextField!{
+        didSet { txtTelefono?.addDoneCancelToolbar() }
+    }
     
     @IBOutlet weak var viewShowPickerView: UIView!
     @IBOutlet weak var viewAnio: UIView!
@@ -102,9 +106,46 @@ class UsuarioViewController: UITableViewController {
         initUIElements()
         showDatePicker()
         showSexoPicker()
+        
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        
+        //Manejo de keyboard
+//        registerKeyboardNotifications()
     }
 
+    //MARK: - Keyboard Hendler
+    func registerKeyboardNotifications(){
+            let notification = NotificationCenter.default
+            notification.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+            
+            notification.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+        
+    @objc func keyboardWillShow(notification: NSNotification){
+            let info: NSDictionary = notification.userInfo! as NSDictionary
+            let value: NSValue = info.value(forKey: UIResponder.keyboardFrameBeginUserInfoKey) as! NSValue
+            let keyboardRect = value.cgRectValue
+            
+            var contentInsets = self.tableView.contentInset
+            contentInsets.bottom = keyboardRect.size.height
+            self.tableView.contentInset = contentInsets
+            
+            var frameToScroll = activeTextField?.bounds
+            frameToScroll = activeTextField.convert(frameToScroll!, to: self.tableView)
+            frameToScroll!.size.height = frameToScroll!.size.height + self.tableView.frame.origin.y + 2
+            self.tableView.scrollRectToVisible(frameToScroll!, animated: true)
 
+    }
+        
+    @objc func keyboardWillHide(notification: NSNotification){
+            print("Hide keyboard")
+            let contentInsets = UIEdgeInsets.zero
+            self.tableView.contentInset = contentInsets
+            self.tableView.scrollIndicatorInsets = contentInsets
+    }
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "TerminosSegue"{
@@ -500,7 +541,13 @@ extension UsuarioViewController: UIPickerViewDelegate, UIPickerViewDataSource{
 extension UsuarioViewController: UITextFieldDelegate{
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        activeTextField = textField
+        
         textField.showError(false, superView: true)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        activeTextField = nil
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

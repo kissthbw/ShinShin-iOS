@@ -12,8 +12,12 @@ import SideMenu
 class ContactoViewController: UIViewController {
     
     //MARK: - Propiedades
-    @IBOutlet weak var txt1: UITextView!
-    @IBOutlet weak var txt2: UITextView!
+    @IBOutlet weak var txt1: UITextView!{
+        didSet { txt1?.addDoneCancelToolbar() }
+    }
+    @IBOutlet weak var txt2: UITextView!{
+        didSet { txt2?.addDoneCancelToolbar() }
+    }
     @IBOutlet weak var btnEnviar: UIButton!
     
     let preguntasPicker = UIPickerView()
@@ -43,6 +47,10 @@ class ContactoViewController: UIViewController {
         
         initUIElements()
         configureBarButtons()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
     //MARK: - UIActions
@@ -152,6 +160,7 @@ class ContactoViewController: UIViewController {
     func initUIElements(){
         txt1.layer.cornerRadius = 10.0
         txt2.layer.cornerRadius = 10.0
+        
         btnEnviar.layer.cornerRadius = 10.0
         showPicker()
     }
@@ -214,6 +223,13 @@ class ContactoViewController: UIViewController {
 }
 
 //MARK: - Extensions
+extension ContactoViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
 extension ContactoViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

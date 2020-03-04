@@ -12,11 +12,16 @@ import SideMenu
 class PerfilTableViewController: UITableViewController {
 
     //MARK: - Propiedades
+    var activeTextField: UITextField!
+    
     @IBOutlet weak var viewImagePerfil: UIView!
     @IBOutlet weak var imageViewPerfil: UIImageView!
     @IBOutlet weak var txtNombre: UITextField!
     @IBOutlet weak var txtCorreo: UITextField!
-    @IBOutlet weak var txtTelefono: UITextField!
+    @IBOutlet weak var txtTelefono: UITextField!{
+        didSet { txtTelefono?.addDoneCancelToolbar() }
+    }
+    
     @IBOutlet weak var btnAdd: UIButton!
     
     @IBOutlet weak var txtMes: UITextField!
@@ -58,8 +63,6 @@ class PerfilTableViewController: UITableViewController {
         case btnConfPassword = 3
     }
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -97,12 +100,50 @@ class PerfilTableViewController: UITableViewController {
         sexos.append(s2)
         sexos.append(s3)
         
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        
+        //Manejo de keyboard
+//        registerKeyboardNotifications()
+        
         initUIElements(textfields)
         configureBarButtons()
     }
     
     override func viewWillAppear(_ animated: Bool) {
 //        super.viewWillAppear(animated)
+    }
+    
+    //MARK: - Keyboard Hendler
+    func registerKeyboardNotifications(){
+            let notification = NotificationCenter.default
+            notification.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+            
+            notification.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+        
+    @objc func keyboardWillShow(notification: NSNotification){
+            let info: NSDictionary = notification.userInfo! as NSDictionary
+            let value: NSValue = info.value(forKey: UIResponder.keyboardFrameBeginUserInfoKey) as! NSValue
+            let keyboardRect = value.cgRectValue
+            
+            var contentInsets = self.tableView.contentInset
+            contentInsets.bottom = keyboardRect.size.height
+            self.tableView.contentInset = contentInsets
+            
+            var frameToScroll = activeTextField?.bounds
+            frameToScroll = activeTextField.convert(frameToScroll!, to: self.tableView)
+            frameToScroll!.size.height = frameToScroll!.size.height + self.tableView.frame.origin.y + 2
+            self.tableView.scrollRectToVisible(frameToScroll!, animated: true)
+
+    }
+        
+    @objc func keyboardWillHide(notification: NSNotification){
+            print("Hide keyboard")
+            let contentInsets = UIEdgeInsets.zero
+            self.tableView.contentInset = contentInsets
+            self.tableView.scrollIndicatorInsets = contentInsets
     }
 
     //MARK: - UI Actions
@@ -704,7 +745,12 @@ extension PerfilTableViewController: UIPickerViewDelegate, UIPickerViewDataSourc
 extension PerfilTableViewController: UITextFieldDelegate{
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        activeTextField = textField
         textField.showError(false, superView: false)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        activeTextField = nil
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

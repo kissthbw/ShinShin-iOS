@@ -27,6 +27,14 @@ class RecuperarPasswordTableViewController: UITableViewController {
         txtCorreo.delegate = self
         btnEnviar.layer.cornerRadius = 10.0
         viewCorreo.layer.cornerRadius = 10.0
+        
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
     }
     
     //MARK: - Actions
