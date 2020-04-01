@@ -155,6 +155,12 @@ class MediosBonificacionTableViewController: UIViewController {
         }
     }
     
+    //MARk: Actions
+    @IBAction func back(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+        
+    }
+    
     
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -235,7 +241,7 @@ extension MediosBonificacionTableViewController: UITableViewDataSource, UITableV
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         
-        if indexPath.row == 0{
+        if indexPath.section == 0{
             return nil
         }
         

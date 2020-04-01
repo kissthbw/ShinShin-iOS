@@ -47,7 +47,7 @@ class PrincipalViewController: UIViewController {
         
         //Si es primera vez, mostrar intro
         if Model.isFirtsTime(){
-            let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "TutorialViewController")
+            let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "IntroViewController")
             destViewController.modalPresentationStyle = .fullScreen
             destViewController.modalTransitionStyle = .coverVertical
             

@@ -20,6 +20,8 @@ import FacebookCore
 import FacebookLogin
 import FBSDKCoreKit
 import FBSDKLoginKit
+import FirebaseMessaging
+import FirebaseInstanceID
 
 class LogInViewController: UIViewController {
 
@@ -62,6 +64,20 @@ class LogInViewController: UIViewController {
         //0 Normal
         //1 Google
         //2 Facebook
+        
+        /*
+         Para obtener el token de forma directa
+        let token = Messaging.messaging().fcmToken
+        
+        InstanceID.instanceID().instanceID { (result, error) in
+          if let error = error {
+            print("Error fetching remote instance ID: \(error)")
+          } else if let result = result {
+            print("Remote instance ID token: \(result.token)")
+          }
+        }
+         */
+        
         if let usuario = Model.getUsuario(){
             if usuario.idUsuario == -1{
                 print("No hay sesion previa")
@@ -289,6 +305,9 @@ class LogInViewController: UIViewController {
 //        let user = Usuario()
 //        user.usuario = txtUser.text!
 //        user.contrasenia = txtPassword.text!
+        if let token = Messaging.messaging().fcmToken{
+            user.deviceToken = token
+        }
         
         do{
             let encoder = JSONEncoder()
@@ -384,6 +403,11 @@ class LogInViewController: UIViewController {
     func processSocialMediaSignIn(_ user: Usuario){
         do{
             print("Procesando SignIn")
+            
+            if let token = Messaging.messaging().fcmToken{
+                user.deviceToken = token
+            }
+            
             let encoder = JSONEncoder()
             let json = try encoder.encode(user)
             RESTHandler.delegate = self

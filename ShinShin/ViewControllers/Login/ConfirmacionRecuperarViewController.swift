@@ -11,14 +11,14 @@ import UIKit
 class ConfirmacionRecuperarViewController: UIViewController {
 
     @IBOutlet weak var btnVale: UIButton!
-    @IBOutlet weak var btnCorreo: UIButton!
+//    @IBOutlet weak var btnCorreo: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         btnVale.layer.cornerRadius = 10.0
-        btnCorreo.layer.cornerRadius = 10.0
+//        btnCorreo.layer.cornerRadius = 10.0
     }
     
 

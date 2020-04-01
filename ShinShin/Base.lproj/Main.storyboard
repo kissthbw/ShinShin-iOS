@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iae-bb-K8m">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iae-bb-K8m">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -36,7 +36,7 @@
             <objects>
                 <viewController id="hTX-Xv-csp" customClass="ConfirmacionRecuperarViewController" customModule="ShinShin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rjl-9N-int">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mailSend" translatesAutoresizingMaskIntoConstraints="NO" id="PHN-kS-K4p">
@@ -47,7 +47,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correo enviado" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPM-BT-BKp">
-                                <rect key="frame" x="90.666666666666686" y="322" width="233" height="44"/>
+                                <rect key="frame" x="90.666666666666686" y="322" width="233" height="43.666666666666686"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="233" id="Omr-om-1yM"/>
                                 </constraints>
@@ -56,7 +56,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Revisa tu bandeja de entrada y entra al link que te enviamos." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1HD-gV-amx">
-                                <rect key="frame" x="88" y="390" width="238" height="46.666666666666686"/>
+                                <rect key="frame" x="88" y="389.66666666666669" width="238" height="46.666666666666686"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="238" id="xma-7d-Onp"/>
                                 </constraints>
@@ -65,34 +65,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0jE-i1-nzQ">
-                                <rect key="frame" x="118.66666666666669" y="510" width="177" height="48"/>
+                                <rect key="frame" x="88" y="510" width="238" height="48"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="5pn-Sl-y5K"/>
-                                    <constraint firstAttribute="width" constant="177" id="pJ2-W0-Pxo"/>
+                                    <constraint firstAttribute="width" constant="238" id="pJ2-W0-Pxo"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito ExtraBold" pointSize="17"/>
-                                <state key="normal" title="Vale">
+                                <state key="normal" title="Iniciar Sesión">
                                     <color key="titleColor" red="1" green="0.43529411759999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="enviarAction:" destination="9Jr-oI-yuD" eventType="touchUpInside" id="dBK-4w-Oe8"/>
                                     <action selector="valeActions:" destination="hTX-Xv-csp" eventType="touchUpInside" id="nxc-VE-gHT"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Czk-nu-tgv">
-                                <rect key="frame" x="118.66666666666669" y="574" width="177" height="48"/>
-                                <color key="backgroundColor" red="0.99607843139999996" green="0.85882352939999995" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="177" id="8S6-9u-W7y"/>
-                                    <constraint firstAttribute="height" constant="48" id="Gy0-eF-iRJ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito SemiBold" pointSize="15"/>
-                                <state key="normal" title="Ir a mi correo">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="enviarAction:" destination="9Jr-oI-yuD" eventType="touchUpInside" id="mmA-OH-dtj"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -101,32 +86,29 @@
                             <constraint firstItem="GPM-BT-BKp" firstAttribute="centerX" secondItem="rjl-9N-int" secondAttribute="centerX" id="4Cv-OY-rYP"/>
                             <constraint firstItem="0jE-i1-nzQ" firstAttribute="top" secondItem="rjl-9N-int" secondAttribute="top" constant="510" id="BS3-TG-zZ9"/>
                             <constraint firstItem="PHN-kS-K4p" firstAttribute="centerX" secondItem="rjl-9N-int" secondAttribute="centerX" id="INH-2f-MeL"/>
-                            <constraint firstItem="Czk-nu-tgv" firstAttribute="centerX" secondItem="rjl-9N-int" secondAttribute="centerX" id="WLl-a7-a63"/>
                             <constraint firstItem="GPM-BT-BKp" firstAttribute="top" secondItem="PHN-kS-K4p" secondAttribute="bottom" constant="20" id="WMC-ie-GBO"/>
                             <constraint firstItem="0jE-i1-nzQ" firstAttribute="centerX" secondItem="rjl-9N-int" secondAttribute="centerX" id="Yzb-gg-1uN"/>
                             <constraint firstItem="PHN-kS-K4p" firstAttribute="top" secondItem="rjl-9N-int" secondAttribute="top" constant="102" id="aTM-sg-5V9"/>
                             <constraint firstItem="1HD-gV-amx" firstAttribute="centerX" secondItem="rjl-9N-int" secondAttribute="centerX" id="bhj-A8-RX7"/>
-                            <constraint firstItem="Czk-nu-tgv" firstAttribute="top" secondItem="rjl-9N-int" secondAttribute="top" constant="574" id="dUS-MA-DrH"/>
                             <constraint firstItem="1HD-gV-amx" firstAttribute="top" secondItem="GPM-BT-BKp" secondAttribute="bottom" constant="24" id="ywm-Iq-yUr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sMa-E4-KTF"/>
                     </view>
                     <navigationItem key="navigationItem" id="OWy-LJ-4eq"/>
                     <connections>
-                        <outlet property="btnCorreo" destination="Czk-nu-tgv" id="wwT-4d-JoR"/>
                         <outlet property="btnVale" destination="0jE-i1-nzQ" id="gk4-q6-njw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dF7-DJ-07m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1055" y="986"/>
+            <point key="canvasLocation" x="1053.6231884057972" y="985.71428571428567"/>
         </scene>
         <!--Recuperar Password Table View Controller-->
         <scene sceneID="JTC-cX-tzm">
             <objects>
                 <tableViewController id="9Jr-oI-yuD" customClass="RecuperarPasswordTableViewController" customModule="ShinShin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9c6-RX-a5v">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
@@ -487,7 +469,7 @@ tu contraseña ;-)</string>
                                                 <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="17"/>
                                                 <state key="normal" title="Olvide mi contraseña :("/>
                                                 <connections>
-                                                    <segue destination="Fcz-5B-CNu" kind="show" id="e4e-iL-auI"/>
+                                                    <segue destination="Fcz-5B-CNu" kind="presentation" modalPresentationStyle="fullScreen" id="e4e-iL-auI"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcI-Bx-sg2">
@@ -1471,7 +1453,7 @@ no te apures, tomalo en varias fotos ;-)</string>
         <!--Intro View Controller-->
         <scene sceneID="jRV-1z-3JO">
             <objects>
-                <viewController id="0gA-YG-WaH" customClass="IntroViewController" customModule="ShinShin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IntroViewController" id="0gA-YG-WaH" customClass="IntroViewController" customModule="ShinShin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lSs-Nw-zPh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2599,7 +2581,7 @@ ganar dinero por tus compras.</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¡Si, eres tu!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpa-mB-KrC">
-                                <rect key="frame" x="122" y="365" width="170" height="44"/>
+                                <rect key="frame" x="122" y="365" width="170" height="43.666666666666686"/>
                                 <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito Black" pointSize="32"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -2668,8 +2650,7 @@ ganar dinero por tus compras.</string>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="back"/>
                                                     <connections>
-                                                        <action selector="back:" destination="S3U-y2-XI3" eventType="touchUpInside" id="6Uo-6t-D2s"/>
-                                                        <action selector="back:" destination="49m-Ja-d5k" eventType="touchUpInside" id="JEN-Fg-zty"/>
+                                                        <action selector="back:" destination="2y3-A5-u91" eventType="touchUpInside" id="XPp-Uw-XIM"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -3708,7 +3689,7 @@ ganar dinero por tus compras.</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uGM-sX-miy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1643" y="1729"/>
+            <point key="canvasLocation" x="-1633" y="1832"/>
         </scene>
         <!--BonificacionVC-->
         <scene sceneID="2av-0k-BZY">
@@ -5708,14 +5689,27 @@ Shing</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cuentas de retiro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukK-Si-EHZ">
-                                                    <rect key="frame" x="15" y="5" width="343" height="48"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito Black" pointSize="32"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cuentas de retiro" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukK-Si-EHZ">
+                                                    <rect key="frame" x="108.33333333333333" y="12" width="197.33333333333337" height="33"/>
+                                                    <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito Black" pointSize="24"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4P-a7-5Je">
+                                                    <rect key="frame" x="0.0" y="8" width="40" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="back"/>
+                                                    <connections>
+                                                        <action selector="back:" destination="S3U-y2-XI3" eventType="touchUpInside" id="6le-Sa-iEJ"/>
+                                                        <action selector="back:" destination="pGM-9R-G07" eventType="touchUpInside" id="RAd-0U-leg"/>
+                                                        <action selector="back:" destination="49m-Ja-d5k" eventType="touchUpInside" id="ed2-m4-516"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ukK-Si-EHZ" firstAttribute="top" secondItem="SpD-wy-lIC" secondAttribute="top" constant="12" id="RtK-Ps-zPY"/>
+                                                <constraint firstItem="ukK-Si-EHZ" firstAttribute="centerX" secondItem="SpD-wy-lIC" secondAttribute="centerX" id="viK-Y8-Ltl"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
@@ -5889,7 +5883,7 @@ Shing</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mYg-E1-v36" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-754" y="3161"/>
+            <point key="canvasLocation" x="-755.07246376811599" y="3160.7142857142858"/>
         </scene>
         <!--PerfilVC-->
         <scene sceneID="zIr-UF-uNf">
@@ -6562,11 +6556,11 @@ Ayudanos a conocer el motivo de tu partida.</string>
             <objects>
                 <viewController id="49m-Ja-d5k" userLabel="PrivacidadVC" customClass="PrivacidadViewController" customModule="ShinShin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Lr-zQ-j9C">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aviso De Privacidad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T88-40-SVH">
-                                <rect key="frame" x="18" y="140" width="380" height="48"/>
+                                <rect key="frame" x="18" y="52" width="380" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="6Qo-Ka-S1F"/>
                                 </constraints>
@@ -6575,7 +6569,7 @@ Ayudanos a conocer el motivo de tu partida.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Alz-nd-Cd2">
-                                <rect key="frame" x="18" y="196" width="380" height="646"/>
+                                <rect key="frame" x="18" y="108" width="380" height="680"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <attributedString key="attributedText">
                                     <fragment content="AVISO DE PRIVACIDAD">
@@ -8810,7 +8804,6 @@ tener buena iluminación y
                     <navigationItem key="navigationItem" id="rG7-LO-CUV"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Dux-db-zP5">
-                        <rect key="frame" x="0.0" y="-54" width="0.0" height="0.0"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -8823,6 +8816,11 @@ tener buena iluminación y
             <point key="canvasLocation" x="-681.15942028985512" y="985.71428571428567"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="vCv-Yz-YPE"/>
+        <segue reference="ym2-Na-ioa"/>
+        <segue reference="g3Q-Qd-pqc"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="1erShingShing" width="59" height="59"/>
         <image name="7eleven" width="13.333333015441895" height="10.666666984558105"/>
@@ -8883,9 +8881,4 @@ tener buena iluminación y
         <image name="user-white" width="24" height="24"/>
         <image name="x-orange" width="24" height="24"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="ACn-e3-QpV"/>
-        <segue reference="ym2-Na-ioa"/>
-        <segue reference="g3Q-Qd-pqc"/>
-    </inferredMetricsTieBreakers>
 </document>

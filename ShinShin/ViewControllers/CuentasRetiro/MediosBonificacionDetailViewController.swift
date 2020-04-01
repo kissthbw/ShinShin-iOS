@@ -642,8 +642,21 @@ extension MediosBonificacionDetailViewController: RESTActionDelegate{
             let decoder = JSONDecoder()
            
             if identifier == ID_RQT_GUARDAR{
+                
+                var mensaje = ""
+                if tipoCuenta == .PayPal{
+                    mensaje = "Cuenta agregada"
+                }
+                else if tipoCuenta == .Bancaria{
+                    mensaje = "Tarjeta agregada"
+                }
+                else if tipoCuenta == .Recarga{
+                    mensaje = "Numero agregado"
+                }
+                print( "Tipo: \(tipoCuenta)" )
+                
                 let rsp = try decoder.decode(SimpleResponse.self, from: data)
-                delegate?.addItemViewController(self, didFinishAddind: "Tarjeta agregada")
+                delegate?.addItemViewController(self, didFinishAddind: mensaje)
             }
             
             if identifier == ID_RQT_ELIMINAR{

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseInstanceID
+import FirebaseMessaging
 
 class UsuarioViewController: UITableViewController {
 
@@ -449,6 +451,9 @@ class UsuarioViewController: UITableViewController {
         user.usuario = txtCorreo.text!
         user.contrasenia = txtPassword.text!
         user.telMovil = "+521" + txtTelefono.text!
+        if let token = Messaging.messaging().fcmToken{
+            user.deviceToken = token
+        }
         
         var fecNac = ""
         

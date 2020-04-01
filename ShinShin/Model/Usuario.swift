@@ -37,6 +37,7 @@ class Usuario: Codable{
     var contraseniaActual: String?
     var imgUrl: String?
     var hash: String?
+    var deviceToken: String?
     
     //Para el guardado del ticket
     var tickets: [Ticket]?

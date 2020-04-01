@@ -15,6 +15,11 @@ class HistoricoTicket: Codable{
     var tickets: [Ticket]? = [Ticket]()
 }
 
+class PhotoItem: Codable{
+    var identifier: String?
+    var imageData: String?
+}
+
 class Ticket: Codable, CustomStringConvertible{
     var nombreTienda: String?
     var sucursal: String?
@@ -30,6 +35,7 @@ class Ticket: Codable, CustomStringConvertible{
     var ticket_hora: String?
     
     var productos: [Producto]?
+    var ticketPhotos: [PhotoItem]?
     
     var description: String{
         return "\(nombreTienda)"

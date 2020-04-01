@@ -17,6 +17,7 @@ class DatosTicketViewController: UIViewController {
     var isMenuVisible = false
     var datosTicket = OCRResponse()
     var total: Double = 0.0
+    var photos: [UIImage] = [UIImage]()
     
     let ID_RQT_GUARDAR = "ID_RQT_GUARDAR"
     
@@ -156,10 +157,33 @@ class DatosTicketViewController: UIViewController {
             
             ticket.productos = datosTicket.productos
             user.tickets = [ticket]
+            
+            var ticketPhotos: [PhotoItem] = [PhotoItem]()
+            
+            for (index, photo) in self.photos.enumerated(){
+                
+                let imageData = photo.jpegData(compressionQuality: 0.3)
+                let base64 = imageData?.base64EncodedString(options: .lineLength64Characters)
+                let i = PhotoItem()
+                i.identifier = String(index)
+                i.imageData = base64
+                ticketPhotos.append(i)
+            }
+            
+            ticket.ticketPhotos = ticketPhotos
+            
+            //Agregar fotografias del ticket
+//            let imageData = imageViewPerfil.image?.jpegData(compressionQuality: 0.3)
+//            let strBase64 = imageData?.base64EncodedString(options: .lineLength64Characters)
+//
+//            user.imageData = strBase64
 
 //            performSegue(withIdentifier: "EnviarTicketSegue", sender: self)
-            
+            encoder.outputFormatting = .prettyPrinted
             let json = try encoder.encode(user)
+            let jsonString = String(data: json, encoding: .utf8)
+            print("JSON String : " + jsonString!)
+            
             RESTHandler.delegate = self
             RESTHandler.postOperationTo(RESTHandler.registrarTicket, with: json, and: ID_RQT_GUARDAR)
         }

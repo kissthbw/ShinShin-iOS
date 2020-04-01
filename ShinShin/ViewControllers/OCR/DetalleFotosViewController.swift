@@ -29,6 +29,9 @@ class DetalleFotosViewController: UIViewController {
         btnEliminar.layer.borderColor = UIColor(red: 255/255, green: 111/255, blue: 0/255, alpha: 1.0).cgColor
         btnEliminar.layer.borderWidth = 1.0
         btnEliminar.layer.cornerRadius = 5.0
+        
+        btnAgregar.layer.cornerRadius = 10.0
+        btnListo.layer.cornerRadius = 10.0
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -71,8 +74,7 @@ class DetalleFotosViewController: UIViewController {
     
     //MARK: - Helper methods
     func initUI(){
-        btnAgregar.layer.cornerRadius = 10.0
-        btnListo.layer.cornerRadius = 10.0
+        
         let frame = scrollView.frame
         let total: CGFloat = CGFloat(photos.count)
         let width = frame.width * total
