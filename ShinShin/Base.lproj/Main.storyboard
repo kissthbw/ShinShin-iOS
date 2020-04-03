@@ -3689,7 +3689,7 @@ ganar dinero por tus compras.</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uGM-sX-miy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1633" y="1832"/>
+            <point key="canvasLocation" x="-1628" y="1781"/>
         </scene>
         <!--BonificacionVC-->
         <scene sceneID="2av-0k-BZY">

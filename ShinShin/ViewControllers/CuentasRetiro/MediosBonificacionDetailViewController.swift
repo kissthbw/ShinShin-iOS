@@ -552,7 +552,11 @@ class MediosBonificacionDetailViewController: UITableViewController {
         do{
             let encoder = JSONEncoder()
             
+            encoder.outputFormatting = .prettyPrinted
             let json = try encoder.encode(item)
+            let jsonString = String(data: json, encoding: .utf8)
+            print("JSON String : " + jsonString!)
+            
             RESTHandler.delegate = self
             RESTHandler.postOperationTo(RESTHandler.guardarMedioBonificacionUsuario, with: json, and: ID_RQT_GUARDAR)
         }
