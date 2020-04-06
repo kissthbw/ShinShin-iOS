@@ -782,7 +782,7 @@ tu contraseña ;-)</string>
                                                 </constraints>
                                             </view>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Alc-GQ-tRO">
-                                                <rect key="frame" x="43.666666666666657" y="375" width="327" height="102"/>
+                                                <rect key="frame" x="43.666666666666657" y="467" width="327" height="102"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="102" id="1bs-Nh-7qd"/>
@@ -802,7 +802,7 @@ tu contraseña ;-)</string>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disponible en" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWT-ad-0TN">
-                                                <rect key="frame" x="39" y="520" width="336" height="24"/>
+                                                <rect key="frame" x="39" y="612" width="336" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="cdA-vx-aAk"/>
                                                     <constraint firstAttribute="width" constant="336" id="h4K-FJ-hBr"/>
@@ -812,7 +812,7 @@ tu contraseña ;-)</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8gy-9m-xzm">
-                                                <rect key="frame" x="39" y="560" width="336" height="60"/>
+                                                <rect key="frame" x="39" y="652" width="336" height="60"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ONp-CA-Zw3">
                                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -877,7 +877,7 @@ tu contraseña ;-)</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="leX-72-OdA">
-                                                <rect key="frame" x="39" y="628" width="336" height="60"/>
+                                                <rect key="frame" x="39" y="720" width="336" height="60"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9V4-0g-l43">
                                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -941,19 +941,71 @@ tu contraseña ;-)</string>
                                                     <constraint firstAttribute="height" constant="60" id="a2X-op-YYY"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Dt-wa-Aoz" userLabel="View Rank">
+                                                <rect key="frame" x="119" y="414" width="176" height="32"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SY-qF-W5l" userLabel="s1" customClass="RankButton" customModule="ShinShin" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" image="rank-light"/>
+                                                        <connections>
+                                                            <action selector="rankAction:" destination="Pcp-9M-Rrl" eventType="touchUpInside" id="Lz2-fV-l3w"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9y-5L-oGL" userLabel="s2" customClass="RankButton" customModule="ShinShin" customModuleProvider="target">
+                                                        <rect key="frame" x="36" y="0.0" width="24" height="24"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" image="rank-light"/>
+                                                        <connections>
+                                                            <action selector="rankAction:" destination="Pcp-9M-Rrl" eventType="touchUpInside" id="Shk-IH-wDZ"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFr-6w-diB" userLabel="s3" customClass="RankButton" customModule="ShinShin" customModuleProvider="target">
+                                                        <rect key="frame" x="72" y="0.0" width="24" height="24"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" image="rank-light"/>
+                                                        <connections>
+                                                            <action selector="rankAction:" destination="Pcp-9M-Rrl" eventType="touchUpInside" id="7Ta-Xk-arI"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNg-oa-Lhl" userLabel="s4" customClass="RankButton" customModule="ShinShin" customModuleProvider="target">
+                                                        <rect key="frame" x="108" y="0.0" width="24" height="24"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" image="rank-light"/>
+                                                        <connections>
+                                                            <action selector="rankAction:" destination="Pcp-9M-Rrl" eventType="touchUpInside" id="YjZ-5W-dxb"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lbi-IO-20H" userLabel="s5" customClass="RankButton" customModule="ShinShin" customModuleProvider="target">
+                                                        <rect key="frame" x="144" y="0.0" width="24" height="24"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" image="rank-light"/>
+                                                        <connections>
+                                                            <action selector="rankAction:" destination="Pcp-9M-Rrl" eventType="touchUpInside" id="b1v-Xe-prq"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="176" id="dQw-th-4Oi"/>
+                                                    <constraint firstAttribute="height" constant="32" id="wNT-3V-Rhg"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="9Dt-wa-Aoz" firstAttribute="top" secondItem="DXV-5I-pl1" secondAttribute="bottom" constant="47" id="2FC-c5-3s3"/>
                                             <constraint firstItem="FWX-Xx-iGc" firstAttribute="leading" secondItem="1mU-F9-C4I" secondAttribute="leading" id="5tY-7K-KMd"/>
                                             <constraint firstAttribute="height" constant="1000" id="Aba-JD-8YJ"/>
                                             <constraint firstItem="8gy-9m-xzm" firstAttribute="centerX" secondItem="1mU-F9-C4I" secondAttribute="centerX" id="Esh-MU-mBv"/>
                                             <constraint firstItem="9T8-tQ-dLp" firstAttribute="top" secondItem="fTa-P6-Pu8" secondAttribute="bottom" constant="18" id="ISD-XE-yOZ"/>
-                                            <constraint firstItem="Alc-GQ-tRO" firstAttribute="top" secondItem="DXV-5I-pl1" secondAttribute="bottom" constant="8" symbolic="YES" id="O3V-qv-PJh"/>
+                                            <constraint firstItem="Alc-GQ-tRO" firstAttribute="top" secondItem="DXV-5I-pl1" secondAttribute="bottom" constant="100" id="O3V-qv-PJh"/>
                                             <constraint firstItem="9T8-tQ-dLp" firstAttribute="centerX" secondItem="1mU-F9-C4I" secondAttribute="centerX" id="QNX-kY-CfA"/>
                                             <constraint firstItem="leX-72-OdA" firstAttribute="centerX" secondItem="1mU-F9-C4I" secondAttribute="centerX" id="Row-I4-Xy7"/>
                                             <constraint firstItem="FWX-Xx-iGc" firstAttribute="top" secondItem="1mU-F9-C4I" secondAttribute="top" id="TaI-vY-maR"/>
                                             <constraint firstItem="Alc-GQ-tRO" firstAttribute="centerX" secondItem="1mU-F9-C4I" secondAttribute="centerX" id="ZG0-gl-vjS"/>
                                             <constraint firstItem="DXV-5I-pl1" firstAttribute="top" secondItem="9T8-tQ-dLp" secondAttribute="bottom" constant="8" id="ZG2-qJ-dF8"/>
+                                            <constraint firstItem="9Dt-wa-Aoz" firstAttribute="centerX" secondItem="1mU-F9-C4I" secondAttribute="centerX" id="ZoW-AS-gkh"/>
                                             <constraint firstItem="fTa-P6-Pu8" firstAttribute="top" secondItem="2XV-fV-DwG" secondAttribute="bottom" constant="8" id="ZvG-4K-nte"/>
                                             <constraint firstItem="leX-72-OdA" firstAttribute="top" secondItem="8gy-9m-xzm" secondAttribute="bottom" constant="8" id="aZb-Nr-HOI"/>
                                             <constraint firstItem="fTa-P6-Pu8" firstAttribute="centerX" secondItem="1mU-F9-C4I" secondAttribute="centerX" id="iNz-BZ-pb7"/>
@@ -1006,6 +1058,11 @@ tu contraseña ;-)</string>
                         <outlet property="lblBonificacion2" destination="R12-mf-i7g" id="Osk-7J-ztZ"/>
                         <outlet property="lblNombre" destination="fTa-P6-Pu8" id="4ry-pb-9OR"/>
                         <outlet property="lblPresentacion" destination="9T8-tQ-dLp" id="6Da-vO-T98"/>
+                        <outlet property="rank1" destination="1SY-qF-W5l" id="jOa-PK-VHH"/>
+                        <outlet property="rank2" destination="y9y-5L-oGL" id="e7p-zt-hvV"/>
+                        <outlet property="rank3" destination="lFr-6w-diB" id="ZkS-UO-B8p"/>
+                        <outlet property="rank4" destination="nNg-oa-Lhl" id="J2n-Q7-8pm"/>
+                        <outlet property="rank5" destination="Lbi-IO-20H" id="AM3-8s-fQ5"/>
                         <outlet property="topFrame" destination="VtI-iP-XcT" id="Usd-7f-Zgn"/>
                         <outlet property="txtDescripcion" destination="Alc-GQ-tRO" id="0gw-LI-Sh1"/>
                     </connections>
@@ -8866,6 +8923,7 @@ tener buena iluminación y
         <image name="mailSend" width="280" height="180"/>
         <image name="more-bold-white" width="24" height="24"/>
         <image name="paypal-greyLight" width="24" height="24"/>
+        <image name="rank-light" width="24" height="24"/>
         <image name="recarga-greyLight" width="24" height="24"/>
         <image name="retiro-white" width="24" height="24"/>
         <image name="retiroBnacario" width="64" height="64"/>
