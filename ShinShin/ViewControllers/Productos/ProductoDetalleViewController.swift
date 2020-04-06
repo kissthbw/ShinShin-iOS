@@ -28,6 +28,14 @@ class ProductoDetalleViewController: UIViewController {
     @IBOutlet weak var imgProducto: UIImageView!
     @IBOutlet weak var fakeView: UIView!
     
+    //Rank buttons
+    @IBOutlet weak var rank1: RankButton!
+    @IBOutlet weak var rank2: RankButton!
+    @IBOutlet weak var rank3: RankButton!
+    @IBOutlet weak var rank4: RankButton!
+    @IBOutlet weak var rank5: RankButton!
+    
+    
     //MARK: - Revisar
     //Esto debe ser dinamico
     var downloadTask: URLSessionDownloadTask?
@@ -44,6 +52,17 @@ class ProductoDetalleViewController: UIViewController {
     
     var item: Producto? = nil
     var color: UIColor = UIColor(red: 255/255, green: 111/255, blue: 0/255, alpha: 1)
+    
+    enum RankButtonTags: Int{
+        case OneStar = 0
+        case TwoStar = 1
+        case ThreeStar = 2
+        case FourStar = 3
+        case FiveStar = 4
+    }
+    
+    var rankButtons = [RankButton]()
+    var ranking = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,6 +126,17 @@ class ProductoDetalleViewController: UIViewController {
         icon8.layer.cornerRadius = 10.0
         icon9.layer.cornerRadius = 10.0
         icon10.layer.cornerRadius = 10.0
+        
+        rank1.tag = RankButtonTags.OneStar.rawValue
+        rank2.tag = RankButtonTags.TwoStar.rawValue
+        rank3.tag = RankButtonTags.ThreeStar.rawValue
+        rank4.tag = RankButtonTags.FourStar.rawValue
+        rank5.tag = RankButtonTags.FiveStar.rawValue
+        rankButtons.append(rank1)
+        rankButtons.append(rank2)
+        rankButtons.append(rank3)
+        rankButtons.append(rank4)
+        rankButtons.append(rank5)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -127,6 +157,8 @@ class ProductoDetalleViewController: UIViewController {
         
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.barTintColor = .white
+        
+        print("Guardando informacion de rankeo: \(ranking)")
     }
     
     override func willMove(toParent parent: UIViewController?) {
@@ -137,6 +169,54 @@ class ProductoDetalleViewController: UIViewController {
     //MARK: - Actions
     @IBAction func back(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func rankAction(_ sender: Any){
+        
+        if let btn = sender as? RankButton{
+            print( "Button tag: \(btn.tag):" )
+            rankingButtons(btn.tag)
+            
+        }
+    }
+    
+    func rankingButtons( _ tag: Int ){
+        //Detecta el tag del boton seleccionado
+        //Si isRanked == false
+        //Rankear los botones <= al indice
+
+        //Si isRanked == true
+        //Desrankear botones hasta el boton
+        if tag >= ranking{
+            var image = UIImage(named: "rank-bold")
+            if rankButtons[tag].isRanked{
+                image = UIImage(named: "rank-light")
+            }
+            
+            for index in 0..<rankButtons.count{
+                rankButtons[index].setImage(image, for: .normal)
+                rankButtons[index].isRanked = !rankButtons[index].isRanked
+                
+                if index == tag{
+                    ranking = tag
+                    break
+                }
+            }
+        }
+        else{
+            let image = UIImage(named: "rank-light")
+            
+            for index in ((tag + 1)...ranking).reversed(){
+                rankButtons[index].setImage(image, for: .normal)
+                rankButtons[index].isRanked = !rankButtons[index].isRanked
+                
+                if index == (tag + 1){
+                    ranking = tag
+                    break
+                }
+            }
+           
+        }
     }
     
     //MARK: - Helper methods
