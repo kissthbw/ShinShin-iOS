@@ -6613,11 +6613,11 @@ Ayudanos a conocer el motivo de tu partida.</string>
             <objects>
                 <viewController id="49m-Ja-d5k" userLabel="PrivacidadVC" customClass="PrivacidadViewController" customModule="ShinShin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Lr-zQ-j9C">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aviso De Privacidad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T88-40-SVH">
-                                <rect key="frame" x="18" y="52" width="380" height="48"/>
+                                <rect key="frame" x="18" y="96" width="380" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="6Qo-Ka-S1F"/>
                                 </constraints>
@@ -6626,7 +6626,7 @@ Ayudanos a conocer el motivo de tu partida.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Alz-nd-Cd2">
-                                <rect key="frame" x="18" y="108" width="380" height="680"/>
+                                <rect key="frame" x="18" y="152" width="380" height="690"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <attributedString key="attributedText">
                                     <fragment content="AVISO DE PRIVACIDAD">
@@ -8874,9 +8874,9 @@ tener buena iluminación y
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vCv-Yz-YPE"/>
+        <segue reference="JW6-qb-4UN"/>
         <segue reference="ym2-Na-ioa"/>
-        <segue reference="g3Q-Qd-pqc"/>
+        <segue reference="zBg-7t-0hQ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1erShingShing" width="59" height="59"/>

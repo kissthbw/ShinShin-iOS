@@ -39,7 +39,7 @@ class MenuTableViewController: UITableViewController {
             return 1
         }
         if section == 1{
-            return 4
+            return 5
         }
         else{ //section 2
             return 1
@@ -68,15 +68,18 @@ class MenuTableViewController: UITableViewController {
             
             switch indexPath.row {
             case 0:
+                cell.imageOption.image = UIImage(named: "populares-bold")
+                cell.lblOption.text = "Favoritos"
+            case 1:
                 cell.imageOption.image = UIImage(named: "user-blue")
                 cell.lblOption.text = "Perfil"
-            case 1:
+            case 2:
                 cell.imageOption.image = UIImage(named: "money-bold-blue")
                 cell.lblOption.text = "Cuentas de retiro"
-            case 2:
+            case 3:
                 cell.imageOption.image = UIImage(named: "ayuda-bold-blue")
                 cell.lblOption.text = "Ayuda"
-            case 3:
+            case 4:
                 cell.imageOption.image = UIImage(named: "mail-bold-blue")
                 cell.lblOption.text = "Contacto"
             default:
@@ -106,16 +109,21 @@ class MenuTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1{
+            //ProductosTableViewController
             if indexPath.row == 0{
-                performSegue(withIdentifier: "PerfilSegue", sender: indexPath)
+                let destViewController = self.storyboard!.instantiateViewController(withIdentifier: "ProductosTableViewController")
+                self.navigationController!.pushViewController(destViewController, animated: true)
             }
             if indexPath.row == 1{
-                performSegue(withIdentifier: "CuentasRetiroSegue", sender: indexPath)
+                performSegue(withIdentifier: "PerfilSegue", sender: indexPath)
             }
             if indexPath.row == 2{
-                performSegue(withIdentifier: "AyudaSegue", sender: indexPath)
+                performSegue(withIdentifier: "CuentasRetiroSegue", sender: indexPath)
             }
             if indexPath.row == 3{
+                performSegue(withIdentifier: "AyudaSegue", sender: indexPath)
+            }
+            if indexPath.row == 4{
                 performSegue(withIdentifier: "ContactoSegue", sender: indexPath)
             }
         }
